@@ -1,0 +1,221 @@
+{
+  "description": "Follow-up continuous ten-audio run after the documented first-run ASR substitution; only the missing-unit wording changes from abbreviated 移 to explicit 移动.",
+  "initial_layout": "A",
+  "asr_family": "SenseVoiceSmall",
+  "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+  "planner_model": "deepseek-reasoner",
+  "limits": {
+    "asr_attempts": 10,
+    "cloud_attempts": 12,
+    "automatic_retries": 0
+  },
+  "tolerances": {
+    "move_mm": 2,
+    "wrist_deg": 0.5,
+    "lift_mm": 20
+  },
+  "audio_provenance": "Nine exact WAVs are reused from the first repaired-version run. One missing-unit WAV is newly synthesized with Windows offline System.Speech after observing the first failure. No transcript edits, prompt changes, model retries or selection among repeated syntheses. This is a development follow-up, not a new blind or human-speaker test.",
+  "auxiliary": {
+    "id": "aux_pause_motion",
+    "text": "先向左移动二十毫米，再向右移动二十毫米",
+    "input_source": "typed_auxiliary_command_not_an_eleventh_audio_trial",
+    "expected": {
+      "steps": [
+        {
+          "action": "move",
+          "axis": "y",
+          "mm": 20
+        },
+        {
+          "action": "move",
+          "axis": "y",
+          "mm": -20
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "01_wrist_two_half",
+      "audio": "results/safety/flow10_repaired/audio/wrist_two_half.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "手腕往上抬两度半",
+      "goal": "wrist",
+      "wrist_deg": -2.5,
+      "route": "planner",
+      "expected": {
+        "steps": [
+          {
+            "action": "wrist",
+            "deg": -2.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "02_vertical_down",
+      "audio": "results/safety/flow10_repaired/audio/vertical_down.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "末端垂直下降五毫米",
+      "goal": "move",
+      "route": "planner",
+      "delta_mm": [
+        0,
+        0,
+        -5
+      ],
+      "expected": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "z",
+            "mm": -5
+          }
+        ]
+      }
+    },
+    {
+      "id": "03_negative",
+      "audio": "results/safety/flow10_repaired/audio/negative.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "不要向前移动一厘米",
+      "goal": "ignore",
+      "route": "local",
+      "expected": {
+        "local": "ignore"
+      }
+    },
+    {
+      "id": "04_transfer_A_B",
+      "audio": "results/safety/flow10_repaired/audio/transfer_a_b.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "把A区的红色木块放到B区",
+      "goal": "transfer",
+      "source": "A",
+      "target": "B",
+      "route": "planner",
+      "expected": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "A",
+            "to": "B"
+          }
+        ]
+      }
+    },
+    {
+      "id": "05_missing_unit",
+      "audio": "results/safety/flow10_repaired/standard_audio/missing_unit.wav",
+      "audio_source": "new_windows_offline_tts",
+      "reference": "把末端往上移动两",
+      "goal": "ask",
+      "route": "local",
+      "expected": {
+        "local": "ask"
+      }
+    },
+    {
+      "id": "06_unit_reply",
+      "audio": "results/safety/flow10_repaired/audio/unit_reply.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "单位是厘米",
+      "goal": "move",
+      "route": "planner",
+      "reply_to": "05_missing_unit",
+      "delta_mm": [
+        0,
+        0,
+        20
+      ],
+      "expected": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "z",
+            "mm": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "07_move_wrist_half",
+      "audio": "results/safety/flow10_repaired/audio/move_wrist_half.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "先向左移动五毫米，再手腕向下转两度半",
+      "goal": "move_wrist",
+      "route": "planner",
+      "delta_mm": [
+        0,
+        5,
+        0
+      ],
+      "wrist_deg": 2.5,
+      "expected": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": 5
+          },
+          {
+            "action": "wrist",
+            "deg": 2.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "08_transfer_B_C",
+      "audio": "results/safety/flow10_repaired/audio/transfer_b_c.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "把B区的红色木块放到C区",
+      "goal": "transfer",
+      "source": "B",
+      "target": "C",
+      "route": "planner",
+      "expected": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "B",
+            "to": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "09_transfer_C_A",
+      "audio": "results/safety/flow10_repaired/audio/transfer_c_a.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "把C区的红色木块放到左边的工位",
+      "goal": "transfer",
+      "source": "C",
+      "target": "A",
+      "route": "planner",
+      "expected": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "C",
+            "to": "A"
+          }
+        ]
+      }
+    },
+    {
+      "id": "10_pause_in_motion",
+      "audio": "results/safety/flow10_repaired/audio/pause.wav",
+      "audio_source": "reused_windows_offline_tts",
+      "reference": "暂停当前任务",
+      "goal": "pause",
+      "route": "local",
+      "expected": {
+        "local": "pause"
+      }
+    }
+  ]
+}

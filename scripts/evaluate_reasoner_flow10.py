@@ -7,7 +7,7 @@ test. It consumes a model request, but is not an eleventh audio observation.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import ExitStack
+from contextlib import ExitStack, contextmanager
 import hashlib
 import json
 from pathlib import Path
@@ -26,12 +26,44 @@ from arm_lab.flow import execute
 from arm_lab.kinematics import ArmModel
 from arm_lab.model_access import ModelAccess, ModelFailure, PLAN_PROMPT_SHA256
 from arm_lab.planner_scoring import score_response
+from arm_lab.sensevoice import MODEL_ID as ASR_MODEL_ID
 from arm_lab.web import create_app
 from scripts.evaluate_prompt_trial import exclusive, save
 from scripts.evaluate_sensevoice_flow import physical_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/reasoner_flow10.json"
+RUNTIME_FILES = (
+    "arm_lab/planner.py", "arm_lab/model_access.py", "arm_lab/sensevoice.py",
+    "arm_lab/flow.py", "arm_lab/web.py", "arm_lab/simulator.py", "arm_lab/kinematics.py",
+    "arm_lab/motion_guard.py", "arm_lab/gripper.py", "arm_lab/vision.py",
+    "arm_lab/wrist_view.py", "arm_lab/scene.py", "arm_lab/planner_scoring.py",
+    "arm_lab/asr_benchmark.py", "scripts/evaluate_reasoner_flow10.py",
+    "scripts/evaluate_sensevoice_flow.py",
+)
+
+
+def runtime_fingerprints():
+    return {relative: hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()
+            for relative in RUNTIME_FILES}
+
+
+def check_runtime_unchanged(report):
+    if runtime_fingerprints() != report["runtime_sha256"]:
+        raise RuntimeError("Runtime code changed during the experiment; retain this report and start a new run.")
+
+
+@contextmanager
+def record_failure(report, persist):
+    """A harness/scoring exception remains a failed experiment, never a passed row."""
+    try:
+        yield
+    except BaseException as exc:
+        report.update(state="aborted", error_type=type(exc).__name__)
+        if report["rows"]:
+            report["rows"][-1].setdefault("harness_error_type", type(exc).__name__)
+        persist()
+        raise
 
 
 def prepare(config=CONFIG):
@@ -42,6 +74,10 @@ def prepare(config=CONFIG):
         raise ValueError("Exactly ten independently identified audio cases are required.")
     if spec["planner_model"] != "deepseek-reasoner":
         raise ValueError("This experiment requires the reasoner planner.")
+    if spec.get("asr_model") != ASR_MODEL_ID:
+        raise ValueError("The declared ASR model must match the installed SenseVoice client.")
+    if any(c["goal"] not in ("transfer", "move", "wrist", "move_wrist", "ignore", "ask", "pause") for c in cases):
+        raise ValueError("Unknown physical goal; no implicit pass is permitted.")
     inputs = []
     for case in cases:
         path = (ROOT / case["audio"]).resolve()
@@ -144,20 +180,30 @@ def physical_checks(case, row, tolerances):
                 and f["physics"]["block"]["contacts"] == ["desk"] for f in verifies),
             "released_at_target":after["block"]["inside"] == case["target"] and after["block"]["contacts"] == ["desk"],
         }
-    elif goal in ("move", "move_wrist"):
+    elif goal in ("move", "wrist", "move_wrist"):
         boundary = next((f["physics"] for f in row["frames"] if f["phase"] == "before_step_2"), None)
-        moved = after if goal == "move" else boundary
-        error = None
-        if moved is not None:
-            delta = np.subtract(moved["tcp_mm"], before["tcp_mm"])
-            error = float(np.linalg.norm(delta-case["delta_mm"]))
-            row["independent_displacement_mm"] = delta.tolist()
-        row["independent_move_error_mm"] = error
-        checks = {"receipt_success":status == "success", "move_within_tolerance":error is not None and error <= tolerances["move_mm"]}
-        if goal == "move_wrist":
-            degrees = float(np.rad2deg(after["joints"][3]-boundary["joints"][3])) if boundary else None
+        checks = {"receipt_success":status == "success"}
+        if goal in ("move", "move_wrist"):
+            moved = after if goal == "move" else boundary
+            error, correct_direction = None, False
+            if moved is not None:
+                delta = np.subtract(moved["tcp_mm"], before["tcp_mm"])
+                requested = np.asarray(case["delta_mm"], dtype=float)
+                active_axes = np.abs(requested) > 1e-9
+                error = float(np.linalg.norm(delta-requested))
+                correct_direction = bool(active_axes.any() and np.all(
+                    delta[active_axes]*np.sign(requested[active_axes]) > 1e-6))
+                row["independent_displacement_mm"] = delta.tolist()
+            row["independent_move_error_mm"] = error
+            checks.update(move_within_tolerance=error is not None and error <= tolerances["move_mm"],
+                          move_nonzero_correct_direction=correct_direction)
+        if goal in ("wrist", "move_wrist"):
+            wrist_before = before if goal == "wrist" else boundary
+            degrees = float(np.rad2deg(after["joints"][3]-wrist_before["joints"][3])) if wrist_before else None
             row["independent_wrist_deg"] = degrees
+            row["independent_wrist_error_deg"] = abs(degrees-case["wrist_deg"]) if degrees is not None else None
             checks["wrist_within_tolerance"] = degrees is not None and abs(degrees-case["wrist_deg"]) <= tolerances["wrist_deg"]
+            checks["wrist_nonzero_correct_direction"] = bool(degrees is not None and degrees*np.sign(case["wrist_deg"]) > 1e-6)
     elif goal in ("ignore", "ask"):
         checks = {"expected_receipt":status == ("ignored" if goal == "ignore" else "clarify"),
                   "no_physical_change":stationary(before, after)}
@@ -200,18 +246,28 @@ class Harness:
     def transcribe(self, case, row):
         self.access.label = case["id"]
         path = ROOT/case["audio"]
+        audio = path.read_bytes()
+        frozen = next(item for item in self.report["inputs"] if item["id"] == case["id"])
+        if hashlib.sha256(audio).hexdigest() != frozen["audio_sha256"]:
+            raise ValueError("Audio changed after input freezing; refusing to mix recordings.")
         started = time.perf_counter()
-        response = self.client.post("/api/transcribe", files={"file":(path.name, path.read_bytes(), "audio/wav")})
+        response = self.client.post("/api/transcribe", files={"file":(path.name, audio, "audio/wav")})
         row.update(asr_seconds=round(time.perf_counter()-started, 3), asr_http_status=response.status_code,
                    asr_response=response.json())
         if response.status_code != 200:
             return None
+        row["asr_model_matches_specification"] = (
+            response.json().get("model") == self.report["specification"]["asr_model"]
+            and response.json().get("engine") == "sensevoice"
+            and self.access.asr_model == self.report["specification"]["asr_model"])
+        if not row["asr_model_matches_specification"]:
+            raise ValueError("Observed ASR model identity does not match the frozen experiment.")
         text = response.json()["text"]
         ref, got = cer_text(case["reference"]), cer_text(text)
         row["asr_comparison"] = {"reference_anchors":anchors(case["reference"]), "transcript_anchors":anchors(text),
                                  "anchors_exact":anchors(case["reference"]) == anchors(text),
                                  "orthographic_cer":edit_distance(ref, got)/max(1, len(ref)),
-                                 "note":"CER counts Chinese versus Arabic numeral spelling differences; anchors normalize quantities. Neither establishes complete semantic correctness."}
+                                 "note":"CER counts Chinese versus Arabic numeral spelling differences. Legacy anchors do not fully cover unit-suffix half, vertical rise/descent or unit-only replies. Anchor equality is not full semantic correctness and is not used to pass a task."}
         return text
 
     def body(self, row, text, reply_to=None):
@@ -303,7 +359,7 @@ def score_planning(case, row, report):
 def run(out, *, config=CONFIG, cloud_limit=12):
     frozen = prepare(config)
     if not frozen["all_audio_ready"]:
-        raise ValueError("Generate the six new offline WAVs first; input recordings are missing.")
+        raise ValueError("Prepare the configured offline WAVs first; input recordings are missing.")
     if out.exists() or not 1 <= cloud_limit <= 12:
         raise ValueError("Choose a new output file and a campus attempt cap in 1..12; no automatic resume/retry.")
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -311,6 +367,7 @@ def run(out, *, config=CONFIG, cloud_limit=12):
     report = {**frozen, "state":"started", "mode":"real_sensevoice_raw_http_reasoner_continuous_simulation",
               "created_utc":time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
               "planner_prompt_sha256":PLAN_PROMPT_SHA256, "kinematics_backend":f"{ArmModel.__module__}.{ArmModel.__name__}",
+              "runtime_sha256":runtime_fingerprints(),
               "scene_resets":0, "automatic_retries":0, "cloud_limit":cloud_limit,
               "playback_pacing":{"main_commands":"unpaced", "auxiliary_speed":0.25},
               "asr_attempts":[], "campus_attempts":[], "rows":[]}
@@ -319,12 +376,17 @@ def run(out, *, config=CONFIG, cloud_limit=12):
         with write_lock:
             save(out, report)
     access = RecordedAccess(report, persist, cloud_limit)
+    if access.asr_engine != "sensevoice" or access.asr_model != spec["asr_model"]:
+        raise ValueError("Runtime ASR configuration differs from the frozen specification.")
+    report["configured_models"] = {"asr_engine":access.asr_engine, "asr_model":access.asr_model,
+                                    "planner_model":access.planner_model}
     frame_dir = out.with_suffix(".frames")
     frame_dir.mkdir(exist_ok=True)
     with exclusive(out.with_suffix(".lock")), ExitStack() as stack:
         if out.exists():
             raise ValueError("Another run has already created this report.")
         persist()
+        stack.enter_context(record_failure(report, persist))
         # Positive startup pacing installs the normal live-camera publisher.
         # Unpace the first nine tasks only; retain camera updates during motion.
         app = create_app(access, layout=spec["initial_layout"], playback_speed=1)
@@ -334,6 +396,7 @@ def run(out, *, config=CONFIG, cloud_limit=12):
         harness = Harness(app, client, worker, access, report, persist, frame_dir)
         report["initial_state"] = harness.state()
         for case in spec["cases"]:
+            check_runtime_unchanged(report)
             row = {**case, "frames":[], "before":physical_snapshot(app.state.sim)}
             report["rows"].append(row)
             persist()
@@ -354,11 +417,14 @@ def run(out, *, config=CONFIG, cloud_limit=12):
                 row["physical_checks"] = physical_checks(case, row, spec["tolerances"])
             score_planning(case, row, report)
             row["task_passed"] = bool(row["physical_checks"]) and all(bool(v) for v in row["physical_checks"].values())
-            row["full_chain_passed"] = row["task_passed"] and row.get("local_routing_correct", row.get("raw_planner_score", {}).get("semantic_correct", False))
+            row["full_chain_passed"] = (row["task_passed"] and row.get("asr_model_matches_specification", False)
+                and row.get("local_routing_correct", row.get("raw_planner_score", {}).get("semantic_correct", False)))
             persist()
             print(json.dumps({"case":case["id"], "status":row.get("receipt", {}).get("status"),
                               "task_passed":row["task_passed"], "cloud_calls":len(report["campus_attempts"])}), flush=True)
         scores = [r["raw_planner_score"] for r in report["rows"] if "raw_planner_score" in r]
+        check_runtime_unchanged(report)
+        report["runtime_unchanged"] = True
         report["state"] = "completed"
         report["summary"] = {"audio_cases":len(report["rows"]), "asr_calls":len(report["asr_attempts"]),
             "campus_calls":len(report["campus_attempts"]),
@@ -368,6 +434,8 @@ def run(out, *, config=CONFIG, cloud_limit=12):
             "main_planner_cases":len(scores), "raw_planner_semantic_correct":sum(s["semantic_correct"] for s in scores),
             "raw_json_valid":sum(s["raw_json_valid"] for s in scores),
             "asr_anchor_exact":sum(r.get("asr_comparison", {}).get("anchors_exact", False) for r in report["rows"]),
+            "asr_anchor_scope":"Legacy diagnostic only; does not fully cover half-suffix, vertical verbs or unit-only replies.",
+            "asr_model_matches_specification":sum(r.get("asr_model_matches_specification", False) for r in report["rows"]),
             "same_scene":report["scene_resets"] == 0, "source":"synthetic_audio_only_not_human_accuracy"}
         persist()
     return report

@@ -1,0 +1,68 @@
+﻿{
+    "source":  "Windows offline System.Speech synthetic speech, not human audio",
+    "voice":  "Microsoft Huihui Desktop",
+    "created_utc":  "2026-11-26T18:07:49.5654043Z",
+    "count":  10,
+    "files":  [
+                  {
+                      "id":  "01_wrist_two_half",
+                      "audio":  "results/safety/flow10_repaired/audio/wrist_two_half.wav",
+                      "reference":  "手腕往上抬两度半",
+                      "sha256":  "acd21d52b18fd907c1997035da1217ad45529a6cd5b3f7b70fc44789a35ba309"
+                  },
+                  {
+                      "id":  "02_vertical_down",
+                      "audio":  "results/safety/flow10_repaired/audio/vertical_down.wav",
+                      "reference":  "末端垂直下降五毫米",
+                      "sha256":  "c660f96b31c6e03464e121e77e235ad2315d707481829743e37b33fb1734b89b"
+                  },
+                  {
+                      "id":  "03_negative",
+                      "audio":  "results/safety/flow10_repaired/audio/negative.wav",
+                      "reference":  "不要向前移动一厘米",
+                      "sha256":  "7c3148c14821d482208eb87d5062e918801925d761d430c1ce1996b11a685944"
+                  },
+                  {
+                      "id":  "04_transfer_A_B",
+                      "audio":  "results/safety/flow10_repaired/audio/transfer_a_b.wav",
+                      "reference":  "把A区的红色木块放到B区",
+                      "sha256":  "92ab8c6d9f1519095fddf106045c5fb2c2d82938b9d567bc8ddc8e0715a848ec"
+                  },
+                  {
+                      "id":  "05_missing_unit",
+                      "audio":  "results/safety/flow10_repaired/audio/missing_unit.wav",
+                      "reference":  "把末端往上移两",
+                      "sha256":  "0ecb331b63f7a335153979c6f63bc8d5c578ba94075975c142f3b8a69c4fd351"
+                  },
+                  {
+                      "id":  "06_unit_reply",
+                      "audio":  "results/safety/flow10_repaired/audio/unit_reply.wav",
+                      "reference":  "单位是厘米",
+                      "sha256":  "2ed99ec69ca9e31cddec273d8b6d722d3b9153c868321a1c4e345ffa6665ac16"
+                  },
+                  {
+                      "id":  "07_move_wrist_half",
+                      "audio":  "results/safety/flow10_repaired/audio/move_wrist_half.wav",
+                      "reference":  "先向左移动五毫米，再手腕向下转两度半",
+                      "sha256":  "96386ffde4344b0945059d23feb2cc60ac5d406b08e9859f1ba24db4c5e9d6d5"
+                  },
+                  {
+                      "id":  "08_transfer_B_C",
+                      "audio":  "results/safety/flow10_repaired/audio/transfer_b_c.wav",
+                      "reference":  "把B区的红色木块放到C区",
+                      "sha256":  "83e399e68b34a85b0118108bd05e2a6ebf5d6d41121d0af801e25d84c8718138"
+                  },
+                  {
+                      "id":  "09_transfer_C_A",
+                      "audio":  "results/safety/flow10_repaired/audio/transfer_c_a.wav",
+                      "reference":  "把C区的红色木块放到左边的工位",
+                      "sha256":  "ee3532c72615f3cb3d5090a94836bfbab8d0dc1a537147789945ecd258f4f245"
+                  },
+                  {
+                      "id":  "10_pause_in_motion",
+                      "audio":  "results/safety/flow10_repaired/audio/pause.wav",
+                      "reference":  "暂停当前任务",
+                      "sha256":  "c0e4ef7fd2f58c6fd03d6c8368be52334f943aff7303c197afd708d9c19e6a54"
+                  }
+              ]
+}

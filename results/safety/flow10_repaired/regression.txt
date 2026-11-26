@@ -1,0 +1,192 @@
+test_edit_distance_counts_insertions_deletions_substitutions (test_asr_benchmark.ASRBenchmarkTests.test_edit_distance_counts_insertions_deletions_substitutions) ... ok
+test_groups_are_fixed_by_speaker (test_asr_benchmark.ASRBenchmarkTests.test_groups_are_fixed_by_speaker) ... ok
+test_unit_and_direction_errors_remain_visible (test_asr_benchmark.ASRBenchmarkTests.test_unit_and_direction_errors_remain_visible) ... ok
+test_whisper_decoder_accepts_uploaded_pcm (test_asr_benchmark.ASRBenchmarkTests.test_whisper_decoder_accepts_uploaded_pcm) ... ok
+test_without_approval_no_data_or_models_touched (test_asr_benchmark.ASRBenchmarkTests.test_without_approval_no_data_or_models_touched) ... usage: asr_benchmark [-h] [--cache CACHE] [--out OUT] [--offline]
+                     [--beam {1,3}] [--model-dir MODEL_DIR]
+                     [--approve-local-asr] [--download-model]
+                     {prepare,run}
+asr_benchmark: error: Running ASR requires explicit approval for these 24 recordings.
+ok
+test_incomplete_or_mismatched_audio_rejected (test_compare_asr_passes.ComparisonTest.test_incomplete_or_mismatched_audio_rejected) ... ok
+test_paired_splits_and_total_duration (test_compare_asr_passes.ComparisonTest.test_paired_splits_and_total_duration) ... ok
+test_kilogram_prefix_is_separate_from_its_number (test_compare_asr_passes.KeywordTest.test_kilogram_prefix_is_separate_from_its_number) ... ok
+test_missing_number_missing_unit_and_lexical_one (test_compare_asr_passes.KeywordTest.test_missing_number_missing_unit_and_lexical_one) ... ok
+test_number_and_length_unit_are_independent (test_compare_asr_passes.KeywordTest.test_number_and_length_unit_are_independent) ... ok
+test_conflicting_plan_stops_and_explicit_offline_metric_stays_local (test_deepseek.CampusPlannerTests.test_conflicting_plan_stops_and_explicit_offline_metric_stays_local) ... ok
+test_existing_course_file_binds_key_to_campus (test_deepseek.CampusPlannerTests.test_existing_course_file_binds_key_to_campus) ... ok
+test_http_failures_and_truncation_stop_the_pilot (test_deepseek.CampusPlannerTests.test_http_failures_and_truncation_stop_the_pilot) ... ok
+test_model_clarification_remembers_command_and_rechecks_scene (test_deepseek.CampusPlannerTests.test_model_clarification_remembers_command_and_rechecks_scene) ... ok
+test_preflight_does_not_spend_allowance (test_deepseek.CampusPlannerTests.test_preflight_does_not_spend_allowance) ... ok
+test_two_slot_contract_through_simulation (test_deepseek.CampusPlannerTests.test_two_slot_contract_through_simulation) ... ok
+test_unrelated_action_or_invalid_tail_never_moves_the_arm (test_deepseek.CampusPlannerTests.test_unrelated_action_or_invalid_tail_never_moves_the_arm) ... ok
+test_voice_custom_command_without_per_call_approval (test_deepseek.CampusPlannerTests.test_voice_custom_command_without_per_call_approval) ... ok
+test_file_pair_counts_unavailable_samples (test_field_cameras.FieldCameraTests.test_file_pair_counts_unavailable_samples) ... ok
+test_fixed_only_and_offset_do_not_overwrite (test_field_cameras.FieldCameraTests.test_fixed_only_and_offset_do_not_overwrite) ... Camera evidence failed: [WinError 183] 当文件已存在时，无法创建该文件。: '<TEMP>\\tmp2x292_i3\\captures\\01\\before'
+ok
+test_no_device_is_opened_without_explicit_source (test_field_cameras.FieldCameraTests.test_no_device_is_opened_without_explicit_source) ... usage: python.exe -m unittest [-h]
+                              (--fixed-device FIXED_DEVICE | --fixed-video FIXED_VIDEO)
+                              [--wrist-device WRIST_DEVICE | --wrist-video WRIST_VIDEO]
+                              --trial TRIAL --phase {before,after,during}
+                              [--samples SAMPLES] [--fps FPS]
+                              [--start-s START_S]
+                              [--wrist-start-s WRIST_START_S]
+                              [--backend {dshow,msmf}] [--out OUT]
+python.exe -m unittest: error: one of the arguments --fixed-device --fixed-video is required
+Camera evidence failed: Use trial 1–9999, 1–30 samples, 1–10 Hz and a sampling window no longer than 15 s
+ok
+test_changed_runtime_is_detected (test_flow10_scoring.Flow10ScoringTests.test_changed_runtime_is_detected) ... ok
+test_declared_asr_must_match_runtime_client (test_flow10_scoring.Flow10ScoringTests.test_declared_asr_must_match_runtime_client) ... ok
+test_missing_step_boundary_does_not_fall_back_to_success_receipt (test_flow10_scoring.Flow10ScoringTests.test_missing_step_boundary_does_not_fall_back_to_success_receipt) ... ok
+test_move_then_wrist_uses_boundary_to_separate_two_physical_actions (test_flow10_scoring.Flow10ScoringTests.test_move_then_wrist_uses_boundary_to_separate_two_physical_actions) ... ok
+test_nonfinite_measurement_and_failed_receipt_cannot_pass (test_flow10_scoring.Flow10ScoringTests.test_nonfinite_measurement_and_failed_receipt_cannot_pass) ... ok
+test_opposite_small_movement_fails_even_inside_distance_tolerance (test_flow10_scoring.Flow10ScoringTests.test_opposite_small_movement_fails_even_inside_distance_tolerance) ... ok
+test_scoring_exception_is_recorded_and_reraised (test_flow10_scoring.Flow10ScoringTests.test_scoring_exception_is_recorded_and_reraised) ... ok
+test_stationary_and_wrong_sign_wrist_do_not_pass_a_loose_tolerance (test_flow10_scoring.Flow10ScoringTests.test_stationary_and_wrong_sign_wrist_do_not_pass_a_loose_tolerance) ... ok
+test_success_receipt_cannot_make_a_stationary_small_movement_pass (test_flow10_scoring.Flow10ScoringTests.test_success_receipt_cannot_make_a_stationary_small_movement_pass) ... ok
+test_wrist_uses_joint_delta_instead_of_receipt_or_absolute_angle (test_flow10_scoring.Flow10ScoringTests.test_wrist_uses_joint_delta_instead_of_receipt_or_absolute_angle) ... ok
+test_wrong_axis_cannot_satisfy_nonzero_required_direction (test_flow10_scoring.Flow10ScoringTests.test_wrong_axis_cannot_satisfy_nonzero_required_direction) ... ok
+test_alignment_is_bounded_and_offset_rejection_leaves_arm_untouched (test_gripper_safety.GripperSafetyTests.test_alignment_is_bounded_and_offset_rejection_leaves_arm_untouched) ... ok
+test_bad_feedback_cancels_and_locks_before_lifting (test_gripper_safety.GripperSafetyTests.test_bad_feedback_cancels_and_locks_before_lifting) ... ok
+test_blocked_trial_lift_is_found_before_descent (test_gripper_safety.GripperSafetyTests.test_blocked_trial_lift_is_found_before_descent) ... ok
+test_lost_grip_during_carry_and_stop_button_latch (test_gripper_safety.GripperSafetyTests.test_lost_grip_during_carry_and_stop_button_latch) ... ok
+test_no_bilateral_contact_never_lifts (test_gripper_safety.GripperSafetyTests.test_no_bilateral_contact_never_lifts) ... ok
+test_operator_stop_with_suspended_block_preserves_capped_hold (test_gripper_safety.GripperSafetyTests.test_operator_stop_with_suspended_block_preserves_capped_hold) ... ok
+test_pregrasp_requires_fresh_unique_target_at_original_station (test_gripper_safety.GripperSafetyTests.test_pregrasp_requires_fresh_unique_target_at_original_station) ... ok
+test_reject_offset_without_downward_motion (test_gripper_safety.GripperSafetyTests.test_reject_offset_without_downward_motion) ... ok
+test_verified_contact_holds_without_further_closing_position_commands (test_gripper_safety.GripperSafetyTests.test_verified_contact_holds_without_further_closing_position_commands) ... ok
+test_each_motion_rejects_reversed_sign_wrong_axis_and_wrong_scale (test_guard_vocabulary.GuardVocabularyTests.test_each_motion_rejects_reversed_sign_wrong_axis_and_wrong_scale) ... ok
+test_each_reordering_of_four_step_case_is_rejected (test_guard_vocabulary.GuardVocabularyTests.test_each_reordering_of_four_step_case_is_rejected) ... ok
+test_existing_physical_limits_are_unchanged (test_guard_vocabulary.GuardVocabularyTests.test_existing_physical_limits_are_unchanged) ... ok
+test_explicit_base_axes_keep_coordinate_frame_and_sign (test_guard_vocabulary.GuardVocabularyTests.test_explicit_base_axes_keep_coordinate_frame_and_sign) ... ok
+test_fractional_units_are_complete_quantities (test_guard_vocabulary.GuardVocabularyTests.test_fractional_units_are_complete_quantities) ... ok
+test_free_form_text_cannot_lose_its_literal_motion (test_guard_vocabulary.GuardVocabularyTests.test_free_form_text_cannot_lose_its_literal_motion) ... ok
+test_missing_units_cannot_be_filled_by_the_model (test_guard_vocabulary.GuardVocabularyTests.test_missing_units_cannot_be_filled_by_the_model) ... ok
+test_motion_cannot_be_silently_removed_or_extended (test_guard_vocabulary.GuardVocabularyTests.test_motion_cannot_be_silently_removed_or_extended) ... ok
+test_non_base_coordinate_words_cannot_be_discarded (test_guard_vocabulary.GuardVocabularyTests.test_non_base_coordinate_words_cannot_be_discarded) ... ok
+test_position_prefix_and_vertical_motion_preserve_previous_acceptance (test_guard_vocabulary.GuardVocabularyTests.test_position_prefix_and_vertical_motion_preserve_previous_acceptance) ... ok
+test_prohibition_is_not_removed_by_wording_normalization (test_guard_vocabulary.GuardVocabularyTests.test_prohibition_is_not_removed_by_wording_normalization) ... ok
+test_saved_reasoner_answers_pass_without_changing_transcript_or_json (test_guard_vocabulary.GuardVocabularyTests.test_saved_reasoner_answers_pass_without_changing_transcript_or_json) ... ok
+test_seven_preexisting_correct_proposals_are_admitted (test_guard_vocabulary.GuardVocabularyTests.test_seven_preexisting_correct_proposals_are_admitted) ... ok
+test_uncertain_spelling_decimal_and_colloquial_fraction_need_clarification (test_guard_vocabulary.GuardVocabularyTests.test_uncertain_spelling_decimal_and_colloquial_fraction_need_clarification) ... ok
+test_unit_answer_uses_only_valid_missing_unit_context (test_guard_vocabulary.GuardVocabularyTests.test_unit_answer_uses_only_valid_missing_unit_context) ... ok
+test_local_translation_preserves_opening_and_respects_joint_limits (test_kinematics.ShareableKinematicsTests.test_local_translation_preserves_opening_and_respects_joint_limits) ... ok
+test_missing_course_file_selects_standalone_unless_history_is_requested (test_kinematics.ShareableKinematicsTests.test_missing_course_file_selects_standalone_unless_history_is_requested) ... ok
+test_followups_during_planning_do_not_replace_the_active_lease_or_start_an_old_plan (test_live_interaction.LiveInteractionTests.test_followups_during_planning_do_not_replace_the_active_lease_or_start_an_old_plan) ... ok
+test_frozen_idle_hold_has_no_lease_and_emergency_stop_still_latches (test_live_interaction.LiveInteractionTests.test_frozen_idle_hold_has_no_lease_and_emergency_stop_still_latches) ... ok
+test_pause_holding_keeps_physical_scene_and_accepts_new_destination (test_live_interaction.LiveInteractionTests.test_pause_holding_keeps_physical_scene_and_accepts_new_destination) ... ok
+test_pause_inflight_motion_keeps_layout_and_position (test_live_interaction.LiveInteractionTests.test_pause_inflight_motion_keeps_layout_and_position) ... ok
+test_all_default_stations_and_interstation_routes_clear (test_motion_guard.MotionGuardTests.test_all_default_stations_and_interstation_routes_clear) ... ok
+test_config_rejects_unlabelled_units_and_invalid_box_values (test_motion_guard.MotionGuardTests.test_config_rejects_unlabelled_units_and_invalid_box_values) ... ok
+test_example_fixture_blocks_one_of_two_approaches (test_motion_guard.MotionGuardTests.test_example_fixture_blocks_one_of_two_approaches) ... ok
+test_invalid_fixture_is_rejected_at_configuration (test_motion_guard.MotionGuardTests.test_invalid_fixture_is_rejected_at_configuration) ... ok
+test_limits_and_invalid_measurements_are_failures (test_motion_guard.MotionGuardTests.test_limits_and_invalid_measurements_are_failures) ... ok
+test_non_adjacent_shoulder_and_forearm_can_hit (test_motion_guard.MotionGuardTests.test_non_adjacent_shoulder_and_forearm_can_hit) ... ok
+test_payload_hits_post_that_the_arm_clears (test_motion_guard.MotionGuardTests.test_payload_hits_post_that_the_arm_clears) ... ok
+test_stationary_lower_arm_hits_table_while_tcp_inside_workcell (test_motion_guard.MotionGuardTests.test_stationary_lower_arm_hits_table_while_tcp_inside_workcell) ... ok
+test_sweep_finds_fixture_missed_by_ends_and_midpoint (test_motion_guard.MotionGuardTests.test_sweep_finds_fixture_missed_by_ends_and_midpoint) ... ok
+test_inflight_stop_preempts_motion_until_reset (test_operator_validation.OperatorTests.test_inflight_stop_preempts_motion_until_reset) ... ok
+test_manual_records_distinguish_unknown_false_success_and_numeric_error (test_operator_validation.OperatorTests.test_manual_records_distinguish_unknown_false_success_and_numeric_error) ... ok
+test_wrist_fallback_requires_clear_independent_evidence (test_operator_validation.OperatorTests.test_wrist_fallback_requires_clear_independent_evidence) ... ok
+partial | {'fixed': {'saved': 4, 'missing_samples': 0, 'reused_video_samples': 0}, 'wrist': {'saved': 3, 'missing_samples': 1, 'reused_video_samples': 0}} | <TEMP>\tmp8b8_g48_\captures\01\before\capture.json
+complete | {'fixed': {'saved': 2, 'missing_samples': 0, 'reused_video_samples': 0}} | <TEMP>\tmp2x292_i3\captures\01\before\capture.json
+1 dev one baseline stop
+2 dev one candidate stop
+test_attempt_cap_idempotence_and_gold_isolation (test_planner100_runner.Planner100RunnerTests.test_attempt_cap_idempotence_and_gold_isolation) ... ok
+test_postlock_coverage_cannot_spend_before_heldout_is_complete (test_planner100_runner.Planner100RunnerTests.test_postlock_coverage_cannot_spend_before_heldout_is_complete) ... ok
+429 on attempt 1; backoff 301s
+test_rate_limit_is_counted_and_checkpointed (test_planner100_runner.Planner100RunnerTests.test_rate_limit_is_counted_and_checkpointed) ... ok
+test_ask_focus_is_distinct_from_deciding_to_ask (test_planner_scoring.PlannerScoringTests.test_ask_focus_is_distinct_from_deciding_to_ask) ... ok
+test_exact_and_equivalent_with_order_and_context (test_planner_scoring.PlannerScoringTests.test_exact_and_equivalent_with_order_and_context) ... ok
+test_frozen_100_gold_roundtrips (test_planner_scoring.PlannerScoringTests.test_frozen_100_gold_roundtrips) ... ok
+test_incomplete_calls_and_local_decisions (test_planner_scoring.PlannerScoringTests.test_incomplete_calls_and_local_decisions) ... ok
+test_partial_summary_keeps_gateway_failures_and_retries_out_of_accuracy (test_planner_scoring.PlannerScoringTests.test_partial_summary_keeps_gateway_failures_and_retries_out_of_accuracy) ... ok
+test_strict_format_rejects_ambiguous_or_invalid_json (test_planner_scoring.PlannerScoringTests.test_strict_format_rejects_ambiguous_or_invalid_json) ... ok
+test_unrequested_steps_and_wrong_move_slots (test_planner_scoring.PlannerScoringTests.test_unrequested_steps_and_wrong_move_slots) ... ok
+test_dry_requires_no_audio_or_services (test_prompt_trial.PromptTrialTests.test_dry_requires_no_audio_or_services) ... ok
+test_failed_gateway_is_charged_once_and_stops (test_prompt_trial.PromptTrialTests.test_failed_gateway_is_charged_once_and_stops) ... ok
+test_fixture_runs_camera_and_physics_and_is_idempotent (test_prompt_trial.PromptTrialTests.test_fixture_runs_camera_and_physics_and_is_idempotent) ... ok
+test_paired_denominator_includes_truncated_and_excludes_unanswered (test_prompt_trial.PromptTrialTests.test_paired_denominator_includes_truncated_and_excludes_unanswered) ... ok
+test_raw_reply_scored_before_controller (test_prompt_trial.PromptTrialTests.test_raw_reply_scored_before_controller) ... ok
+test_replay_only_uses_recorded_scene_and_reply (test_prompt_trial.PromptTrialTests.test_replay_only_uses_recorded_scene_and_reply) ... ok
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "answered", "http_status": 200, "seconds": 0.0, "finish_reason": "length"}
+{"attempt": 2, "case_id": "P003", "model": "deepseek-chat", "state": "answered", "http_status": 200, "seconds": 0.0, "finish_reason": "length"}
+test_completed_response_never_retried_for_quality_and_reasoning_is_hashed (test_reasoner_benchmark.ReasonerBenchmarkTests.test_completed_response_never_retried_for_quality_and_reasoning_is_hashed) ... ok
+test_cumulative_budget_counts_failures_and_probe (test_reasoner_benchmark.ReasonerBenchmarkTests.test_cumulative_budget_counts_failures_and_probe) ... ok
+test_frozen_composition_pairing_and_no_gold_leakage (test_reasoner_benchmark.ReasonerBenchmarkTests.test_frozen_composition_pairing_and_no_gold_leakage) ... ok
+test_guard_does_not_turn_schema_success_into_semantic_success (test_reasoner_benchmark.ReasonerBenchmarkTests.test_guard_does_not_turn_schema_success_into_semantic_success) ... ok
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "answered", "http_status": 200, "seconds": 0.0, "finish_reason": "stop"}
+test_manifest_change_and_result_overwrite_are_rejected (test_reasoner_benchmark.ReasonerBenchmarkTests.test_manifest_change_and_result_overwrite_are_rejected) ... ok
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 401, "seconds": 0.013, "finish_reason": null}
+test_precharge_then_stop_on_auth_error_and_no_key_persisted (test_reasoner_benchmark.ReasonerBenchmarkTests.test_precharge_then_stop_on_auth_error_and_no_key_persisted) ... ok
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 429, "seconds": 0.0, "finish_reason": null}
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 307, "seconds": 0.0, "finish_reason": null}
+test_rate_limit_long_wait_checkpoints_and_never_follows_redirect (test_reasoner_benchmark.ReasonerBenchmarkTests.test_rate_limit_long_wait_checkpoints_and_never_follows_redirect) ... ok
+{"attempt": 1, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 503, "seconds": 0.0, "finish_reason": null}
+{"attempt": 2, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 503, "seconds": 0.0, "finish_reason": null}
+{"attempt": 3, "case_id": "P003", "model": "deepseek-reasoner", "state": "http_error", "http_status": 503, "seconds": 0.001, "finish_reason": null}
+test_retry_limit_is_global_and_failed_attempts_not_scored_as_answers (test_reasoner_benchmark.ReasonerBenchmarkTests.test_retry_limit_is_global_and_failed_attempts_not_scored_as_answers) ... ok
+test_model_specific_budget_and_timeout_keep_legacy_runs_reproducible (test_reasoner_config.ReasonerConfigTests.test_model_specific_budget_and_timeout_keep_legacy_runs_reproducible) ... ok
+test_only_final_content_can_become_an_action (test_reasoner_config.ReasonerConfigTests.test_only_final_content_can_become_an_action) ... ok
+test_reasoning_without_final_json_is_rejected (test_reasoner_config.ReasonerConfigTests.test_reasoning_without_final_json_is_rejected) ... ok
+test_truncated_reply_never_becomes_a_plan (test_reasoner_config.ReasonerConfigTests.test_truncated_reply_never_becomes_a_plan) ... ok
+test_budget_scope_and_recorded_source_integrity (test_reasoner_noise.NoiseDiagnosticTests.test_budget_scope_and_recorded_source_integrity) ... ok
+test_clarification_is_safe_but_not_literal_recovery (test_reasoner_noise.NoiseDiagnosticTests.test_clarification_is_safe_but_not_literal_recovery) ... ok
+test_group_denominators_do_not_merge_irrecoverable_into_recovery (test_reasoner_noise.NoiseDiagnosticTests.test_group_denominators_do_not_merge_irrecoverable_into_recovery) ... ok
+test_groups_sources_and_original_intent_never_leak (test_reasoner_noise.NoiseDiagnosticTests.test_groups_sources_and_original_intent_never_leak) ... ok
+{"attempt": 1, "case_id": "N01", "state": "http_error", "seconds": 0.01, "finish_reason": null}
+{"attempt": 2, "case_id": "N01", "state": "http_error", "seconds": 0.013, "finish_reason": null}
+test_ledger_precharge_retry_bound_and_key_exclusion (test_reasoner_noise.NoiseDiagnosticTests.test_ledger_precharge_retry_bound_and_key_exclusion) ... ok
+test_valid_literal_can_be_correct_while_original_intent_is_at_risk (test_reasoner_noise.NoiseDiagnosticTests.test_valid_literal_can_be_correct_while_original_intent_is_at_risk) ... ok
+test_fence_or_ask_never_receives_unearned_raw_credit (test_replay_planner100_guard.TestGuardReplay.test_fence_or_ask_never_receives_unearned_raw_credit) ... ok
+test_wrong_proposals_blocked_or_admitted_and_bare_correct_separated (test_replay_planner100_guard.TestGuardReplay.test_wrong_proposals_blocked_or_admitted_and_bare_correct_separated) ... ok
+test_iou_uses_xywh_and_counts_partial_overlap (test_scenarios.DataMetricTests.test_iou_uses_xywh_and_counts_partial_overlap) ... ok
+test_trace_cycle_needs_three_consecutive_samples_per_state (test_scenarios.DataMetricTests.test_trace_cycle_needs_three_consecutive_samples_per_state) ... ok
+test_api_lists_and_selects_the_same_scenes (test_scenarios.ScenarioTests.test_api_lists_and_selects_the_same_scenes) ... ok
+test_reset_restores_camera_and_props (test_scenarios.ScenarioTests.test_reset_restores_camera_and_props) ... ok
+test_authorization_precedes_loading_and_failures_consume_one_attempt (test_sensevoice.SenseVoiceTests.test_authorization_precedes_loading_and_failures_consume_one_attempt) ... ok
+test_browser_pcm_and_webm_decode_to_bounded_mono_samples (test_sensevoice.SenseVoiceTests.test_browser_pcm_and_webm_decode_to_bounded_mono_samples) ... ok
+test_legacy_whisper_can_still_be_explicitly_selected (test_sensevoice.SenseVoiceTests.test_legacy_whisper_can_still_be_explicitly_selected) ... ok
+test_service_reports_selected_model_in_state_and_transcript (test_sensevoice.SenseVoiceTests.test_service_reports_selected_model_in_state_and_transcript) ... ok
+test_weight_download_is_pinned_hash_checked_and_atomic (test_sensevoice.SenseVoiceTests.test_weight_download_is_pinned_hash_checked_and_atomic) ... ok
+test_budget_counts_prior_attempts_including_failures (test_sensevoice_pairs.SenseVoicePairTests.test_budget_counts_prior_attempts_including_failures) ... ok
+test_dry_run_freezes_pairs_and_preserves_raw_transcript (test_sensevoice_pairs.SenseVoicePairTests.test_dry_run_freezes_pairs_and_preserves_raw_transcript) ... ok
+test_existing_output_cannot_be_overwritten_or_spend_more_calls (test_sensevoice_pairs.SenseVoicePairTests.test_existing_output_cannot_be_overwritten_or_spend_more_calls) ... ok
+test_finger_contact_or_wrong_target_cannot_count_as_released_landing (test_sensevoice_pairs.SenseVoicePairTests.test_finger_contact_or_wrong_target_cannot_count_as_released_landing) ... ok
+test_missing_physical_measurements_are_unknown_not_success (test_sensevoice_pairs.SenseVoicePairTests.test_missing_physical_measurements_are_unknown_not_success) ... ok
+test_success_requires_lift_and_three_released_landings (test_sensevoice_pairs.SenseVoicePairTests.test_success_requires_lift_and_three_released_landings) ... ok
+test_tampered_or_incomplete_source_is_rejected_before_requests (test_sensevoice_pairs.SenseVoicePairTests.test_tampered_or_incomplete_source_is_rejected_before_requests) ... ok
+test_cross_origin_writes_never_call_a_model_or_change_scene (test_simple_console.SimpleConsoleTests.test_cross_origin_writes_never_call_a_model_or_change_scene) ... ok
+test_default_reasoner_is_used_even_when_legacy_client_requests_rules (test_simple_console.SimpleConsoleTests.test_default_reasoner_is_used_even_when_legacy_client_requests_rules) ... ok
+test_local_control_and_invalid_audio_do_not_call_models (test_simple_console.SimpleConsoleTests.test_local_control_and_invalid_audio_do_not_call_models) ... ok
+test_missing_key_reports_model_error_instead_of_running_local_rules (test_simple_console.SimpleConsoleTests.test_missing_key_reports_model_error_instead_of_running_local_rules) ... ok
+test_same_origin_remote_user_can_transcribe_and_plan_without_approval (test_simple_console.SimpleConsoleTests.test_same_origin_remote_user_can_transcribe_and_plan_without_approval) ... ok
+test_raster_polygon_endpoints_are_inclusive (test_vision100.VisionEvidenceTests.test_raster_polygon_endpoints_are_inclusive) ... ok
+test_second_prediction_of_same_object_cannot_increment_recall (test_vision100.VisionEvidenceTests.test_second_prediction_of_same_object_cannot_increment_recall) ... ok
+test_seed_fixes_one_hundred_distinct_scene_variations (test_vision100.VisionEvidenceTests.test_seed_fixes_one_hundred_distinct_scene_variations) ... ok
+test_single_prediction_without_any_target_is_a_false_unique (test_vision100.VisionEvidenceTests.test_single_prediction_without_any_target_is_a_false_unique) ... ok
+test_unique_station_requires_unique_object_even_if_one_slot_is_known (test_vision100.VisionEvidenceTests.test_unique_station_requires_unique_object_even_if_one_slot_is_known) ... ok
+test_control_does_not_request_credentials_or_consume_a_call (test_voice_intent.VoiceControlTests.test_control_does_not_request_credentials_or_consume_a_call) ... ok
+test_even_an_injected_motion_plan_cannot_overrule_a_prohibition (test_voice_intent.VoiceControlTests.test_even_an_injected_motion_plan_cannot_overrule_a_prohibition) ... ok
+test_free_wording_cannot_invent_a_relative_motion (test_voice_intent.VoiceControlTests.test_free_wording_cannot_invent_a_relative_motion) ... ok
+test_missing_distance_never_moves_and_a_unit_reply_uses_the_same_scene (test_voice_intent.VoiceControlTests.test_missing_distance_never_moves_and_a_unit_reply_uses_the_same_scene) ... ok
+test_pause_is_immediate_only_when_explicit (test_voice_intent.VoiceControlTests.test_pause_is_immediate_only_when_explicit) ... ok
+test_polite_request_and_nonnegative_words_still_reach_planning (test_voice_intent.VoiceControlTests.test_polite_request_and_nonnegative_words_still_reach_planning) ... ok
+test_recorded_whisper_traditional_text_still_binds_the_axis (test_voice_intent.VoiceControlTests.test_recorded_whisper_traditional_text_still_binds_the_axis) ... ok
+test_specific_prohibitions_do_not_interrupt_another_task (test_voice_intent.VoiceControlTests.test_specific_prohibitions_do_not_interrupt_another_task) ... ok
+test_expired_link_discards_a_slow_plan_before_motion (test_watchdog.WatchdogTests.test_expired_link_discards_a_slow_plan_before_motion) ... ok
+test_remote_command_without_a_distinct_token_never_starts (test_watchdog.WatchdogTests.test_remote_command_without_a_distinct_token_never_starts) ... ok
+test_ambiguous_and_negated_commands (test_workflow.ParsingTests.test_ambiguous_and_negated_commands) ... ok
+test_cloud_pilot_without_credential_makes_zero_requests (test_workflow.ParsingTests.test_cloud_pilot_without_credential_makes_zero_requests) ... ok
+test_model_denied_before_inference (test_workflow.ParsingTests.test_model_denied_before_inference) ... ok
+test_model_plan_is_grounded_and_has_only_known_actions (test_workflow.ParsingTests.test_model_plan_is_grounded_and_has_only_known_actions) ... ok
+test_numeric_units_and_directions (test_workflow.ParsingTests.test_numeric_units_and_directions) ... ok
+test_station_answer_replaces_unresolved_label_without_dropping_other_actions (test_workflow.ParsingTests.test_station_answer_replaces_unresolved_label_without_dropping_other_actions) ... ok
+test_vision_reports_two_candidates_and_outside (test_workflow.ParsingTests.test_vision_reports_two_candidates_and_outside) ... ok
+test_camera_command_dedup_stale_and_removed_speech_routes (test_workflow.WebTests.test_camera_command_dedup_stale_and_removed_speech_routes) ... ok
+test_projected_xy_for_all_stations_and_held_block (test_workflow.WebTests.test_projected_xy_for_all_stations_and_held_block) ... ok
+
+----------------------------------------------------------------------
+Ran 155 tests in 55.311s
+
+OK

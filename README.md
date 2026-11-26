@@ -108,10 +108,12 @@ uv run --frozen --extra voice --extra data --env-file .env python -m arm_lab ser
 | 思考模式对照：控制 JSON 是否更准确 | 相同提示词、22 条诊断输入，16 个动作与 6 个追问；Chat 与 Reasoner 各调用 22 次。这是已知题目诊断，不是新留出测试。 | Reasoner 动作严格正确 **15/16**，Chat **10/16**；有效追问 **6/6 对 5/6**。两者格式均 22/22 合格；请求中位 **14.38 s 对 3.55 s**。原校验器误拒 7 个正确 Reasoner 动作，后续修复见下行。 |
 | 校验器修复：减少正确指令误拒 | 重放 308 份已保存回复（44 条配对、16 条误听、248 条历史回答），原始 JSON 与参考答案不变；另重放 7 个独立初态的 MuJoCo 任务。 | Reasoner 正确动作获准 **8/16 → 15/16**，Chat **6/16 → 11/16**；没有新增错误放行。7 个此前误拒任务物理验证 **7/7**；本轮无新增模型调用，既有误听风险未消除。 |
 | 扩展误听诊断：错字、量值歧义与信息丢失 | 16 条文本：14 条人工扰动、1 条已有 ASR 误听、1 条缺单位基线；区分原始 JSON、控制准入与原意。 | 可恢复组模型正确 **5/6**，获准执行 **4/6**；澄清组自动评分 **5/6**，逐句严格复核 **4/6**。不可恢复组中，漏否定／换数字／换单位造成 **3/4** 相对原意有风险的动作获准。 |
-| 完整链路：连续 10 条音频 | 真实 SenseVoice → Reasoner／本地控制 → MuJoCo；同一场地，原始转写不修改。10 段均为 Windows 离线合成，4 段复用、6 段新增。 | **10/10** 目标通过：6 次运动任务、3 次静止响应、1 次运动中暂停。10 次 ASR、8 次云端请求（含 1 次辅助运动）；三次搬运 A→B→C→A，平移误差 0.194–0.200 mm，均为仿真测量。 |
-| 软件与网页回归 | 自动化单元／集成测试，独立 Edge 浏览器验证界面和执行链路；模型使用替身。 | 最新 **144 项测试通过**，含 15 组校验语法与错误动作反例；网页回归通过。无真实模型调用，不计入模型准确率。 |
+| 修复版完整语音链路：10 个任务 | 真实 SenseVoice → Reasoner／本地控制 → MuJoCo；包括“两度半”“垂直下降”和语音追问补单位，各轮场地连续，转写不修改。 | 首轮任务 **9/10**、严格协议及路由 **7/10**；只将“往上移两”规范为“往上移动两”后，完整复测 **10/10**，含 7 次运动、2 次静止响应和 1 次运动中暂停。两轮共 20 次 ASR、17 次云端请求。 |
+| 软件与网页回归 | 自动化单元／集成测试，独立 Edge 浏览器验证界面和执行链路；模型使用替身。 | 最新 **155 项测试通过**，含 15 组校验语法和 11 组独立物理判分／审计测试；此前网页回归通过。无真实模型调用，不计入模型准确率。 |
 
 语音语料划分、数据下载、原始回复、各项分母、运动与遮挡实验及失败分析统一见[实验与复现](docs/experiments.md)。全部结果来自仿真、本地录音评测或外部数据回放，实机测试次数为 0。
+
+最新语音实验使用同一声音合成的 11 份不同音频输入，规范口令复测复用了其中 9 份；这是发现问题后的开发复测，不是新的盲测。首轮“移”被听成“引”，导致补单位后的正确计划被校验器拒绝；另有一次裸动作 JSON 可执行但未满足严格 `steps` 外层格式。两轮代码与提示词均未改变，失败记录保留。规范复测中，上抬两度半实测 **−2.494°**，垂直下降 5 mm 实测 **−5.206 mm**，补答“单位是厘米”后上移 **19.797 mm**。这些是仿真物理量，不代表真人语音准确率或实机精度。[两轮独立核查](results/safety/flow10_repaired/audit.json)
 
 ### 4.2 无模型调用的复现
 
@@ -135,15 +137,15 @@ uv run --frozen --extra voice --extra data python -m unittest discover -s tests 
 
 ### 4.3 重新运行真实语音与云端规划
 
-准备好权重与密钥后，以下命令复现当前 10 条音频的连续链路。合成音频随仓库提供，不需要重新录音或在线 TTS。默认不加 `--run` 只核查输入；加上后运行真实模型，最多 10 次本地 ASR、12 次云端请求，失败不自动重试。为保留证据，已有输出文件不会被覆盖。
+准备好权重与密钥后，以下命令复现修复版的 10 条规范口令链路。合成音频随仓库提供，不需要重新录音或在线 TTS。默认不加 `--run` 只核查输入；加上后运行真实模型，最多 10 次本地 ASR、12 次云端请求，失败不自动重试。为保留证据，已有输出文件不会被覆盖。
 
 ~~~powershell
 $env:VOICE_ARM_KINEMATICS = 'standalone'
-uv run --frozen --extra voice --extra data python -m scripts.evaluate_reasoner_flow10
-uv run --frozen --extra voice --extra data --env-file .env python -m scripts.evaluate_reasoner_flow10 --run --cloud-limit 12 --out outputs/reproduce_flow10.json
+uv run --frozen --extra voice --extra data python -m scripts.evaluate_reasoner_flow10 --config configs/flow10_repaired_standard.json
+uv run --frozen --extra voice --extra data --env-file .env python -m scripts.evaluate_reasoner_flow10 --config configs/flow10_repaired_standard.json --run --cloud-limit 12 --out outputs/reproduce_flow10_standard.json
 ~~~
 
-22 条模式对照、16 条误听诊断、100 条规划输入的离线重新评分、24 段公开录音及 OpenCV 数据评测命令集中在[实验与复现](docs/experiments.md)。最新完整链路的[原始转写、JSON 与物理判分](results/safety/reasoner/flow10.json)可逐条核查。仿真视频见[3 分 14 秒演示](results/safety/simulation_demo.mp4)；该视频展示历史离线文字控制流程，尚未更新为 Reasoner 版本。
+22 条模式对照、16 条误听诊断、100 条规划输入的离线重新评分、24 段公开录音及 OpenCV 数据评测命令集中在[实验与复现](docs/experiments.md)。最新链路的[规范口令复测](results/safety/flow10_repaired/standard.json)及[首轮失败记录](results/safety/flow10_repaired/flow10.json)均可逐条核查。首轮复现使用 `--config configs/flow10_repaired.json`，历史 10 条链路使用 `configs/reasoner_flow10.json`，输出请另起文件。仿真视频见[3 分 14 秒演示](results/safety/simulation_demo.mp4)；该视频展示历史离线文字控制流程，尚未更新为 Reasoner 版本。
 
 ## 5. 性能瓶颈与本阶段范围
 
@@ -151,7 +153,7 @@ uv run --frozen --extra voice --extra data --env-file .env python -m scripts.eva
 | --- | --- | --- |
 | 视觉目标身份不可靠 | 红色背景、苹果或碗可能成为候选；误检会传递到规划环节。 | 优先限定工作区、目标尺寸和光照；评估轻量目标检测。ArUco 贴纸保留为备选。 |
 | 规划与控制校验的语义覆盖不足 | Reasoner 仍可能反转方向。此次修复使诊断集的 15 个正确动作全部获准，但历史终选版仍有 4/27 个原始正确动作被拒，未知自由描述的组合任务也未完全覆盖。 | 使用明确口令和完整单位；保留符号、数值及物理限制，另建未用于开发的留出集。 |
-| 误听纠偏不稳定，丢失的原意无法凭空恢复 | 同一个“右干”输入既有正确搬运也有追问；漏否定等合法转写可导致错误动作获准。 | 保留发送前的转写核对；补充真人现场噪声与关键语义最小对，评估 ASR 候选与置信信息。 |
+| 误听纠偏不稳定，丢失的原意无法凭空恢复 | “右干”既有正确搬运也有追问；“移两→引两”使补单位后的执行中断，规范为“移动两”后通过。漏否定等合法转写仍可能导致错误动作获准。 | 优先使用完整动词和单位、保留转写核对；补充真人现场噪声与关键语义最小对，评估 ASR 候选与置信信息。 |
 | 云端思考增加等待 | 22 条 Reasoner 请求中位 14.38 s、P95 39.79 s；SenseVoice 热启动通常远快于此。 | 将规划等待与执行状态明确分开，后续评估缓存、提示词及模型模式的准确率／延迟取舍。 |
 | 仿真与实机反馈不同 | 接触、摩擦、关节零位和夹持中心尚无本机实物数据支持。 | 先验证停止、空爪小位移、夹持后的停收紧，再做低位抓放；记录实际位移与失败原因。 |
 

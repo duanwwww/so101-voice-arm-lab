@@ -1,0 +1,14 @@
+﻿{
+    "source":  "Windows offline System.Speech synthetic speech, not human audio",
+    "voice":  "Microsoft Huihui Desktop",
+    "created_utc":  "2026-11-26T18:15:13.9792166Z",
+    "count":  1,
+    "files":  [
+                  {
+                      "id":  "05_missing_unit",
+                      "audio":  "results/safety/flow10_repaired/standard_audio/missing_unit.wav",
+                      "reference":  "把末端往上移动两",
+                      "sha256":  "e9a6c5915d4d6901e5305747677bbd321bf2378184f94c87c5168fa7bf3f937c"
+                  }
+              ]
+}

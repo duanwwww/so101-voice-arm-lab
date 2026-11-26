@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-27",
+  "command": "uv run --frozen --extra voice --extra data python -m unittest discover -s tests -v",
+  "kinematics": "standalone",
+  "tests_run": 155,
+  "seconds": 55.311,
+  "exit_code": 0,
+  "status": "passed",
+  "new_physical_scoring_test_groups": 11,
+  "regression_model_calls": 0,
+  "log": "regression.txt",
+  "log_redaction": "User-specific temporary directory prefix replaced with <TEMP>; test results unchanged",
+  "live_experiment_reports": ["flow10.json", "standard.json"],
+  "independent_review": "audit.json",
+  "live_experiment_asr_calls": 20,
+  "live_experiment_cloud_calls": 17,
+  "audio_provenance": "11 different Windows offline synthesized inputs across two runs; nine reused, not human recordings"
+}
