@@ -1,3 +1,5 @@
+> 历史归档：本页保留阶段性设计与实验记录，部分默认设置已更新。当前说明以[项目首页](../../README.md)、[系统设计](../workflow.md)、[实验与复现](../experiments.md)及[真机接入](../hardware.md)为准。
+
 # 预约时保存固定相机和腕部相机的画面
 
 模块 `arm_lab.field_cameras` 只读取操作者指定的本机摄像头或已有视频，保存 JPEG 与时间记录。它没有串口、模型或动作执行接口。没有腕部 USB 相机时只指定固定相机即可。实际从臂是否配有腕部相机、设备索引和腕部安装标定仍需现场核对。
@@ -11,7 +13,7 @@ uv run --frozen --extra voice --extra data python -m arm_lab.field_cameras --fix
 uv run --frozen --extra voice --extra data python -m arm_lab.field_cameras --fixed-device 0 --wrist-device 1 --trial 1 --phase after --samples 3 --fps 3
 ~~~
 
-默认 Windows 后端 DirectShow；已确认设备索引但驱动无法打开时，可显式选择 `--backend msmf`。输出目录形如 `outputs/field-camera/01/after`。同一回合、同一阶段的已有记录会保留，重测可指定另一个 `--out` 目录。把前后两份 capture.json 的路径填进 15 回合登记表的 evidence 列，实物落点由现场观察者填写。[空表](../results/safety/field_trials_blank.csv)
+默认 Windows 后端 DirectShow；已确认设备索引但驱动无法打开时，可显式选择 `--backend msmf`。输出目录形如 `outputs/field-camera/01/after`。同一回合、同一阶段的已有记录会保留，重测可指定另一个 `--out` 目录。把前后两份 capture.json 的路径填进 15 回合登记表的 evidence 列，实物落点由现场观察者填写。[空表](../../results/safety/field_trials_blank.csv)
 
 已有两份录制时，从相同的**现场事件**确定起点，例如两机都拍到的同步标记。再任选下列参数，分别指定文件内的起始秒数。工具以视频的标称帧率选择最近的帧，可变帧率或不同时钟的录制需要人工核对播放器时间。单独回放固定录像时省略腕部参数。
 
@@ -32,4 +34,4 @@ uv run --frozen --extra voice --extra data python -m arm_lab.field_cameras --fix
 
 ## 本机实际验证
 
-使用同一次 MuJoCo 仿真产生的固定相机和腕部视角制作了两个 640×400、5 Hz 的六帧测试视频。从第 2 帧起，命令行连续读取两路各 4 帧，得到 4 对有效图；两次抓帧完成时刻的差最大为 1.221 ms。这是已经录好的本地视频在本次电脑上读出的数字。另一段回放取最后阶段的 3 对，均为不同源帧。还专门测了一长一短的测试视频，较短的视角在第 4 次采样正确记为 past_video_end，固定视角其余画面继续保存。上述验证均未打开真实摄像头。[4 对画面的回放报告](../results/safety/field_camera_replay/01/during/capture.json) · [3 对画面的回放报告](../results/safety/field_camera_replay/01/after/capture.json) · [自动化测试](../tests/test_field_cameras.py)
+使用同一次 MuJoCo 仿真产生的固定相机和腕部视角制作了两个 640×400、5 Hz 的六帧测试视频。从第 2 帧起，命令行连续读取两路各 4 帧，得到 4 对有效图；两次抓帧完成时刻的差最大为 1.221 ms。这是已经录好的本地视频在本次电脑上读出的数字。另一段回放取最后阶段的 3 对，均为不同源帧。还专门测了一长一短的测试视频，较短的视角在第 4 次采样正确记为 past_video_end，固定视角其余画面继续保存。上述验证均未打开真实摄像头。[4 对画面的回放报告](../../results/safety/field_camera_replay/01/during/capture.json) · [3 对画面的回放报告](../../results/safety/field_camera_replay/01/after/capture.json) · [自动化测试](../../tests/test_field_cameras.py)

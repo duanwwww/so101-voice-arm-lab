@@ -1,8 +1,10 @@
+> 历史归档：本页保留阶段性设计与实验记录，部分默认设置已更新。当前说明以[项目首页](../../README.md)、[系统设计](../workflow.md)、[实验与复现](../experiments.md)及[真机接入](../hardware.md)为准。
+
 # 远程语音机械臂项目梳理
 
 此页和录音保留设计讨论时的实现状态。后续已完成控制保护、双相机验证、24 段真实普通话的两遍 Whisper 转写，以及真实交大 DeepSeek 的两版规划提示词对照。[控制迭代报告](control_iteration.md) · [语音识别实测结果](asr_benchmark.md) · [语音插话与模型纠错实验](prompt_trial.md)
 
-[听 2 分 34 秒的中文讲解](../results/project_overview_zh.mp3)
+[听 2 分 34 秒的中文讲解](../../results/project_overview_zh.mp3)
 
 2026 年 11 月 26 日。操作者在远处看桌面，说出目标，让固定底座的机械臂完成任务，再根据画面和回执判断结果。课程原型有两种任务。
 
@@ -48,7 +50,7 @@ flowchart TD
 | 真实画面能否唯一找到红块 | VigiClaw 的 100 张实拍图中，95 张含正确检测，只有 67 张给出唯一正确候选。全部候选中出现了 187 个误框。 | 对于可能出现橙色臂身、阴影和反光的画面，能找到红块和能选对唯一目标是两项指标。 |
 | 真实夹爪信号能否验证动作 | 公开 SO-101 海绵抓放含 128 段轨迹、74,887 帧。用固定摆位的 64 段定阈值，随机摆位的 64 段只有 10 段符合预先规定的指令与读数开合时序。 | 衡量这套阈值的覆盖程度，不能直接换算成抓取成功率。 |
 
-数据出处与固定版本、逐图和逐回合记录均保留在工程内。[多场景与真实数据报告](scenarios_and_real_data.md) · [校方模型联调记录](../results/deepseek_pilot.json) · [VigiClaw 原始数据](https://huggingface.co/datasets/pengxianglu/vigiclaw-yolo-dataset) · [SO-101 原始轨迹](https://huggingface.co/datasets/aswinkumar99/LeRobot-SO101-Pick-Place)
+数据出处与固定版本、逐图和逐回合记录均保留在工程内。[多场景与真实数据报告](scenarios_and_real_data.md) · [校方模型联调记录](../../results/deepseek_pilot.json) · [VigiClaw 原始数据](https://huggingface.co/datasets/pengxianglu/vigiclaw-yolo-dataset) · [SO-101 原始轨迹](https://huggingface.co/datasets/aswinkumar99/LeRobot-SO101-Pick-Place)
 
 ## 两三天内值得人工准备的数据
 
