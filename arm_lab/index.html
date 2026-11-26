@@ -237,8 +237,9 @@ async function transcribe(blob,revision){
  if(revision===undefined){
   const snapshot=await api('/api/state');revision=snapshot.revision;show(snapshot);
  }
- const permission=await consent('asr','在本机转写这段录音？','使用 Whisper Small 在本机识别一次。'+(state.whisper_ready?'权重已就绪。':'首次使用将从 Hugging Face 下载模型权重，可能需要几分钟。')+'录音只发给控制电脑。');
- if(!permission)return;note('正在准备 Whisper 并转写…');
+ const asrName=state.asr_engine==='whisper'?'Whisper Small':'SenseVoiceSmall';
+ const permission=await consent('asr','在本机转写这段录音？','使用 '+asrName+' 在本机识别一次。'+(state.asr_ready?'权重已就绪。':'首次使用将从 Hugging Face 下载模型权重，可能需要几分钟。')+'录音只发给控制电脑。');
+ if(!permission)return;note('正在准备 '+asrName+' 并转写…');
  const file=new FormData();file.append('file',blob,'command-audio');
  const r=await api('/api/transcribe',{...permission,file});by('entry').value=r.text;draftRevision=revision;
  note('转写完成。请核对后发送；暂停和状态查询可在动作进行中发送。');

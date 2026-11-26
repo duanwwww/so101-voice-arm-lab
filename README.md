@@ -1,6 +1,6 @@
 # SO-101 桌面机械臂语音遥操作
 
-操作者一边看远程画面，一边说“把 A 的红木块放到 B”，也可以说“向右平移两厘米”。Whisper Small 把语音转成可校对的文字，OpenCV 提供可见工位，交大 DeepSeek 将两者转成控制 JSON。控制电脑校验动作，分段执行抓取、试抬和放置，再用画面复核落点。等待澄清或暂停期间保留当前场地。当前执行后端是 MuJoCo，实机记录为 0。
+操作者一边看远程画面，一边说“把 A 的红木块放到 B”，也可以说“向右平移两厘米”。SenseVoiceSmall INT8 在本机把语音转成可校对的文字，OpenCV 提供可见工位，交大 DeepSeek 将两者转成控制 JSON。控制电脑校验动作，分段执行抓取、试抬和放置，再用画面复核落点。等待澄清或暂停期间保留当前场地。当前执行后端是 MuJoCo，实机记录为 0。
 
 [工作流与各节点成绩](docs/workflow.md) · [真机改造、场地和 90 分钟预约方案](docs/hardware_handoff.md) · [3 分 14 秒仿真演示](results/safety/simulation_demo.mp4)
 
@@ -10,16 +10,16 @@
 
 | 想了解 | 已有证据与主要限制 |
 | --- | --- |
-| 口令是否听清 | 同一批 24 段公开真人普通话两遍测试，beam=3 字符错误率 17.70%。这是通用普通话语料，另有 4 条合成机械臂口令的小规模验证。[语音实验](docs/asr_benchmark.md) · [口令纠错](docs/prompt_trial.md) |
+| 口令是否听清 | SenseVoiceSmall 在同一批 24 段真人普通话上的字符错误率为 10.67%，历史 Whisper beam=1 为 20.51%。15 段组内留出整句正确从 3/15 到 6/15。方向仍有误听，4 条合成口令单列。[本地语音对照与链路结果](docs/sensevoice.md) |
 | JSON 能否控制正确 | 100 条输入先冻结金标。在相同的 42 条留出动作题中，严格匹配由 15 条增至 27 条。终选版仍会把向右的 −25 mm 写成 +25 mm。[原始回复与失败分析](docs/planner100_results.md) |
 | 画面是否指对物体 | 100 张有红块的实拍图，67 张得到唯一正确候选。77 张无红块的外部仿真图，57 张仍报出一个候选。[视觉验证与数据来源](docs/vision100.md) |
-| 机械臂是否做到 | 预选 12 个任务经真实模型回复和仿真物理重放，终选版 10 个达标，其中 7 次运动达标、3 次按要求追问且保持静止。两种本地表述误拦了正确动作。[逐例回放](results/safety/planner100/simulation_finalist.json) |
+| 机械臂是否做到 | 四条合成录音经真实 ASR、本地规则与仿真，初次 3/4 达到预期。搬运因“右干”被追问，另测明确补答 B 后，原场地搬运完成并三帧确认落位。补答由测试模拟用户提供。[本轮语音与恢复链路](docs/sensevoice.md) · [历史文本重放 10/12](results/safety/planner100/simulation_finalist.json) |
 
 新组员可以先运行下面的离线命令，复现一次 A 到 B 的搬运。需要查看相机和语音交互时再启动网页。[课程模型出处](vendor/so101_course/NOTICE.md) · [项目贡献与材料来源](docs/project_summary.md)
 
 ## Windows 启动
 
-[3 分 14 秒本机仿真演示](results/safety/simulation_demo.mp4) · [固定相机和腕部相机现场取证](docs/field_cameras.md) · [24 段真实普通话的两遍 Whisper 实测、错误举例与复算](docs/asr_benchmark.md)
+[3 分 14 秒本机仿真演示](results/safety/simulation_demo.mp4) · [固定相机和腕部相机现场取证](docs/field_cameras.md) · [当前 SenseVoiceSmall 与 Whisper 的同音频比较](docs/sensevoice.md)
 
 网页在当前状态和所选相机画面可更新时才允许发令。指令执行期间关页或断图，默认超过 3 秒未续期就锁住仿真控制。恢复网络后先核对回执，手动重置仿真才能发起新动作。[接口说明](docs/deployment.md)
 
@@ -39,7 +39,7 @@ uv run --frozen --extra voice --env-file .env python -m arm_lab serve
 
 ## 使用控制台
 
-1. 在“仿真场景”中选一个摆位，点击“重置仿真”。右侧可以输入自己的任务，也可以点“填入场景任务”再编辑。选择“本地规则 · 离线”即可复现各场景的示例。语音输入支持录音和上传短音频，经 Whisper 转写后可在发出前修改。
+1. 在“仿真场景”中选一个摆位，点击“重置仿真”。右侧可以输入自己的任务，也可以点“填入场景任务”再编辑。选择“本地规则 · 离线”即可复现各场景的示例。语音输入支持录音和上传短音频，经 SenseVoiceSmall 转写后可在发出前修改。
 2. 默认规划方式为“交大 DeepSeek · 自然语言”。输入“把前面的木块夹起来，再放到右边的工位”，点“执行指令”。本机授权窗口列出本次传输的内容和接收方。模型可返回一到四步动作，或直接追问。
 3. 如果模型问要放到哪里，可以在同一输入框回复“右边那个”。系统将上一轮口令、追问、这一句补充和最新观测一起送入规划。点“另起任务”会结束本轮澄清。
 4. 每步结束后读取实际结果。释放后退开夹爪，在一个仿真秒内复看三次。勾选“执行后用 DeepSeek 解读并用 Edge-TTS 播报”即可依次进行回执解读和语音合成。也可单独使用回执下方的两个按钮，分别授权。
@@ -58,7 +58,8 @@ uv run --frozen --extra voice --env-file .env python -m arm_lab serve
 
 | 模块 | 运行位置与输入 |
 | --- | --- |
-| Whisper Small | 控制电脑 CPU INT8。使用 Systran/faster-whisper-small。在本机网页首次批准转写时可下载权重到 outputs/models/faster-whisper-small，以后复用。音频留在控制电脑。 |
+| SenseVoiceSmall INT8，默认 | 控制电脑 CPU、4 线程、中文、数字文本规范化。通过 sherpa-onnx 运行固定的 2024-07-17 导出权重，校验后缓存在 outputs/models/sensevoice-small-int8-2024-07-17。网页首次批准可下载，音频留在控制电脑。[实测与安装](docs/sensevoice.md) |
+| Whisper Small，可选 | 使用 `--asr-engine whisper` 对照早期结果，也兼容已有 `--whisper-dir` 配置。通过 faster-whisper 在 CPU INT8 上转写。 |
 | 交大 DeepSeek | 上海交大“致远一号”，模型 deepseek-chat。规划输入为原话、可见物体编号和工位、台面标定得到的 XY 毫米坐标，以及适用的持物状态和追问。反馈输入为已执行的步骤、实际状态、回执文本及最终工位。每次最多输出 160 tokens。[校方接入指南](https://apps.hpc.sjtu.edu.cn/posts/claw-guide-sjtu-api) |
 | OpenCV、IK 和 MuJoCo | 在控制电脑运行。视觉分割 RGB 图像，位置 IK 生成平移路径。工位抓放通过位置伺服、自由木块和接触摩擦实现。 |
 | Edge-TTS | 微软在线合成普通话音色 zh-CN-XiaoxiaoNeural，只接收操作者批准播报的文字。 |
@@ -69,8 +70,10 @@ uv run --frozen --extra voice --env-file .env python -m arm_lab serve
 
 ~~~powershell
 uv run --frozen --extra voice --env-file .env python -m arm_lab serve --host 0.0.0.0 --port 8769 --deepseek-budget 4 --tts-budget 2
-# 使用已经下载的 Whisper 权重时
-uv run --frozen --extra voice --env-file .env python -m arm_lab serve --port 8769 --asr-budget 2 --whisper-dir "D:\models\faster-whisper-small"
+# 提前准备默认语音权重，后续转写仍按次授权
+uv run --frozen --extra voice python -m arm_lab.sensevoice --approve-download
+# 在交互终端批准两次本地语音转写
+uv run --frozen --extra voice --env-file .env python -m arm_lab serve --port 8769 --asr-budget 2
 ~~~
 
 ## 复现实验

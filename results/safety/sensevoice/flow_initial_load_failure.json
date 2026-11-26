@@ -1,0 +1,104 @@
+{
+  "mode": "real_sensevoice_to_http_to_local_rules",
+  "synthetic_audio_source": "Existing four Windows offline TTS recordings",
+  "asr_engine": "sensevoice",
+  "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+  "initial_layout": "A",
+  "scene_resets": 0,
+  "campus_attempts": [],
+  "rows": [
+    {
+      "id": "transfer",
+      "reference": "把红色木块放到右边的工位",
+      "audio_sha256": "4c7aa40039f05622a11b500fa5b08b47f9cd4435104f688f53f286da285dba9b",
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "frames": []
+    }
+  ],
+  "tts": "text receipts only",
+  "camera": "OpenCV HSV, original simulator renderer",
+  "created_utc": "2026-11-26T13:08:08Z",
+  "initial_state": {
+    "phase": "ready",
+    "scene": {
+      "objects": [
+        {
+          "slot": "A",
+          "pixel": [
+            266,
+            168
+          ],
+          "box": [
+            257,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            76.5
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "layout": "A",
+    "tcp_mm": [
+      218.6,
+      -192.7,
+      164.4
+    ],
+    "sim_seconds": 0.45,
+    "backend": "MuJoCo",
+    "revision": 0,
+    "busy": false,
+    "paused": false,
+    "stopped": false,
+    "fault": null,
+    "watchdog_seconds": 3.0,
+    "watchdog_active": false,
+    "watchdog_remaining_ms": null,
+    "watchdog_expired": false,
+    "quota": {
+      "asr": 4,
+      "deepseek": 0,
+      "tts": 0
+    },
+    "local_approval": true,
+    "campus_key": false,
+    "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+    "asr_engine": "sensevoice",
+    "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+    "asr_ready": true,
+    "whisper_ready": true,
+    "last": null,
+    "server_ms": 1795698489867
+  }
+}

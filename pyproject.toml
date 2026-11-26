@@ -18,6 +18,8 @@ voice = [
     "faster-whisper>=1.1,<2",
     "edge-tts>=7,<8",
     "av==16.1.0",
+    "sherpa-onnx==1.12.40",
+    "onnxruntime==1.32.0",
 ]
 data = [
     "pyarrow>=19,<26",

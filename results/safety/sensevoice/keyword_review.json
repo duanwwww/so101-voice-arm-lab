@@ -1,0 +1,917 @@
+{
+  "reviewer": "Codex semantic text review; no human independent audit",
+  "method": "Reused every semantic event from the earlier asr_keyword_review.json before inference. After the new pass, read each output at the same position. Canonical Chinese/Arabic numerals count as equivalent. Homophones with a different meaning count wrong. Extra cues are listed separately. This review adds no model calls.",
+  "frozen_reference_review_sha256": "60c203c849a3efc066bf75eb1e48bff5d520d84419f1aa9b2ea092bb9270de4b",
+  "speech_sha256": "08c14d5e2a2ae9ae4df07f35f6079e096d4181398541974a5e935ddb99aa8f76",
+  "rows": [
+    {
+      "id": "BAC009S0019W0308",
+      "group": "evaluation",
+      "reference": "我们不要期待别人的施舍",
+      "output": "我们不要期待别人的施舍。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "不要",
+          "observed": "不要",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0019W0329",
+      "group": "evaluation",
+      "reference": "不能因利益而失规则",
+      "output": "不能因利益而失规则。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "不能",
+          "observed": "不能",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0019W0462",
+      "group": "evaluation",
+      "reference": "八厘米长钥匙不慎插入男子耳朵医生一点五小时取出",
+      "output": "8厘米长钥匙不慎插入男子耳朵，医生1.5小时取出。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "八厘米",
+          "expected_number": "8",
+          "expected_unit": "cm",
+          "category": "length",
+          "observed": "8厘米",
+          "number_correct": true,
+          "unit_correct": true
+        },
+        {
+          "reference": "一点五小时",
+          "expected_number": "1.5",
+          "expected_unit": "h",
+          "category": "duration",
+          "observed": "1.5小时",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0019W0489",
+      "group": "evaluation",
+      "reference": "手术中因鼻骨粘骨膜撕裂停止手术",
+      "output": "手术中因鼻骨粘骨膜撕裂，停止手术。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "停止",
+          "observed": "停止",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0019W0493",
+      "group": "evaluation",
+      "reference": "小美因鼻中隔自然向右偏影响手术及效果",
+      "output": "小美因鼻中隔自然下右偏影响手术及效果。",
+      "directions": [
+        {
+          "reference": "向右偏",
+          "observed": "下右偏",
+          "correct": false
+        }
+      ],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 1,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0039W0176",
+      "group": "development",
+      "reference": "一定不要用小米家装几个字",
+      "output": "一定不要用小米家装几个字。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "不要",
+          "observed": "不要",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0039W0231",
+      "group": "development",
+      "reference": "揣测两年内不能上市",
+      "output": "揣测，两年内不能上市。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "两年",
+          "expected_number": "2",
+          "expected_unit": "年",
+          "category": "duration",
+          "observed": "两年",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [
+        {
+          "reference": "不能",
+          "observed": "不能",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0039W0457",
+      "group": "development",
+      "reference": "右转弯压线被处罚引市民吐槽交警确属违章",
+      "output": "又转弯压线被处罚，因市民吐槽交警确属违章。",
+      "directions": [
+        {
+          "reference": "右转弯",
+          "observed": "又转弯",
+          "correct": false
+        }
+      ],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0039W0458",
+      "group": "development",
+      "reference": "车辆右转弯压白色实线属交通违法行为网友供图",
+      "output": "车辆右转弯压白色实线，属交通违法行为。网友共图。",
+      "directions": [
+        {
+          "reference": "右转弯",
+          "observed": "右转弯",
+          "correct": true
+        }
+      ],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0045W0259",
+      "group": "evaluation",
+      "reference": "该机的机身厚度达到了七毫米",
+      "output": "该机的机身厚度达到了7毫米。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "七毫米",
+          "expected_number": "7",
+          "expected_unit": "mm",
+          "category": "length",
+          "observed": "7毫米",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0045W0330",
+      "group": "evaluation",
+      "reference": "最新一百五十六毫米多晶电池片均价一点二六四美元每片",
+      "output": "最新156毫米多晶电池片均价1.264美元每片。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "一百五十六毫米",
+          "expected_number": "156",
+          "expected_unit": "mm",
+          "category": "length",
+          "observed": "156毫米",
+          "number_correct": true,
+          "unit_correct": true
+        },
+        {
+          "reference": "一点二六四美元每片",
+          "expected_number": "1.264",
+          "expected_unit": "美元/片",
+          "category": "price",
+          "observed": "1.264美元每片",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0045W0403",
+      "group": "evaluation",
+      "reference": "与他一百九十厘米一百二十千克的魁梧身材不相符的快拳",
+      "output": "与他190厘米、120千克的魁梧身材不相符的快拳。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "一百九十厘米",
+          "expected_number": "190",
+          "expected_unit": "cm",
+          "category": "length",
+          "observed": "190厘米",
+          "number_correct": true,
+          "unit_correct": true
+        },
+        {
+          "reference": "一百二十千克",
+          "expected_number": "120",
+          "expected_unit": "kg",
+          "category": "mass",
+          "observed": "120千克",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [
+        {
+          "reference": "不相符",
+          "observed": "不相符",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0045W0487",
+      "group": "evaluation",
+      "reference": "微整形培训黑幕十三毫米针未消毒就插进太阳穴",
+      "output": "未整形培训黑木13毫米，针未消毒就插进太阳穴。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "十三毫米",
+          "expected_number": "13",
+          "expected_unit": "mm",
+          "category": "length",
+          "observed": "13毫米",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [
+        {
+          "reference": "未消毒",
+          "observed": "未消毒",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": [
+        "微整形被转成未整形，新增未字，标注为额外疑似否定；没有抵消原文未消毒保留的计分。"
+      ]
+    },
+    {
+      "id": "BAC009S0075W0338",
+      "group": "development",
+      "reference": "称重结束前不能饮水",
+      "output": "称政结束前不能饮水。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "不能",
+          "observed": "不能",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0075W0386",
+      "group": "development",
+      "reference": "注意双脚不要在一条直线",
+      "output": "注意双脚不要在一条直线。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "一条直线",
+          "expected_number": "1",
+          "expected_unit": "条",
+          "category": "count",
+          "observed": "一条",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [
+        {
+          "reference": "不要",
+          "observed": "不要",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0075W0388",
+      "group": "development",
+      "reference": "以脚掌向前蹭出三零厘米左右",
+      "output": "以脚掌向前蹭出30厘米左右。",
+      "directions": [
+        {
+          "reference": "向前蹭出",
+          "observed": "向前蹭出",
+          "correct": true
+        }
+      ],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "三零厘米",
+          "expected_number": "30",
+          "expected_unit": "cm",
+          "category": "length",
+          "observed": "30厘米",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0075W0390",
+      "group": "development",
+      "reference": "注意移动不能使用迈步动作",
+      "output": "注意移动，不能使用迈步动作。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [
+        {
+          "reference": "不能",
+          "observed": "不能",
+          "marker_correct": true,
+          "expression_correct": true
+        }
+      ],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0075W0392",
+      "group": "development",
+      "reference": "移动中各部位要相对固定",
+      "output": "移动中各部位要相对固定。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0340",
+      "group": "evaluation",
+      "reference": "侧闪移动是躲避对手进攻的利器",
+      "output": "侧闪移动是躲避对手进攻的利器。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0344",
+      "group": "evaluation",
+      "reference": "紧接着右脚以左脚为轴迅速向左滑动",
+      "output": "紧接着，右脚以左脚为轴，迅速向左滑动。",
+      "directions": [
+        {
+          "reference": "向左滑动",
+          "observed": "向左滑动",
+          "correct": true
+        }
+      ],
+      "body_sides": [
+        {
+          "reference": "右脚",
+          "observed": "右脚",
+          "correct": true
+        },
+        {
+          "reference": "左脚",
+          "observed": "左脚",
+          "correct": true
+        }
+      ],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0348",
+      "group": "evaluation",
+      "reference": "右脚向右横方向蹭出",
+      "output": "右脚向右横方向蹭出。",
+      "directions": [
+        {
+          "reference": "向右横方向",
+          "observed": "向右横方向",
+          "correct": true
+        }
+      ],
+      "body_sides": [
+        {
+          "reference": "右脚",
+          "observed": "右脚",
+          "correct": true
+        }
+      ],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0349",
+      "group": "evaluation",
+      "reference": "随后以髋部带动左脚向右侧滑动",
+      "output": "随后，以跨步带动左脚向右侧滑动。",
+      "directions": [
+        {
+          "reference": "向右侧滑动",
+          "observed": "向右侧滑动",
+          "correct": true
+        }
+      ],
+      "body_sides": [
+        {
+          "reference": "左脚",
+          "observed": "左脚",
+          "correct": true
+        }
+      ],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0353",
+      "group": "evaluation",
+      "reference": "步法练习左滑步接左侧闪步",
+      "output": "步伐练习左滑步接左侧闪步。",
+      "directions": [
+        {
+          "reference": "左滑步",
+          "observed": "左滑步",
+          "correct": true
+        },
+        {
+          "reference": "左侧闪步",
+          "observed": "左侧闪步",
+          "correct": true
+        }
+      ],
+      "body_sides": [],
+      "quantities": [],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    },
+    {
+      "id": "BAC009S0076W0355",
+      "group": "evaluation",
+      "reference": "四次移动后你会回到原先的位置",
+      "output": "4次移动后，你会回到原先的位置。",
+      "directions": [],
+      "body_sides": [],
+      "quantities": [
+        {
+          "reference": "四次",
+          "expected_number": "4",
+          "expected_unit": "次",
+          "category": "count",
+          "observed": "4次",
+          "number_correct": true,
+          "unit_correct": true
+        }
+      ],
+      "polarity": [],
+      "additional_direction_cues": 0,
+      "added_polarity_like_text": []
+    }
+  ],
+  "scores": {
+    "all": {
+      "direction": {
+        "correct": 7,
+        "total": 9
+      },
+      "body_side": {
+        "correct": 4,
+        "total": 4
+      },
+      "number": {
+        "correct": 12,
+        "total": 12
+      },
+      "unit": {
+        "correct": 12,
+        "total": 12
+      },
+      "quantity": {
+        "correct": 12,
+        "total": 12
+      },
+      "length_quantity": {
+        "correct": 6,
+        "total": 6
+      },
+      "negation_stop_marker": {
+        "correct": 10,
+        "total": 10
+      },
+      "negation_stop_expression": {
+        "correct": 10,
+        "total": 10
+      },
+      "additional_direction_cues": 1,
+      "extra_polarity_like_text_clips": 1
+    },
+    "development": {
+      "direction": {
+        "correct": 2,
+        "total": 3
+      },
+      "body_side": {
+        "correct": 0,
+        "total": 0
+      },
+      "number": {
+        "correct": 3,
+        "total": 3
+      },
+      "unit": {
+        "correct": 3,
+        "total": 3
+      },
+      "quantity": {
+        "correct": 3,
+        "total": 3
+      },
+      "length_quantity": {
+        "correct": 1,
+        "total": 1
+      },
+      "negation_stop_marker": {
+        "correct": 5,
+        "total": 5
+      },
+      "negation_stop_expression": {
+        "correct": 5,
+        "total": 5
+      },
+      "additional_direction_cues": 0,
+      "extra_polarity_like_text_clips": 0
+    },
+    "evaluation": {
+      "direction": {
+        "correct": 5,
+        "total": 6
+      },
+      "body_side": {
+        "correct": 4,
+        "total": 4
+      },
+      "number": {
+        "correct": 9,
+        "total": 9
+      },
+      "unit": {
+        "correct": 9,
+        "total": 9
+      },
+      "quantity": {
+        "correct": 9,
+        "total": 9
+      },
+      "length_quantity": {
+        "correct": 5,
+        "total": 5
+      },
+      "negation_stop_marker": {
+        "correct": 5,
+        "total": 5
+      },
+      "negation_stop_expression": {
+        "correct": 5,
+        "total": 5
+      },
+      "additional_direction_cues": 1,
+      "extra_polarity_like_text_clips": 1
+    }
+  },
+  "historical_whisper_scores": {
+    "beam1": {
+      "all": {
+        "direction": {
+          "correct": 7,
+          "total": 9
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 12,
+          "total": 12
+        },
+        "unit": {
+          "correct": 10,
+          "total": 12
+        },
+        "quantity": {
+          "correct": 10,
+          "total": 12
+        },
+        "length_quantity": {
+          "correct": 4,
+          "total": 6
+        },
+        "negation_stop_marker": {
+          "correct": 9,
+          "total": 10
+        },
+        "negation_stop_expression": {
+          "correct": 8,
+          "total": 10
+        },
+        "additional_direction_cues": 1
+      },
+      "development": {
+        "direction": {
+          "correct": 2,
+          "total": 3
+        },
+        "body_side": {
+          "correct": 0,
+          "total": 0
+        },
+        "number": {
+          "correct": 3,
+          "total": 3
+        },
+        "unit": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "length_quantity": {
+          "correct": 1,
+          "total": 1
+        },
+        "negation_stop_marker": {
+          "correct": 5,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 5,
+          "total": 5
+        },
+        "additional_direction_cues": 0
+      },
+      "evaluation": {
+        "direction": {
+          "correct": 5,
+          "total": 6
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 9,
+          "total": 9
+        },
+        "unit": {
+          "correct": 7,
+          "total": 9
+        },
+        "quantity": {
+          "correct": 7,
+          "total": 9
+        },
+        "length_quantity": {
+          "correct": 3,
+          "total": 5
+        },
+        "negation_stop_marker": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 3,
+          "total": 5
+        },
+        "additional_direction_cues": 1
+      }
+    },
+    "beam3": {
+      "all": {
+        "direction": {
+          "correct": 7,
+          "total": 9
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 12,
+          "total": 12
+        },
+        "unit": {
+          "correct": 11,
+          "total": 12
+        },
+        "quantity": {
+          "correct": 11,
+          "total": 12
+        },
+        "length_quantity": {
+          "correct": 5,
+          "total": 6
+        },
+        "negation_stop_marker": {
+          "correct": 9,
+          "total": 10
+        },
+        "negation_stop_expression": {
+          "correct": 8,
+          "total": 10
+        },
+        "additional_direction_cues": 1
+      },
+      "development": {
+        "direction": {
+          "correct": 2,
+          "total": 3
+        },
+        "body_side": {
+          "correct": 0,
+          "total": 0
+        },
+        "number": {
+          "correct": 3,
+          "total": 3
+        },
+        "unit": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "length_quantity": {
+          "correct": 1,
+          "total": 1
+        },
+        "negation_stop_marker": {
+          "correct": 5,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 5,
+          "total": 5
+        },
+        "additional_direction_cues": 0
+      },
+      "evaluation": {
+        "direction": {
+          "correct": 5,
+          "total": 6
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 9,
+          "total": 9
+        },
+        "unit": {
+          "correct": 8,
+          "total": 9
+        },
+        "quantity": {
+          "correct": 8,
+          "total": 9
+        },
+        "length_quantity": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_marker": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 3,
+          "total": 5
+        },
+        "additional_direction_cues": 1
+      }
+    }
+  },
+  "synthetic": [
+    {
+      "id": "transfer",
+      "reference": "把红色木块放到右边的工位",
+      "output": "把红色木块放到右干的工位。",
+      "task_words_preserved": false,
+      "notes": "右边变成右干，工位方向短语不完整，依赖后续澄清或规划。"
+    },
+    {
+      "id": "move",
+      "reference": "向左移动十二毫米",
+      "output": "向左移动12毫米。",
+      "task_words_preserved": true,
+      "notes": "中文与阿拉伯数字视为等价。缺单位的原句保留缺单位，否定原句保留不要。"
+    },
+    {
+      "id": "clarify",
+      "reference": "向前移动五",
+      "output": "向前移动5。",
+      "task_words_preserved": true,
+      "notes": "中文与阿拉伯数字视为等价。缺单位的原句保留缺单位，否定原句保留不要。"
+    },
+    {
+      "id": "negative",
+      "reference": "不要向前移动一厘米",
+      "output": "不要向前移动1厘米。",
+      "task_words_preserved": true,
+      "notes": "中文与阿拉伯数字视为等价。缺单位的原句保留缺单位，否定原句保留不要。"
+    }
+  ]
+}

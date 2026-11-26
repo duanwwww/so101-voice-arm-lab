@@ -223,7 +223,9 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
                 "watchdog_expired":link_fault is not None,
                 "quota":quotas, "local_approval":local_console(request), "campus_key":key_ready,
                 "planner_prompt_sha256":PLAN_PROMPT_SHA256,
-                "whisper_ready":access.voice_ready(), "last":latest,"server_ms":int(time.time()*1000)}
+                "asr_engine":access.asr_engine,"asr_model":access.asr_model,"asr_ready":access.voice_ready(),
+                "whisper_ready":all((access.whisper_dir / n).is_file() for n in ("model.bin","tokenizer.json","config.json")),
+                "last":latest,"server_ms":int(time.time()*1000)}
 
     @app.get("/api/scenarios")
     async def scenarios():
@@ -484,7 +486,7 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
             raise HTTPException(400,"请选择 1 字节到 4 MiB 的短口令录音。")
         async with asr_lock:
             txt = await asyncio.to_thread(access.transcribe,audio,approved_once=once)
-        return {"text":txt,"model":"Systran/faster-whisper-small"}
+        return {"text":txt,"model":access.asr_model,"engine":access.asr_engine}
 
     @app.post("/api/speak")
     async def speak(request:Request, receipt_id:UUID|None=None):

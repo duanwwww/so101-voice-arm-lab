@@ -201,6 +201,7 @@ def exercise(page, url, samples, draft_reference, events):
 
 def run(out, use_whisper=False):
     sound, access, events = short_wav(), ModelAccess(), []
+    access.asr_engine = "whisper"
     draft = REAL_MOVE if use_whisper else DRAFT
     turns = (PROHIBIT, QUERY, draft, PAUSE, RESUME)
     phrases = iter(turns)

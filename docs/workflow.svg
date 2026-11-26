@@ -15,16 +15,16 @@
 <path d="M 1210 244 V 215" fill="none" stroke="#007d72" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#g)"/>
 <rect x="78" y="244" width="660" height="158" rx="13" fill="#fff" stroke="#c9d7dc"/>
 <rect x="80" y="260" width="5" height="126" rx="2" fill="#245d9c" stroke="none"/>
-<text x="102" y="281" font-size="28" font-weight="700" fill="#172f43">语音转文本  ·  Whisper Small</text>
-<text x="102" y="315" font-size="20" font-weight="400" fill="#466271">本机中文转写，操作者可修改后发送。</text>
-<text x="102" y="346" font-size="21" font-weight="700" fill="#245d9c">AISHELL-1 留出朗读，beam=1 时整句对 3/15。</text>
-<text x="102" y="377" font-size="20" font-weight="400" fill="#466271">改进　发令前核对方向、数值、单位、否定词。</text>
+<text x="102" y="281" font-size="28" font-weight="700" fill="#172f43">语音转文本  ·  SenseVoiceSmall INT8</text>
+<text x="102" y="315" font-size="20" font-weight="400" fill="#466271">本机 CPU 中文转写，四线程，录音最长 30 秒。</text>
+<text x="102" y="346" font-size="21" font-weight="700" fill="#245d9c">15 段组内留出，整句对 6/15，字符错误率 13.39%。</text>
+<text x="102" y="377" font-size="20" font-weight="400" fill="#466271">改进　方向仍有误听，发令前核对关键量词。</text>
 <rect x="866" y="244" width="660" height="158" rx="13" fill="#fff" stroke="#c9d7dc"/>
 <rect x="868" y="260" width="5" height="126" rx="2" fill="#007d72" stroke="none"/>
 <text x="890" y="281" font-size="28" font-weight="700" fill="#172f43">桌面感知  ·  固定相机与 OpenCV</text>
 <text x="890" y="315" font-size="20" font-weight="400" fill="#466271">HSV 提取红块，估计工位与底座平面坐标。</text>
 <text x="890" y="346" font-size="21" font-weight="700" fill="#007d72">100 张标注实拍中，唯一且框对红块 67/100。</text>
-<text x="890" y="377" font-size="20" font-weight="400" fill="#466271">改进　限定工作区，以尺寸或标记核验目标。</text>
+<text x="890" y="377" font-size="20" font-weight="400" fill="#466271">改进　限定工作区与目标尺寸；贴纸留作备选。</text>
 <path d="M 405 402 V 443" fill="none" stroke="#245d9c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#b)"/>
 <path d="M 1196 402 V 647" fill="none" stroke="#007d72" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#g)"/>
 <text x="1220" y="508" font-size="19" font-weight="700" fill="#007d72">可见物体、工位</text>
@@ -85,10 +85,11 @@
 <text x="80" y="1299" font-size="20" font-weight="700" fill="#985421">橙线回到用户</text>
 <text x="240" y="1299" font-size="20" font-weight="400" fill="#466271">本地状态、规划追问和最终回执返回同一页面。执行失败结束当前序列，用户可在原场地重新发令。</text>
 <rect x="78" y="1344" width="1448" height="148" rx="14" fill="#16394c" stroke="none"/>
-<text x="102" y="1391" font-size="27" font-weight="700" fill="#fff">整链抽查</text>
-<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">10/12</text>
-<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">12 条预选留出文本  →  真实模型回复重放  →  生产控制校验  →  MuJoCo 与 OpenCV</text>
-<text x="310" y="1436" font-size="21" font-weight="400" fill="#d8e8e8">7/9 条动作达到物理目标，3/3 条追问在原位给出。各节点使用不同样本，分数不能连乘。</text>
+<text x="102" y="1391" font-size="27" font-weight="700" fill="#fff">语音链路</text>
+<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">3/4</text>
+<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">4 条合成录音 → SenseVoice → 本地规则 → 控制校验 → MuJoCo / 相机 / 回执</text>
+<text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">1 次运动、2 次原位处理；“右干”导致搬运追问。历史文本与模型回复重放为 10/12。</text>
+<text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">另测明确补答 B 后搬运完成，原场地保留；补答由测试模拟用户提供。</text>
 <text x="79" y="1527" font-size="18" font-weight="400" fill="#466271">数据来自本组课程实验记录。实拍感知、公开真人朗读、文本留出与仿真运动分别计分。</text>
 <path d="M 405 1030 V 1091" fill="none" stroke="#985421" stroke-width="3" marker-end="url(#o)"/>
 <text x="424" y="1071" font-size="18" font-weight="700" fill="#985421">未通过，给出原因</text>

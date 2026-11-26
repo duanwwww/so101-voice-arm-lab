@@ -308,7 +308,20 @@ def offline_reply(previous, answer):
             return replace(original,source="")
     if m := re.fullmatch(SLOT, short):
         if "哪个工位" in previous["question"]:
-            return local_intent(re.sub(r"(?:过去|走|一下|到哪里|到哪儿|到哪|到|$)$", "", previous["command"], count=1)
+            # A station answer replaces an unresolved destination noun phrase.
+            # Keep the original transfer prefix and source; do not discard a second action.
+            prefix = re.match(OBJECT + SEND, old_command)
+            if prefix:
+                destination = old_command[prefix.end():]
+                label = re.fullmatch(r"[\u4e00-\u9fff]*(?:工位|区域|位置)", destination)
+                extra_action = re.search(
+                    rf"{NUMBER}|{SEND}|{TAKE}|然后|接着|随后|最后|再|并|转|停|不要|不能|不许|别",
+                    destination)
+                if label and not extra_action:
+                    proposal = local_intent(old_command[:prefix.end()] + m[1] + "区")
+                    if proposal.kind == "transfer":
+                        return proposal
+            return local_intent(re.sub(r"(?:过去|走|一下|到哪里|到哪儿|到哪|到|$)$", "", old_command, count=1)
                                 + "到" + m[1] + "区")
     if re.fullmatch(NUMBER + r"(?:度|°|厘米|毫米|公分|mm|cm|m|米)", short):
         old = re.sub(r"(?:几度|几厘米|多少(?:度|厘米|毫米)?|一点(?:点)?|一下|[？?。])+$", "", previous["command"])

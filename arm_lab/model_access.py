@@ -13,6 +13,7 @@ import httpx
 from dotenv import dotenv_values
 
 from .planner import ask, check_command_match, check_steps, classify_control_text, decode_model_plan, local_intent, missing_motion_unit
+from .sensevoice import DEFAULT_MODEL_DIR, MODEL_ID as SENSEVOICE_MODEL_ID, SenseVoiceRecognizer, model_ready, prepare_model
 
 
 class ModelDenied(Exception):
@@ -76,6 +77,10 @@ class ModelAccess:
         self.remaining = {"asr":0,"deepseek":0,"tts":0}
         self.used = dict(self.remaining)
         self.lock = Lock()
+        self.asr_lock = Lock()
+        self.asr_engine = "sensevoice"
+        self.sensevoice_dir = DEFAULT_MODEL_DIR
+        self.sensevoice = None
         self.whisper_dir = Path(__file__).resolve().parents[1] / "outputs" / "models" / "faster-whisper-small"
         self.whisper = None
 
@@ -159,10 +164,32 @@ class ModelAccess:
             raise ModelFailure("交大 DeepSeek 回复不完整或未返回有效 JSON。") from exc
 
     def voice_ready(self):
+        if self.asr_engine == "sensevoice":
+            return model_ready(self.sensevoice_dir)
         return all((self.whisper_dir / name).is_file() for name in ("model.bin","tokenizer.json","config.json"))
+
+    @property
+    def asr_model(self):
+        return SENSEVOICE_MODEL_ID if self.asr_engine == "sensevoice" else "Systran/faster-whisper-small"
 
     def transcribe(self, audio, *, approved_once=False):
         self.consume("asr", approved_once)
+        with self.asr_lock:
+            if self.asr_engine == "sensevoice":
+                try:
+                    if self.sensevoice is None:
+                        prepare_model(self.sensevoice_dir, allow_download=approved_once)
+                        self.sensevoice = SenseVoiceRecognizer(self.sensevoice_dir)
+                    return self.sensevoice.transcribe(audio)
+                except ValueError as exc:
+                    raise ModelFailure(str(exc)) from exc
+                except Exception as exc:
+                    raise ModelFailure("SenseVoice 转写失败，请检查模型文件、录音和 voice 依赖。") from exc
+            if self.asr_engine != "whisper":
+                raise ModelFailure("未知的语音识别引擎。")
+            return self._transcribe_whisper(audio, approved_once)
+
+    def _transcribe_whisper(self, audio, approved_once):
         path = self.whisper_dir
         if not self.voice_ready():
             if not approved_once:

@@ -1,0 +1,13 @@
+{
+  "stage": "first_native_model_load",
+  "local_transcriptions_completed": 0,
+  "cloud_calls": 0,
+  "sherpa_onnx": "1.12.40",
+  "installed_onnxruntime_python_package": "1.32.0",
+  "process_exit_code": 1,
+  "stderr": "The requested API version [24] is not available, only API versions [1, 17] are supported in this build. Current ORT Version is: 1.17.1",
+  "diagnosis": "Windows loaded an older ONNX Runtime DLL than the Python package supplied.",
+  "validated_recovery": "Load the verified installed onnxruntime/capi/onnxruntime.dll by absolute path before importing sherpa_onnx. The same pinned model then constructed successfully. No Windows PATH or system DLL changes.",
+  "related_first_flow_attempt": "flow_initial_load_failure.json",
+  "scope_note": "The first benchmark load and a separate first end-to-end load both exited before producing a transcript. This record concerns the benchmark; the separate flow journal preserves its started request."
+}

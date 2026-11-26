@@ -233,6 +233,7 @@ def run(mode, out, audio_dir, audio_source):
                       "whisper":{"model":asr.MODEL_REPO,"revision":asr.MODEL_REV,"beam":1,"device":"CPU int8","language":"zh"},
                       "prompts":spec["prompts"],"audio":{},"trials":[],"asr_attempts":0,"campus_attempts":0,"mock_requests":0}
         access = TrialAccess()
+        access.asr_engine = "whisper"
         access.report, access.mock, access.persist = report, mock, lambda:save(out,report)
         access.persist()
         if mock:

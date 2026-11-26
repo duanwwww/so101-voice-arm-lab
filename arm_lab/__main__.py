@@ -31,6 +31,8 @@ def main():
         p.add_argument("--layout",choices=LAYOUTS,default="A")
         p.add_argument("--deepseek-budget",type=int,default=0)
     serve.add_argument("--asr-budget",type=int,default=0)
+    serve.add_argument("--asr-engine",choices=("sensevoice","whisper"),help="默认 sensevoice；仅提供旧 --whisper-dir 时兼容选择 whisper")
+    serve.add_argument("--sensevoice-dir",type=Path)
     serve.add_argument("--whisper-dir",type=Path)
     serve.add_argument("--tts-budget",type=int,default=0)
     args=parser.parse_args()
@@ -70,12 +72,22 @@ def main():
         finally:
             sim.close()
         return 0
+    if args.sensevoice_dir and args.whisper_dir:
+        parser.error("请只指定所选引擎的模型目录。")
+    access.asr_engine = args.asr_engine or ("whisper" if args.whisper_dir else "sensevoice")
+    if args.whisper_dir:
+        if access.asr_engine != "whisper":
+            parser.error("--whisper-dir 需要 --asr-engine whisper。")
+        access.whisper_dir = args.whisper_dir.resolve()
+    if args.sensevoice_dir:
+        if access.asr_engine != "sensevoice":
+            parser.error("--sensevoice-dir 需要 --asr-engine sensevoice。")
+        access.sensevoice_dir = args.sensevoice_dir.resolve()
     if args.asr_budget:
-        if not args.whisper_dir or not (args.whisper_dir/"model.bin").is_file():
-            parser.error("ASR 需要显式指定已准备好的本地 --whisper-dir。")
-        access.whisper_dir=args.whisper_dir.resolve()
+        if not access.voice_ready():
+            parser.error("ASR 预算需要已准备好的本地权重。SenseVoice 可先运行 python -m arm_lab.sensevoice --approve-download。")
         access.authorize("asr",args.asr_budget,
-                         f"本机 CPU 读取录音及权重 {access.whisper_dir}，模型 Systran/faster-whisper-small，无云 API 费用。")
+                         f"本机 CPU 读取录音，模型 {access.asr_model}，无云 API 费用。")
     if args.tts_budget:
         access.authorize("tts",args.tts_budget,
                          "经 edge-tts 向微软在线服务发送最近一条回执文本，音色 zh-CN-XiaoxiaoNeural。")

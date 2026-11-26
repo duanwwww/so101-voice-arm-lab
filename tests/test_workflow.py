@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 import numpy as np
 
 from arm_lab.model_access import ModelAccess, ModelDenied
-from arm_lab.planner import decode_model_plan, local_intent
+from arm_lab.planner import decode_model_plan, local_intent, offline_reply
 from arm_lab.vision import detect
 from arm_lab.scene import STATIONS
 from arm_lab.simulator import Simulator
@@ -17,6 +17,22 @@ from arm_lab.web import create_app
 
 
 class ParsingTests(unittest.TestCase):
+    def test_station_answer_replaces_unresolved_label_without_dropping_other_actions(self):
+        question = "要把木块放到哪个工位？请回复 A、B 或 C。"
+        for text, source in (("把红色木块放到右干的工位。",""),
+                             ("从 A 区把木块搬到右面的未知工位。","A"),
+                             ("把木块搬过去。","")):
+            with self.subTest(text=text):
+                intent = offline_reply({"command":text,"question":question},"B")
+                self.assertEqual((intent.kind,intent.source,intent.target),("transfer",source,"B"))
+        for text in ("把木块放到右干的工位，再向左移动五毫米。",
+                     "把木块放到右边再抓工位。",
+                     "不要把木块放到右干的工位。",
+                     "把木块放到右边五厘米的工位。",
+                     "给这个积木换个家。"):
+            with self.subTest(text=text):
+                self.assertEqual(offline_reply({"command":text,"question":question},"B").kind,"ask")
+
     def test_cloud_pilot_without_credential_makes_zero_requests(self):
         from arm_lab.deepseek_pilot import run_pilot
         with TemporaryDirectory() as folder, patch.dict("os.environ",{"SJTU_DEEPSEEK_API_KEY":"","DASHSCOPE_API_KEY":"other-provider"}, clear=True), \

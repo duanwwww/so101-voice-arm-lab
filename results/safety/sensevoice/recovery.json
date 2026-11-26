@@ -1,0 +1,882 @@
+{
+  "mode": "real_local_sensevoice_then_local_rules_with_explicit_clarification",
+  "audio_source": "Existing Windows offline TTS recording, transfer.wav",
+  "reference": "把红色木块放到右边的工位",
+  "audio_sha256": "4c7aa40039f05622a11b500fa5b08b47f9cd4435104f688f53f286da285dba9b",
+  "clarification_answer": "B",
+  "clarification_source": "Test-supplied simulated human confirmation from the reference goal; not automatically inferred or counted as unedited ASR correctness.",
+  "scene_resets": 0,
+  "cloud_calls": 0,
+  "turns": [
+    {
+      "turn": 1,
+      "command": {
+        "id": "f7a26cd1-0132-4400-a7dd-e38cee7f31eb",
+        "text": "把红色木块放到右干的工位。",
+        "revision": 0,
+        "issued_at_ms": 1795698877786,
+        "watchdog_token": "226acbd2-c5cf-4ca6-bb29-2902930010a0",
+        "use_deepseek": false
+      },
+      "frames": [
+        {
+          "phase": "before",
+          "image": "turn1-before.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "image": "turn1-after.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "source": "unedited_new_asr",
+      "successful_monitor_renewals": 1,
+      "http_status": 200,
+      "receipt": {
+        "text": "把红色木块放到右干的工位。",
+        "planner": "rules",
+        "intent": {
+          "kind": "ask",
+          "axis": "",
+          "amount": 0,
+          "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.029,
+        "clarification": {
+          "command": "把红色木块放到右干的工位。",
+          "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+        },
+        "id": "f7a26cd1-0132-4400-a7dd-e38cee7f31eb",
+        "revision": 1
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.6,
+          -192.7,
+          164.4
+        ],
+        "sim_seconds": 0.45,
+        "backend": "MuJoCo",
+        "revision": 1,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 0,
+          "deepseek": 0,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": false,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "把红色木块放到右干的工位。",
+          "planner": "rules",
+          "intent": {
+            "kind": "ask",
+            "axis": "",
+            "amount": 0,
+            "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+            "source": "",
+            "target": "",
+            "steps": []
+          },
+          "before": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "plan": [],
+          "steps": [],
+          "status": "clarify",
+          "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+          "after": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "phases": [
+            "before",
+            "after"
+          ],
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": null,
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": []
+          },
+          "measurement": {},
+          "wall_seconds": 0.029,
+          "clarification": {
+            "command": "把红色木块放到右干的工位。",
+            "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+          },
+          "id": "f7a26cd1-0132-4400-a7dd-e38cee7f31eb",
+          "revision": 1
+        },
+        "server_ms": 1795698877917
+      }
+    },
+    {
+      "turn": 2,
+      "command": {
+        "id": "41d72cc7-3902-49a6-a4d5-636f2b030352",
+        "text": "B",
+        "revision": 1,
+        "issued_at_ms": 1795698877923,
+        "watchdog_token": "30ea997d-bef2-434f-99c5-50d7b792178d",
+        "use_deepseek": false,
+        "reply_to": "f7a26cd1-0132-4400-a7dd-e38cee7f31eb"
+      },
+      "frames": [
+        {
+          "phase": "before",
+          "image": "turn2-before.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "image": "turn2-after.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "source": "test_supplied_human_confirmation",
+      "successful_monitor_renewals": 1,
+      "http_status": 200,
+      "receipt": {
+        "text": "B",
+        "planner": "rules",
+        "intent": {
+          "kind": "ask",
+          "axis": "",
+          "amount": 0,
+          "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.03,
+        "clarification": {
+          "command": "把红色木块放到右干的工位。；补充：B",
+          "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+        },
+        "id": "41d72cc7-3902-49a6-a4d5-636f2b030352",
+        "revision": 2
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.6,
+          -192.7,
+          164.4
+        ],
+        "sim_seconds": 0.45,
+        "backend": "MuJoCo",
+        "revision": 2,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 0,
+          "deepseek": 0,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": false,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "B",
+          "planner": "rules",
+          "intent": {
+            "kind": "ask",
+            "axis": "",
+            "amount": 0,
+            "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+            "source": "",
+            "target": "",
+            "steps": []
+          },
+          "before": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "plan": [],
+          "steps": [],
+          "status": "clarify",
+          "message": "要把木块放到哪个工位？请回复 A、B 或 C。",
+          "after": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "phases": [
+            "before",
+            "after"
+          ],
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": null,
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": []
+          },
+          "measurement": {},
+          "wall_seconds": 0.03,
+          "clarification": {
+            "command": "把红色木块放到右干的工位。；补充：B",
+            "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+          },
+          "id": "41d72cc7-3902-49a6-a4d5-636f2b030352",
+          "revision": 2
+        },
+        "server_ms": 1795698878050
+      }
+    }
+  ],
+  "status": "complete",
+  "before": {
+    "block": {
+      "xyz_m": [
+        0.215,
+        0.077,
+        0.046874
+      ],
+      "contacts": [
+        "desk"
+      ],
+      "inside_C": false,
+      "inside": "A",
+      "time_s": 0.45
+    },
+    "joints": [
+      0.8199999999999424,
+      -0.6497298351504865,
+      0.6204453751865276,
+      0.4201096695781005,
+      -5.25528605201917e-08,
+      0.5699964861812397
+    ],
+    "tcp_mm": [
+      218.58777459893986,
+      -192.65968691866308,
+      164.35704844725075
+    ]
+  },
+  "asr": {
+    "http_status": 200,
+    "response": {
+      "text": "把红色木块放到右干的工位。",
+      "model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+      "engine": "sensevoice"
+    },
+    "seconds_including_lazy_model_load": 2.553
+  },
+  "checks": {
+    "asked_before_motion": true,
+    "reply_linked_to_question": true,
+    "no_scene_reset": true,
+    "successful_second_turn": false,
+    "physical_B_on_desk_three_times": false
+  },
+  "passed": false,
+  "asr_calls": 1,
+  "after": {
+    "block": {
+      "xyz_m": [
+        0.215,
+        0.077,
+        0.046874
+      ],
+      "contacts": [
+        "desk"
+      ],
+      "inside_C": false,
+      "inside": "A",
+      "time_s": 0.45
+    },
+    "joints": [
+      0.8199999999999424,
+      -0.6497298351504865,
+      0.6204453751865276,
+      0.4201096695781005,
+      -5.25528605201917e-08,
+      0.5699964861812397
+    ],
+    "tcp_mm": [
+      218.58777459893986,
+      -192.65968691866308,
+      164.35704844725075
+    ]
+  }
+}
