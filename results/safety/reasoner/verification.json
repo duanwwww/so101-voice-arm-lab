@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-26",
+  "scope": "Software regression with mocked model interfaces; not ASR or LLM accuracy",
+  "kinematics": "standalone",
+  "command": "uv run --frozen --extra voice --extra data python -m unittest discover -s tests -v",
+  "tests_run": 129,
+  "seconds": 39.866,
+  "exit_code": 0,
+  "status": "passed",
+  "real_model_calls": 0,
+  "log": "regression.txt",
+  "log_redaction": "User-specific temporary directory prefix replaced with <TEMP>; test results unchanged",
+  "browser_reports": ["browser.json", "browser_live_voice.json"],
+  "browser_model_mode": "In-memory ASR and planner fixtures; actual MuJoCo and headless Microsoft Edge"
+}

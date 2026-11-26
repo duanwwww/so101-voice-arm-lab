@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import sys
 
-from .model_access import DEEPSEEK_ENDPOINT, DEEPSEEK_MODEL, PLAN_MAX_TOKENS, ModelAccess, ModelDenied, ModelFailure
+from .model_access import DEEPSEEK_ENDPOINT, DEEPSEEK_MODEL, PLAN_MAX_TOKENS, WEB_PLANNER_MODEL, ModelAccess, ModelDenied, ModelFailure
 from .scene import LAYOUTS
 
 
@@ -29,12 +29,10 @@ def main():
     for p in (one,serve):
         p.add_argument("--keepouts",type=Path,help="按底座坐标系和米登记的固定障碍 JSON")
         p.add_argument("--layout",choices=LAYOUTS,default="A")
-        p.add_argument("--deepseek-budget",type=int,default=0)
-    serve.add_argument("--asr-budget",type=int,default=0)
+    one.add_argument("--deepseek-budget",type=int,default=0)
     serve.add_argument("--asr-engine",choices=("sensevoice","whisper"),help="默认 sensevoice；仅提供旧 --whisper-dir 时兼容选择 whisper")
     serve.add_argument("--sensevoice-dir",type=Path)
     serve.add_argument("--whisper-dir",type=Path)
-    serve.add_argument("--tts-budget",type=int,default=0)
     args=parser.parse_args()
     if args.mode=="evaluate-real":
         from .real_data import evaluate_real
@@ -54,8 +52,8 @@ def main():
         from .evaluate import evaluate
         report=evaluate(args.out)
         return int(report["passed"]!=report["total"])
-    access=ModelAccess()
-    if args.deepseek_budget:
+    access=ModelAccess(planner_model=WEB_PLANNER_MODEL if args.mode=="serve" else DEEPSEEK_MODEL)
+    if args.mode=="run" and args.deepseek_budget:
         access.authorize("deepseek",args.deepseek_budget,
                          f"上海交通大学 {DEEPSEEK_MODEL}（{DEEPSEEK_ENDPOINT}），发送口令和工位摘要，"
                          f"每次最多输出 {PLAN_MAX_TOKENS} tokens，使用校方分配的配额。")
@@ -83,14 +81,6 @@ def main():
         if access.asr_engine != "sensevoice":
             parser.error("--sensevoice-dir 需要 --asr-engine sensevoice。")
         access.sensevoice_dir = args.sensevoice_dir.resolve()
-    if args.asr_budget:
-        if not access.voice_ready():
-            parser.error("ASR 预算需要已准备好的本地权重。SenseVoice 可先运行 python -m arm_lab.sensevoice --approve-download。")
-        access.authorize("asr",args.asr_budget,
-                         f"本机 CPU 读取录音，模型 {access.asr_model}，无云 API 费用。")
-    if args.tts_budget:
-        access.authorize("tts",args.tts_budget,
-                         "经 edge-tts 向微软在线服务发送最近一条回执文本，音色 zh-CN-XiaoxiaoNeural。")
     import uvicorn
     from .web import create_app
     uvicorn.run(create_app(access,args.layout,keepouts=args.keepouts),host=args.host,port=args.port)

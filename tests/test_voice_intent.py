@@ -60,7 +60,7 @@ class VoiceControlTests(unittest.TestCase):
         from fastapi.testclient import TestClient
         from arm_lab.web import create_app
         access = ModelAccess()
-        with TestClient(create_app(access,layout="A",playback_speed=0)) as client, patch.object(access,"plan") as model:
+        with TestClient(create_app(access,layout="A",playback_speed=0, allow_local_rules=True)) as client, patch.object(access,"plan") as model:
             def send(text, cloud=False, prior=None):
                 rev = client.get("/api/state").json()["revision"]
                 response = client.post("/api/commands",json={"id":str(uuid4()),"watchdog_token":str(uuid4()),

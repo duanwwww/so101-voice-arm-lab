@@ -43,7 +43,7 @@ def run(out):
     access.remaining["asr"]=1
     persist()
     with exclusive(out.with_suffix(".lock")), ExitStack() as stack:
-        app=create_app(access,layout="A",playback_speed=0)
+        app=create_app(access,layout="A",playback_speed=0,allow_local_rules=True)
         client=stack.enter_context(TestClient(app,base_url="http://127.0.0.1",client=("127.0.0.1",55555)))
         worker=stack.enter_context(ThreadPoolExecutor(1))
         report["before"]=physical_snapshot(app.state.sim)

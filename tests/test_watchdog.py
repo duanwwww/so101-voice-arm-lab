@@ -24,7 +24,7 @@ class WatchdogTests(unittest.TestCase):
                 raise TimeoutError("Test planner was never released")
             return Intent("move", "x", 10)
 
-        with TestClient(create_app(access, playback_speed=0, watchdog_seconds=.25)) as client, \
+        with TestClient(create_app(access, playback_speed=0, watchdog_seconds=.25, allow_local_rules=True)) as client, \
                 ThreadPoolExecutor(1) as worker, patch.object(access, "plan", side_effect=delayed_plan):
             before = client.get("/api/state").json()
             body = dict(id=str(uuid4()), watchdog_token=str(uuid4()), text="向前移动一厘米",
@@ -47,7 +47,7 @@ class WatchdogTests(unittest.TestCase):
             self.assertEqual(client.get("/api/state").json()["sim_seconds"], before["sim_seconds"])
 
     def test_remote_command_without_a_distinct_token_never_starts(self):
-        with TestClient(create_app(playback_speed=0)) as client:
+        with TestClient(create_app(playback_speed=0, allow_local_rules=True)) as client:
             key = str(uuid4())
             body = dict(id=key, text="向前移动一厘米", revision=0, issued_at_ms=int(time.time()*1000))
             self.assertEqual(client.post("/api/commands", json=body).status_code,422)

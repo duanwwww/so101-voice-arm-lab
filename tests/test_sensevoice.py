@@ -111,12 +111,12 @@ class SenseVoiceTests(unittest.TestCase):
 
         access = ModelAccess()
         with patch.object(access, "transcribe", return_value="不要向前移动"), \
-             TestClient(create_app(access, "A"), base_url="http://127.0.0.1:8768",
+             TestClient(create_app(access, "A", allow_local_rules=True), base_url="http://127.0.0.1:8768",
                         client=("127.0.0.1", 1234)) as client:
             state = client.get("/api/state").json()
             self.assertEqual(state["asr_engine"], "sensevoice")
             self.assertEqual(state["asr_model"], sensevoice.MODEL_ID)
-            headers = {"Origin": "http://127.0.0.1:8768", "X-Arm-Approval": "asr"}
+            headers = {"Origin": "http://127.0.0.1:8768"}
             result = client.post("/api/transcribe", files={"file": ("test.wav", b"dummy", "audio/wav")},
                                  headers=headers).json()
             self.assertEqual((result["text"], result["engine"], result["model"]),

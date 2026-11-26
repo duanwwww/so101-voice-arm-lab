@@ -94,12 +94,12 @@ class WebTests(unittest.TestCase):
         self.assertTrue(held["holding"])
         self.assertTrue(all("xy_mm" not in item for item in held["objects"]))
 
-    def test_camera_command_dedup_stale_and_approval(self):
+    def test_camera_command_dedup_stale_and_removed_speech_routes(self):
         access=ModelAccess()
-        with TestClient(create_app(access,playback_speed=0)) as c:
+        with TestClient(create_app(access,playback_speed=0, allow_local_rules=True)) as c:
             self.assertEqual(c.get("/").status_code,200)
             state=c.get("/api/state").json()
-            self.assertEqual(state["quota"], {"asr":0,"deepseek":0,"tts":0})
+            self.assertNotIn("quota",state)
             self.assertEqual(state["scene"]["objects"][0]["slot"],"A")
             self.assertTrue(c.get("/camera.jpg").content.startswith(b"\xff\xd8"))
             body={"id":str(uuid4()),"watchdog_token":str(uuid4()),"text":"向前移动五厘米","revision":state["revision"],"use_qwen":False,
@@ -113,9 +113,8 @@ class WebTests(unittest.TestCase):
             fresh={**body,"id":str(uuid4()),"revision":first.json()["revision"]}
             self.assertEqual(c.post("/api/commands",json={**fresh,"issued_at_ms":1}).status_code,409)
             self.assertEqual(c.post("/api/commands",json={**fresh,"use_qwen":True}).status_code,422)
-            self.assertEqual(c.post("/api/commands",json={**fresh,"use_deepseek":True}).status_code,403)
-            self.assertEqual(c.post("/api/transcribe",files={"file":("a.wav",b"sample","audio/wav")}).status_code,403)
-            self.assertEqual(c.post("/api/speak").status_code,403)
+            self.assertEqual(c.post("/api/speak").status_code,404)
+            self.assertEqual(c.post("/api/feedback").status_code,404)
             self.assertEqual(sum(access.used.values()),0)
             self.assertEqual(c.post("/api/reset",json={"layout":"B"}).status_code,200)
             self.assertEqual(c.get("/api/state").json()["scene"]["objects"][0]["slot"],"B")

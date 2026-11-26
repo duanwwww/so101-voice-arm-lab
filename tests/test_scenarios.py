@@ -27,7 +27,7 @@ class ScenarioTests(unittest.TestCase):
                 np.testing.assert_allclose(image,frame,rtol=0,atol=1)
 
     def test_api_lists_and_selects_the_same_scenes(self):
-        with TestClient(create_app(playback_speed=0)) as c:
+        with TestClient(create_app(playback_speed=0, allow_local_rules=True)) as c:
             listing=c.get("/api/scenarios").json()
             self.assertEqual([r["id"] for r in listing],list(LAYOUTS))
             self.assertTrue(all(r["command"] for r in listing))

@@ -1,23 +1,17 @@
 """Exercise mid-task voice turns in Edge against a private loopback MuJoCo server."""
 import argparse
-import asyncio
-from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
-import socket
 import sys
-from threading import Thread
 import time
 from unittest.mock import patch
 
 from playwright.sync_api import expect, sync_playwright
-import uvicorn
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from arm_lab.model_access import ModelAccess
-from arm_lab.web import create_app
-from browser_diagram import short_wav
+from browser_fixtures import BrowserFixtureAccess, assert_simple_console, server_at_random_port, short_wav
 
 
 PROHIBIT = "不要向前移动一厘米"
@@ -32,27 +26,6 @@ REAL_AUDIO = {
     PROHIBIT: ("negative.wav", "7c3148c14821d482208eb87d5062e918801925d761d430c1ce1996b11a685944"),
     REAL_MOVE: ("move.wav", "f7783322eaeb544f1e39a5a567b7e7662e8a54175efd55f399482a876601f911"),
 }
-
-
-@contextmanager
-def server_at_random_port(access, playback):
-    app = create_app(access, "B", playback_speed=playback)
-    with socket.socket() as sock:
-        sock.bind(("127.0.0.1", 0))
-        sock.listen()
-        server = uvicorn.Server(uvicorn.Config(app, log_level="warning"))
-        thread = Thread(target=lambda: asyncio.run(server.serve(sockets=[sock])), daemon=True)
-        thread.start()
-        try:
-            for _ in range(150):
-                if server.started:
-                    break
-                time.sleep(0.1)
-            assert server.started, "test server failed to start"
-            yield f"http://127.0.0.1:{sock.getsockname()[1]}"
-        finally:
-            server.should_exit = True
-            thread.join(12)
 
 
 def exercise(page, url, samples, draft_reference, events):
@@ -75,7 +48,7 @@ def exercise(page, url, samples, draft_reference, events):
     entry, send = page.locator("#entry"), page.locator("#send")
     expect(page.locator("#mode")).to_contain_text("已连接")
     expect(page.locator("#vision")).to_contain_text("红块 · B")
-    page.locator("#planner").select_option("local")
+    assert_simple_console(page)
 
     def state():
         return page.request.get(url + "/api/state").json()
@@ -91,11 +64,9 @@ def exercise(page, url, samples, draft_reference, events):
 
     def upload(reference):
         expect(page.locator("#audiofile")).to_be_enabled()
-        page.locator("#audiofile").set_input_files(
-            {"name": "input.wav", "mimeType": "audio/wav", "buffer": samples[reference]})
-        expect(page.locator("#approveTitle")).to_contain_text("转写")
         with page.expect_response(lambda r: r.url.endswith("/api/transcribe"), timeout=60000) as upload_result:
-            page.locator("#approveYes").click()
+            page.locator("#audiofile").set_input_files(
+                {"name": "input.wav", "mimeType": "audio/wav", "buffer": samples[reference]})
         assert upload_result.value.ok, upload_result.value.text()
         text = upload_result.value.json()["text"]
         expect(entry).to_have_value(text)
@@ -200,29 +171,31 @@ def exercise(page, url, samples, draft_reference, events):
 
 
 def run(out, use_whisper=False):
-    sound, access, events = short_wav(), ModelAccess(), []
-    access.asr_engine = "whisper"
+    events, planner_events = [], []
+    sound, access = short_wav(), BrowserFixtureAccess(planner_events)
+    if use_whisper:
+        access.asr_engine = "whisper"
     draft = REAL_MOVE if use_whisper else DRAFT
     turns = (PROHIBIT, QUERY, draft, PAUSE, RESUME)
     phrases = iter(turns)
     samples = dict.fromkeys(turns, sound)
     playback = 0.05 if use_whisper else PLAYBACK
-    report = {"status": "started", "input_mode": "browser WAV uploads with per-turn consent",
+    report = {"status": "started", "input_mode": "browser WAV uploads without approval dialogs",
               "playback_speed": playback, "real_model_calls": 0, "online_model_calls": 0,
               "local_whisper_attempts": [], "transcript_fixture_turns": []}
     out.parent.mkdir(parents=True, exist_ok=True)
     if use_whisper:
-        if not access.voice_ready():
+        if not ModelAccess.voice_ready(access):
             raise RuntimeError("The downloaded local Whisper Small weights are required")
         for label, (name, expected) in REAL_AUDIO.items():
-            audio_path = Path(__file__).resolve().parents[1] / "outputs" / "prompt-trial-audio" / name
+            audio_path = Path(__file__).resolve().parents[1] / "results" / "safety" / "prompt_trial_audio" / name
             samples[label] = audio_path.read_bytes()
             if hashlib.sha256(samples[label]).hexdigest() != expected:
                 raise RuntimeError(f"Unexpected audio hash for {name}")
         # A pre-existing journal may hold partial attempts. Refuse to spend again.
         with out.open("x", encoding="utf-8") as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
-    local_whisper = access.transcribe
+    local_whisper = lambda audio, **kwargs: ModelAccess.transcribe(access, audio, **kwargs)
 
     def save():
         out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -251,8 +224,7 @@ def run(out, use_whisper=False):
 
     with patch.dict("os.environ", {"HF_HUB_OFFLINE": "1", "HF_HUB_DISABLE_TELEMETRY": "1"}), \
             patch.object(access, "transcribe", side_effect=transcript), \
-            patch.object(access, "chat_json", side_effect=AssertionError("unexpected planner call")), \
-            server_at_random_port(access, playback) as url, sync_playwright() as playwright:
+            server_at_random_port(access, playback=playback) as url, sync_playwright() as playwright:
         browser = playwright.chromium.launch(channel="msedge", headless=True)
         try:
             report.update(exercise(browser.new_page(), url, samples, draft, events))
@@ -262,7 +234,11 @@ def run(out, use_whisper=False):
             raise
         finally:
             browser.close()
-    assert access.used == {"asr": 5, "deepseek": 0, "tts": 0}
+    assert access.used == {"asr": 5, "deepseek": 2, "tts": 0}
+    assert len(planner_events) == 2
+    report["planner_fixture_calls"] = planner_events
+    report["approval_dialogs"] = 0
+    report["planner_and_tts_options_present"] = False
     assert report["real_model_calls"] == (2 if use_whisper else 0)
     report["status"] = "passed"
     save()

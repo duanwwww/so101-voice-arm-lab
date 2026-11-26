@@ -1,16 +1,25 @@
-"""Drive a real Edge page. This test cancels online consent and executes only offline motions."""
+"""Drive the simplified console against an isolated, in-memory planner fixture."""
 import argparse
+import json
 import re
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from browser_fixtures import BrowserFixtureAccess, assert_simple_console, open_scene_settings, server_at_random_port
 from playwright.sync_api import expect, sync_playwright
 
 
 def main():
     cli=argparse.ArgumentParser()
-    cli.add_argument("--url",default="http://127.0.0.1:8768")
+    cli.add_argument("--url",help="Optional URL of a test-only server exposing /__browser_fixture__")
     cli.add_argument("--screenshot",type=Path,default=Path("outputs/control_panel.png"))
     args=cli.parse_args()
-    run(args.url,args.screenshot)
+    if args.url:
+        run(args.url,args.screenshot)
+    else:
+        with server_at_random_port(BrowserFixtureAccess([])) as url:
+            run(url,args.screenshot)
 
 
 def run(url,screenshot):
@@ -22,23 +31,17 @@ def run(url,screenshot):
         try:
             page.goto(url,wait_until="domcontentloaded")
             page.get_by_text("MuJoCo 仿真 · 已连接",exact=True).wait_for()
-            state=page.request.get(url+"/api/state").json()
-            assert state["local_approval"] and state["quota"]["deepseek"]==0
-            if state["campus_key"]:
-                page.locator("#entry").fill("让面前的小家伙去右边歇一会")
-                page.locator("#send").click()
-                expect(page.locator("#approval")).to_be_visible()
-                expect(page.locator("#approveInfo")).to_contain_text("让面前的小家伙去右边歇一会")
-                page.locator("#approveNo").click()
-                expect(page.locator("#approval")).not_to_be_visible()
-                assert page.request.get(url+"/api/state").json()["revision"]==state["revision"]
-            page.locator("#planner").select_option("local")
+            marker=page.request.get(url+"/__browser_fixture__")
+            assert marker.ok and marker.json().get("models")=="in-memory fixtures", "Refuse to drive a non-fixture server"
+            assert_simple_console(page)
+            open_scene_settings(page)
             page.locator("#layout").select_option("cover_goal")
             expect(page.locator("#fillTask")).to_be_disabled()
             page.locator("#reset").click()
             expect(page.locator("#layoutNote")).to_contain_text("当前场景：放料位被遮挡")
             page.locator("#fillTask").click()
             expect(page.locator("#entry")).to_have_value("把红色木块放到 C 区")
+            expect(page.locator("#cameraStatus")).not_to_contain_text("等待")
             page.locator("#send").click()
             expect(page.locator("#metric")).to_contain_text("腕部相机",timeout=45000)
             page.locator("#cameraSelect").select_option("/camera/wrist.jpg")
@@ -50,6 +53,7 @@ def run(url,screenshot):
             page.locator("#reset").click()
             expect(page.locator("#layoutNote")).to_contain_text("当前场景：两个相机均无法复核")
             page.locator("#fillTask").click()
+            expect(page.locator("#cameraStatus")).not_to_contain_text("等待")
             page.locator("#send").click()
             expect(page.locator("#message")).to_contain_text("释放后未能确认",timeout=45000)
             page.locator("#layout").select_option("B")
@@ -58,6 +62,7 @@ def run(url,screenshot):
 
             def command(text, reply):
                 page.locator("#entry").fill(text)
+                expect(page.locator("#cameraStatus")).not_to_contain_text("等待")
                 page.locator("#send").click()
                 expect(page.locator("#message")).to_contain_text(reply,timeout=45000)
 
@@ -75,7 +80,14 @@ def run(url,screenshot):
             screenshot.parent.mkdir(parents=True,exist_ok=True)
             page.screenshot(path=str(screenshot),full_page=True)
             assert not errors,errors
-            print("Browser PASS: consent cancelled, blind drop reported unverified, numeric sequence, pick/hold/place, clarification and reply.")
+            print("Browser PASS: no model options or approval dialogs, blind drop unverified, numeric sequence, pick/hold/place, clarification and reply.")
+        except Exception:
+            screenshot.parent.mkdir(parents=True,exist_ok=True)
+            page.screenshot(path=str(screenshot.with_name(screenshot.stem+"-failed.png")),full_page=True)
+            screenshot.with_suffix(".failure.json").write_text(json.dumps({
+                "body":page.locator("body").inner_text(), "errors":errors,
+                "state":page.request.get(url+"/api/state").json()},ensure_ascii=False,indent=2),encoding="utf8")
+            raise
         finally:
             browser.close()
 

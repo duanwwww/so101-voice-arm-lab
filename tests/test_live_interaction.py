@@ -27,7 +27,7 @@ class LiveInteractionTests(unittest.TestCase):
                 raise TimeoutError("Test planner was not released")
             return Intent("move","x",10)
 
-        with TestClient(create_app(access, layout="B", playback_speed=0)) as client, ThreadPoolExecutor(1) as worker, \
+        with TestClient(create_app(access, layout="B", playback_speed=0, allow_local_rules=True)) as client, ThreadPoolExecutor(1) as worker, \
                 patch.object(access, "plan", side_effect=delayed) as model:
             def state():
                 return client.get("/api/state").json()
@@ -93,7 +93,7 @@ class LiveInteractionTests(unittest.TestCase):
         self.assertEqual(placed["after"]["objects"][0]["slot"],"A")
 
     def test_frozen_idle_hold_has_no_lease_and_emergency_stop_still_latches(self):
-        app = create_app(layout="B",playback_speed=0,watchdog_seconds=.25)
+        app = create_app(layout="B",playback_speed=0,watchdog_seconds=.25, allow_local_rules=True)
         with TestClient(app,base_url="http://localhost",client=("127.0.0.1",1234)) as client:
             def state():
                 return client.get("/api/state").json()
@@ -116,7 +116,7 @@ class LiveInteractionTests(unittest.TestCase):
             self.assertEqual(send("恢复控制").status_code,409)
 
     def test_pause_inflight_motion_keeps_layout_and_position(self):
-        with TestClient(create_app(layout="B",playback_speed=2),
+        with TestClient(create_app(layout="B",playback_speed=2, allow_local_rules=True),
                         base_url="http://localhost",client=("127.0.0.1",1234)) as client, ThreadPoolExecutor(1) as worker:
             def state():
                 return client.get("/api/state").json()

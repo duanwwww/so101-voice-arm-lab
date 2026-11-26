@@ -34,19 +34,19 @@
 <text x="102" y="482" font-size="28" font-weight="700" fill="#172f43">本地分流  ·  指令还是控制信号</text>
 <text x="102" y="516" font-size="20" font-weight="400" fill="#466271">忽略禁止句，暂停、恢复和查询就地处理。</text>
 <text x="102" y="547" font-size="21" font-weight="700" fill="#245d9c">自建 10 条本地口令，正确分流 10/10。</text>
-<text x="102" y="578" font-size="20" font-weight="400" fill="#466271">改进　补测忙时插话和否定词漏听。</text>
+<text x="102" y="578" font-size="20" font-weight="400" fill="#466271">局限　转写丢失否定后，无法恢复被删除的语义。</text>
 <path d="M 405 603 V 647" fill="none" stroke="#245d9c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#b)"/>
 <text x="423" y="635" font-size="18" font-weight="700" fill="#245d9c">新任务或澄清答复</text>
 <path d="M 78 483 H 30" fill="none" stroke="#985421" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  />
 <circle cx="30" cy="483" r="5" fill="#985421"/>
 <rect x="78" y="650" width="1448" height="158" rx="13" fill="#eaf3fa" stroke="#afc9df"/>
 <rect x="80" y="666" width="5" height="126" rx="2" fill="#245d9c" stroke="none"/>
-<text x="102" y="690" font-size="30" font-weight="700" fill="#172f43">任务规划  ·  交大 DeepSeek</text>
+<text x="102" y="690" font-size="30" font-weight="700" fill="#172f43">任务规划  ·  交大 DeepSeek Reasoner</text>
 <text x="102" y="730" font-size="21" font-weight="400" fill="#466271">合并原话、观测、持物状态及澄清上下文。</text>
-<text x="102" y="763" font-size="21" font-weight="400" fill="#466271">按次获批后发送文本。也可选本地规则。</text>
-<text x="787" y="691" font-size="24" font-weight="700" fill="#245d9c">留出 42 条动作题，控制 JSON 完全正确 27/42。</text>
-<text x="787" y="729" font-size="20" font-weight="400" fill="#466271">逐字段对照预先冻结的动作、工位、顺序、轴向和量值。</text>
-<text x="787" y="763" font-size="20" font-weight="400" fill="#466271">改进　方向与换算做对照回归，多轮保留原目的地。</text>
+<text x="102" y="763" font-size="21" font-weight="400" fill="#466271">固定思考模式；仅解析最终 JSON，无调用批准弹窗。</text>
+<text x="787" y="691" font-size="24" font-weight="700" fill="#245d9c">22 题诊断：动作严格对 15/16，追问有效 6/6。</text>
+<text x="787" y="729" font-size="20" font-weight="400" fill="#466271">同题普通模式为 10/16、5/6；这是已知题目诊断。</text>
+<text x="787" y="763" font-size="20" font-weight="400" fill="#466271">改进　方向仍可反转；请求中位 14.38 秒，需要等待。</text>
 <path d="M 78 716 H 30" fill="none" stroke="#985421" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  />
 <circle cx="30" cy="716" r="5" fill="#985421"/>
 <path d="M 405 808 V 868" fill="none" stroke="#245d9c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#b)"/>
@@ -55,8 +55,8 @@
 <rect x="80" y="888" width="5" height="126" rx="2" fill="#245d9c" stroke="none"/>
 <text x="102" y="909" font-size="28" font-weight="700" fill="#172f43">控制校验  ·  原话、场景及路径</text>
 <text x="102" y="943" font-size="20" font-weight="400" fill="#466271">校验动作、符号、限幅，执行前逐段预检。</text>
-<text x="102" y="974" font-size="21" font-weight="700" fill="#245d9c">留出重放：终选版 11 个错误运动提议均被拦。</text>
-<text x="102" y="1005" font-size="20" font-weight="400" fill="#466271">改进　同时验证错符号被拒、正确同义词可执行。</text>
+<text x="102" y="974" font-size="21" font-weight="700" fill="#245d9c">22 题重放：拦下 1 个错误；正确动作仅放行 8/15。</text>
+<text x="102" y="1005" font-size="20" font-weight="400" fill="#466271">改进　减少正确表达的误拒，保留方向与单位核验。</text>
 <rect x="866" y="872" width="660" height="158" rx="13" fill="#fff" stroke="#c9d7dc"/>
 <rect x="868" y="888" width="5" height="126" rx="2" fill="#007d72" stroke="none"/>
 <text x="890" y="909" font-size="28" font-weight="700" fill="#172f43">动作执行  ·  IK 与接触反馈</text>
@@ -75,10 +75,10 @@
 <text x="890" y="1228" font-size="20" font-weight="400" fill="#466271">改进　独立记录物理落点，并保留“未确认”。</text>
 <rect x="78" y="1095" width="660" height="158" rx="13" fill="#fff" stroke="#c9d7dc"/>
 <rect x="80" y="1111" width="5" height="126" rx="2" fill="#985421" stroke="none"/>
-<text x="102" y="1132" font-size="28" font-weight="700" fill="#172f43">回执与可选播报  ·  Edge-TTS</text>
-<text x="102" y="1166" font-size="20" font-weight="400" fill="#466271">显示已完成步骤及原因，可另行批准解读、播报。</text>
-<text x="102" y="1197" font-size="21" font-weight="700" fill="#985421">浏览器替身验证播放链路；播报可懂度未测。</text>
-<text x="102" y="1228" font-size="20" font-weight="400" fill="#466271">改进　对照回执盲听，核对成功、失败和未确认。</text>
+<text x="102" y="1132" font-size="28" font-weight="700" fill="#172f43">网页回执  ·  状态与已执行步骤</text>
+<text x="102" y="1166" font-size="20" font-weight="400" fill="#466271">直接呈现成功、失败、未确认或追问及 JSON 明细。</text>
+<text x="102" y="1197" font-size="21" font-weight="700" fill="#985421">129 项软件测试、2 组浏览器测试通过，模型为替身。</text>
+<text x="102" y="1228" font-size="20" font-weight="400" fill="#466271">改进　保留任务草稿与现场；实机再核对停止延迟。</text>
 <path d="M 866 1175 H 740" fill="none" stroke="#007d72" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#g)"/>
 <text x="764" y="1156" font-size="18" font-weight="700" fill="#007d72">结果</text>
 <path d="M 78 1180 H 30 V 182 H 75" fill="none" stroke="#985421" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#o)"/>
@@ -86,10 +86,10 @@
 <text x="240" y="1299" font-size="20" font-weight="400" fill="#466271">本地状态、规划追问和最终回执返回同一页面。执行失败结束当前序列，用户可在原场地重新发令。</text>
 <rect x="78" y="1344" width="1448" height="148" rx="14" fill="#16394c" stroke="none"/>
 <text x="102" y="1391" font-size="27" font-weight="700" fill="#fff">语音链路</text>
-<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">4/4</text>
-<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">4 条合成录音 → SenseVoice → DeepSeek / 本地分流 → 仿真执行与回执</text>
-<text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">“右干”原样输入，模型规划 A→B 并完成搬运；12 mm 平移误差 0.226 mm。</text>
-<text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">同一误听在 A/C 配对复测 2/2 完成，原话对照 2/2；本轮共 6/8 次云端调用。</text>
+<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">10/10</text>
+<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">10 条合成音频 → 真实 SenseVoice → Reasoner / 本地控制 → MuJoCo</text>
+<text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">同场地 6 次运动、3 次静止响应、1 次运动中暂停；抓放路线 A→B→C→A。</text>
+<text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">本组 10 次转写、8 次云请求；另测 16 条误听：3 条合法转写偏离原意仍获准。</text>
 <text x="79" y="1527" font-size="18" font-weight="400" fill="#466271">数据来自本组课程实验记录。实拍感知、公开真人朗读、文本留出与仿真运动分别计分。</text>
 <path d="M 405 1030 V 1091" fill="none" stroke="#985421" stroke-width="3" marker-end="url(#o)"/>
 <text x="424" y="1071" font-size="18" font-weight="700" fill="#985421">未通过，给出原因</text>

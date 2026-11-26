@@ -19,11 +19,13 @@
 | 网页与服务 | 控制电脑运行 FastAPI、Uvicorn；浏览器提供界面 | 接收文字、录音和控制信号；显示双视角画面、任务状态及回执。 |
 | 语音识别 | 本机 CPU 上的 SenseVoiceSmall INT8；sherpa-onnx 1.12.40、ONNX Runtime 1.32.0 | PyAV 将音频解码为 16 kHz 单声道，模型以 4 线程识别中文，输出可校对文字。每段最长 30 秒，启用数字文本规范化。 |
 | 视觉感知 | 本机 OpenCV 4.11.0.86 | 从 RGB 图像提取红色连通域，得到候选框、工位与台面 XY 坐标；腕部画面辅助复核落位。当前未接入 YOLO 或视觉语言模型。 |
-| 任务规划 | 上海交大“致远一号” `deepseek-chat` API | 接收原始文本、候选物体与工位、可用的 XY 坐标及澄清上下文，返回动作序列或问题。`temperature=0`，每次最多输出 160 tokens。 |
+| 任务规划 | 上海交大“致远一号” `deepseek-reasoner` API | 接收文字、候选物体、工位、XY 坐标及澄清上下文。请求 `max_tokens=4096`、超时 120 s，为推理留出预算；最终回答才可成为动作序列或问题。 |
 | 控制与仿真 | 本机 Python、位置逆运动学（IK）、MuJoCo 4.0.0 | 校验动作及路径，分段执行抓取、试抬、搬运和释放；独立记录实际位移、接触与错误。 |
-| 结果反馈 | 网页文字回执；可选 DeepSeek 解读及 Edge-TTS | 原始回执报告实际结果。另行批准后可生成文字解读、调用微软在线语音合成服务播报。 |
+| 结果反馈 | 网页文字回执 | 直接显示已执行步骤、测量、状态及原因，保留 JSON 明细；不再提供模型解读或在线播报选项。 |
 
-本地规则可替代云端规划器完成受支持的固定表达，Whisper Small 保留为历史语音对照入口。依赖版本由 [uv.lock](../uv.lock) 固定；模型导出版本、下载地址和文件哈希由 [sensevoice.py](../arm_lab/sensevoice.py) 固定。所有本地模块共用一个 Python 环境，具体安装及启动步骤见 README。
+当前网页固定使用 Reasoner 与 SenseVoice，不提供规划器切换或逐次批准。命令行离线仿真保留规则入口，Whisper Small 保留为历史语音对照入口。依赖版本由 [uv.lock](../uv.lock) 固定；模型导出版本、下载地址和文件哈希由 [sensevoice.py](../arm_lab/sensevoice.py) 固定。所有本地模块共用一个 Python 环境，具体安装及启动步骤见 README。
+
+按[交大服务说明](https://apps.hpc.sjtu.edu.cn/posts/claw-guide-sjtu-api)，`deepseek-chat` 与 `deepseek-reasoner` 当前对应 DeepSeek V4 Flash 的非思考与思考模式，不能只凭名称推断为两种不同规模的模型。本项目在相同提示词和 22 条诊断输入上比较两种模式：Reasoner 的动作严格匹配为 15/16，Chat 为 10/16；有效追问分别为 6/6 和 5/6。请求耗时中位数分别为 14.38 s 和 3.55 s，因此网页采用 Reasoner，并接受更长的等待时间。这是已知题目的模式诊断，不是新的盲测。
 
 ## 2. 感知与规划的数据接口
 
@@ -45,6 +47,8 @@
 ```
 
 已持物时增加 `holding`；回答上一轮追问时增加 `dialogue`。云端规划接收文字和场景摘要，音频与图像保留在控制电脑。规划提示词规定工位含义、动作字段、方向、单位、长度限制和追问条件，当前版本保存在 [planner100_finalist.txt](../configs/planner100_finalist.txt)。实际请求构造及调用额度管理位于 [model_access.py](../arm_lab/model_access.py)。
+
+推理模式的 `reasoning_content` 不进入动作解析；控制器只读取最终 `content`，并继续要求 `finish_reason=stop`。缺失、截断或非法 JSON 都不能执行。历史批量评测保留普通模式的 160-token 设置与独立预算，避免把两种模式的结果混在一起。
 
 ### 2.3 动作 JSON 与坐标约定
 
@@ -83,6 +87,8 @@
 
 控制校验提供约束，但无法独立判断所有自然语言推断是否符合用户本意。例如“右干”在本地规则中无法确定目的地，模型仍可结合工位定义生成搬运计划；该计划是否正确，需要与实验预定目标或操作者确认结果核对。抓取失败后系统停止剩余步骤，不自动反复抓取；操作者查看回执后可在保留的场地中重新发令。
 
+尤其需要区分“含错字的指令”与“误听后仍然合法的另一条指令”。如果转写将“不要向前移动十毫米”变成“向前移动十毫米”，后续模块看不到被漏掉的否定词，合法 JSON 与限幅都不能恢复原意。当前界面保留转写核对及明确发送步骤；完整链路实验直接使用未经人工修改的转写，以暴露这一风险。语音暂停也需要先完成转写，因此实体紧急停止不能依赖语音或云端模型。
+
 主要实现：[任务执行](../arm_lab/flow.py)、[仿真执行器](../arm_lab/simulator.py)、[夹爪反馈](../arm_lab/gripper.py)、[路径检查](../arm_lab/motion_guard.py)、[腕部复核](../arm_lab/wrist_view.py)。公开仓库默认使用 [独立 IK 实现](../arm_lab/kinematics.py)；历史课程 IK 与公开版的测试记录在实验文档中分别标明。
 
 ## 4. 连续交互与状态管理
@@ -110,21 +116,19 @@
 | `GET /api/scenarios`、`POST /api/reset` | 列出场景，或显式重置仿真摆位。 |
 | `GET /api/state` | 查询场景版本、任务状态、夹持、回执和模型可用状态。 |
 | `GET /camera.jpg`、`GET /camera/wrist.jpg` | 获取固定相机或腕部相机 JPEG。 |
-| `POST /api/transcribe` | 上传音频并请求获批的本地识别。 |
+| `POST /api/transcribe` | 上传音频并直接运行本地识别。 |
 | `POST /api/command-kind` | 检查文字类别，供界面选择交互流程；不调用模型或执行动作。 |
-| `POST /api/commands` | 提交文字、版本、时间、ID、监控令牌及规划器选择；补答附 `reply_to`。 |
+| `POST /api/commands` | 提交文字、版本、时间、ID 和监控令牌；补答附 `reply_to`。普通网页固定使用云端规划。 |
 | `POST /api/heartbeat`、`POST /api/stop` | 为活动请求续期，或触发停止。 |
-| `POST /api/feedback?receipt_id=…` | 对指定回执请求获批的 DeepSeek 文字解读。 |
-| `POST /api/speak?receipt_id=…` | 对指定回执请求获批的在线语音合成。 |
 
-ASR、规划、反馈解读与 TTS 分别计数。本机页面可逐请求确认；远程页面使用控制电脑在交互终端批准的额度。失败尝试也占用调用额度。接口定义及状态转换以 [web.py](../arm_lab/web.py) 为准。
+网页上传录音和提交任务直接调用相应模型，同源远端页面同样不需批准。跨源浏览器写请求仍会被拒绝；方向、量值、场景、路径及监控保护照常执行。网页已移除反馈解读与 TTS 接口。接口定义及状态转换以 [web.py](../arm_lab/web.py) 为准。
 
 ### 局域网运行
 
-先按 README 准备模型权重和本机 `.env`，然后在控制电脑的交互式 PowerShell 中启动。以下示例申请 2 次本地转写和 4 次云端规划，启动时还需在终端按提示批准；额度耗尽后不能继续调用对应模型。
+先按 README 准备模型权重和本机 `.env`，然后在控制电脑的 PowerShell 中启动，无需配置调用预算或输入批准口令。
 
 ```powershell
-uv run --frozen --extra voice --extra data --env-file .env python -m arm_lab serve --host 0.0.0.0 --port 8769 --asr-budget 2 --deepseek-budget 4
+uv run --frozen --extra voice --extra data --env-file .env python -m arm_lab serve --host 0.0.0.0 --port 8769
 ```
 
 远端浏览器访问 `http://<控制电脑的局域网IP>:8769`，控制电脑需允许该局域网端口连接。普通局域网 HTTP 页面可输入文字或上传已有录音；直接使用麦克风需要浏览器信任的 HTTPS，本机 `localhost` 可用于首次录音验证。项目当前提供 HTTP 服务，HTTPS 代理与登录鉴权尚未集成，远程试验限定在受控局域网。客户端断图或关页后的处置按上一节心跳规则执行。

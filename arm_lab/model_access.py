@@ -1,4 +1,4 @@
-"""Bounded model calls with terminal budgets or explicit one-request browser consent."""
+"""Model clients: bounded experiment calls and direct user-triggered web calls."""
 import asyncio
 import hashlib
 from io import BytesIO
@@ -28,6 +28,8 @@ DEEPSEEK_BASE = "https://models.sjtu.edu.cn/api/v1"
 DEEPSEEK_ENDPOINT = DEEPSEEK_BASE + "/chat/completions"
 DEEPSEEK_MODEL = "deepseek-chat"
 PLAN_MAX_TOKENS = 160
+WEB_PLANNER_MODEL = "deepseek-reasoner"
+REASONER_MAX_TOKENS = 4096
 PLAN_INSTRUCTIONS = (Path(__file__).resolve().parents[1] / "configs" / "planner100_finalist.txt").read_text(encoding="utf-8").strip()
 PLAN_PROMPT_SHA256 = hashlib.sha256(PLAN_INSTRUCTIONS.encode("utf-8")).hexdigest()
 
@@ -66,14 +68,23 @@ def planning_task(text, scene, *, station_only=False):
     return task
 
 
-def campus_payload(instructions, task):
-    return {"model":DEEPSEEK_MODEL, "temperature":0, "max_tokens":PLAN_MAX_TOKENS, "stream":False,
+def campus_payload(instructions, task, *, model=DEEPSEEK_MODEL, max_tokens=PLAN_MAX_TOKENS):
+    return {"model":model, "temperature":0, "max_tokens":max_tokens, "stream":False,
             "messages":[{"role":"system","content":instructions},
                         {"role":"user","content":json.dumps(task,ensure_ascii=False)}]}
 
 
 class ModelAccess:
-    def __init__(self):
+    def __init__(self, *, planner_model=DEEPSEEK_MODEL, max_tokens=None, timeout=None):
+        if planner_model not in (DEEPSEEK_MODEL, WEB_PLANNER_MODEL):
+            raise ValueError("Unsupported campus planner model")
+        self.planner_model = planner_model
+        reasoning = planner_model == WEB_PLANNER_MODEL
+        self.planner_max_tokens = max_tokens if max_tokens is not None else (REASONER_MAX_TOKENS if reasoning else PLAN_MAX_TOKENS)
+        self.planner_timeout = timeout if timeout is not None else (120 if reasoning else 30)
+        if (type(self.planner_max_tokens) is not int or not 1 <= self.planner_max_tokens <= 8192
+                or not 1 <= self.planner_timeout <= 180):
+            raise ValueError("Invalid planner output budget or timeout")
         self.remaining = {"asr":0,"deepseek":0,"tts":0}
         self.used = dict(self.remaining)
         self.lock = Lock()
@@ -143,10 +154,10 @@ class ModelAccess:
         return body["speech"].strip()
 
     def chat_json(self, instructions, task, key, approved_once):
-        payload = campus_payload(instructions, task)
+        payload = campus_payload(instructions, task, model=self.planner_model, max_tokens=self.planner_max_tokens)
         self.consume("deepseek", approved_once)
         try:
-            with httpx.Client(timeout=30,follow_redirects=False) as client:
+            with httpx.Client(timeout=self.planner_timeout,follow_redirects=False) as client:
                 response = client.post(DEEPSEEK_ENDPOINT,headers={"Authorization":"Bearer "+key},json=payload)
         except (httpx.HTTPError, UnicodeError) as exc:
             raise ModelFailure("连接交大 DeepSeek 失败，请检查校园网或交大 VPN。") from exc

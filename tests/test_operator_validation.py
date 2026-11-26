@@ -17,7 +17,7 @@ from arm_lab.wrist_view import confirm_drop, observe_wrist
 
 class OperatorTests(unittest.TestCase):
     def test_inflight_stop_preempts_motion_until_reset(self):
-        with TestClient(create_app(playback_speed=3),base_url="http://127.0.0.1",
+        with TestClient(create_app(playback_speed=3, allow_local_rules=True),base_url="http://127.0.0.1",
                         client=("127.0.0.1",12345)) as client, ThreadPoolExecutor(1) as pool:
             def submit(text):
                 revision=client.get("/api/state").json()["revision"]

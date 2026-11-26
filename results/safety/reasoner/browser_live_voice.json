@@ -1,0 +1,224 @@
+{
+  "status": "passed",
+  "input_mode": "browser WAV uploads without approval dialogs",
+  "playback_speed": 0.08,
+  "real_model_calls": 0,
+  "online_model_calls": 0,
+  "local_whisper_attempts": [],
+  "transcript_fixture_turns": [
+    "不要向前移动一厘米",
+    "当前状态",
+    "向前移动四毫米",
+    "暂停当前任务",
+    "恢复控制"
+  ],
+  "browser": "Microsoft Edge, headless",
+  "backend": "MuJoCo on private loopback port",
+  "hardware_connected": false,
+  "original_task": "手腕向下转十度，再手腕向上转十度，再手腕向下转十度，再手腕向上转十度",
+  "during_motion": [
+    {
+      "phrase": "不要向前移动一厘米",
+      "status": "ignored",
+      "message": "收到，本条禁止指令不产生新动作。",
+      "busy": true,
+      "sim_seconds": 0.54
+    },
+    {
+      "phrase": "当前状态",
+      "status": "observed",
+      "message": "当前正在执行任务，最新反馈未确认持物。",
+      "busy": true,
+      "sim_seconds": 0.62
+    }
+  ],
+  "draft": {
+    "text": "向前移动四毫米",
+    "retained": true,
+    "submitted_while_busy": false,
+    "retained_in_draft_bar_through_pause_and_resume": true,
+    "review_refilled_editor": true,
+    "new_command_posts_on_review": 0,
+    "sim_seconds_before_review": 1.01,
+    "sim_seconds_after_review": 1.01,
+    "explicit_submit_count": 1,
+    "cleared_after_success": true
+  },
+  "original_owner_successful_heartbeats": 14,
+  "heartbeats_within_first_four_asr_calls": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "original_receipt": {
+    "status": "paused",
+    "steps": [
+      {
+        "step": 1,
+        "kind": "wrist",
+        "status": "success",
+        "message": "已测量腕关节转角。",
+        "measurement": {
+          "requested_deg": 10.0,
+          "actual_deg": 10.006,
+          "error_deg": 0.006
+        }
+      },
+      {
+        "step": 2,
+        "kind": "wrist",
+        "status": "paused",
+        "message": "任务已暂停，剩余步骤已取消；现场状态已保留。",
+        "measurement": {}
+      }
+    ],
+    "plan": [
+      "wrist_delta(10 deg)",
+      "wrist_delta(-10 deg)"
+    ]
+  },
+  "pause_snapshot": {
+    "layout": "B",
+    "sim_seconds": 1.01,
+    "tcp_mm": [
+      211.9,
+      -185.5,
+      146.3
+    ],
+    "scene": {
+      "objects": [
+        {
+          "slot": "B",
+          "pixel": [
+            374,
+            168
+          ],
+          "box": [
+            365,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            -76.5
+          ]
+        }
+      ],
+      "holding": false
+    }
+  },
+  "resume_snapshot": {
+    "layout": "B",
+    "sim_seconds": 1.01,
+    "tcp_mm": [
+      211.9,
+      -185.5,
+      146.3
+    ],
+    "scene": {
+      "objects": [
+        {
+          "slot": "B",
+          "pixel": [
+            374,
+            168
+          ],
+          "box": [
+            365,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            -76.5
+          ]
+        }
+      ],
+      "holding": false
+    }
+  },
+  "watchdog_expired": false,
+  "reset_requests": 0,
+  "browser_errors": [],
+  "new_task": {
+    "text": "向前移动四毫米",
+    "status": "success",
+    "measurement": {
+      "requested_mm": 4.0,
+      "displacement_mm": [
+        3.976,
+        0.025,
+        -0.194
+      ],
+      "error_mm": 0.197
+    }
+  },
+  "planner_fixture_calls": [
+    {
+      "type": "planner_fixture",
+      "input": {
+        "command": "手腕向下转十度，再手腕向上转十度，再手腕向下转十度，再手腕向上转十度",
+        "objects": [
+          {
+            "id": "red_1",
+            "slot": "B",
+            "xy_mm": [
+              215.3,
+              -76.5
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "steps": [
+          {
+            "action": "wrist",
+            "deg": 10.0
+          },
+          {
+            "action": "wrist",
+            "deg": -10.0
+          },
+          {
+            "action": "wrist",
+            "deg": 10.0
+          },
+          {
+            "action": "wrist",
+            "deg": -10.0
+          }
+        ]
+      }
+    },
+    {
+      "type": "planner_fixture",
+      "input": {
+        "command": "向前移动四毫米",
+        "objects": [
+          {
+            "id": "red_1",
+            "slot": "B",
+            "xy_mm": [
+              215.3,
+              -76.5
+            ]
+          }
+        ]
+      },
+      "answer": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": 4.0
+          }
+        ]
+      }
+    }
+  ],
+  "approval_dialogs": 0,
+  "planner_and_tts_options_present": false
+}

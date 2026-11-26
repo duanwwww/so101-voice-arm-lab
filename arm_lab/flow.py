@@ -182,7 +182,8 @@ def execute(sim, text, *, planner=None, observer=None, previous=None):
             message = f"已完成 {complete}/{len(steps)} 步。{message}"
             if complete == len(steps):
                 status = "success"
-    result = {"text":text, "planner":"interlock" if latch else DEEPSEEK_MODEL if planner is not None else "rules",
+    planner_name = getattr(planner, "planner_model", None) or getattr(getattr(planner, "__self__", None), "planner_model", DEEPSEEK_MODEL)
+    result = {"text":text, "planner":"interlock" if latch else planner_name if planner is not None else "rules",
               "intent":asdict(intent), "before":before, "plan":log, "steps":outcomes,
               "status":status, "message":message, "after":capture("after"), "phases":phases,
               "gripper":sim.gripper_status(),

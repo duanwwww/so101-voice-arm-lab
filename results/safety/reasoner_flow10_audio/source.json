@@ -1,0 +1,44 @@
+﻿{
+    "source":  "Windows offline System.Speech synthetic speech, not human audio",
+    "voice":  "Microsoft Huihui Desktop",
+    "created_utc":  "2026-11-26T15:11:00.1577346Z",
+    "count":  6,
+    "files":  [
+                  {
+                      "id":  "05_answer_5mm",
+                      "audio":  "results/safety/reasoner_flow10_audio/answer.wav",
+                      "reference":  "五毫米",
+                      "sha256":  "59cd409d8f3ace48f982f0843f267a341f73ba76e3bb9e394fe176dd03b3e93e"
+                  },
+                  {
+                      "id":  "06_transfer_B_C",
+                      "audio":  "results/safety/reasoner_flow10_audio/transfer_b_c.wav",
+                      "reference":  "把红色木块从B区送到C区",
+                      "sha256":  "bb1d1d03837128709d1686d5ed63b18e364a3950bc5e2124d965bc5bf6675e6d"
+                  },
+                  {
+                      "id":  "07_move_wrist",
+                      "audio":  "results/safety/reasoner_flow10_audio/move_wrist.wav",
+                      "reference":  "先向左移动五毫米，再把手腕向下转三度",
+                      "sha256":  "8cc61f49ea7528d3d1aac051e4625d9a19887c8a8c68dc5d41326366eb0df06c"
+                  },
+                  {
+                      "id":  "08_transfer_C_A",
+                      "audio":  "results/safety/reasoner_flow10_audio/transfer_c_a.wav",
+                      "reference":  "把C区的红色木块放到左边的工位",
+                      "sha256":  "ee3532c72615f3cb3d5090a94836bfbab8d0dc1a537147789945ecd258f4f245"
+                  },
+                  {
+                      "id":  "09_excess_distance",
+                      "audio":  "results/safety/reasoner_flow10_audio/excess.wav",
+                      "reference":  "向前移动六十厘米",
+                      "sha256":  "854374e4f7754b677663e861cb5d5826db5ceeb9f583ea7003ff702de27e2d11"
+                  },
+                  {
+                      "id":  "10_pause_in_motion",
+                      "audio":  "results/safety/reasoner_flow10_audio/pause.wav",
+                      "reference":  "暂停当前任务",
+                      "sha256":  "c0e4ef7fd2f58c6fd03d6c8368be52334f943aff7303c197afd708d9c19e6a54"
+                  }
+              ]
+}

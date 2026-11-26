@@ -19,7 +19,7 @@ from pydantic import BaseModel, Field, field_validator
 
 from .flow import execute, interaction_intent, interaction_receipt
 from .gripper import FeedbackStop
-from .model_access import DEEPSEEK_MODEL, PLAN_PROMPT_SHA256, ModelAccess, ModelDenied, ModelFailure, campus_api_key
+from .model_access import PLAN_PROMPT_SHA256, ModelAccess, ModelDenied, ModelFailure, campus_api_key
 from .scene import LAYOUTS
 from .simulator import MotionError, Simulator
 from .wrist_view import observe_wrist
@@ -36,7 +36,8 @@ class Command(CommandText):
     use_deepseek: bool = False
     reply_to: UUID | None = None
     watchdog_token: UUID | None = None
-    # An older client can still request local rules. Its Qwen opt-in cannot authorize a different service.
+    # Internal offline fixtures may opt into the historical local-rules route.
+    # The regular console always uses the configured planner.
     use_qwen: Literal[False] = Field(default=False, exclude=True, deprecated=True)
 
 
@@ -71,15 +72,23 @@ def local_console(request):
     return bool(request.client and request.client.host in local and request.url.hostname in local)
 
 
-def one_request_consent(request, kind):
-    supplied = request.headers.get("X-Arm-Approval")
-    if not supplied:
+def same_origin_request(request):
+    """Reject cross-site browser writes while permitting same-origin remote users and CLI clients."""
+    if request.headers.get("Sec-Fetch-Site") == "cross-site":
         return False
-    origin = urlsplit(request.headers.get("Origin", ""))
-    if (supplied != kind or not local_console(request) or origin.scheme != request.url.scheme
-            or origin.netloc != request.url.netloc):
-        raise ModelDenied("单次模型批准须来自本机控制台的同源页面。")
-    return True
+    supplied = request.headers.get("Origin")
+    if supplied is None:
+        return True
+    try:
+        origin = urlsplit(supplied)
+        target = urlsplit(str(request.url))
+        def address(url):
+            return url.scheme, url.hostname, url.port or (443 if url.scheme == "https" else 80)
+        return (origin.scheme in {"http", "https"} and not origin.username and not origin.password
+                and not origin.query and not origin.fragment and origin.path in {"", "/"}
+                and address(origin) == address(target))
+    except ValueError:
+        return False
 
 
 class CameraState:
@@ -103,10 +112,10 @@ class CameraState:
             self.wrist_jpeg = wrist_jpg.tobytes()
 
 
-def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdog_seconds=3.0):
+def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdog_seconds=3.0, *, allow_local_rules=False):
     if not math.isfinite(watchdog_seconds) or watchdog_seconds <= 0:
         raise ValueError("心跳期限须为有限正数")
-    access = access or ModelAccess()
+    access = access or ModelAccess(planner_model="deepseek-reasoner")
     pool = ThreadPoolExecutor(max_workers=1,thread_name_prefix="arm-sim")
     camera = CameraState()
     receipts = OrderedDict()
@@ -153,6 +162,12 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
             pool.shutdown(wait=True)
 
     app = FastAPI(title="SO-101 桌面仿真", lifespan=lifespan)
+
+    @app.middleware("http")
+    async def browser_origin_guard(request, call_next):
+        if request.method == "POST" and not same_origin_request(request):
+            return JSONResponse({"detail": "请从当前控制台的同源页面提交请求。"}, status_code=403)
+        return await call_next(request)
 
     def request_stop(reason=None):
         """Always set the interlock before scheduling work on the simulation thread."""
@@ -211,8 +226,6 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
     async def state(request:Request):
         with camera.lock:
             details = camera.details
-        with access.lock:
-            quotas = dict(access.remaining)
         sim = app.state.sim
         active = bool(lease and lease.active)
         return {**details,"backend":"MuJoCo","revision":revision,"busy":pending is not None,
@@ -221,7 +234,7 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
                 "watchdog_seconds":watchdog_seconds, "watchdog_active":active,
                 "watchdog_remaining_ms":max(0,round((lease.deadline-time.monotonic())*1000)) if active else None,
                 "watchdog_expired":link_fault is not None,
-                "quota":quotas, "local_approval":local_console(request), "campus_key":key_ready,
+                "campus_key":key_ready, "planner_model":access.planner_model,
                 "planner_prompt_sha256":PLAN_PROMPT_SHA256,
                 "asr_engine":access.asr_engine,"asr_model":access.asr_model,"asr_ready":access.voice_ready(),
                 "whisper_ready":all((access.whisper_dir / n).is_file() for n in ("model.bin","tokenizer.json","config.json")),
@@ -402,13 +415,11 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
             if latest is None or latest.get("id") != str(body.reply_to) or not latest.get("clarification"):
                 raise HTTPException(409,"这条追问已过期，请重新描述任务。")
             previous = latest["clarification"]
-        once = one_request_consent(request, "deepseek")
+        use_planner = body.use_deepseek if allow_local_rules else True
         if not local_console(request) and body.watchdog_token is None:
             raise HTTPException(422,"远程控制指令须提供独立的监控心跳标识。")
         if body.watchdog_token == body.id:
             raise HTTPException(422,"监控心跳标识与命令编号须独立生成。")
-        if body.use_deepseek and not once:
-            access.require_approval("deepseek")
         if body.issued_at_ms < last_finished_ms:
             raise HTTPException(409,"该指令早于最近的任务回执，请核对现场并重新发送。")
         sim = app.state.sim
@@ -434,16 +445,19 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
         def work():
             def planner(text, scene):
                 guard_planner()
-                intent = access.plan(text, scene, approved_once=once)
+                intent = access.plan(text, scene, approved_once=True)
                 guard_planner()
                 return intent
             try:
-                return execute(sim,body.text,planner=planner if body.use_deepseek else None, previous=previous,
-                               observer=lambda phase,scene,img:camera.publish(sim,phase,scene,img))
+                result = execute(sim,body.text,planner=planner if use_planner else None, previous=previous,
+                                 observer=lambda phase,scene,img:camera.publish(sim,phase,scene,img))
+                if use_planner and result.get("planner") not in ("rules", "local_control", "interlock"):
+                    result["planner"] = access.planner_model
+                return result
             except (ModelFailure, FeedbackStop) as exc:
                 scene, frame = sim.camera()
                 camera.publish(sim,"after",scene,frame)
-                return {"text":body.text,"planner":DEEPSEEK_MODEL,
+                return {"text":body.text,"planner":access.planner_model,
                         "status":"unverified" if isinstance(exc, FeedbackStop) else "model_error","message":str(exc),
                         "before":scene,"after":scene,"steps":[],"plan":[],"measurement":{}}
         async def job():
@@ -478,47 +492,11 @@ def create_app(access=None, layout="A", playback_speed=2, keepouts=None, watchdo
 
     @app.post("/api/transcribe")
     async def transcribe(request:Request, file:UploadFile=File(...)):
-        once = one_request_consent(request,"asr")
-        if not once:
-            access.require_approval("asr")
         audio = await file.read(4*1024*1024+1)
         if not audio or len(audio)>4*1024*1024:
             raise HTTPException(400,"请选择 1 字节到 4 MiB 的短口令录音。")
         async with asr_lock:
-            txt = await asyncio.to_thread(access.transcribe,audio,approved_once=once)
+            txt = await asyncio.to_thread(access.transcribe,audio,approved_once=True)
         return {"text":txt,"model":access.asr_model,"engine":access.asr_engine}
 
-    @app.post("/api/speak")
-    async def speak(request:Request, receipt_id:UUID|None=None):
-        once = one_request_consent(request,"tts")
-        if not once:
-            access.require_approval("tts")
-        if latest is None:
-            raise HTTPException(409,"还没有可播报的回执。")
-        if receipt_id and str(receipt_id) != latest["id"]:
-            raise HTTPException(409,"回执已更新，请重新选择。")
-        message = latest["message"]
-        if latest.get("feedback"):
-            message += " " + latest["feedback"]
-        return Response(await access.speak(message,approved_once=once),media_type="audio/mpeg")
-
-    feedback_lock = asyncio.Lock()
-
-    @app.post("/api/feedback")
-    async def feedback(request:Request, receipt_id:UUID):
-        once = one_request_consent(request,"deepseek")
-        if not once:
-            access.require_approval("deepseek")
-        receipt = latest
-        if not receipt or str(receipt_id) != receipt["id"]:
-            raise HTTPException(409,"请选择当前执行回执。")
-        async with feedback_lock:
-            if receipt is not latest:
-                raise HTTPException(409,"回执已更新。")
-            if not receipt.get("feedback"):
-                speech = await asyncio.to_thread(access.feedback,receipt,approved_once=once)
-                if receipt is not latest:
-                    raise HTTPException(409,"回执已更新。")
-                receipt["feedback"] = speech
-        return {"speech":receipt["feedback"]}
     return app

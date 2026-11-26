@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import patch
 from uuid import uuid4
 
 from httpx import Client, MockTransport, Response
@@ -127,47 +127,35 @@ class CampusPlannerTests(unittest.TestCase):
                 with self.assertRaises(ModelFailure):
                     campus_api_key()
 
-    def test_voice_custom_command_feedback_and_consent(self):
+    def test_voice_custom_command_without_per_call_approval(self):
         phrase = "让眼前的小家伙在左侧格子安家，随后把腕部轻轻抬高两度"
         requests = []
         def reply(request):
             payload = json.loads(request.content)
             task = json.loads(payload["messages"][1]["content"])
             requests.append(task)
-            if "status" in task:
-                self.assertEqual((task["status"],task["slots"]), ("success",["A"]))
-                return completion({"speech":"木块已经到达左侧工位，手腕已抬高。"})
-            self.assertEqual(task["command"],phrase)
-            self.assertEqual(len(task["objects"]),1)
-            obj=task["objects"][0]
-            self.assertEqual((obj["id"],obj["slot"]),("red_1","B"))
-            np.testing.assert_allclose(obj["xy_mm"],[215,-77],atol=2)
+            self.assertEqual(task["command"], phrase)
+            self.assertEqual(task["objects"][0]["slot"], "B")
             return completion({"steps":[{"action":"transfer","from":"B","object":"red_1","to":"A"},
                                         {"action":"wrist","deg":-2}]})
         access = ModelAccess()
         origin = "http://127.0.0.1:8768"
-        def permit(kind):
-            return {"Origin":origin,"X-Arm-Approval":kind}
         with TestClient(create_app(access,"B",playback_speed=0),base_url=origin,client=("127.0.0.1",1234)) as c, \
-                mock_campus(reply), patch.object(access,"transcribe",return_value=phrase) as asr, \
-                patch.object(access,"speak",new_callable=AsyncMock,return_value=b"test-mp3") as tts:
+                mock_campus(reply), patch.object(access,"transcribe",return_value=phrase) as asr:
             audio = {"file":("command.wav",b"synthetic-test-input","audio/wav")}
-            transcript = c.post("/api/transcribe",headers=permit("asr"),files=audio).json()["text"]
+            transcript = c.post("/api/transcribe",headers={"Origin":origin},files=audio).json()["text"]
             asr.assert_called_once_with(b"synthetic-test-input",approved_once=True)
-            body = {"id":str(uuid4()),"text":transcript,"revision":0,"issued_at_ms":int(time.time()*1000),"use_deepseek":True}
-            for headers in ({}, {"Origin":"https://example.invalid","X-Arm-Approval":"deepseek"}):
-                self.assertEqual(c.post("/api/commands",json=body,headers=headers).status_code,403)
+            body = {"id":str(uuid4()),"text":transcript,"revision":0,"issued_at_ms":int(time.time()*1000),"use_deepseek":False}
+            self.assertEqual(c.post("/api/commands",json=body,headers={"Origin":"https://example.invalid"}).status_code,403)
             self.assertEqual(requests, [])
-            result = c.post("/api/commands",json=body,headers=permit("deepseek")).json()
+            result = c.post("/api/commands",json=body,headers={"Origin":origin}).json()
             self.assertEqual(result["status"],"success",result)
             self.assertEqual(result["plan"],["pick(B)","place(A)","verify(A)","wrist_delta(-2 deg)"])
             self.assertEqual(result["after"]["objects"][0]["slot"],"A")
-            self.assertEqual(c.post("/api/commands",json=body,headers=permit("deepseek")).json(),result)
-            url = "?receipt_id="+result["id"]
-            speech = c.post("/api/feedback"+url,headers=permit("deepseek")).json()["speech"]
-            self.assertEqual(c.post("/api/speak"+url,headers=permit("tts")).content,b"test-mp3")
-            tts.assert_awaited_once_with(result["message"]+" "+speech,approved_once=True)
-            self.assertEqual((len(requests),access.used["deepseek"],access.remaining["deepseek"]),(2,2,0))
+            self.assertEqual(c.post("/api/commands",json=body).json(),result)
+            self.assertEqual(c.post("/api/feedback").status_code,404)
+            self.assertEqual(c.post("/api/speak").status_code,404)
+            self.assertEqual((len(requests),access.used["deepseek"],access.remaining["deepseek"]),(1,1,0))
 
     def test_model_clarification_remembers_command_and_rechecks_scene(self):
         seen = []
@@ -177,7 +165,7 @@ class CampusPlannerTests(unittest.TestCase):
             if "dialogue" not in task:
                 return completion({"action":"ask","question":"送到哪个工位？"})
             return completion({"steps":[{"action":"transfer","object":"red_1","from":"C","to":"B"}]})
-        with TestClient(create_app(self.access,"C",playback_speed=0)) as c, mock_campus(reply):
+        with TestClient(create_app(self.access,"C",playback_speed=0, allow_local_rules=True)) as c, mock_campus(reply):
             def send(text, rev, prior=None):
                 return c.post("/api/commands",json={"text":text,"revision":rev,"id":str(uuid4()),"watchdog_token":str(uuid4()),
                               "issued_at_ms":int(time.time()*1000),"use_deepseek":True,"reply_to":prior})

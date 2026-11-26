@@ -24,7 +24,7 @@ PLAYBACK = 0.7
 @contextmanager
 def isolated_server():
     access = ModelAccess()
-    app = create_app(access, "B", playback_speed=PLAYBACK, watchdog_seconds=WATCHDOG_S)
+    app = create_app(access, "B", playback_speed=PLAYBACK, watchdog_seconds=WATCHDOG_S, allow_local_rules=True)
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
         sock.listen()
