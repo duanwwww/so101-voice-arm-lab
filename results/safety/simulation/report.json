@@ -1,0 +1,7721 @@
+{
+  "backend": "MuJoCo 4.0.0 / CPU rules / OpenCV",
+  "ai_calls": 0,
+  "hardware_connected": false,
+  "passed": 28,
+  "total": 28,
+  "cases": [
+    {
+      "case": "pick_A",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 32.28,
+        "two_pad_grasp": true,
+        "target": "C",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.04
+        },
+        "descend": {
+          "xyz_m": [
+            0.220473,
+            0.079176,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.53
+        },
+        "close": {
+          "xyz_m": [
+            0.212902,
+            0.079161,
+            0.047006
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.3
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211923,
+            0.078808,
+            0.052405
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.77
+        },
+        "lift": {
+          "xyz_m": [
+            0.211921,
+            0.078802,
+            0.079159
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 5.24
+        },
+        "carry": {
+          "xyz_m": [
+            0.242924,
+            0.003806,
+            0.078174
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.91
+        },
+        "release": {
+          "xyz_m": [
+            0.24409,
+            0.003763,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 7.23
+        },
+        "retreat": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.26
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.26
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.76
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.26
+        },
+        "after": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.26
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.4,
+                  "encoder_rad": 0.01471,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                317,
+                147
+              ],
+              "box": [
+                308,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                4.2
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.4,
+              "encoder_rad": 0.01471,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.562
+      }
+    },
+    {
+      "case": "pick_B",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 31.8,
+        "two_pad_grasp": true,
+        "target": "C",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 1.96
+        },
+        "descend": {
+          "xyz_m": [
+            0.222188,
+            -0.080986,
+            0.046872
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 2.45
+        },
+        "close": {
+          "xyz_m": [
+            0.213665,
+            -0.079771,
+            0.046999
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.13
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211512,
+            -0.07901,
+            0.051844
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.6
+        },
+        "lift": {
+          "xyz_m": [
+            0.211502,
+            -0.078916,
+            0.078678
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 5.07
+        },
+        "carry": {
+          "xyz_m": [
+            0.242576,
+            -0.004043,
+            0.077545
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.74
+        },
+        "release": {
+          "xyz_m": [
+            0.243731,
+            -0.004089,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 7.06
+        },
+        "retreat": {
+          "xyz_m": [
+            0.244395,
+            -0.004111,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.09
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.244395,
+            -0.004111,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.09
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.244395,
+            -0.004111,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.59
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.244395,
+            -0.004111,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.09
+        },
+        "after": {
+          "xyz_m": [
+            0.244395,
+            -0.004111,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.09
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.23,
+                  "encoder_rad": 0.01496,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                322,
+                148
+              ],
+              "box": [
+                314,
+                139,
+                18,
+                19
+              ],
+              "xy_mm": [
+                243.6,
+                -2.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.23,
+              "encoder_rad": 0.01496,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.526
+      }
+    },
+    {
+      "case": "empty",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.5,
+            0.28,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": null,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.5,
+            0.28,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": null,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "当前画面没有找到木块。",
+        "after": {
+          "objects": [],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.004,
+        "clarification": {
+          "command": "把红色木块放到 C 区",
+          "question": "当前画面没有找到木块。"
+        }
+      }
+    },
+    {
+      "case": "already_C",
+      "expected": "already_done",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "already_done",
+            "message": "红块已在 C 区。",
+            "measurement": {},
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": null,
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": []
+            }
+          }
+        ],
+        "status": "already_done",
+        "message": "红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "forward_50",
+      "expected": "success",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 5.15
+        }
+      },
+      "receipt": {
+        "text": "向前移动五厘米",
+        "planner": "rules",
+        "intent": {
+          "kind": "move",
+          "axis": "x",
+          "amount": 50.0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "move_delta(x,50 mm)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "move",
+            "status": "success",
+            "message": "已测量末端平移。",
+            "measurement": {
+              "requested_mm": 50.0,
+              "displacement_mm": [
+                49.991,
+                0.062,
+                -0.296
+              ],
+              "error_mm": 0.303
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已测量末端平移。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {
+          "requested_mm": 50.0,
+          "displacement_mm": [
+            49.991,
+            0.062,
+            -0.296
+          ],
+          "error_mm": 0.303
+        },
+        "wall_seconds": 0.179
+      }
+    },
+    {
+      "case": "wrist_down_5",
+      "expected": "success",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.92
+        }
+      },
+      "receipt": {
+        "text": "手腕向下转五度",
+        "planner": "rules",
+        "intent": {
+          "kind": "wrist",
+          "axis": "wrist_flex",
+          "amount": 5.0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "wrist_delta(5 deg)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "wrist",
+            "status": "success",
+            "message": "已测量腕关节转角。",
+            "measurement": {
+              "requested_deg": 5.0,
+              "actual_deg": 5.006,
+              "error_deg": 0.006
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已测量腕关节转角。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {
+          "requested_deg": 5.0,
+          "actual_deg": 5.006,
+          "error_deg": 0.006
+        },
+        "wall_seconds": 0.022
+      }
+    },
+    {
+      "case": "ambiguous",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "向下几度",
+        "planner": "rules",
+        "intent": {
+          "kind": "ask",
+          "axis": "",
+          "amount": 0,
+          "message": "手腕往哪个方向转多少度？例如“向下转五度”。",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "手腕往哪个方向转多少度？例如“向下转五度”。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.005,
+        "clarification": {
+          "command": "向下几度",
+          "question": "手腕往哪个方向转多少度？例如“向下转五度”。"
+        }
+      }
+    },
+    {
+      "case": "too_far",
+      "expected": "rejected",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "向前移动五十厘米",
+        "planner": "rules",
+        "intent": {
+          "kind": "move",
+          "axis": "x",
+          "amount": 500.0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "rejected",
+        "message": "单步平移限于 50 mm以内。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "outside",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.29,
+            0.13,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": null,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.29,
+            0.13,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": null,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": null,
+              "pixel": [
+                229,
+                116
+              ],
+              "box": [
+                219,
+                106,
+                21,
+                20
+              ],
+              "xy_mm": [
+                289.0,
+                128.9
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "木块没有完整位于已示教工位。",
+        "after": {
+          "objects": [
+            {
+              "slot": null,
+              "pixel": [
+                229,
+                116
+              ],
+              "box": [
+                219,
+                106,
+                21,
+                20
+              ],
+              "xy_mm": [
+                289.0,
+                128.9
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.004,
+        "clarification": {
+          "command": "把红块放到C",
+          "question": "木块没有完整位于已示教工位。"
+        }
+      }
+    },
+    {
+      "case": "miss",
+      "expected": "unverified",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.058,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            0.058,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.058,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                278,
+                168
+              ],
+              "box": [
+                270,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                59.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "unverified",
+            "message": "红块偏离抓取中心 17.5 mm，超过 8 mm 范围，未下爪。",
+            "measurement": {
+              "observed_offset_mm": 17.5
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": null,
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": []
+            }
+          }
+        ],
+        "status": "unverified",
+        "message": "红块偏离抓取中心 17.5 mm，超过 8 mm 范围，未下爪。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                278,
+                168
+              ],
+              "box": [
+                270,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                59.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {
+          "observed_offset_mm": 17.5
+        },
+        "wall_seconds": 0.007
+      }
+    },
+    {
+      "case": "A_to_B_sequence",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 32.28,
+        "two_pad_grasp": true,
+        "target": "B",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.04
+        },
+        "descend": {
+          "xyz_m": [
+            0.220473,
+            0.079176,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.53
+        },
+        "close": {
+          "xyz_m": [
+            0.212902,
+            0.079161,
+            0.047006
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.3
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211923,
+            0.078808,
+            0.052405
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.77
+        },
+        "lift": {
+          "xyz_m": [
+            0.211921,
+            0.078802,
+            0.079159
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 5.24
+        },
+        "before_step_2": {
+          "xyz_m": [
+            0.211921,
+            0.078802,
+            0.079159
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 5.24
+        },
+        "carry": {
+          "xyz_m": [
+            0.214827,
+            -0.072214,
+            0.077293
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 6.37
+        },
+        "release": {
+          "xyz_m": [
+            0.215876,
+            -0.072725,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 7.69
+        },
+        "retreat": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 9.69
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 9.69
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.19
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        },
+        "after": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        }
+      },
+      "receipt": {
+        "text": "把前面的木块夹起来，再放到右边的工位",
+        "planner": "rules",
+        "intent": {
+          "kind": "sequence",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": [
+            {
+              "kind": "pick",
+              "axis": "",
+              "amount": 0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            },
+            {
+              "kind": "place",
+              "axis": "",
+              "amount": 0,
+              "message": "",
+              "source": "",
+              "target": "B",
+              "steps": []
+            }
+          ]
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "pick",
+            "status": "success",
+            "message": "已从 A 区抓起木块，夹爪双侧接触已确认。",
+            "measurement": {
+              "observed_offset_mm": 0.58
+            },
+            "gripper": {
+              "mode": "hold",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          },
+          {
+            "step": 2,
+            "kind": "place",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.86,
+                  "encoder_rad": 0.0142,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已完成 2/2 步。相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "before_step_2",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.86,
+              "encoder_rad": 0.0142,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.582
+      }
+    },
+    {
+      "case": "B_to_A",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 31.8,
+        "two_pad_grasp": true,
+        "target": "A",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 1.96
+        },
+        "descend": {
+          "xyz_m": [
+            0.222188,
+            -0.080986,
+            0.046872
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 2.45
+        },
+        "close": {
+          "xyz_m": [
+            0.213665,
+            -0.079771,
+            0.046999
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.13
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211512,
+            -0.07901,
+            0.051844
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.6
+        },
+        "lift": {
+          "xyz_m": [
+            0.211502,
+            -0.078916,
+            0.078678
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 5.07
+        },
+        "carry": {
+          "xyz_m": [
+            0.214545,
+            0.071892,
+            0.076621
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 6.2
+        },
+        "release": {
+          "xyz_m": [
+            0.21565,
+            0.0723,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 7.52
+        },
+        "retreat": {
+          "xyz_m": [
+            0.216243,
+            0.072492,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 9.6
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.216243,
+            0.072492,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 9.6
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.216243,
+            0.072492,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.1
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.216243,
+            0.072492,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.6
+        },
+        "after": {
+          "xyz_m": [
+            0.216243,
+            0.072492,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.6
+        }
+      },
+      "receipt": {
+        "text": "把B区的红色积木送到A区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "B",
+          "target": "A",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(A)",
+          "verify(A)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 A 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.69,
+                  "encoder_rad": 0.01445,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 A 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                269,
+                167
+              ],
+              "box": [
+                258,
+                156,
+                23,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                72.2
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.69,
+              "encoder_rad": 0.01445,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.565
+      }
+    },
+    {
+      "case": "C_to_A",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 32.2,
+        "two_pad_grasp": true,
+        "target": "A",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 1.99
+        },
+        "descend": {
+          "xyz_m": [
+            0.2453,
+            1e-06,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 2.48
+        },
+        "close": {
+          "xyz_m": [
+            0.242777,
+            -3.4e-05,
+            0.046915
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 4.56
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.242746,
+            -3.2e-05,
+            0.052291
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.03
+        },
+        "lift": {
+          "xyz_m": [
+            0.242749,
+            -2.5e-05,
+            0.079075
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.5
+        },
+        "carry": {
+          "xyz_m": [
+            0.213117,
+            0.075583,
+            0.0781
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 6.17
+        },
+        "release": {
+          "xyz_m": [
+            0.21423,
+            0.075987,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 7.49
+        },
+        "retreat": {
+          "xyz_m": [
+            0.214901,
+            0.076186,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 9.57
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.214901,
+            0.076186,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 9.57
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.214901,
+            0.076186,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.07
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.214901,
+            0.076186,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.57
+        },
+        "after": {
+          "xyz_m": [
+            0.214901,
+            0.076186,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 10.57
+        }
+      },
+      "receipt": {
+        "text": "把木块放到左边的工位",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "A",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(C)",
+          "place(A)",
+          "verify(A)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 A 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "C",
+                "observation_mm": [
+                  245.1,
+                  1.4
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  245.0,
+                  0.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.48,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 4.18,
+                  "encoder_rad": 0.05955,
+                  "command_rad": 0.05955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.66,
+                  "encoder_rad": 0.01433,
+                  "command_rad": 0.05955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 A 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                255,
+                157,
+                23,
+                23
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "C",
+            "observation_mm": [
+              245.1,
+              1.4
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              245.0,
+              0.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.48,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 4.18,
+              "encoder_rad": 0.05955,
+              "command_rad": 0.05955
+            },
+            {
+              "event": "release",
+              "time_s": 6.66,
+              "encoder_rad": 0.01433,
+              "command_rad": 0.05955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.664
+      }
+    },
+    {
+      "case": "C_to_B",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 32.2,
+        "two_pad_grasp": true,
+        "target": "B",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 1.99
+        },
+        "descend": {
+          "xyz_m": [
+            0.2453,
+            1e-06,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 2.48
+        },
+        "close": {
+          "xyz_m": [
+            0.242777,
+            -3.4e-05,
+            0.046915
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 4.56
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.242746,
+            -3.2e-05,
+            0.052291
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.03
+        },
+        "lift": {
+          "xyz_m": [
+            0.242749,
+            -2.5e-05,
+            0.079075
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.5
+        },
+        "carry": {
+          "xyz_m": [
+            0.213152,
+            -0.075622,
+            0.078141
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 6.17
+        },
+        "release": {
+          "xyz_m": [
+            0.214181,
+            -0.076155,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 7.49
+        },
+        "retreat": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 9.49
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 9.49
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 9.99
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.49
+        },
+        "after": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.49
+        }
+      },
+      "receipt": {
+        "text": "把桌上的木块从C挪到B区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "C",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(C)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "C",
+                "observation_mm": [
+                  245.1,
+                  1.4
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  245.0,
+                  0.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.48,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 4.18,
+                  "encoder_rad": 0.05955,
+                  "command_rad": 0.05955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.66,
+                  "encoder_rad": 0.01432,
+                  "command_rad": 0.05955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                373,
+                168
+              ],
+              "box": [
+                362,
+                157,
+                23,
+                23
+              ],
+              "xy_mm": [
+                215.3,
+                -75.1
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "C",
+            "observation_mm": [
+              245.1,
+              1.4
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              245.0,
+              0.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.48,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 4.18,
+              "encoder_rad": 0.05955,
+              "command_rad": 0.05955
+            },
+            {
+              "event": "release",
+              "time_s": 6.66,
+              "encoder_rad": 0.01432,
+              "command_rad": 0.05955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.552
+      }
+    },
+    {
+      "case": "pick_hold",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 31.8,
+        "two_pad_grasp": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 1.96
+        },
+        "descend": {
+          "xyz_m": [
+            0.222188,
+            -0.080986,
+            0.046872
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 2.45
+        },
+        "close": {
+          "xyz_m": [
+            0.213665,
+            -0.079771,
+            0.046999
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.13
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211512,
+            -0.07901,
+            0.051844
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 4.6
+        },
+        "lift": {
+          "xyz_m": [
+            0.211502,
+            -0.078916,
+            0.078678
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 5.07
+        },
+        "after": {
+          "xyz_m": [
+            0.211502,
+            -0.078916,
+            0.078678
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 5.07
+        }
+      },
+      "receipt": {
+        "text": "向前抓取木块",
+        "planner": "rules",
+        "intent": {
+          "kind": "pick",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "pick",
+            "status": "success",
+            "message": "已从 B 区抓起木块，夹爪双侧接触已确认。",
+            "measurement": {
+              "observed_offset_mm": 0.58
+            },
+            "gripper": {
+              "mode": "hold",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已从 B 区抓起木块，夹爪双侧接触已确认。",
+        "after": {
+          "objects": [],
+          "holding": true
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "after"
+        ],
+        "gripper": {
+          "mode": "hold",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "observed_offset_mm": 0.58
+        },
+        "wall_seconds": 0.282
+      }
+    },
+    {
+      "case": "metric_sequence",
+      "expected": "success",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "before_step_2": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 1.86
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.33
+        }
+      },
+      "receipt": {
+        "text": "先向左挪12毫米，再把手腕向下转3度",
+        "planner": "rules",
+        "intent": {
+          "kind": "sequence",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": [
+            {
+              "kind": "move",
+              "axis": "y",
+              "amount": 12.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            },
+            {
+              "kind": "wrist",
+              "axis": "wrist_flex",
+              "amount": 3.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            }
+          ]
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "move_delta(y,12 mm)",
+          "wrist_delta(3 deg)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "move",
+            "status": "success",
+            "message": "已测量末端平移。",
+            "measurement": {
+              "requested_mm": 12.0,
+              "displacement_mm": [
+                -0.046,
+                12.001,
+                -0.221
+              ],
+              "error_mm": 0.226
+            }
+          },
+          {
+            "step": 2,
+            "kind": "wrist",
+            "status": "success",
+            "message": "已测量腕关节转角。",
+            "measurement": {
+              "requested_deg": 3.0,
+              "actual_deg": 3.006,
+              "error_deg": 0.006
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已完成 2/2 步。已测量腕关节转角。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "before_step_2",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {
+          "requested_deg": 3.0,
+          "actual_deg": 3.006,
+          "error_deg": 0.006
+        },
+        "wall_seconds": 0.08
+      }
+    },
+    {
+      "case": "bad_second",
+      "expected": "rejected",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "向左移动一厘米，然后向前移动六十厘米",
+        "planner": "rules",
+        "intent": {
+          "kind": "sequence",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": [
+            {
+              "kind": "move",
+              "axis": "y",
+              "amount": 10.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            },
+            {
+              "kind": "move",
+              "axis": "x",
+              "amount": 600.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            }
+          ]
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "rejected",
+        "message": "单步平移限于 50 mm以内。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "typed_homophone",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 32.28,
+        "two_pad_grasp": true,
+        "target": "C",
+        "released_stable_in_target": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp_observation": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.04
+        },
+        "descend": {
+          "xyz_m": [
+            0.220473,
+            0.079176,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 2.53
+        },
+        "close": {
+          "xyz_m": [
+            0.212902,
+            0.079161,
+            0.047006
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.3
+        },
+        "test_lift": {
+          "xyz_m": [
+            0.211923,
+            0.078808,
+            0.052405
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 4.77
+        },
+        "lift": {
+          "xyz_m": [
+            0.211921,
+            0.078802,
+            0.079159
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 5.24
+        },
+        "carry": {
+          "xyz_m": [
+            0.242924,
+            0.003806,
+            0.078174
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 5.91
+        },
+        "release": {
+          "xyz_m": [
+            0.24409,
+            0.003763,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 7.23
+        },
+        "retreat": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.26
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.26
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 9.76
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.26
+        },
+        "after": {
+          "xyz_m": [
+            0.244758,
+            0.003751,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 10.26
+        }
+      },
+      "receipt": {
+        "text": "把A区的红快放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.4,
+                  "encoder_rad": 0.01471,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                317,
+                147
+              ],
+              "box": [
+                308,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                4.2
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.4,
+              "encoder_rad": 0.01471,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.536
+      }
+    },
+    {
+      "case": "typed_source_conflict",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把A区的红快放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "你指定从 A 区取，相机看到木块在 C 区。木块已经在目标工位。请确认是否以当前观测为准。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.003,
+        "clarification": {
+          "command": "把A区的红快放到C",
+          "question": "你指定从 A 区取，相机看到木块在 C 区。木块已经在目标工位。请确认是否以当前观测为准。"
+        }
+      }
+    },
+    {
+      "case": "clutter",
+      "expected": "success",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "each_lift_clears_table_and_both_pads_touch": true,
+        "verification_phases_in_order": true,
+        "three_stable_physical_landings_per_transfer": true,
+        "camera_agrees_or_reports_blocked_view": true,
+        "three_verifications_from_expected_camera": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 1.96
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.222188,
+              -0.080986,
+              0.046872
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 2.45
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.213665,
+              -0.079771,
+              0.046999
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.13
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211512,
+              -0.07901,
+              0.051844
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.6
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211502,
+              -0.078916,
+              0.078678
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 5.07
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.242576,
+              -0.004043,
+              0.077545
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 5.74
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.243731,
+              -0.004089,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 7.06
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.59
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        },
+        {
+          "phase": "before_step_2",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 11.63
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 12.12
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.241305,
+              -0.00397,
+              0.04691
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 14.22
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.241277,
+              -0.003965,
+              0.052285
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 14.69
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.24128,
+              -0.003954,
+              0.079062
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 15.16
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.213541,
+              0.074483,
+              0.078044
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 15.85
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.214651,
+              0.074897,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 17.17
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215243,
+              0.075066,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 19.25
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215243,
+              0.075066,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 19.25
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215243,
+              0.075066,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 19.75
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215243,
+              0.075066,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 20.25
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215243,
+              0.075066,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 20.25
+          }
+        }
+      ],
+      "receipt": {
+        "text": "先把木块放到 C 区，再把木块放到 A 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "sequence",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": [
+            {
+              "kind": "transfer",
+              "axis": "",
+              "amount": 0,
+              "message": "",
+              "source": "",
+              "target": "C",
+              "steps": []
+            },
+            {
+              "kind": "transfer",
+              "axis": "",
+              "amount": 0,
+              "message": "",
+              "source": "",
+              "target": "A",
+              "steps": []
+            }
+          ]
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(C)",
+          "verify(C)",
+          "pick(C)",
+          "place(A)",
+          "verify(A)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.23,
+                  "encoder_rad": 0.01496,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          },
+          {
+            "step": 2,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 A 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "C",
+                "observation_mm": [
+                  243.6,
+                  -2.8
+                ],
+                "correction_mm": [
+                  -1.4,
+                  -2.8
+                ],
+                "target_xy_mm": [
+                  243.6,
+                  -2.8
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 12.12,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 13.84,
+                  "encoder_rad": 0.05355,
+                  "command_rad": 0.05355
+                },
+                {
+                  "event": "release",
+                  "time_s": 16.34,
+                  "encoder_rad": 0.01435,
+                  "command_rad": 0.05355
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已完成 2/2 步。相机连续确认红块已在 A 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                267,
+                168
+              ],
+              "box": [
+                256,
+                157,
+                23,
+                22
+              ],
+              "xy_mm": [
+                215.3,
+                75.1
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "before_step_2",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "C",
+            "observation_mm": [
+              243.6,
+              -2.8
+            ],
+            "correction_mm": [
+              -1.4,
+              -2.8
+            ],
+            "target_xy_mm": [
+              243.6,
+              -2.8
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 12.12,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 13.84,
+              "encoder_rad": 0.05355,
+              "command_rad": 0.05355
+            },
+            {
+              "event": "release",
+              "time_s": 16.34,
+              "encoder_rad": 0.01435,
+              "command_rad": 0.05355
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 1.106
+      }
+    },
+    {
+      "case": "two_red",
+      "expected": "clarify",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "no_joint_motion": true,
+        "no_actions": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "A",
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "A",
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            },
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "可见目标不唯一，请重新摆放或确认目标。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            },
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.005,
+        "clarification": {
+          "command": "把红色木块放到 C 区",
+          "question": "可见目标不唯一，请重新摆放或确认目标。"
+        }
+      }
+    },
+    {
+      "case": "cover_source",
+      "expected": "clarify",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "no_joint_motion": true,
+        "no_actions": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        }
+      ],
+      "receipt": {
+        "text": "向前抓取木块",
+        "planner": "rules",
+        "intent": {
+          "kind": "pick",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "当前画面没有找到木块。",
+        "after": {
+          "objects": [],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.005,
+        "clarification": {
+          "command": "向前抓取木块",
+          "question": "当前画面没有找到木块。"
+        }
+      }
+    },
+    {
+      "case": "cover_goal",
+      "expected": "success",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "each_lift_clears_table_and_both_pads_touch": true,
+        "verification_phases_in_order": true,
+        "three_stable_physical_landings_per_transfer": true,
+        "camera_agrees_or_reports_blocked_view": true,
+        "three_verifications_from_expected_camera": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 1.96
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.222188,
+              -0.080986,
+              0.046872
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 2.45
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.213665,
+              -0.079771,
+              0.046999
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.13
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211512,
+              -0.07901,
+              0.051844
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.6
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211502,
+              -0.078916,
+              0.078678
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 5.07
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.242576,
+              -0.004043,
+              0.077545
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 5.74
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.243731,
+              -0.004089,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 7.06
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.59
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "wrist",
+                "wrist",
+                "wrist"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.23,
+                  "encoder_rad": 0.01496,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.23,
+              "encoder_rad": 0.01496,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "wrist",
+            "wrist",
+            "wrist"
+          ]
+        },
+        "wall_seconds": 0.549
+      }
+    },
+    {
+      "case": "cover_both",
+      "expected": "unverified",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "each_lift_clears_table_and_both_pads_touch": true,
+        "verification_phases_in_order": true,
+        "three_stable_physical_landings_per_transfer": true,
+        "camera_agrees_or_reports_blocked_view": true,
+        "three_verifications_from_expected_camera": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 1.96
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.222188,
+              -0.080986,
+              0.046872
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 2.45
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.213665,
+              -0.079771,
+              0.046999
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.13
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211512,
+              -0.07901,
+              0.051844
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.6
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211502,
+              -0.078916,
+              0.078678
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 5.07
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.242576,
+              -0.004043,
+              0.077545
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 5.74
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.243731,
+              -0.004089,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 7.06
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.09
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 9.59
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.244395,
+              -0.004111,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 10.09
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "C",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "unverified",
+            "message": "释放后未能确认木块稳定在 C 区。",
+            "measurement": {
+              "drop_views": [
+                "unconfirmed",
+                "unconfirmed",
+                "unconfirmed"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.23,
+                  "encoder_rad": 0.01496,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "unverified",
+        "message": "释放后未能确认木块稳定在 C 区。",
+        "after": {
+          "objects": [],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.23,
+              "encoder_rad": 0.01496,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "unconfirmed",
+            "unconfirmed",
+            "unconfirmed"
+          ]
+        },
+        "wall_seconds": 0.554
+      }
+    },
+    {
+      "case": "dim",
+      "expected": "success",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "each_lift_clears_table_and_both_pads_touch": true,
+        "verification_phases_in_order": true,
+        "three_stable_physical_landings_per_transfer": true,
+        "camera_agrees_or_reports_blocked_view": true,
+        "three_verifications_from_expected_camera": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              -0.077,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 1.96
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.222188,
+              -0.080986,
+              0.046872
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 2.45
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.213665,
+              -0.079771,
+              0.046999
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.13
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211512,
+              -0.07901,
+              0.051844
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 4.6
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.211502,
+              -0.078916,
+              0.078678
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 5.07
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.214545,
+              0.071892,
+              0.076621
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 6.2
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.21565,
+              0.0723,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 7.52
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.216243,
+              0.072492,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 9.6
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.216243,
+              0.072492,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 9.6
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.216243,
+              0.072492,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 10.1
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.216243,
+              0.072492,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 10.6
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.216243,
+              0.072492,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 10.6
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把木块从 B 搬到 A 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "B",
+          "target": "A",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                366,
+                160,
+                17,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                -76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(B)",
+          "place(A)",
+          "verify(A)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 A 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "B",
+                "observation_mm": [
+                  215.3,
+                  -76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  -77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.45,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.75,
+                  "encoder_rad": 0.17955,
+                  "command_rad": 0.17955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.69,
+                  "encoder_rad": 0.01445,
+                  "command_rad": 0.17955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 A 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                268,
+                167
+              ],
+              "box": [
+                258,
+                156,
+                23,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                73.6
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.69,
+              "encoder_rad": 0.01445,
+              "command_rad": 0.17955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.624
+      }
+    },
+    {
+      "case": "rotated",
+      "expected": "success",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "each_lift_clears_table_and_both_pads_touch": true,
+        "verification_phases_in_order": true,
+        "three_stable_physical_landings_per_transfer": true,
+        "camera_agrees_or_reports_blocked_view": true,
+        "three_verifications_from_expected_camera": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.073,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.073,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "pregrasp",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.073,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 2.02
+          }
+        },
+        {
+          "phase": "descend",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.217125,
+              0.073742,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 2.51
+          }
+        },
+        {
+          "phase": "close",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.213071,
+              0.073406,
+              0.046972
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 4.45
+          }
+        },
+        {
+          "phase": "test_lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.212985,
+              0.073374,
+              0.052347
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 4.92
+          }
+        },
+        {
+          "phase": "lift",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.212994,
+              0.07339,
+              0.079178
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 5.39
+          }
+        },
+        {
+          "phase": "carry",
+          "camera_slots": [],
+          "gripper_holding": true,
+          "truth": {
+            "xyz_m": [
+              0.213875,
+              -0.074137,
+              0.077384
+            ],
+            "contacts": [
+              "fixed_pad",
+              "moving_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 6.5
+          }
+        },
+        {
+          "phase": "release",
+          "camera_slots": [],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.214923,
+              -0.074657,
+              0.046874
+            ],
+            "contacts": [
+              "desk",
+              "fixed_pad"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 7.82
+          }
+        },
+        {
+          "phase": "retreat",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215541,
+              -0.074893,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 9.82
+          }
+        },
+        {
+          "phase": "verify_1",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215541,
+              -0.074893,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 9.82
+          }
+        },
+        {
+          "phase": "verify_2",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215541,
+              -0.074893,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 10.32
+          }
+        },
+        {
+          "phase": "verify_3",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215541,
+              -0.074893,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 10.82
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "B"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215541,
+              -0.074893,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "B",
+            "time_s": 10.82
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把 A 区的木块放到 B 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                268,
+                168
+              ],
+              "box": [
+                259,
+                159,
+                20,
+                19
+              ],
+              "xy_mm": [
+                215.3,
+                73.6
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  73.6
+                ],
+                "correction_mm": [
+                  0.3,
+                  -3.4
+                ],
+                "target_xy_mm": [
+                  215.3,
+                  73.6
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.51,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 4.07,
+                  "encoder_rad": 0.10155,
+                  "command_rad": 0.10155
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.99,
+                  "encoder_rad": 0.01409,
+                  "command_rad": 0.10155
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                372,
+                168
+              ],
+              "box": [
+                361,
+                157,
+                23,
+                23
+              ],
+              "xy_mm": [
+                215.3,
+                -73.6
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              73.6
+            ],
+            "correction_mm": [
+              0.3,
+              -3.4
+            ],
+            "target_xy_mm": [
+              215.3,
+              73.6
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.51,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 4.07,
+              "encoder_rad": 0.10155,
+              "command_rad": 0.10155
+            },
+            {
+              "event": "release",
+              "time_s": 6.99,
+              "encoder_rad": 0.01409,
+              "command_rad": 0.10155
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.646
+      }
+    },
+    {
+      "case": "edge_grasp",
+      "expected": "unverified",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "first_move_measured_then_failed_pick": true,
+        "stopped_before_approach_and_block_stayed_on_desk": true,
+        "no_release_or_final_wrist_step": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.058,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "before_step_2",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.058,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 1.39
+          }
+        },
+        {
+          "phase": "pregrasp_observation",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.058,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 1.39
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "A"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.215,
+              0.058,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": false,
+            "inside": "A",
+            "time_s": 1.39
+          }
+        }
+      ],
+      "receipt": {
+        "text": "先向左移动一厘米，再把木块放到 C 区，最后手腕向下转三度",
+        "planner": "rules",
+        "intent": {
+          "kind": "sequence",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": [
+            {
+              "kind": "move",
+              "axis": "y",
+              "amount": 10.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            },
+            {
+              "kind": "transfer",
+              "axis": "",
+              "amount": 0,
+              "message": "",
+              "source": "",
+              "target": "C",
+              "steps": []
+            },
+            {
+              "kind": "wrist",
+              "axis": "wrist_flex",
+              "amount": 3.0,
+              "message": "",
+              "source": "",
+              "target": "",
+              "steps": []
+            }
+          ]
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                278,
+                168
+              ],
+              "box": [
+                270,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                59.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "move_delta(y,10 mm)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "move",
+            "status": "success",
+            "message": "已测量末端平移。",
+            "measurement": {
+              "requested_mm": 10.0,
+              "displacement_mm": [
+                -0.063,
+                9.995,
+                -0.239
+              ],
+              "error_mm": 0.247
+            }
+          },
+          {
+            "step": 2,
+            "kind": "transfer",
+            "status": "unverified",
+            "message": "红块偏离抓取中心 17.5 mm，超过 8 mm 范围，未下爪。",
+            "measurement": {
+              "observed_offset_mm": 17.5
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": null,
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": []
+            }
+          }
+        ],
+        "status": "unverified",
+        "message": "已完成 1/3 步。红块偏离抓取中心 17.5 mm，超过 8 mm 范围，未下爪。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                278,
+                168
+              ],
+              "box": [
+                270,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                59.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "before_step_2",
+          "pregrasp_observation",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {
+          "observed_offset_mm": 17.5
+        },
+        "wall_seconds": 0.044
+      }
+    },
+    {
+      "case": "reflective_band",
+      "expected": "clarify",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "initial_count_and_slots": true,
+        "no_joint_motion": true,
+        "no_actions": true
+      },
+      "observations": [
+        {
+          "phase": "before",
+          "camera_slots": [
+            "C",
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.245,
+              0.0,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 0.45
+          }
+        },
+        {
+          "phase": "after",
+          "camera_slots": [
+            "C",
+            "C"
+          ],
+          "gripper_holding": false,
+          "truth": {
+            "xyz_m": [
+              0.245,
+              0.0,
+              0.046874
+            ],
+            "contacts": [
+              "desk"
+            ],
+            "inside_C": true,
+            "inside": "C",
+            "time_s": 0.45
+          }
+        }
+      ],
+      "receipt": {
+        "text": "把 C 区的木块放到 A 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "C",
+          "target": "A",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                320,
+                141
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                6
+              ],
+              "xy_mm": [
+                253.6,
+                0.0
+              ]
+            },
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                153
+              ],
+              "box": [
+                311,
+                150,
+                18,
+                7
+              ],
+              "xy_mm": [
+                236.6,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [],
+        "steps": [],
+        "status": "clarify",
+        "message": "可见目标不唯一，请重新摆放或确认目标。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                320,
+                141
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                6
+              ],
+              "xy_mm": [
+                253.6,
+                0.0
+              ]
+            },
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                153
+              ],
+              "box": [
+                311,
+                150,
+                18,
+                7
+              ],
+              "xy_mm": [
+                236.6,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": null,
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": []
+        },
+        "measurement": {},
+        "wall_seconds": 0.005,
+        "clarification": {
+          "command": "把 C 区的木块放到 A 区",
+          "question": "可见目标不唯一，请重新摆放或确认目标。"
+        }
+      }
+    }
+  ]
+}

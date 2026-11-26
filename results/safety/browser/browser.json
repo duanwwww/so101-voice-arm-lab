@@ -1,0 +1,228 @@
+{
+  "mode": "Edge + real MuJoCo, in-memory model fixtures",
+  "online_model_calls": 0,
+  "events": [
+    "Whisper fixture",
+    "DeepSeek plan fixture",
+    "DeepSeek feedback fixture",
+    "Edge-TTS fixture"
+  ],
+  "receipt": {
+    "text": "让眼前的小家伙在左侧格子安家，随后把腕部轻轻抬高两度",
+    "planner": "deepseek-chat",
+    "intent": {
+      "kind": "sequence",
+      "axis": "",
+      "amount": 0,
+      "message": "",
+      "source": "",
+      "target": "",
+      "steps": [
+        {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "B",
+          "target": "A",
+          "steps": []
+        },
+        {
+          "kind": "wrist",
+          "axis": "wrist_flex",
+          "amount": -2,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        }
+      ]
+    },
+    "before": {
+      "objects": [
+        {
+          "slot": "B",
+          "pixel": [
+            374,
+            168
+          ],
+          "box": [
+            365,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            -76.5
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "plan": [
+      "pick(B)",
+      "place(A)",
+      "verify(A)",
+      "wrist_delta(-2 deg)"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "kind": "transfer",
+        "status": "success",
+        "message": "相机连续确认红块已在 A 区。",
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "B",
+            "observation_mm": [
+              215.3,
+              -76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              -77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.45,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.75,
+              "encoder_rad": 0.17955,
+              "command_rad": 0.17955
+            },
+            {
+              "event": "release",
+              "time_s": 6.69,
+              "encoder_rad": 0.01445,
+              "command_rad": 0.17955
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "kind": "wrist",
+        "status": "success",
+        "message": "已测量腕关节转角。",
+        "measurement": {
+          "requested_deg": -2,
+          "actual_deg": -1.994,
+          "error_deg": 0.006
+        }
+      }
+    ],
+    "status": "success",
+    "message": "已完成 2/2 步。已测量腕关节转角。",
+    "after": {
+      "objects": [
+        {
+          "slot": "A",
+          "pixel": [
+            269,
+            167
+          ],
+          "box": [
+            258,
+            156,
+            23,
+            23
+          ],
+          "xy_mm": [
+            216.7,
+            72.2
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "phases": [
+      "before",
+      "pregrasp_observation",
+      "pregrasp",
+      "descend",
+      "close",
+      "test_lift",
+      "lift",
+      "carry",
+      "release",
+      "retreat",
+      "verify_1",
+      "verify_2",
+      "verify_3",
+      "before_step_2",
+      "after"
+    ],
+    "gripper": {
+      "mode": "open",
+      "fault": null,
+      "stop_response": null,
+      "alignment": {
+        "source": "B",
+        "observation_mm": [
+          215.3,
+          -76.5
+        ],
+        "correction_mm": [
+          0.0,
+          0.0
+        ],
+        "target_xy_mm": [
+          215.0,
+          -77.0
+        ]
+      },
+      "hold_torque_limit_Nm_sim": 0.3,
+      "events": [
+        {
+          "event": "closure_start",
+          "time_s": 2.45,
+          "encoder_rad": 0.57,
+          "command_rad": 0.57
+        },
+        {
+          "event": "bilateral_contact",
+          "time_s": 3.75,
+          "encoder_rad": 0.17955,
+          "command_rad": 0.17955
+        },
+        {
+          "event": "release",
+          "time_s": 6.69,
+          "encoder_rad": 0.01445,
+          "command_rad": 0.17955
+        }
+      ]
+    },
+    "measurement": {
+      "requested_deg": -2,
+      "actual_deg": -1.994,
+      "error_deg": 0.006
+    },
+    "wall_seconds": 0.632,
+    "id": "9ba89faf-1801-49d5-985d-696f755e0b1f",
+    "revision": 13,
+    "feedback": "木块已在左侧工位，手腕也已抬高。"
+  }
+}

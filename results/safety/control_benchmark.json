@@ -1,0 +1,2740 @@
+{
+  "backend": "MuJoCo",
+  "hardware_connected": false,
+  "model_calls": 0,
+  "summary": {
+    "placement_runs": 126,
+    "placement_groups": {
+      "lateral_taught": {
+        "n": 42,
+        "approached": 24,
+        "landed": 23,
+        "no_motion": 18,
+        "false_success": 0
+      },
+      "lateral_aligned": {
+        "n": 42,
+        "approached": 24,
+        "landed": 24,
+        "no_motion": 18,
+        "false_success": 0
+      },
+      "diagonal_taught": {
+        "n": 21,
+        "approached": 15,
+        "landed": 13,
+        "no_motion": 6,
+        "false_success": 0
+      },
+      "diagonal_aligned": {
+        "n": 21,
+        "approached": 15,
+        "landed": 14,
+        "no_motion": 6,
+        "false_success": 0
+      }
+    },
+    "moves": 24,
+    "move_success": 24,
+    "linear_mm": {
+      "n": 18,
+      "median": 0.245,
+      "max": 0.272
+    },
+    "wrist_deg": {
+      "n": 6,
+      "median": 0.006,
+      "max": 0.006
+    }
+  },
+  "placements": [
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        65.1
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        65.1
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        65.1
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        65.1
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        69.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        69.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        69.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        69.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        89.2
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        89.2
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        89.2
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        89.2
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        212.5,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "合爪行程内未确认双侧接触，已停止，未试抬。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        212.5,
+        80.7
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        219.6,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        219.6,
+        73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        211.1,
+        72.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        211.1,
+        72.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        219.6,
+        79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        219.6,
+        79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        221.0,
+        75.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        221.0,
+        75.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 C 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        223.8,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        223.8,
+        85.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.9 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        206.8,
+        83.6
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "A",
+      "target": "C",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        206.8,
+        83.6
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -87.8
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.8 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -87.8
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.8 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -87.8
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.8 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -87.8
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 10.8 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -83.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -83.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -83.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "握持时指尖接触丢失，已停止后续运动。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -83.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -76.5
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -75.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -75.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -72.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -72.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -70.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -70.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 9.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 9.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 9.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 9.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -63.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 13.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        215.3,
+        -63.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 13.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -63.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 13.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        215.3,
+        -63.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 13.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        212.5,
+        -70.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        212.5,
+        -70.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        219.6,
+        -77.9
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        219.6,
+        -77.9
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "握持时指尖接触丢失，已停止后续运动。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        211.1,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        211.1,
+        -79.3
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        221.0,
+        -73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        221.0,
+        -73.6
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        221.0,
+        -77.9
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "握持时指尖接触丢失，已停止后续运动。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        221.0,
+        -77.9
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 A 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        223.8,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.6 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        223.8,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.6 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        206.8,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "B",
+      "target": "A",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        206.8,
+        -68.0
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.2 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -11.3
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -11.3
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -11.3
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -11.3
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.3 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -7.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -7.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -7.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -7.1
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": -4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        1.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        1.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        0.0
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 0,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        0.0
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 4,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 8,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 8.5 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        12.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.7 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 0,
+      "pixel_xy_mm": [
+        245.1,
+        12.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.7 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        12.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.7 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "lateral",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 0,
+      "offset_y_mm": 12,
+      "yaw_deg": 12,
+      "pixel_xy_mm": [
+        245.1,
+        12.7
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.7 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        242.2,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -3,
+      "offset_y_mm": 4,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        242.2,
+        4.2
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        249.3,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 4,
+      "offset_y_mm": -3,
+      "yaw_deg": 17,
+      "pixel_xy_mm": [
+        249.3,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        240.8,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -4,
+      "offset_y_mm": -4,
+      "yaw_deg": -15,
+      "pixel_xy_mm": [
+        240.8,
+        -2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        250.7,
+        2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 5,
+      "offset_y_mm": 2,
+      "yaw_deg": 20,
+      "pixel_xy_mm": [
+        250.7,
+        2.8
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        250.7,
+        -1.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 6,
+      "offset_y_mm": -2,
+      "yaw_deg": 9,
+      "pixel_xy_mm": [
+        250.7,
+        -1.4
+      ],
+      "approached": true,
+      "stayed_at_start": false,
+      "status": "success",
+      "truth_landed": true,
+      "reason": "相机连续确认红块已在 B 区。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        252.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.1 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": 8,
+      "offset_y_mm": 8,
+      "yaw_deg": 10,
+      "pixel_xy_mm": [
+        252.1,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 11.1 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": false,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        236.6,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.0 mm，超过 8 mm 范围，未下爪。"
+    },
+    {
+      "group": "diagonal",
+      "alignment": true,
+      "source": "C",
+      "target": "B",
+      "offset_x_mm": -8,
+      "offset_y_mm": 7,
+      "yaw_deg": -10,
+      "pixel_xy_mm": [
+        236.6,
+        8.5
+      ],
+      "approached": false,
+      "stayed_at_start": true,
+      "status": "unverified",
+      "truth_landed": false,
+      "reason": "红块偏离抓取中心 12.0 mm，超过 8 mm 范围，未下爪。"
+    }
+  ],
+  "motions": [
+    {
+      "setup": null,
+      "command": "向前移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          9.998,
+          0.068,
+          -0.252
+        ],
+        "error_mm": 0.261
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "向后移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -9.993,
+          0.065,
+          -0.234
+        ],
+        "error_mm": 0.243
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "向左移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          -0.063,
+          9.995,
+          -0.239
+        ],
+        "error_mm": 0.247
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "向右移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -0.065,
+          -9.995,
+          -0.258
+        ],
+        "error_mm": 0.266
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "向上移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 5.0,
+        "displacement_mm": [
+          -0.047,
+          0.05,
+          4.802
+        ],
+        "error_mm": 0.209
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "向下移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -5.0,
+        "displacement_mm": [
+          -0.053,
+          0.056,
+          -5.196
+        ],
+        "error_mm": 0.211
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": null,
+      "command": "手腕向上转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": -3.0,
+        "actual_deg": -2.994,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    },
+    {
+      "setup": null,
+      "command": "手腕向下转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": 3.0,
+        "actual_deg": 3.006,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向前移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          9.998,
+          0.068,
+          -0.245
+        ],
+        "error_mm": 0.255
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向后移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -9.993,
+          0.066,
+          -0.227
+        ],
+        "error_mm": 0.237
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向左移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          -0.066,
+          9.993,
+          -0.229
+        ],
+        "error_mm": 0.238
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向右移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -0.068,
+          -9.997,
+          -0.247
+        ],
+        "error_mm": 0.256
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向上移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 5.0,
+        "displacement_mm": [
+          -0.049,
+          0.05,
+          4.81
+        ],
+        "error_mm": 0.202
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "向下移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -5.0,
+        "displacement_mm": [
+          -0.055,
+          0.056,
+          -5.188
+        ],
+        "error_mm": 0.204
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "手腕向上转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": -3.0,
+        "actual_deg": -2.994,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    },
+    {
+      "setup": "向左移动一厘米",
+      "command": "手腕向下转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": 3.0,
+        "actual_deg": 3.006,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向前移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          9.996,
+          0.066,
+          -0.262
+        ],
+        "error_mm": 0.27
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向后移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -9.995,
+          0.064,
+          -0.244
+        ],
+        "error_mm": 0.252
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向左移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 10.0,
+        "displacement_mm": [
+          -0.063,
+          9.995,
+          -0.245
+        ],
+        "error_mm": 0.253
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向右移动十毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -10.0,
+        "displacement_mm": [
+          -0.066,
+          -9.996,
+          -0.264
+        ],
+        "error_mm": 0.272
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向上移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": 5.0,
+        "displacement_mm": [
+          -0.047,
+          0.048,
+          4.794
+        ],
+        "error_mm": 0.217
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "向下移动五毫米",
+      "status": "success",
+      "measurement": {
+        "requested_mm": -5.0,
+        "displacement_mm": [
+          -0.053,
+          0.054,
+          -5.204
+        ],
+        "error_mm": 0.218
+      },
+      "reason": "已测量末端平移。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "手腕向上转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": -3.0,
+        "actual_deg": -2.994,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    },
+    {
+      "setup": "向前移动一厘米",
+      "command": "手腕向下转三度",
+      "status": "success",
+      "measurement": {
+        "requested_deg": 3.0,
+        "actual_deg": 3.006,
+        "error_deg": 0.006
+      },
+      "reason": "已测量腕关节转角。"
+    }
+  ],
+  "cameras": [
+    {
+      "layout": "B",
+      "wrist": false,
+      "status": "success",
+      "views": [
+        "overhead",
+        "overhead",
+        "overhead"
+      ],
+      "truth_landed": true
+    },
+    {
+      "layout": "B",
+      "wrist": true,
+      "status": "success",
+      "views": [
+        "overhead",
+        "overhead",
+        "overhead"
+      ],
+      "truth_landed": true
+    },
+    {
+      "layout": "cover_goal",
+      "wrist": false,
+      "status": "unverified",
+      "views": [
+        "unconfirmed",
+        "unconfirmed",
+        "unconfirmed"
+      ],
+      "truth_landed": true
+    },
+    {
+      "layout": "cover_goal",
+      "wrist": true,
+      "status": "success",
+      "views": [
+        "wrist",
+        "wrist",
+        "wrist"
+      ],
+      "truth_landed": true
+    },
+    {
+      "layout": "cover_both",
+      "wrist": false,
+      "status": "unverified",
+      "views": [
+        "unconfirmed",
+        "unconfirmed",
+        "unconfirmed"
+      ],
+      "truth_landed": true
+    },
+    {
+      "layout": "cover_both",
+      "wrist": true,
+      "status": "unverified",
+      "views": [
+        "unconfirmed",
+        "unconfirmed",
+        "unconfirmed"
+      ],
+      "truth_landed": true
+    }
+  ],
+  "obstacles": [
+    {
+      "registered_box": false,
+      "status": "success",
+      "reason": "相机连续确认红块已在 B 区。",
+      "no_joint_change": false
+    },
+    {
+      "registered_box": true,
+      "status": "rejected",
+      "reason": "抓取路径预检失败：臂段包围盒接近已登记障碍：仿真示例相机支架",
+      "no_joint_change": true
+    }
+  ]
+}

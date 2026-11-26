@@ -1,0 +1,4 @@
+# 最小仿真依赖。完整 Windows 环境请执行 uv sync --frozen --extra voice。
+mujoco==4.0.0
+numpy==2.2.6
+opencv-python-headless==4.11.0.86

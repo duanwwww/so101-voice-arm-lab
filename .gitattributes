@@ -1,0 +1,10 @@
+* text=auto eol=lf
+# Preserve byte-level input and evidence hashes across Windows and Linux clones.
+/configs/*.json -text whitespace=cr-at-eol
+/results/** -text whitespace=cr-at-eol
+*.stl binary
+*.png binary
+*.jpg binary
+*.mp4 binary
+*.wav binary
+*.mp3 binary

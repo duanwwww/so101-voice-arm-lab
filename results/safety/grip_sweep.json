@@ -1,0 +1,1377 @@
+{
+  "hardware": false,
+  "model_calls": 0,
+  "close_torque_limit_Nm": 0.8,
+  "visual_alignment": false,
+  "placement_policy": "same taught grasp point for all torque variants",
+  "required_lift_mm": 20,
+  "required_stable_landings": 3,
+  "variants": [
+    {
+      "hold_effort_Nm": 0.08,
+      "successes": 1,
+      "trials": [
+        {
+          "layout": "A",
+          "goal": "C",
+          "status": "unverified",
+          "message": "握持时指尖接触丢失，已停止后续运动。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "after"
+          ],
+          "lift_mm": null,
+          "lift_touches_only_both_pads": false,
+          "target_stable_three_times": false,
+          "success": false,
+          "simulated_elapsed_s": 3.92,
+          "gripper": {
+            "mode": "stopped",
+            "fault": "握持时指尖接触丢失，已停止后续运动。",
+            "stop_response": "cancel_at_encoder",
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.08,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "stop",
+                "time_s": 4.37,
+                "encoder_rad": 0.13254,
+                "command_rad": 0.15254
+              }
+            ]
+          }
+        },
+        {
+          "layout": "B",
+          "goal": "A",
+          "status": "unverified",
+          "message": "握持时指尖接触丢失，已停止后续运动。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "after"
+          ],
+          "lift_mm": null,
+          "lift_touches_only_both_pads": false,
+          "target_stable_three_times": false,
+          "success": false,
+          "simulated_elapsed_s": 3.74,
+          "gripper": {
+            "mode": "stopped",
+            "fault": "握持时指尖接触丢失，已停止后续运动。",
+            "stop_response": "cancel_at_encoder",
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.08,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "stop",
+                "time_s": 4.19,
+                "encoder_rad": 0.16227,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "C",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 30.46,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.01,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "C",
+              "observation_mm": [
+                245.1,
+                1.4
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                245.0,
+                0.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.08,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.48,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.18,
+                "encoder_rad": 0.05955,
+                "command_rad": 0.05955
+              },
+              {
+                "event": "release",
+                "time_s": 6.66,
+                "encoder_rad": 0.03985,
+                "command_rad": 0.05955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "rotated",
+          "goal": "B",
+          "status": "unverified",
+          "message": "握持时指尖接触丢失，已停止后续运动。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "after"
+          ],
+          "lift_mm": null,
+          "lift_touches_only_both_pads": false,
+          "target_stable_three_times": false,
+          "success": false,
+          "simulated_elapsed_s": 4.1,
+          "gripper": {
+            "mode": "stopped",
+            "fault": "握持时指尖接触丢失，已停止后续运动。",
+            "stop_response": "cancel_at_encoder",
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                73.6
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.08,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.1,
+                "encoder_rad": 0.09854,
+                "command_rad": 0.09854
+              },
+              {
+                "event": "stop",
+                "time_s": 4.55,
+                "encoder_rad": 0.08011,
+                "command_rad": 0.09854
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hold_effort_Nm": 0.3,
+      "successes": 4,
+      "trials": [
+        {
+          "layout": "A",
+          "goal": "C",
+          "status": "success",
+          "message": "相机连续确认红块已在 C 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.28,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 9.81,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.4,
+                "encoder_rad": 0.01471,
+                "command_rad": 0.15254
+              }
+            ]
+          }
+        },
+        {
+          "layout": "B",
+          "goal": "A",
+          "status": "success",
+          "message": "相机连续确认红块已在 A 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 31.8,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.15,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "release",
+                "time_s": 6.69,
+                "encoder_rad": 0.01445,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "C",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.2,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.04,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "C",
+              "observation_mm": [
+                245.1,
+                1.4
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                245.0,
+                0.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.48,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.18,
+                "encoder_rad": 0.05955,
+                "command_rad": 0.05955
+              },
+              {
+                "event": "release",
+                "time_s": 6.66,
+                "encoder_rad": 0.01432,
+                "command_rad": 0.05955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "rotated",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.24,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.42,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                73.6
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.1,
+                "encoder_rad": 0.09854,
+                "command_rad": 0.09854
+              },
+              {
+                "event": "release",
+                "time_s": 7.04,
+                "encoder_rad": 0.01445,
+                "command_rad": 0.09854
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hold_effort_Nm": 0.5,
+      "successes": 4,
+      "trials": [
+        {
+          "layout": "A",
+          "goal": "C",
+          "status": "success",
+          "message": "相机连续确认红块已在 C 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.33,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 9.84,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.5,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.4,
+                "encoder_rad": -0.0104,
+                "command_rad": 0.15254
+              }
+            ]
+          }
+        },
+        {
+          "layout": "B",
+          "goal": "A",
+          "status": "success",
+          "message": "相机连续确认红块已在 A 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.51,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.18,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.5,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "release",
+                "time_s": 6.69,
+                "encoder_rad": -0.00828,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "C",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.22,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.07,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "C",
+              "observation_mm": [
+                245.1,
+                1.4
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                245.0,
+                0.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.5,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.48,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.18,
+                "encoder_rad": 0.05955,
+                "command_rad": 0.05955
+              },
+              {
+                "event": "release",
+                "time_s": 6.66,
+                "encoder_rad": -0.01087,
+                "command_rad": 0.05955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "rotated",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.32,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.45,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                73.6
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.5,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.1,
+                "encoder_rad": 0.09854,
+                "command_rad": 0.09854
+              },
+              {
+                "event": "release",
+                "time_s": 7.04,
+                "encoder_rad": -0.01026,
+                "command_rad": 0.09854
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hold_effort_Nm": 0.75,
+      "successes": 4,
+      "trials": [
+        {
+          "layout": "A",
+          "goal": "C",
+          "status": "success",
+          "message": "相机连续确认红块已在 C 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.48,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 9.87,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.75,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.4,
+                "encoder_rad": -0.04189,
+                "command_rad": 0.15254
+              }
+            ]
+          }
+        },
+        {
+          "layout": "B",
+          "goal": "A",
+          "status": "success",
+          "message": "相机连续确认红块已在 A 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.62,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.21,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.75,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "release",
+                "time_s": 6.69,
+                "encoder_rad": -0.03976,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "C",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.28,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.11,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "C",
+              "observation_mm": [
+                245.1,
+                1.4
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                245.0,
+                0.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.75,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.48,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.18,
+                "encoder_rad": 0.05955,
+                "command_rad": 0.05955
+              },
+              {
+                "event": "release",
+                "time_s": 6.66,
+                "encoder_rad": -0.04231,
+                "command_rad": 0.05955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "rotated",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.39,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.48,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                73.6
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.75,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.1,
+                "encoder_rad": 0.09854,
+                "command_rad": 0.09854
+              },
+              {
+                "event": "release",
+                "time_s": 7.04,
+                "encoder_rad": -0.04068,
+                "command_rad": 0.09854
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hold_effort_Nm": 0.8,
+      "successes": 4,
+      "trials": [
+        {
+          "layout": "A",
+          "goal": "C",
+          "status": "success",
+          "message": "相机连续确认红块已在 C 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.5,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 9.88,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.8,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.4,
+                "encoder_rad": -0.04824,
+                "command_rad": 0.15254
+              }
+            ]
+          }
+        },
+        {
+          "layout": "B",
+          "goal": "A",
+          "status": "success",
+          "message": "相机连续确认红块已在 A 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.65,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.22,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.8,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "release",
+                "time_s": 6.69,
+                "encoder_rad": -0.04887,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "C",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.3,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.11,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "C",
+              "observation_mm": [
+                245.1,
+                1.4
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                245.0,
+                0.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.8,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.48,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.18,
+                "encoder_rad": 0.05955,
+                "command_rad": 0.05955
+              },
+              {
+                "event": "release",
+                "time_s": 6.66,
+                "encoder_rad": -0.04862,
+                "command_rad": 0.05955
+              }
+            ]
+          }
+        },
+        {
+          "layout": "rotated",
+          "goal": "B",
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "lift_mm": 32.41,
+          "lift_touches_only_both_pads": true,
+          "target_stable_three_times": true,
+          "success": true,
+          "simulated_elapsed_s": 10.49,
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                73.6
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.8,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 4.1,
+                "encoder_rad": 0.09854,
+                "command_rad": 0.09854
+              },
+              {
+                "event": "release",
+                "time_s": 7.04,
+                "encoder_rad": -0.04719,
+                "command_rad": 0.09854
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

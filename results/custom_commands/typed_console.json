@@ -1,0 +1,97 @@
+{
+  "source": "本机控制台网页操作",
+  "backend": "MuJoCo",
+  "hardware_connected": false,
+  "model_calls": 0,
+  "receipt": {
+    "text": "把A区的红快放到C",
+    "planner": "rules",
+    "intent": {
+      "kind": "transfer",
+      "axis": "",
+      "amount": 0,
+      "message": "",
+      "source": "A",
+      "target": "C",
+      "steps": []
+    },
+    "before": {
+      "objects": [
+        {
+          "slot": "A",
+          "pixel": [
+            266,
+            168
+          ],
+          "box": [
+            257,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            76.5
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "plan": [
+      "pick(A)",
+      "place(C)",
+      "verify(C)"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "kind": "transfer",
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "measurement": {}
+      }
+    ],
+    "status": "success",
+    "message": "相机连续确认红块已在 C 区。",
+    "after": {
+      "objects": [
+        {
+          "slot": "C",
+          "pixel": [
+            318,
+            147
+          ],
+          "box": [
+            310,
+            138,
+            18,
+            19
+          ],
+          "xy_mm": [
+            245.1,
+            2.8
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "phases": [
+      "before",
+      "pregrasp",
+      "descend",
+      "close",
+      "lift",
+      "carry",
+      "release",
+      "retreat",
+      "verify_1",
+      "verify_2",
+      "verify_3",
+      "after"
+    ],
+    "measurement": {},
+    "wall_seconds": 2.786,
+    "id": "6c1bbe9a-0d06-4226-9879-8798e2286636",
+    "revision": 2
+  }
+}

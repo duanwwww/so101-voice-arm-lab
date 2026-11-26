@@ -1,0 +1,337 @@
+{
+  "transport": "real loopback TCP + real headless Microsoft Edge; local rule executor",
+  "model_calls": 0,
+  "hardware_connected": false,
+  "watchdog_seconds": 1.2,
+  "playback_speed": 0.7,
+  "clock": "Real seconds use time.monotonic in the observer. Stop latency is observed receipt latency including HTTP polling, not physical motor braking. sim_seconds is MuJoCo simulation time at published camera snapshots. No WAN or hardware latency was measured.",
+  "healthy": {
+    "valid_heartbeat_responses": 25,
+    "wall_seconds": 3.234,
+    "holding_after": true,
+    "receipt": {
+      "status": "success",
+      "message": "已从 B 区抓起木块，夹爪双侧接触已确认。",
+      "phases": [
+        "before",
+        "pregrasp_observation",
+        "pregrasp",
+        "descend",
+        "close",
+        "test_lift",
+        "lift",
+        "after"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "kind": "pick",
+          "status": "success",
+          "message": "已从 B 区抓起木块，夹爪双侧接触已确认。",
+          "measurement": {
+            "observed_offset_mm": 0.58
+          },
+          "gripper": {
+            "mode": "hold",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "pending_and_completed_replies_identical": true,
+    "revision_increment": 1
+  },
+  "edge_tab_closed_during_carry": {
+    "before_link_loss_phase": "moving",
+    "holding_before_link_loss": true,
+    "browser_valid_heartbeat_responses": 1,
+    "old_session_heartbeat_http_while_busy": 409,
+    "seconds_from_close_request_to_stopped_receipt": 1.266,
+    "seconds_from_last_browser_heartbeat_response_to_stopped_receipt": 1.313,
+    "sim_seconds_at_disconnect_snapshot": 5.32,
+    "sim_seconds_at_receipt": 6.37,
+    "holding_at_final_camera_snapshot": true,
+    "jaw_mode_at_receipt": "stopped",
+    "release_executed": false,
+    "late_heartbeat_http": 409,
+    "new_motion_http": 409,
+    "duplicate_returned_identical_receipt": true,
+    "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+    "receipt": {
+      "status": "unverified",
+      "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+      "phases": [
+        "before",
+        "carry",
+        "after"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "kind": "place",
+          "status": "unverified",
+          "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+          "measurement": {},
+          "gripper": {
+            "mode": "stopped",
+            "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+            "stop_response": "bounded_hold",
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "stop",
+                "time_s": 6.37,
+                "encoder_rad": 0.01479,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "no_valid_heartbeat": {
+    "valid_heartbeats": 0,
+    "unrelated_heartbeat_http": [
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409
+    ],
+    "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+    "wall_seconds_submit_to_receipt_observation": 1.328,
+    "sim_seconds_before": 0.45,
+    "sim_seconds_after": 1.26,
+    "receipt": {
+      "status": "unverified",
+      "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+      "phases": [
+        "before",
+        "pregrasp_observation",
+        "after"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "kind": "pick",
+          "status": "unverified",
+          "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+          "measurement": {},
+          "gripper": {
+            "mode": "stopped",
+            "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+            "stop_response": "cancel_at_encoder",
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "stop",
+                "time_s": 1.26,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "new_command_before_reset_http": 409,
+  "edge_video_only_lost_during_carry": {
+    "before_link_loss_phase": "moving",
+    "holding_before_link_loss": true,
+    "browser_valid_heartbeat_responses": 1,
+    "old_session_heartbeat_http_while_busy": 409,
+    "selected_camera": "/camera.jpg",
+    "aborted_jpeg_requests": 4,
+    "page_state_http_200_during_camera_outage": 2,
+    "seconds_first_aborted_jpeg_to_receipt": 0.859,
+    "successful_heartbeats_after_first_aborted_jpeg": 0,
+    "after_image_restored": {
+      "new_image_decoded": true,
+      "still_stopped": true,
+      "total_commands_sent_by_page": 1
+    },
+    "seconds_from_last_browser_heartbeat_response_to_stopped_receipt": 1.265,
+    "sim_seconds_at_disconnect_snapshot": 5.32,
+    "sim_seconds_at_receipt": 6.37,
+    "holding_at_final_camera_snapshot": true,
+    "jaw_mode_at_receipt": "stopped",
+    "release_executed": false,
+    "late_heartbeat_http": 409,
+    "new_motion_http": 409,
+    "duplicate_returned_identical_receipt": true,
+    "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+    "receipt": {
+      "status": "unverified",
+      "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+      "phases": [
+        "before",
+        "carry",
+        "after"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "kind": "place",
+          "status": "unverified",
+          "message": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+          "measurement": {},
+          "gripper": {
+            "mode": "stopped",
+            "fault": "监控画面心跳超时，后续指令已锁止。请恢复连接并核对现场。",
+            "stop_response": "bounded_hold",
+            "alignment": {
+              "source": "B",
+              "observation_mm": [
+                215.3,
+                -76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                -77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.45,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.75,
+                "encoder_rad": 0.17955,
+                "command_rad": 0.17955
+              },
+              {
+                "event": "stop",
+                "time_s": 6.37,
+                "encoder_rad": 0.01479,
+                "command_rad": 0.17955
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "after_explicit_reset": {
+    "valid_heartbeat_responses": 3,
+    "wall_seconds": 0.453,
+    "holding_after": false,
+    "receipt": {
+      "status": "success",
+      "message": "已测量腕关节转角。",
+      "phases": [
+        "before",
+        "after"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "kind": "wrist",
+          "status": "success",
+          "message": "已测量腕关节转角。",
+          "measurement": {
+            "requested_deg": 3.0,
+            "actual_deg": 3.006,
+            "error_deg": 0.006
+          }
+        }
+      ]
+    },
+    "pending_and_completed_replies_identical": false,
+    "revision_increment": 1
+  }
+}

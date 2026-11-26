@@ -1,0 +1,331 @@
+{
+  "dataset": "AISHELL/AISHELL-1",
+  "revision": "bbe295d530192a4cd41644b711c9aecd087df653",
+  "transcript_sha256": "b5f33b9e0b47548e20a5ea4e504297f80df41d559133924c4e5b7b544c15b5c4",
+  "license": "Apache-2.0",
+  "model_calls": 0,
+  "seconds": 111.267,
+  "speaker_groups": {
+    "development": 9,
+    "evaluation": 15
+  },
+  "non_arm_references_proposing_motion": 0,
+  "clips": [
+    {
+      "id": "BAC009S0019W0308",
+      "speaker": "S0019",
+      "group": "evaluation",
+      "archive_path": "train/S0019/BAC009S0019W0308.wav",
+      "sha256": "09a3e3fc4876943458c05d62b2c665d4509a5734d20b087d2f6cd1ae2cd2f0f6",
+      "seconds": 3.6430625,
+      "reference": "我们不要期待别人的施舍",
+      "reference_anchors": [
+        "negation_or_stop:不要"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0019W0329",
+      "speaker": "S0019",
+      "group": "evaluation",
+      "archive_path": "train/S0019/BAC009S0019W0329.wav",
+      "sha256": "787a9245daf2fec8ed77c9d1caac67b2206f0b06ed8a49d8f3c5ae8871f0cdc0",
+      "seconds": 3.25,
+      "reference": "不能因利益而失规则",
+      "reference_anchors": [
+        "negation_or_stop:不能"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0019W0462",
+      "speaker": "S0019",
+      "group": "evaluation",
+      "archive_path": "train/S0019/BAC009S0019W0462.wav",
+      "sha256": "6ec4ac74052ab7814378696b4a757dd9f526dcd6b726de96ba606e6817d3438e",
+      "seconds": 6.422125,
+      "reference": "八厘米长钥匙不慎插入男子耳朵医生一点五小时取出",
+      "reference_anchors": [
+        "quantity:8cm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0019W0489",
+      "speaker": "S0019",
+      "group": "evaluation",
+      "archive_path": "train/S0019/BAC009S0019W0489.wav",
+      "sha256": "a55dc72712450d4f73c5c31323c3010154653439a761d052e78a7b569256c254",
+      "seconds": 5.879875,
+      "reference": "手术中因鼻骨粘骨膜撕裂停止手术",
+      "reference_anchors": [
+        "negation_or_stop:停止"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0019W0493",
+      "speaker": "S0019",
+      "group": "evaluation",
+      "archive_path": "train/S0019/BAC009S0019W0493.wav",
+      "sha256": "9f33bc860ca75d9d608c9e6e02d20115d682fb59b00f6f74a9c702a5f88214ec",
+      "seconds": 6.728,
+      "reference": "小美因鼻中隔自然向右偏影响手术及效果",
+      "reference_anchors": [
+        "direction:向右"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0039W0176",
+      "speaker": "S0039",
+      "group": "development",
+      "archive_path": "train/S0039/BAC009S0039W0176.wav",
+      "sha256": "9ab421e263886a63f13ca0f2a77dffef8066cca4365840c84a8cc1fd57f7981f",
+      "seconds": 3.4709375,
+      "reference": "一定不要用小米家装几个字",
+      "reference_anchors": [
+        "negation_or_stop:不要"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0039W0231",
+      "speaker": "S0039",
+      "group": "development",
+      "archive_path": "train/S0039/BAC009S0039W0231.wav",
+      "sha256": "ac3dd401def47eb3fa3b9783845addc6c42df1b3e6f35e34600b6d6b1759ff90",
+      "seconds": 2.912,
+      "reference": "揣测两年内不能上市",
+      "reference_anchors": [
+        "negation_or_stop:不能"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0039W0457",
+      "speaker": "S0039",
+      "group": "development",
+      "archive_path": "train/S0039/BAC009S0039W0457.wav",
+      "sha256": "bab459bb74b800567704c66c975f95b000172a2b5e448e89895173fdde9466e7",
+      "seconds": 6.322,
+      "reference": "右转弯压线被处罚引市民吐槽交警确属违章",
+      "reference_anchors": [
+        "direction:右转"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0039W0458",
+      "speaker": "S0039",
+      "group": "development",
+      "archive_path": "train/S0039/BAC009S0039W0458.wav",
+      "sha256": "5c6f3847b6e8e655bf5971a6e5c60f8ab77a42bfd0e1f6ca4a1c8a7ae8159685",
+      "seconds": 6.5449375,
+      "reference": "车辆右转弯压白色实线属交通违法行为网友供图",
+      "reference_anchors": [
+        "direction:右转"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0045W0259",
+      "speaker": "S0045",
+      "group": "evaluation",
+      "archive_path": "train/S0045/BAC009S0045W0259.wav",
+      "sha256": "2701c2eae9c60f5d6f6486d8bdc5cb347b57dff28cfc62b0f52ff88a86f2ab05",
+      "seconds": 3.8890625,
+      "reference": "该机的机身厚度达到了七毫米",
+      "reference_anchors": [
+        "quantity:7mm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0045W0330",
+      "speaker": "S0045",
+      "group": "evaluation",
+      "archive_path": "train/S0045/BAC009S0045W0330.wav",
+      "sha256": "c55d551ecf9c421dd52b804d84399f40c3e0b2fb76995f234b677becd3c461a2",
+      "seconds": 7.3740625,
+      "reference": "最新一百五十六毫米多晶电池片均价一点二六四美元每片",
+      "reference_anchors": [
+        "quantity:156mm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0045W0403",
+      "speaker": "S0045",
+      "group": "evaluation",
+      "archive_path": "train/S0045/BAC009S0045W0403.wav",
+      "sha256": "7fc9e97a3d4371a39ff576651cf4c4b63df46715a4a7d42a5b2be37316ef3d14",
+      "seconds": 6.359125,
+      "reference": "与他一百九十厘米一百二十千克的魁梧身材不相符的快拳",
+      "reference_anchors": [
+        "quantity:190cm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0045W0487",
+      "speaker": "S0045",
+      "group": "evaluation",
+      "archive_path": "train/S0045/BAC009S0045W0487.wav",
+      "sha256": "fad3296f8a160999f787bc663bc2be5f077e12cb4e4ea44c832a5fe594a599ae",
+      "seconds": 6.2790625,
+      "reference": "微整形培训黑幕十三毫米针未消毒就插进太阳穴",
+      "reference_anchors": [
+        "quantity:13mm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0075W0338",
+      "speaker": "S0075",
+      "group": "development",
+      "archive_path": "train/S0075/BAC009S0075W0338.wav",
+      "sha256": "c9215ce4f35104ddb980c3c74d9954c2eb50e512f42918ebce0c92d68a2c0dfe",
+      "seconds": 2.9980625,
+      "reference": "称重结束前不能饮水",
+      "reference_anchors": [
+        "negation_or_stop:不能"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0075W0386",
+      "speaker": "S0075",
+      "group": "development",
+      "archive_path": "train/S0075/BAC009S0075W0386.wav",
+      "sha256": "1e955e31d1d0f95089d4e11c343b5d555f2cf7b31bf45b482d3ed7b43a2ca637",
+      "seconds": 3.6889375,
+      "reference": "注意双脚不要在一条直线",
+      "reference_anchors": [
+        "negation_or_stop:不要"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0075W0388",
+      "speaker": "S0075",
+      "group": "development",
+      "archive_path": "train/S0075/BAC009S0075W0388.wav",
+      "sha256": "4222d5f99f7b7c621a5fd1fc364b8b3b7439c107b8d2d8a248fee296564d23a4",
+      "seconds": 5.2009375,
+      "reference": "以脚掌向前蹭出三零厘米左右",
+      "reference_anchors": [
+        "direction:向前",
+        "quantity:30cm"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0075W0390",
+      "speaker": "S0075",
+      "group": "development",
+      "archive_path": "train/S0075/BAC009S0075W0390.wav",
+      "sha256": "1a58c73728c3caaa50811e1c45417e9d0d0e270b153031c81eb353ec3fc2021e",
+      "seconds": 4.225875,
+      "reference": "注意移动不能使用迈步动作",
+      "reference_anchors": [
+        "motion:移动",
+        "negation_or_stop:不能"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0075W0392",
+      "speaker": "S0075",
+      "group": "development",
+      "archive_path": "train/S0075/BAC009S0075W0392.wav",
+      "sha256": "878eab9c9848a19d932a10d4f56939cd570fef6fa03120ca08ad2eff4131ad8a",
+      "seconds": 3.6220625,
+      "reference": "移动中各部位要相对固定",
+      "reference_anchors": [
+        "motion:移动"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0340",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0340.wav",
+      "sha256": "94757f718a6312a656ccd4eaa6fe441721e335f39499d2003b589b05963c98f0",
+      "seconds": 3.4050625,
+      "reference": "侧闪移动是躲避对手进攻的利器",
+      "reference_anchors": [
+        "motion:移动"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0344",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0344.wav",
+      "sha256": "bd63c3154659b789294ad3b30df7aa06571383b166c433794a926dd8a94bf28d",
+      "seconds": 4.374,
+      "reference": "紧接着右脚以左脚为轴迅速向左滑动",
+      "reference_anchors": [
+        "direction:向左",
+        "motion:滑动"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0348",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0348.wav",
+      "sha256": "8d97358da8d29adb4ddad6274ce034933a6ab89e601ed9b6546d6245eae00c1f",
+      "seconds": 3.0600625,
+      "reference": "右脚向右横方向蹭出",
+      "reference_anchors": [
+        "direction:向右"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0349",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0349.wav",
+      "sha256": "3d201df4272a1655481b41fcd9a583a829d18905694a08bf2c4fd72c8c3d44b3",
+      "seconds": 3.9340625,
+      "reference": "随后以髋部带动左脚向右侧滑动",
+      "reference_anchors": [
+        "direction:向右",
+        "motion:滑动"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0353",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0353.wav",
+      "sha256": "f21861376c975f59337311e08d088c365763a39086f64d6455ad64edca2060d2",
+      "seconds": 3.9199375,
+      "reference": "步法练习左滑步接左侧闪步",
+      "reference_anchors": [
+        "direction:左侧"
+      ],
+      "rules_intent_on_reference": "ask"
+    },
+    {
+      "id": "BAC009S0076W0355",
+      "speaker": "S0076",
+      "group": "evaluation",
+      "archive_path": "train/S0076/BAC009S0076W0355.wav",
+      "sha256": "62050bad6a5d95a8a867348916314b8e15f0f00490be672f358a2d8196948550",
+      "seconds": 3.7641875,
+      "reference": "四次移动后你会回到原先的位置",
+      "reference_anchors": [
+        "motion:移动"
+      ],
+      "rules_intent_on_reference": "ask"
+    }
+  ]
+}

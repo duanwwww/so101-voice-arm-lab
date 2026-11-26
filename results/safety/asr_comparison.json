@@ -1,0 +1,1693 @@
+{
+  "verified_model_calls_in_input_runs": 48,
+  "comparison_model_calls": 0,
+  "cer_script_policy": "Windows zh-CN simplified",
+  "scoring_policy": {
+    "text": "CER and exact sentences follow the frozen benchmark, including numeral spelling differences.",
+    "keyword": "Ordered exact tokens per reference-positive clip, extra tokens on reference-negative clips listed separately; lexical direction, negation/stop, motion and quantity pairs follow the frozen anchor list.",
+    "number": "Separate supplementary whole-clip numeral sequence, including non-length counts and times; unify Chinese and Arabic spellings, treat 千克 as the unit kg and exclude lexical 一 in 一定, 一起, 一直, 统一. A numeral is still counted when its unit is missing.",
+    "length_unit": "Separate supplementary whole-clip millimetre, centimetre and metre unit sequence; centimetre spellings are equivalent. A bare 米 requires a preceding numeral. These automatic views do not replace semantic review.",
+    "time": "Sum of per-clip wall times after model load, with no new warmup or inference passes. RTF divides this sum by the clips' total audio duration."
+  },
+  "groups": {
+    "development": {
+      "beam1": {
+        "clips": 9,
+        "reference_characters": 117,
+        "character_edits": 16,
+        "cer": 0.136752,
+        "character_accuracy_1_minus_cer": 0.863248,
+        "normalized_sentence_exact": 2,
+        "normalized_sentence_accuracy": 0.222222,
+        "audio_seconds": 38.986,
+        "inference_seconds": 21.056,
+        "mean_seconds_per_clip": 2.34,
+        "median_seconds_per_clip": 2.309,
+        "rtf": 0.5401,
+        "slots": {
+          "direction": {
+            "correct": 2,
+            "reference_positive": 3,
+            "incorrect_ids": [
+              "BAC009S0039W0457"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 3,
+            "reference_positive": 3,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 1,
+            "reference_positive": 1,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 5,
+            "reference_positive": 5,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 1,
+            "reference_positive": 1,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 2,
+            "reference_positive": 2,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "beam3": {
+        "clips": 9,
+        "reference_characters": 117,
+        "character_edits": 13,
+        "cer": 0.111111,
+        "character_accuracy_1_minus_cer": 0.888889,
+        "normalized_sentence_exact": 3,
+        "normalized_sentence_accuracy": 0.333333,
+        "audio_seconds": 38.986,
+        "inference_seconds": 21.35,
+        "mean_seconds_per_clip": 2.372,
+        "median_seconds_per_clip": 2.342,
+        "rtf": 0.5476,
+        "slots": {
+          "direction": {
+            "correct": 2,
+            "reference_positive": 3,
+            "incorrect_ids": [
+              "BAC009S0039W0457"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 3,
+            "reference_positive": 3,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 1,
+            "reference_positive": 1,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 5,
+            "reference_positive": 5,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 1,
+            "reference_positive": 1,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 2,
+            "reference_positive": 2,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "paired": {
+        "lower_cer_with_beam3": 3,
+        "equal_edits": 6,
+        "higher_cer_with_beam3": 0,
+        "normalized_output_changed_ids": [
+          "BAC009S0039W0457",
+          "BAC009S0075W0338",
+          "BAC009S0075W0386",
+          "BAC009S0075W0390"
+        ]
+      }
+    },
+    "evaluation": {
+      "beam1": {
+        "clips": 15,
+        "reference_characters": 239,
+        "character_edits": 57,
+        "cer": 0.238494,
+        "character_accuracy_1_minus_cer": 0.761506,
+        "normalized_sentence_exact": 3,
+        "normalized_sentence_accuracy": 0.2,
+        "audio_seconds": 72.282,
+        "inference_seconds": 35.977,
+        "mean_seconds_per_clip": 2.398,
+        "median_seconds_per_clip": 2.401,
+        "rtf": 0.4977,
+        "slots": {
+          "direction": {
+            "correct": 4,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0019W0493"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 6,
+            "reference_positive": 6,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 3,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0019W0462",
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 3,
+            "reference_positive": 3,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 3,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0019W0462",
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 4,
+            "reference_positive": 4,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "beam3": {
+        "clips": 15,
+        "reference_characters": 239,
+        "character_edits": 50,
+        "cer": 0.209205,
+        "character_accuracy_1_minus_cer": 0.790795,
+        "normalized_sentence_exact": 3,
+        "normalized_sentence_accuracy": 0.2,
+        "audio_seconds": 72.282,
+        "inference_seconds": 35.375,
+        "mean_seconds_per_clip": 2.358,
+        "median_seconds_per_clip": 2.395,
+        "rtf": 0.4894,
+        "slots": {
+          "direction": {
+            "correct": 4,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0019W0493"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 6,
+            "reference_positive": 6,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 4,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 3,
+            "reference_positive": 3,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 4,
+            "reference_positive": 5,
+            "incorrect_ids": [
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 4,
+            "reference_positive": 4,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "paired": {
+        "lower_cer_with_beam3": 3,
+        "equal_edits": 12,
+        "higher_cer_with_beam3": 0,
+        "normalized_output_changed_ids": [
+          "BAC009S0019W0462",
+          "BAC009S0019W0489",
+          "BAC009S0045W0403",
+          "BAC009S0045W0487"
+        ]
+      }
+    },
+    "all": {
+      "beam1": {
+        "clips": 24,
+        "reference_characters": 356,
+        "character_edits": 73,
+        "cer": 0.205056,
+        "character_accuracy_1_minus_cer": 0.794944,
+        "normalized_sentence_exact": 5,
+        "normalized_sentence_accuracy": 0.208333,
+        "audio_seconds": 111.267,
+        "inference_seconds": 57.033,
+        "mean_seconds_per_clip": 2.376,
+        "median_seconds_per_clip": 2.356,
+        "rtf": 0.5126,
+        "slots": {
+          "direction": {
+            "correct": 6,
+            "reference_positive": 8,
+            "incorrect_ids": [
+              "BAC009S0019W0493",
+              "BAC009S0039W0457"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 9,
+            "reference_positive": 9,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 4,
+            "reference_positive": 6,
+            "incorrect_ids": [
+              "BAC009S0019W0462",
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 8,
+            "reference_positive": 8,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 4,
+            "reference_positive": 6,
+            "incorrect_ids": [
+              "BAC009S0019W0462",
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 6,
+            "reference_positive": 6,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "beam3": {
+        "clips": 24,
+        "reference_characters": 356,
+        "character_edits": 63,
+        "cer": 0.176966,
+        "character_accuracy_1_minus_cer": 0.823034,
+        "normalized_sentence_exact": 6,
+        "normalized_sentence_accuracy": 0.25,
+        "audio_seconds": 111.267,
+        "inference_seconds": 56.725,
+        "mean_seconds_per_clip": 2.364,
+        "median_seconds_per_clip": 2.373,
+        "rtf": 0.5098,
+        "slots": {
+          "direction": {
+            "correct": 6,
+            "reference_positive": 8,
+            "incorrect_ids": [
+              "BAC009S0019W0493",
+              "BAC009S0039W0457"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "number": {
+            "correct": 9,
+            "reference_positive": 9,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "length_unit": {
+            "correct": 5,
+            "reference_positive": 6,
+            "incorrect_ids": [
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "negation_or_stop": {
+            "correct": 8,
+            "reference_positive": 8,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          },
+          "quantity_with_unit": {
+            "correct": 5,
+            "reference_positive": 6,
+            "incorrect_ids": [
+              "BAC009S0045W0403"
+            ],
+            "added_on_reference_negative_ids": []
+          },
+          "motion": {
+            "correct": 6,
+            "reference_positive": 6,
+            "incorrect_ids": [],
+            "added_on_reference_negative_ids": []
+          }
+        }
+      },
+      "paired": {
+        "lower_cer_with_beam3": 6,
+        "equal_edits": 18,
+        "higher_cer_with_beam3": 0,
+        "normalized_output_changed_ids": [
+          "BAC009S0019W0462",
+          "BAC009S0019W0489",
+          "BAC009S0039W0457",
+          "BAC009S0045W0403",
+          "BAC009S0045W0487",
+          "BAC009S0075W0338",
+          "BAC009S0075W0386",
+          "BAC009S0075W0390"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "BAC009S0019W0308",
+      "group": "evaluation",
+      "speaker": "S0019",
+      "sha256": "09a3e3fc4876943458c05d62b2c665d4509a5734d20b087d2f6cd1ae2cd2f0f6",
+      "reference": "我们不要期待别人的施舍",
+      "seconds": 3.6430625,
+      "chars": 11,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不要"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "我們不要期待別人的施捨",
+        "char_edits": 0,
+        "inference_seconds": 2.49,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "我們不要期待別人的施捨",
+        "char_edits": 0,
+        "inference_seconds": 1.681,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0329",
+      "group": "evaluation",
+      "speaker": "S0019",
+      "sha256": "787a9245daf2fec8ed77c9d1caac67b2206f0b06ed8a49d8f3c5ae8871f0cdc0",
+      "reference": "不能因利益而失规则",
+      "seconds": 3.25,
+      "chars": 9,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不能"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "不能因利益而失規則",
+        "char_edits": 0,
+        "inference_seconds": 2.401,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "不能因利益而失規則",
+        "char_edits": 0,
+        "inference_seconds": 2.176,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0462",
+      "group": "evaluation",
+      "speaker": "S0019",
+      "sha256": "6ec4ac74052ab7814378696b4a757dd9f526dcd6b726de96ba606e6817d3438e",
+      "reference": "八厘米长钥匙不慎插入男子耳朵医生一点五小时取出",
+      "seconds": 6.422125,
+      "chars": 23,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "8",
+          "1.5"
+        ],
+        "length_unit": [
+          "cm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "8cm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "八里米常要時不慎插路難則耳朵醫生1.5小時取出",
+        "char_edits": 10,
+        "inference_seconds": 2.481,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "8",
+            "1.5"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "八厘米长钥匙不慎插路难则耳朵医生1.5小时取出",
+        "char_edits": 6,
+        "inference_seconds": 2.6,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "8",
+            "1.5"
+          ],
+          "length_unit": [
+            "cm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "8cm"
+          ],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0489",
+      "group": "evaluation",
+      "speaker": "S0019",
+      "sha256": "a55dc72712450d4f73c5c31323c3010154653439a761d052e78a7b569256c254",
+      "reference": "手术中因鼻骨粘骨膜撕裂停止手术",
+      "seconds": 5.879875,
+      "chars": 15,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "停止"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "手術中因鼻鼓沾,股膜撕裂停止手術",
+        "char_edits": 3,
+        "inference_seconds": 2.457,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "停止"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "手術中因鼻骨沾骨膜撕裂停止手術",
+        "char_edits": 1,
+        "inference_seconds": 2.521,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "停止"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0493",
+      "group": "evaluation",
+      "speaker": "S0019",
+      "sha256": "9f33bc860ca75d9d608c9e6e02d20115d682fb59b00f6f74a9c702a5f88214ec",
+      "reference": "小美因鼻中隔自然向右偏影响手术及效果",
+      "seconds": 6.728,
+      "chars": 18,
+      "reference_tokens": {
+        "direction": [
+          "向右"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "小美因鼻中格自然下右偏影响手術及效果",
+        "char_edits": 2,
+        "inference_seconds": 2.484,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "小美因鼻中格自然下右偏影响手術及效果",
+        "char_edits": 2,
+        "inference_seconds": 2.521,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0176",
+      "group": "development",
+      "speaker": "S0039",
+      "sha256": "9ab421e263886a63f13ca0f2a77dffef8066cca4365840c84a8cc1fd57f7981f",
+      "reference": "一定不要用小米家装几个字",
+      "seconds": 3.4709375,
+      "chars": 12,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不要"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "一定不要用小米加装几盒子",
+        "char_edits": 3,
+        "inference_seconds": 2.291,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "一定不要用小米加装几盒子",
+        "char_edits": 3,
+        "inference_seconds": 2.316,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0231",
+      "group": "development",
+      "speaker": "S0039",
+      "sha256": "ac3dd401def47eb3fa3b9783845addc6c42df1b3e6f35e34600b6d6b1759ff90",
+      "reference": "揣测两年内不能上市",
+      "seconds": 2.912,
+      "chars": 9,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "2"
+        ],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不能"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "揣测两年内不能上市",
+        "char_edits": 0,
+        "inference_seconds": 2.281,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "2"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "揣测两年内不能上市",
+        "char_edits": 0,
+        "inference_seconds": 2.264,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "2"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0457",
+      "group": "development",
+      "speaker": "S0039",
+      "sha256": "bab459bb74b800567704c66c975f95b000172a2b5e448e89895173fdde9466e7",
+      "reference": "右转弯压线被处罚引市民吐槽交警确属违章",
+      "seconds": 6.322,
+      "chars": 19,
+      "reference_tokens": {
+        "direction": [
+          "右转"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "又转弯压线被处罚,引市民吐槽交警,确属为账",
+        "char_edits": 3,
+        "inference_seconds": 2.504,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "又转弯压线被处罚引市民吐槽交警确属为章",
+        "char_edits": 2,
+        "inference_seconds": 2.466,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0458",
+      "group": "development",
+      "speaker": "S0039",
+      "sha256": "5c6f3847b6e8e655bf5971a6e5c60f8ab77a42bfd0e1f6ca4a1c8a7ae8159685",
+      "reference": "车辆右转弯压白色实线属交通违法行为网友供图",
+      "seconds": 6.5449375,
+      "chars": 21,
+      "reference_tokens": {
+        "direction": [
+          "右转"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "车辆右转弯压白色实现属交通违法行为网友共途",
+        "char_edits": 3,
+        "inference_seconds": 2.513,
+        "tokens": {
+          "direction": [
+            "右转"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "车辆右转弯压白色实现属交通违法行为网友共途",
+        "char_edits": 3,
+        "inference_seconds": 2.655,
+        "tokens": {
+          "direction": [
+            "右转"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0259",
+      "group": "evaluation",
+      "speaker": "S0045",
+      "sha256": "2701c2eae9c60f5d6f6486d8bdc5cb347b57dff28cfc62b0f52ff88a86f2ab05",
+      "reference": "该机的机身厚度达到了七毫米",
+      "seconds": 3.8890625,
+      "chars": 13,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "7"
+        ],
+        "length_unit": [
+          "mm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "7mm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "该机的机身厚度达到了7毫米",
+        "char_edits": 1,
+        "inference_seconds": 2.351,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "7"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "7mm"
+          ],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "该机的机身厚度达到了7毫米",
+        "char_edits": 1,
+        "inference_seconds": 2.44,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "7"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "7mm"
+          ],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0330",
+      "group": "evaluation",
+      "speaker": "S0045",
+      "sha256": "c55d551ecf9c421dd52b804d84399f40c3e0b2fb76995f234b677becd3c461a2",
+      "reference": "最新一百五十六毫米多晶电池片均价一点二六四美元每片",
+      "seconds": 7.3740625,
+      "chars": 25,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "156",
+          "1.264"
+        ],
+        "length_unit": [
+          "mm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "156mm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "最新156毫米多晶电尺片均价1.264美元每片",
+        "char_edits": 11,
+        "inference_seconds": 2.402,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "156",
+            "1.264"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "156mm"
+          ],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "最新156毫米多晶电尺片均价1.264美元每片",
+        "char_edits": 11,
+        "inference_seconds": 2.493,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "156",
+            "1.264"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "156mm"
+          ],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0403",
+      "group": "evaluation",
+      "speaker": "S0045",
+      "sha256": "7fc9e97a3d4371a39ff576651cf4c4b63df46715a4a7d42a5b2be37316ef3d14",
+      "reference": "与他一百九十厘米一百二十千克的魁梧身材不相符的快拳",
+      "seconds": 6.359125,
+      "chars": 25,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "190",
+          "120"
+        ],
+        "length_unit": [
+          "cm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "190cm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "與它190米120千克的魁舞身材不幸福的快傳",
+        "char_edits": 14,
+        "inference_seconds": 2.357,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "190",
+            "120"
+          ],
+          "length_unit": [
+            "m"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "与它190米120千克的魁武身材不幸福的快全",
+        "char_edits": 14,
+        "inference_seconds": 2.465,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "190",
+            "120"
+          ],
+          "length_unit": [
+            "m"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0487",
+      "group": "evaluation",
+      "speaker": "S0045",
+      "sha256": "fad3296f8a160999f787bc663bc2be5f077e12cb4e4ea44c832a5fe594a599ae",
+      "reference": "微整形培训黑幕十三毫米针未消毒就插进太阳穴",
+      "seconds": 6.2790625,
+      "chars": 21,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "13"
+        ],
+        "length_unit": [
+          "mm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "13mm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "微整形培训黑木13毫米真位消毒就插进太阳穴",
+        "char_edits": 5,
+        "inference_seconds": 2.436,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "13"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "13mm"
+          ],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "微整形培训黑幕13毫米真位消毒就插进太阳穴",
+        "char_edits": 4,
+        "inference_seconds": 2.537,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "13"
+          ],
+          "length_unit": [
+            "mm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "13mm"
+          ],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0338",
+      "group": "development",
+      "speaker": "S0075",
+      "sha256": "c9215ce4f35104ddb980c3c74d9954c2eb50e512f42918ebce0c92d68a2c0dfe",
+      "reference": "称重结束前不能饮水",
+      "seconds": 2.9980625,
+      "chars": 9,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不能"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "充重结束前不能引水",
+        "char_edits": 2,
+        "inference_seconds": 2.279,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "充重结束前不能淫水",
+        "char_edits": 2,
+        "inference_seconds": 2.342,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0386",
+      "group": "development",
+      "speaker": "S0075",
+      "sha256": "1e955e31d1d0f95089d4e11c343b5d555f2cf7b31bf45b482d3ed7b43a2ca637",
+      "reference": "注意双脚不要在一条直线",
+      "seconds": 3.6889375,
+      "chars": 11,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "1"
+        ],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不要"
+        ],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "注意双脚不要再一条直线",
+        "char_edits": 1,
+        "inference_seconds": 2.247,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "1"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "注意双脚不要在一条直线",
+        "char_edits": 0,
+        "inference_seconds": 2.275,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "1"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不要"
+          ],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0388",
+      "group": "development",
+      "speaker": "S0075",
+      "sha256": "4222d5f99f7b7c621a5fd1fc364b8b3b7439c107b8d2d8a248fee296564d23a4",
+      "reference": "以脚掌向前蹭出三零厘米左右",
+      "seconds": 5.2009375,
+      "chars": 13,
+      "reference_tokens": {
+        "direction": [
+          "向前"
+        ],
+        "number": [
+          "30"
+        ],
+        "length_unit": [
+          "cm"
+        ],
+        "negation_or_stop": [],
+        "quantity_with_unit": [
+          "30cm"
+        ],
+        "motion": []
+      },
+      "beam1": {
+        "output": "以脚掌向前蹭出30厘米左右",
+        "char_edits": 2,
+        "inference_seconds": 2.309,
+        "tokens": {
+          "direction": [
+            "向前"
+          ],
+          "number": [
+            "30"
+          ],
+          "length_unit": [
+            "cm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "30cm"
+          ],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "以脚掌向前蹭出30厘米左右",
+        "char_edits": 2,
+        "inference_seconds": 2.373,
+        "tokens": {
+          "direction": [
+            "向前"
+          ],
+          "number": [
+            "30"
+          ],
+          "length_unit": [
+            "cm"
+          ],
+          "negation_or_stop": [],
+          "quantity_with_unit": [
+            "30cm"
+          ],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0390",
+      "group": "development",
+      "speaker": "S0075",
+      "sha256": "1a58c73728c3caaa50811e1c45417e9d0d0e270b153031c81eb353ec3fc2021e",
+      "reference": "注意移动不能使用迈步动作",
+      "seconds": 4.225875,
+      "chars": 12,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [
+          "不能"
+        ],
+        "quantity_with_unit": [],
+        "motion": [
+          "移动"
+        ]
+      },
+      "beam1": {
+        "output": "注意移動不能使用脈部動作",
+        "char_edits": 2,
+        "inference_seconds": 2.321,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "注意移动不能使用卖步动作",
+        "char_edits": 1,
+        "inference_seconds": 2.233,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [
+            "不能"
+          ],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0392",
+      "group": "development",
+      "speaker": "S0075",
+      "sha256": "878eab9c9848a19d932a10d4f56939cd570fef6fa03120ca08ad2eff4131ad8a",
+      "reference": "移动中各部位要相对固定",
+      "seconds": 3.6220625,
+      "chars": 11,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": [
+          "移动"
+        ]
+      },
+      "beam1": {
+        "output": "移動中各部位要相對固定",
+        "char_edits": 0,
+        "inference_seconds": 2.311,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "移動中各部位要相對固定",
+        "char_edits": 0,
+        "inference_seconds": 2.426,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0340",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "94757f718a6312a656ccd4eaa6fe441721e335f39499d2003b589b05963c98f0",
+      "reference": "侧闪移动是躲避对手进攻的利器",
+      "seconds": 3.4050625,
+      "chars": 14,
+      "reference_tokens": {
+        "direction": [],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": [
+          "移动"
+        ]
+      },
+      "beam1": {
+        "output": "测闪移动是躲避对手进攻的力气",
+        "char_edits": 3,
+        "inference_seconds": 2.45,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "测闪移动是躲避对手进攻的力气",
+        "char_edits": 3,
+        "inference_seconds": 2.373,
+        "tokens": {
+          "direction": [],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0344",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "bd63c3154659b789294ad3b30df7aa06571383b166c433794a926dd8a94bf28d",
+      "reference": "紧接着右脚以左脚为轴迅速向左滑动",
+      "seconds": 4.374,
+      "chars": 16,
+      "reference_tokens": {
+        "direction": [
+          "向左"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": [
+          "滑动"
+        ]
+      },
+      "beam1": {
+        "output": "紧接着右脚以左脚为肘迅速向左滑动",
+        "char_edits": 1,
+        "inference_seconds": 2.354,
+        "tokens": {
+          "direction": [
+            "向左"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "滑动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "紧接着右脚以左脚为肘迅速向左滑动",
+        "char_edits": 1,
+        "inference_seconds": 2.395,
+        "tokens": {
+          "direction": [
+            "向左"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "滑动"
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0348",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "8d97358da8d29adb4ddad6274ce034933a6ab89e601ed9b6546d6245eae00c1f",
+      "reference": "右脚向右横方向蹭出",
+      "seconds": 3.0600625,
+      "chars": 9,
+      "reference_tokens": {
+        "direction": [
+          "向右"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "右脚向右旁发向蹭肤",
+        "char_edits": 3,
+        "inference_seconds": 2.24,
+        "tokens": {
+          "direction": [
+            "向右"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "右脚向右旁发向蹭肤",
+        "char_edits": 3,
+        "inference_seconds": 2.238,
+        "tokens": {
+          "direction": [
+            "向右"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0349",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "3d201df4272a1655481b41fcd9a583a829d18905694a08bf2c4fd72c8c3d44b3",
+      "reference": "随后以髋部带动左脚向右侧滑动",
+      "seconds": 3.9340625,
+      "chars": 14,
+      "reference_tokens": {
+        "direction": [
+          "向右"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": [
+          "滑动"
+        ]
+      },
+      "beam1": {
+        "output": "此后以跨步带动左脚向右侧滑动",
+        "char_edits": 3,
+        "inference_seconds": 2.336,
+        "tokens": {
+          "direction": [
+            "向右"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "滑动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "此后以跨步带动左脚向右侧滑动",
+        "char_edits": 3,
+        "inference_seconds": 2.345,
+        "tokens": {
+          "direction": [
+            "向右"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "滑动"
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0353",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "f21861376c975f59337311e08d088c365763a39086f64d6455ad64edca2060d2",
+      "reference": "步法练习左滑步接左侧闪步",
+      "seconds": 3.9199375,
+      "chars": 12,
+      "reference_tokens": {
+        "direction": [
+          "左侧"
+        ],
+        "number": [],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": []
+      },
+      "beam1": {
+        "output": "步法练习左滑步接左侧散步",
+        "char_edits": 1,
+        "inference_seconds": 2.342,
+        "tokens": {
+          "direction": [
+            "左侧"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      },
+      "beam3": {
+        "output": "步法练习左滑步接左侧散步",
+        "char_edits": 1,
+        "inference_seconds": 2.339,
+        "tokens": {
+          "direction": [
+            "左侧"
+          ],
+          "number": [],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": []
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0355",
+      "group": "evaluation",
+      "speaker": "S0076",
+      "sha256": "62050bad6a5d95a8a867348916314b8e15f0f00490be672f358a2d8196948550",
+      "reference": "四次移动后你会回到原先的位置",
+      "seconds": 3.7641875,
+      "chars": 14,
+      "reference_tokens": {
+        "direction": [],
+        "number": [
+          "4"
+        ],
+        "length_unit": [],
+        "negation_or_stop": [],
+        "quantity_with_unit": [],
+        "motion": [
+          "移动"
+        ]
+      },
+      "beam1": {
+        "output": "四次移动后,你会回到原先的位置",
+        "char_edits": 0,
+        "inference_seconds": 2.396,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "4"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      },
+      "beam3": {
+        "output": "四次移动后,你会回到原先的位置",
+        "char_edits": 0,
+        "inference_seconds": 2.251,
+        "tokens": {
+          "direction": [],
+          "number": [
+            "4"
+          ],
+          "length_unit": [],
+          "negation_or_stop": [],
+          "quantity_with_unit": [],
+          "motion": [
+            "移动"
+          ]
+        }
+      }
+    }
+  ],
+  "input_sha256": {
+    "asr_inventory.json": "d1684a49e216b50816a2b172f9dfa926a5a6df03264d50c8c926aa02f6893c68",
+    "asr_beam1.json": "2ddd18961f14fed8de50a4210c7347f9af9b0e9b13ff45743e6dc0411cc84904",
+    "asr_beam3.json": "d3c2080e325328dcefa86ef5caaccc8a4643cf6bea8162c6ef16c6db44d1bf74"
+  }
+}

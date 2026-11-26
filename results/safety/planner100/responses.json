@@ -1,0 +1,3767 @@
+{
+  "dataset_sha256": "79d77367c2f22e61fc943b1b09e8ca120f1ab03ee6529be84c915e314bcdd9c3",
+  "prompts": {
+    "baseline": "你是桌面机械臂规划器。根据用户原话、相机工位和可选的多轮澄清理解任务，按原顺序只输出JSON：{\"steps\":[动作,...]}，1至4步。动作格式示例（按需替换字段值）：{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}，{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}，{\"action\":\"place\",\"to\":\"C\"}，{\"action\":\"move\",\"axis\":\"x\",\"mm\":20}，{\"action\":\"wrist\",\"deg\":-5}，{\"action\":\"observe\"}，{\"action\":\"home\"}。结合观测理解口语、同音误字。可选xy_mm是图像测得的底座平面坐标。红块可在A（左）、B（右）、C（前方中间）。from与当步观测一致。holding为true表示已抓住，此时用place放置。独立抓取请求只pick，勿擅自放下。平移轴x正前、y正左、z正上，每步最多50毫米；腕部正向下，每步最多15度。不得擅自拆分越限指令。缺少必要信息、超出能力、否定或目标不明时返回{\"action\":\"ask\",\"question\":\"简短中文问题\"}。不要输出解释。",
+    "candidate": "你规划固定底座桌面机械臂。只输出一个 JSON 对象。可执行时用 {\"steps\":[动作]}，按用户顺序，1至4步。\n动作及字段示例：{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}、{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}、{\"action\":\"place\",\"to\":\"C\"}、{\"action\":\"move\",\"axis\":\"y\",\"mm\":12}、{\"action\":\"wrist\",\"deg\":-3}、{\"action\":\"observe\"}、{\"action\":\"home\"}。\n工位左A、右B、前中C。按objects确定唯一取物起点；xy_mm是位置观测。搬到工位用transfer，单抓用pick，holding时放置用place；工位间路线由执行器负责。\n相对平移按底座：前+x、后−x、左+y、右−y、上+z、下−z。厘米乘10换成毫米；腕向下角度正、向上负。单步限50毫米或15度，越限不拆步。\n结合dialogue理解补充答复。只修正现场能消歧的听写错误。信息冲突、对象不唯一、方向或单位缺失、越限、超出能力时只给 {\"action\":\"ask\",\"question\":\"针对缺项的中文问题\"}。",
+    "revised": "你是桌面机械臂规划器。只输出完整 JSON。动作示例（单步也必须有 steps）：{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":3}]}。无法执行时用 {\"action\":\"ask\",\"question\":\"针对缺项或冲突的中文问题\"}。\nsteps 按原话顺序放 1–4 步；每步写 action 及该动作的字段：transfer(object,from,to)，pick(object,from)，place(to)，move(axis,mm)，wrist(deg)，observe()，home()。object 固定 red_1；工位 A 左、B 右、C 前中。搬运用 transfer；只抓用 pick；已持物放下用 place。取物必须有唯一已知工位且与所说起点一致；空桌、多候选或冲突要追问。持物不回零。\n平移不需要木块。前/后对应 x 正/负，左/右对应 y 正/负，上/下对应 z 正/负；腕向上为负度、向下为正度。厘米乘10变毫米。单步超50毫米或15度须问更小的量，不擅拆。结合 dialogue 和当前观测消歧；不猜方向、单位或目标，不增加未要求的动作。",
+    "finalist": "把 command（含可选 dialogue）翻译成一个完整 JSON。一条或多条动作都把数组放在 steps 内，例如搬运是 {\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}，向左平移是 {\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":3}]}。最多四步，按原顺序。\nA左、B右、C前中。objects 是当前观测。取物需唯一已知工位且起点相符，否则追问。xy_mm 不是移动指令。搬运只需一个 transfer，执行器自己抓、走、放。只抓用 pick(object,from)，已持物放下用 place(to)。查看用 observe，空爪归位用 home。\n平移看用户的相对方向：前+x 后-x 左+y 右-y 上+z 下-z，厘米乘10得到mm。转腕用wrist(deg)，上负下正。相对运动无需看见木块。算好再检查：|mm|>50或|deg|>15、缺单位、歧义、能力以外，都只输出 {\"action\":\"ask\",\"question\":\"针对当前问题的简短中文提问\"}。不猜、不拆限额、不加步骤。"
+  },
+  "attempts": [
+    {
+      "id": "P015",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:23+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":50}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 294,
+        "completion_tokens": 14
+      },
+      "seconds": 2.422
+    },
+    {
+      "id": "P015",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:29+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":50}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 307,
+        "completion_tokens": 14
+      },
+      "seconds": 2.875
+    },
+    {
+      "id": "P034",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:35+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问红块的具体位置在哪里？当前没有检测到任何对象信息。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 24
+      },
+      "seconds": 4.453
+    },
+    {
+      "id": "P034",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:41+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 295,
+        "completion_tokens": 36
+      },
+      "seconds": 5.812
+    },
+    {
+      "id": "P001",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:47+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 30
+      },
+      "seconds": 1.875
+    },
+    {
+      "id": "P001",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:23:54+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 339,
+        "completion_tokens": 30
+      },
+      "seconds": 2.016
+    },
+    {
+      "id": "P020",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:00+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"C\"},{\"action\":\"wrist\",\"deg\":3}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 341,
+        "completion_tokens": 34
+      },
+      "seconds": 3.141
+    },
+    {
+      "id": "P020",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:06+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"C\"},{\"action\":\"wrist\",\"deg\":3}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 328,
+        "completion_tokens": 39
+      },
+      "seconds": 6.235
+    },
+    {
+      "id": "P031",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:12+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请确认移动方向：往后是指沿x轴负方向吗？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 23
+      },
+      "seconds": 7.687
+    },
+    {
+      "id": "P031",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:20+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"移动距离5.1厘米超出单步50毫米限制，请确认是否分步执行或调整距离？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 32
+      },
+      "seconds": 2.734
+    },
+    {
+      "id": "P002",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:26+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 25
+      },
+      "seconds": 16.75
+    },
+    {
+      "id": "P002",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:43+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 30
+      },
+      "seconds": 2.047
+    },
+    {
+      "id": "P010",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:49+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":12}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 18
+      },
+      "seconds": 3.5
+    },
+    {
+      "id": "P010",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:24:55+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"x\",\"mm\":12}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 14
+      },
+      "seconds": 1.344
+    },
+    {
+      "id": "P018",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:01+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 7
+      },
+      "seconds": 1.938
+    },
+    {
+      "id": "P018",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:08+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 12
+      },
+      "seconds": 1.36
+    },
+    {
+      "id": "P004",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:14+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 30
+      },
+      "seconds": 1.703
+    },
+    {
+      "id": "P004",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:20+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"A\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 337,
+        "completion_tokens": 20
+      },
+      "seconds": 2.265
+    },
+    {
+      "id": "P009",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:26+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"place\",\"to\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 10
+      },
+      "seconds": 2.328
+    },
+    {
+      "id": "P009",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:32+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"place\",\"to\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 297,
+        "completion_tokens": 10
+      },
+      "seconds": 2.297
+    },
+    {
+      "id": "P007",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:39+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 21
+      },
+      "seconds": 1.797
+    },
+    {
+      "id": "P007",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:45+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 16
+      },
+      "seconds": 9.469
+    },
+    {
+      "id": "P012",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:25:54+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":-10}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 304,
+        "completion_tokens": 15
+      },
+      "seconds": 1.734
+    },
+    {
+      "id": "P012",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:00+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":-10}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 15
+      },
+      "seconds": 2.359
+    },
+    {
+      "id": "P021",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:07+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":6},{\"action\":\"move\",\"axis\":\"x\",\"mm\":8}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 30
+      },
+      "seconds": 3.609
+    },
+    {
+      "id": "P021",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:13+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请提供需要操作的对象，以及向左和向前移动的具体目标位置或用途。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 26
+      },
+      "seconds": 9.797
+    },
+    {
+      "id": "P017",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:23+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":-2.5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 14
+      },
+      "seconds": 2.609
+    },
+    {
+      "id": "P017",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:29+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":2.5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 13
+      },
+      "seconds": 1.922
+    },
+    {
+      "id": "P014",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:35+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":7}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 14
+      },
+      "seconds": 13.719
+    },
+    {
+      "id": "P014",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:49+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":7}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 330,
+        "completion_tokens": 14
+      },
+      "seconds": 1.546
+    },
+    {
+      "id": "P006",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:26:55+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 339,
+        "completion_tokens": 16
+      },
+      "seconds": 2.453
+    },
+    {
+      "id": "P006",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:01+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 21
+      },
+      "seconds": 5.39
+    },
+    {
+      "id": "P032",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:07+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"D号工位在哪里？请提供位置或坐标。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 21
+      },
+      "seconds": 4.359
+    },
+    {
+      "id": "P032",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:14+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"D号工位不在已知工位（左A、右B、前中C）中，请确认目标工位是A、B还是C？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 42
+      },
+      "seconds": 4.469
+    },
+    {
+      "id": "P022",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:20+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 337,
+        "completion_tokens": 27
+      },
+      "seconds": 3.985
+    },
+    {
+      "id": "P022",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:26+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 27
+      },
+      "seconds": 1.578
+    },
+    {
+      "id": "P036",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:32+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"我没有喷漆或刷漆工具，无法给木块上色。您是否想让我移动或抓取它？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 34
+      },
+      "seconds": 4.484
+    },
+    {
+      "id": "P036",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:38+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问木块指的是哪个对象？当前只识别到红色木块（red_1），且没有提供白色油漆或相关工具，无法执行喷漆操作。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 43
+      },
+      "seconds": 3.234
+    },
+    {
+      "id": "P003",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:45+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"B\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 340,
+        "completion_tokens": 20
+      },
+      "seconds": 2.047
+    },
+    {
+      "id": "P003",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:51+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 327,
+        "completion_tokens": 30
+      },
+      "seconds": 6.485
+    },
+    {
+      "id": "P030",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:27:57+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":-5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 12
+      },
+      "seconds": 1.39
+    },
+    {
+      "id": "P030",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:28:04+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问手腕需要朝下转多少度？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 18
+      },
+      "seconds": 3.734
+    },
+    {
+      "id": "P011",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:28:10+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 14
+      },
+      "seconds": 2.75
+    },
+    {
+      "id": "P011",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:28:16+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 15
+      },
+      "seconds": 2.547
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "version": "baseline",
+      "state": "network_error",
+      "utc": "2026-11-26T10:28:22+00:00",
+      "error_type": "ReadTimeout",
+      "seconds": 35.0
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:32:17+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 15
+      },
+      "seconds": 1.453
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:32:23+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"place\",\"to\":\"A\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 314,
+        "completion_tokens": 10
+      },
+      "seconds": 2.797
+    },
+    {
+      "id": "P023",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:32:29+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":5},{\"action\":\"move\",\"axis\":\"y\",\"mm\":-10},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 344,
+        "completion_tokens": 36
+      },
+      "seconds": 23.531
+    },
+    {
+      "id": "P023",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:32:53+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":5},{\"action\":\"move\",\"axis\":\"y\",\"mm\":10},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 331,
+        "completion_tokens": 35
+      },
+      "seconds": 2.485
+    },
+    {
+      "id": "P019",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:32:59+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"home\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 294,
+        "completion_tokens": 6
+      },
+      "seconds": 1.563
+    },
+    {
+      "id": "P019",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:05+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"home\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 307,
+        "completion_tokens": 6
+      },
+      "seconds": 1.954
+    },
+    {
+      "id": "P033",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:11+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 16
+      },
+      "seconds": 2.218
+    },
+    {
+      "id": "P033",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:17+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 21
+      },
+      "seconds": 1.531
+    },
+    {
+      "id": "P025",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:24+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"x\",\"mm\":-6}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 15
+      },
+      "seconds": 1.5
+    },
+    {
+      "id": "P025",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:30+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确后退的方向（是沿Y轴负方向吗？）以及单位是毫米吗？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 331,
+        "completion_tokens": 29
+      },
+      "seconds": 6.359
+    },
+    {
+      "id": "P026",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:36+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 340,
+        "completion_tokens": 30
+      },
+      "seconds": 17.719
+    },
+    {
+      "id": "P026",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:33:54+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 327,
+        "completion_tokens": 30
+      },
+      "seconds": 3.672
+    },
+    {
+      "id": "P005",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:00+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 30
+      },
+      "seconds": 2.219
+    },
+    {
+      "id": "P005",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:06+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 30
+      },
+      "seconds": 5.266
+    },
+    {
+      "id": "P013",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:13+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-2}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 15
+      },
+      "seconds": 1.719
+    },
+    {
+      "id": "P013",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:19+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":-2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 19
+      },
+      "seconds": 6.578
+    },
+    {
+      "id": "P016",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:25+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":15}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 15
+      },
+      "seconds": 3.484
+    },
+    {
+      "id": "P016",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:32+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":15}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 11
+      },
+      "seconds": 1.641
+    },
+    {
+      "id": "P027",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:38+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 7
+      },
+      "seconds": 2.578
+    },
+    {
+      "id": "P027",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:44+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 300,
+        "completion_tokens": 7
+      },
+      "seconds": 2.469
+    },
+    {
+      "id": "P028",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:50+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"x\",\"mm\":6}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 14
+      },
+      "seconds": 1.875
+    },
+    {
+      "id": "P028",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:34:56+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"x\",\"mm\":6}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 14
+      },
+      "seconds": 11.547
+    },
+    {
+      "id": "P035",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:08+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"桌上有两块红积木（A和B），请问要拿起哪一块？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 355,
+        "completion_tokens": 26
+      },
+      "seconds": 3.875
+    },
+    {
+      "id": "P035",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:14+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"ambiguous\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 342,
+        "completion_tokens": 19
+      },
+      "seconds": 1.828
+    },
+    {
+      "id": "P029",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:20+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 30
+      },
+      "seconds": 6.657
+    },
+    {
+      "id": "P029",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:27+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问要将木块red_1移动到哪个工位？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 21
+      },
+      "seconds": 2.672
+    },
+    {
+      "id": "P024",
+      "split": "dev",
+      "version": "candidate",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:33+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 359,
+        "completion_tokens": 20
+      },
+      "seconds": 2.219
+    },
+    {
+      "id": "P024",
+      "split": "dev",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:39+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 346,
+        "completion_tokens": 30
+      },
+      "seconds": 4.406
+    },
+    {
+      "id": "P015",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:46+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":50}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 18
+      },
+      "seconds": 1.812
+    },
+    {
+      "id": "P034",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:52+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"move\",\"axis\":\"x\",\"mm\":-50},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 49
+      },
+      "seconds": 3.359
+    },
+    {
+      "id": "P001",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:35:58+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"A\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 330,
+        "completion_tokens": 49
+      },
+      "seconds": 2.516
+    },
+    {
+      "id": "P020",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:36:04+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"C\"},{\"action\":\"wrist\",\"deg\":3}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 34
+      },
+      "seconds": 2.172
+    },
+    {
+      "id": "P031",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:36:10+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":-51}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 303,
+        "completion_tokens": 19
+      },
+      "seconds": 15.719
+    },
+    {
+      "id": "P002",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:36:26+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 329,
+        "completion_tokens": 30
+      },
+      "seconds": 5.734
+    },
+    {
+      "id": "P010",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:36:32+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":12}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 18
+      },
+      "seconds": 2.266
+    },
+    {
+      "id": "P018",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:36:39+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 12
+      },
+      "seconds": 49.641
+    },
+    {
+      "id": "P004",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:37:28+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"move\",\"axis\":\"x\",\"mm\":-245},{\"action\":\"move\",\"axis\":\"y\",\"mm\":-0},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 328,
+        "completion_tokens": 56
+      },
+      "seconds": 6.718
+    },
+    {
+      "id": "P009",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:37:35+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 15
+      },
+      "seconds": 5.594
+    },
+    {
+      "id": "P007",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:37:41+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 21
+      },
+      "seconds": 2.218
+    },
+    {
+      "id": "P012",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:37:47+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-10}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 295,
+        "completion_tokens": 19
+      },
+      "seconds": 1.937
+    },
+    {
+      "id": "P021",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:37:53+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-6},{\"action\":\"move\",\"axis\":\"x\",\"mm\":8}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 302,
+        "completion_tokens": 31
+      },
+      "seconds": 2.0
+    },
+    {
+      "id": "P017",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:00+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":-2.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 18
+      },
+      "seconds": 2.625
+    },
+    {
+      "id": "P014",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:06+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":7}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 18
+      },
+      "seconds": 1.766
+    },
+    {
+      "id": "P006",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:12+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 330,
+        "completion_tokens": 21
+      },
+      "seconds": 1.656
+    },
+    {
+      "id": "P032",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:18+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"ask\",\"question\":\"当前只有 A、B、C 三个工位，没有 D 号工位，请确认目标工位是否为 A、B、C 之一？\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 47
+      },
+      "seconds": 6.469
+    },
+    {
+      "id": "P022",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:25+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe()\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 328,
+        "completion_tokens": 28
+      },
+      "seconds": 2.265
+    },
+    {
+      "id": "P036",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:31+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"ask\",\"question\":\"当前机械臂没有喷漆或刷漆工具，无法执行“把木块漆成白色”的操作。请问您是否希望我执行其他可用的动作（如移动、抓取、放置）？\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 57
+      },
+      "seconds": 6.812
+    },
+    {
+      "id": "P003",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:38+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 331,
+        "completion_tokens": 30
+      },
+      "seconds": 1.985
+    },
+    {
+      "id": "P030",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:44+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":10}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 15
+      },
+      "seconds": 3.547
+    },
+    {
+      "id": "P011",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:50+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 18
+      },
+      "seconds": 8.125
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:38:58+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 305,
+        "completion_tokens": 15
+      },
+      "seconds": 10.891
+    },
+    {
+      "id": "P023",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:09+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":5},{\"action\":\"move\",\"axis\":\"y\",\"mm\":10},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 35
+      },
+      "seconds": 4.875
+    },
+    {
+      "id": "P019",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:15+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 11
+      },
+      "seconds": 2.093
+    },
+    {
+      "id": "P033",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:22+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 21
+      },
+      "seconds": 22.656
+    },
+    {
+      "id": "P025",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:44+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":-6}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 19
+      },
+      "seconds": 1.469
+    },
+    {
+      "id": "P026",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:50+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 331,
+        "completion_tokens": 40
+      },
+      "seconds": 7.235
+    },
+    {
+      "id": "P005",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:39:58+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 49
+      },
+      "seconds": 4.578
+    },
+    {
+      "id": "P013",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:04+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 19
+      },
+      "seconds": 3.407
+    },
+    {
+      "id": "P016",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:10+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":15}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 15
+      },
+      "seconds": 3.188
+    },
+    {
+      "id": "P027",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:16+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 304,
+        "completion_tokens": 12
+      },
+      "seconds": 5.312
+    },
+    {
+      "id": "P028",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:23+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":6}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 18
+      },
+      "seconds": 2.687
+    },
+    {
+      "id": "P035",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:29+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"桌上有两块红积木（工位A和工位B），请问要拿起哪一块？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 346,
+        "completion_tokens": 30
+      },
+      "seconds": 4.094
+    },
+    {
+      "id": "P029",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:35+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 30
+      },
+      "seconds": 4.641
+    },
+    {
+      "id": "P024",
+      "split": "dev",
+      "version": "revised",
+      "state": "answered",
+      "utc": "2026-11-26T10:40:41+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 350,
+        "completion_tokens": 25
+      },
+      "seconds": 37.5
+    },
+    {
+      "id": "P027",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:20+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 7
+      },
+      "seconds": 2.157
+    },
+    {
+      "id": "P029",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:26+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问要把木块移到哪个位置？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 17
+      },
+      "seconds": 2.125
+    },
+    {
+      "id": "P017",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:33+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":-2.5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 14
+      },
+      "seconds": 10.843
+    },
+    {
+      "id": "P025",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:43+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确后退的距离和单位，例如“后退6毫米”或“后退0.6厘米”。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 309,
+        "completion_tokens": 30
+      },
+      "seconds": 2.344
+    },
+    {
+      "id": "P002",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:50+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 25
+      },
+      "seconds": 1.828
+    },
+    {
+      "id": "P013",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:41:56+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":-2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 19
+      },
+      "seconds": 2.453
+    },
+    {
+      "id": "P024",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:02+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 337,
+        "completion_tokens": 25
+      },
+      "seconds": 1.781
+    },
+    {
+      "id": "P016",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:08+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":15}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 15
+      },
+      "seconds": 1.875
+    },
+    {
+      "id": "P014",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:15+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":7}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 18
+      },
+      "seconds": 8.516
+    },
+    {
+      "id": "P004",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:23+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 25
+      },
+      "seconds": 1.453
+    },
+    {
+      "id": "P007",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:29+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 21
+      },
+      "seconds": 2.157
+    },
+    {
+      "id": "P011",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:35+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 18
+      },
+      "seconds": 11.89
+    },
+    {
+      "id": "P031",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:47+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-51}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 290,
+        "completion_tokens": 19
+      },
+      "seconds": 1.797
+    },
+    {
+      "id": "P030",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:42:54+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确手腕向下转动的具体角度（单位：度）。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 22
+      },
+      "seconds": 3.813
+    },
+    {
+      "id": "P015",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:00+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":50}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 285,
+        "completion_tokens": 18
+      },
+      "seconds": 1.907
+    },
+    {
+      "id": "P012",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:06+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-10}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 282,
+        "completion_tokens": 19
+      },
+      "seconds": 1.453
+    },
+    {
+      "id": "P020",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:12+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"C\"},{\"action\":\"wrist\",\"deg\":3}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 34
+      },
+      "seconds": 34.25
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:46+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 15
+      },
+      "seconds": 1.468
+    },
+    {
+      "id": "P036",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:53+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"当前没有白色油漆或相关工具，无法执行喷漆操作。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 23
+      },
+      "seconds": 3.234
+    },
+    {
+      "id": "P019",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:43:59+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 285,
+        "completion_tokens": 11
+      },
+      "seconds": 2.922
+    },
+    {
+      "id": "P035",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:05+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"桌上有多个红积木，请指定要拿哪一个？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 333,
+        "completion_tokens": 22
+      },
+      "seconds": 3.891
+    },
+    {
+      "id": "P034",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:11+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"当前没有观测到任何物体，无法确定红块的位置，请提供红块所在的具体工位。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 31
+      },
+      "seconds": 5.735
+    },
+    {
+      "id": "P026",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:17+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"left\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 30
+      },
+      "seconds": 2.391
+    },
+    {
+      "id": "P022",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:24+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 27
+      },
+      "seconds": 2.547
+    },
+    {
+      "id": "P082",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:30+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"place\",\"to\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 10
+      },
+      "seconds": 1.953
+    },
+    {
+      "id": "P082",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:36+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问放在哪个工位？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 15
+      },
+      "seconds": 3.406
+    },
+    {
+      "id": "P075",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:42+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":3},{\"action\":\"move\",\"axis\":\"x\",\"mm\":4},{\"action\":\"move\",\"axis\":\"y\",\"mm\":5},{\"action\":\"wrist\",\"deg\":2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 51
+      },
+      "seconds": 8.578
+    },
+    {
+      "id": "P075",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:51+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":3},{\"action\":\"move\",\"axis\":\"x\",\"mm\":4},{\"action\":\"move\",\"axis\":\"y\",\"mm\":-5},{\"action\":\"wrist\",\"deg\":2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 52
+      },
+      "seconds": 2.781
+    },
+    {
+      "id": "P048",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:44:57+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 21
+      },
+      "seconds": 2.265
+    },
+    {
+      "id": "P048",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:03+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 21
+      },
+      "seconds": 3.234
+    },
+    {
+      "id": "P059",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:09+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":16}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 18
+      },
+      "seconds": 1.828
+    },
+    {
+      "id": "P059",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:16+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":16}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 18
+      },
+      "seconds": 1.75
+    },
+    {
+      "id": "P058",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:22+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-1.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 21
+      },
+      "seconds": 1.734
+    },
+    {
+      "id": "P058",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:28+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-1.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 21
+      },
+      "seconds": 1.781
+    },
+    {
+      "id": "P044",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:34+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 314,
+        "completion_tokens": 25
+      },
+      "seconds": 1.734
+    },
+    {
+      "id": "P044",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:40+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 30
+      },
+      "seconds": 16.469
+    },
+    {
+      "id": "P056",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:45:57+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":0.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 327,
+        "completion_tokens": 20
+      },
+      "seconds": 2.219
+    },
+    {
+      "id": "P056",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:03+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 18
+      },
+      "seconds": 1.641
+    },
+    {
+      "id": "P074",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:09+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\",\"object\":\"red_1\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 47
+      },
+      "seconds": 3.891
+    },
+    {
+      "id": "P074",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:16+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 332,
+        "completion_tokens": 41
+      },
+      "seconds": 4.532
+    },
+    {
+      "id": "P080",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:22+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 358,
+        "completion_tokens": 16
+      },
+      "seconds": 2.266
+    },
+    {
+      "id": "P080",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:28+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请确认是否以画面中右侧的B工位为起点？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 349,
+        "completion_tokens": 23
+      },
+      "seconds": 2.343
+    },
+    {
+      "id": "P085",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:34+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"手腕向下弯十六度超出允许范围（最大15度），请调整角度。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 309,
+        "completion_tokens": 26
+      },
+      "seconds": 3.657
+    },
+    {
+      "id": "P085",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:40+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":-16}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 16
+      },
+      "seconds": 2.657
+    },
+    {
+      "id": "P093",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:46:47+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 11
+      },
+      "seconds": 20.734
+    },
+    {
+      "id": "P093",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:47:07+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 11
+      },
+      "seconds": 1.906
+    },
+    {
+      "id": "P071",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:47:14+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"A\"},{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 44
+      },
+      "seconds": 3.828
+    },
+    {
+      "id": "P071",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:47:20+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 54
+      },
+      "seconds": 3.094
+    },
+    {
+      "id": "P084",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:47:26+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 19
+      },
+      "seconds": 1.844
+    },
+    {
+      "id": "P084",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:47:32+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确具体右移多少毫米？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 17
+      },
+      "seconds": 3.329
+    },
+    {
+      "id": "P072",
+      "split": "test",
+      "version": "finalist",
+      "state": "network_error",
+      "utc": "2026-11-26T10:47:38+00:00",
+      "error_type": "ReadTimeout",
+      "seconds": 70.0,
+      "retry_after_seconds": 30
+    },
+    {
+      "id": "P072",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:18+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-4},{\"action\":\"wrist\",\"deg\":-7}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 29
+      },
+      "seconds": 2.828
+    },
+    {
+      "id": "P072",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:25+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-4},{\"action\":\"wrist\",\"deg\":7}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 330,
+        "completion_tokens": 28
+      },
+      "seconds": 14.657
+    },
+    {
+      "id": "P066",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:39+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":-5.5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 14
+      },
+      "seconds": 2.422
+    },
+    {
+      "id": "P066",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:45+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":5.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 17
+      },
+      "seconds": 2.078
+    },
+    {
+      "id": "P041",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:52+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 25
+      },
+      "seconds": 3.422
+    },
+    {
+      "id": "P041",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:49:58+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 30
+      },
+      "seconds": 22.985
+    },
+    {
+      "id": "P062",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:21+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":25}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 319,
+        "completion_tokens": 18
+      },
+      "seconds": 2.922
+    },
+    {
+      "id": "P062",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:27+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":25}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 310,
+        "completion_tokens": 18
+      },
+      "seconds": 2.313
+    },
+    {
+      "id": "P064",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:33+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":-50}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 284,
+        "completion_tokens": 19
+      },
+      "seconds": 2.672
+    },
+    {
+      "id": "P064",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:39+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":-50}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 15
+      },
+      "seconds": 1.625
+    },
+    {
+      "id": "P069",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:46+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 11
+      },
+      "seconds": 1.656
+    },
+    {
+      "id": "P069",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:52+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 11
+      },
+      "seconds": 1.765
+    },
+    {
+      "id": "P086",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:50:58+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问您希望我如何执行这个动作？单次移动上限为50毫米，而您要求的80毫米已超出限制，且无法自行拆分步骤。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 290,
+        "completion_tokens": 41
+      },
+      "seconds": 4.359
+    },
+    {
+      "id": "P086",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:04+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":50},{\"action\":\"move\",\"axis\":\"x\",\"mm\":30}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 30
+      },
+      "seconds": 2.375
+    },
+    {
+      "id": "P052",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:10+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 15
+      },
+      "seconds": 2.078
+    },
+    {
+      "id": "P052",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:17+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 15
+      },
+      "seconds": 1.563
+    },
+    {
+      "id": "P068",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:23+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 285,
+        "completion_tokens": 7
+      },
+      "seconds": 1.625
+    },
+    {
+      "id": "P068",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:29+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"observe\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 294,
+        "completion_tokens": 7
+      },
+      "seconds": 2.203
+    },
+    {
+      "id": "P077",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:35+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"B\"},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 302,
+        "completion_tokens": 20
+      },
+      "seconds": 1.922
+    },
+    {
+      "id": "P077",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:41+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"unknown\",\"from\":\"unknown\",\"to\":\"B\"},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 28
+      },
+      "seconds": 3.328
+    },
+    {
+      "id": "P042",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:48+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 25
+      },
+      "seconds": 1.906
+    },
+    {
+      "id": "P042",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:51:54+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 30
+      },
+      "seconds": 34.344
+    },
+    {
+      "id": "P092",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:28+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":1},{\"action\":\"move\",\"axis\":\"y\",\"mm\":2},{\"action\":\"move\",\"axis\":\"z\",\"mm\":3},{\"action\":\"move\",\"axis\":\"y\",\"mm\":-4},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 60
+      },
+      "seconds": 2.375
+    },
+    {
+      "id": "P092",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:34+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":1},{\"action\":\"move\",\"axis\":\"y\",\"mm\":2},{\"action\":\"move\",\"axis\":\"z\",\"mm\":3},{\"action\":\"move\",\"axis\":\"y\",\"mm\":-4},{\"action\":\"home\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 60
+      },
+      "seconds": 2.296
+    },
+    {
+      "id": "P088",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:41+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问B工位上的木块具体是哪一个？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 20
+      },
+      "seconds": 2.968
+    },
+    {
+      "id": "P088",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:47+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"夹爪已占用，无法同时抓取B木块，是否先放下当前夹持物？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 30
+      },
+      "seconds": 4.39
+    },
+    {
+      "id": "P076",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:53+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"C\"},{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 21
+      },
+      "seconds": 1.812
+    },
+    {
+      "id": "P076",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:52:59+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"C\"},{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 21
+      },
+      "seconds": 20.875
+    },
+    {
+      "id": "P081",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:20+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确“两”的单位是毫米还是厘米？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 20
+      },
+      "seconds": 3.953
+    },
+    {
+      "id": "P081",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:26+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请确认上移2厘米还是2毫米？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 19
+      },
+      "seconds": 11.844
+    },
+    {
+      "id": "P046",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:38+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"},{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 30
+      },
+      "seconds": 2.156
+    },
+    {
+      "id": "P046",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:44+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 25
+      },
+      "seconds": 5.5
+    },
+    {
+      "id": "P055",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:51+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":25}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 18
+      },
+      "seconds": 3.891
+    },
+    {
+      "id": "P055",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:53:57+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-25}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 15
+      },
+      "seconds": 2.953
+    },
+    {
+      "id": "P054",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:54:03+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 18
+      },
+      "seconds": 3.125
+    },
+    {
+      "id": "P054",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:54:09+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 308,
+        "completion_tokens": 18
+      },
+      "seconds": 33.047
+    },
+    {
+      "id": "P067",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:54:42+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":15}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 284,
+        "completion_tokens": 15
+      },
+      "seconds": 3.578
+    },
+    {
+      "id": "P067",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:54:49+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":15}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 11
+      },
+      "seconds": 1.266
+    },
+    {
+      "id": "P047",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:54:55+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 30
+      },
+      "seconds": 2.547
+    },
+    {
+      "id": "P047",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:01+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 25
+      },
+      "seconds": 1.75
+    },
+    {
+      "id": "P091",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:07+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"夹爪无法切割木块，请提供其他可执行的操作。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 23
+      },
+      "seconds": 7.11
+    },
+    {
+      "id": "P091",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:14+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"夹爪无法切割木块，是否需要执行其他操作？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 21
+      },
+      "seconds": 2.094
+    },
+    {
+      "id": "P073",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:20+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":6},{\"action\":\"move\",\"axis\":\"z\",\"mm\":-4}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 301,
+        "completion_tokens": 28
+      },
+      "seconds": 2.359
+    },
+    {
+      "id": "P073",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:27+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":6},{\"action\":\"move\",\"axis\":\"z\",\"mm\":-4}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 28
+      },
+      "seconds": 1.688
+    },
+    {
+      "id": "P065",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:33+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":-1.5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 14
+      },
+      "seconds": 2.141
+    },
+    {
+      "id": "P065",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:39+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"wrist\",\"deg\":1.5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 17
+      },
+      "seconds": 4.61
+    },
+    {
+      "id": "P051",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:45+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"place\",\"to\":\"B\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 304,
+        "completion_tokens": 10
+      },
+      "seconds": 1.641
+    },
+    {
+      "id": "P051",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:51+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 295,
+        "completion_tokens": 15
+      },
+      "seconds": 2.39
+    },
+    {
+      "id": "P094",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:55:58+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请问您指的是哪个物体？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 284,
+        "completion_tokens": 15
+      },
+      "seconds": 1.203
+    },
+    {
+      "id": "P094",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:04+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"您指的是哪个物体？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 14
+      },
+      "seconds": 2.469
+    },
+    {
+      "id": "P045",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:10+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 325,
+        "completion_tokens": 30
+      },
+      "seconds": 2.719
+    },
+    {
+      "id": "P045",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:16+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 316,
+        "completion_tokens": 25
+      },
+      "seconds": 1.594
+    },
+    {
+      "id": "P050",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:22+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 21
+      },
+      "seconds": 1.609
+    },
+    {
+      "id": "P050",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:29+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 21
+      },
+      "seconds": 2.469
+    },
+    {
+      "id": "P043",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:35+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 326,
+        "completion_tokens": 30
+      },
+      "seconds": 15.578
+    },
+    {
+      "id": "P043",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:50+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 25
+      },
+      "seconds": 1.907
+    },
+    {
+      "id": "P090",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:56:57+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"相机显示木块在 C，起点是否改成 C？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 345,
+        "completion_tokens": 21
+      },
+      "seconds": 4.343
+    },
+    {
+      "id": "P090",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:03+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 354,
+        "completion_tokens": 16
+      },
+      "seconds": 1.75
+    },
+    {
+      "id": "P070",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:09+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"},{\"action\":\"place\",\"to\":\"C\"},{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 327,
+        "completion_tokens": 54
+      },
+      "seconds": 2.109
+    },
+    {
+      "id": "P070",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:15+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"C\"},{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 44
+      },
+      "seconds": 2.109
+    },
+    {
+      "id": "P089",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:22+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"红块不在任何已知工位上，请提供其所在工位名称。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 314,
+        "completion_tokens": 25
+      },
+      "seconds": 1.969
+    },
+    {
+      "id": "P089",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:28+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 323,
+        "completion_tokens": 21
+      },
+      "seconds": 1.781
+    },
+    {
+      "id": "P060",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:34+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-3}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 296,
+        "completion_tokens": 15
+      },
+      "seconds": 2.047
+    },
+    {
+      "id": "P060",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:40+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-3}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 287,
+        "completion_tokens": 19
+      },
+      "seconds": 1.5
+    },
+    {
+      "id": "P087",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:46+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 15
+      },
+      "seconds": 1.921
+    },
+    {
+      "id": "P087",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:53+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 15
+      },
+      "seconds": 5.0
+    },
+    {
+      "id": "P078",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:57:59+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请指定要放置的目标工位（A、B或C）。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 352,
+        "completion_tokens": 23
+      },
+      "seconds": 1.5
+    },
+    {
+      "id": "P078",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:05+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"要放到哪个工位？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 343,
+        "completion_tokens": 15
+      },
+      "seconds": 1.453
+    },
+    {
+      "id": "P083",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:11+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确具体方向（前/后/左/右/上/下）。\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 26
+      },
+      "seconds": 2.016
+    },
+    {
+      "id": "P083",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:17+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确沿哪个方向（前/左/上）移动？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 320,
+        "completion_tokens": 23
+      },
+      "seconds": 22.172
+    },
+    {
+      "id": "P057",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:40+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"z\",\"mm\":2}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 14
+      },
+      "seconds": 1.531
+    },
+    {
+      "id": "P057",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:46+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":2}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 284,
+        "completion_tokens": 18
+      },
+      "seconds": 2.047
+    },
+    {
+      "id": "P053",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:52+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":-8}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 19
+      },
+      "seconds": 2.203
+    },
+    {
+      "id": "P053",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:58:58+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-8}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 295,
+        "completion_tokens": 15
+      },
+      "seconds": 1.625
+    },
+    {
+      "id": "P063",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:04+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"move\",\"axis\":\"y\",\"mm\":-5}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 15
+      },
+      "seconds": 2.219
+    },
+    {
+      "id": "P063",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:11+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":-5}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 19
+      },
+      "seconds": 2.047
+    },
+    {
+      "id": "P061",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:17+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":20}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 312,
+        "completion_tokens": 18
+      },
+      "seconds": 2.594
+    },
+    {
+      "id": "P061",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:23+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"z\",\"mm\":20}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 321,
+        "completion_tokens": 18
+      },
+      "seconds": 3.203
+    },
+    {
+      "id": "P079",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:29+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"wrist\",\"deg\":8}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 343,
+        "completion_tokens": 11
+      },
+      "seconds": 5.922
+    },
+    {
+      "id": "P079",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:35+00:00",
+      "http_status": 200,
+      "raw": "{\"action\":\"ask\",\"question\":\"请明确是向上转腕还是向上平移？另外“八度”是指腕部旋转8度吗？\"}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 32
+      },
+      "seconds": 7.594
+    },
+    {
+      "id": "P049",
+      "split": "test",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:43+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 315,
+        "completion_tokens": 21
+      },
+      "seconds": 1.828
+    },
+    {
+      "id": "P049",
+      "split": "test",
+      "version": "baseline",
+      "state": "answered",
+      "utc": "2026-11-26T10:59:49+00:00",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 324,
+        "completion_tokens": 21
+      },
+      "seconds": 1.796
+    },
+    {
+      "id": "P001",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:00:42+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"B\",\"to\":\"A\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 25
+      },
+      "seconds": 1.938
+    },
+    {
+      "id": "P010",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:00:48+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"x\",\"mm\":12}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 18
+      },
+      "seconds": 1.844
+    },
+    {
+      "id": "P018",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:00:55+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"observe\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 311,
+        "completion_tokens": 12
+      },
+      "seconds": 39.5
+    },
+    {
+      "id": "P009",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:01:34+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"place\",\"to\":\"C\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 288,
+        "completion_tokens": 15
+      },
+      "seconds": 3.672
+    },
+    {
+      "id": "P021",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:01:40+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":6},{\"action\":\"move\",\"axis\":\"x\",\"mm\":8}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 289,
+        "completion_tokens": 30
+      },
+      "seconds": 1.937
+    },
+    {
+      "id": "P006",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:01:47+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 317,
+        "completion_tokens": 21
+      },
+      "seconds": 1.656
+    },
+    {
+      "id": "P032",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:01:53+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"D\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 25
+      },
+      "seconds": 17.39
+    },
+    {
+      "id": "P003",
+      "split": "dev",
+      "version": "finalist",
+      "state": "answered",
+      "utc": "2026-11-26T11:02:10+00:00",
+      "phase": "postlock_coverage",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"C\"},{\"action\":\"place\",\"to\":\"B\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 30
+      },
+      "seconds": 3.75
+    }
+  ],
+  "temperature": 0,
+  "max_output_tokens": 160,
+  "model": "deepseek-chat",
+  "created_utc": "2026-11-26T10:23:22+00:00",
+  "next_request_after": 1795690936.8424492,
+  "test_versions": [
+    "baseline",
+    "finalist"
+  ]
+}

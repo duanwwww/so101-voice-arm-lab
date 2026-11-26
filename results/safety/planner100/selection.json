@@ -1,0 +1,64 @@
+{
+  "frozen_utc": "2026-11-26T10:44:27+00:00",
+  "dataset_sha256": "79d77367c2f22e61fc943b1b09e8ca120f1ab03ee6529be84c915e314bcdd9c3",
+  "matched_dev_ids": [
+    "P002",
+    "P004",
+    "P007",
+    "P008",
+    "P011",
+    "P012",
+    "P013",
+    "P014",
+    "P015",
+    "P016",
+    "P017",
+    "P019",
+    "P020",
+    "P022",
+    "P024",
+    "P025",
+    "P026",
+    "P027",
+    "P029",
+    "P030",
+    "P031",
+    "P034",
+    "P035",
+    "P036"
+  ],
+  "action_count": 18,
+  "ask_count": 6,
+  "scores": {
+    "baseline": {
+      "correct_action_json": 10,
+      "correct_all": 11,
+      "motion_on_nonaction": 4,
+      "prompt_characters": 554
+    },
+    "candidate": {
+      "correct_action_json": 4,
+      "correct_all": 10,
+      "motion_on_nonaction": 0,
+      "prompt_characters": 571
+    },
+    "revised": {
+      "correct_action_json": 13,
+      "correct_all": 14,
+      "motion_on_nonaction": 4,
+      "prompt_characters": 509
+    },
+    "finalist": {
+      "correct_action_json": 13,
+      "correct_all": 18,
+      "motion_on_nonaction": 1,
+      "prompt_characters": 519
+    }
+  },
+  "challenger": "finalist",
+  "dev_best_including_baseline": "finalist",
+  "test_versions": [
+    "baseline",
+    "finalist"
+  ]
+}

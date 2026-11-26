@@ -1,0 +1,176 @@
+{
+  "trial": 1,
+  "phase": "after",
+  "start_utc": "2026-11-25T21:42:34.902+00:00",
+  "status": "complete",
+  "requested_samples_per_view": 3,
+  "sampling_hz": 5.0,
+  "sources": {
+    "fixed": {
+      "type": "video",
+      "file": "fixed.avi",
+      "file_size": 115900,
+      "start_s": 0.4,
+      "reported_size": [
+        640,
+        400
+      ],
+      "reported_fps": 5.0,
+      "reported_frames": 6
+    },
+    "wrist": {
+      "type": "video",
+      "file": "wrist.avi",
+      "file_size": 77042,
+      "start_s": 0.4,
+      "reported_size": [
+        640,
+        400
+      ],
+      "reported_fps": 5.0,
+      "reported_frames": 6
+    }
+  },
+  "samples": [
+    {
+      "i": 0,
+      "requested_offset_s": 0.0,
+      "views": {
+        "fixed": {
+          "requested_video_frame": 2,
+          "grab_host_ns": 1034829191620300,
+          "grab_utc": "2026-11-25T21:42:34.907+00:00",
+          "retrieve_host_ns": 1034829193368300,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 400.0,
+          "file": "fixed-000.jpg",
+          "sha256": "d059b2ac6ad8424037ee243aebe995c09fbbc0efd7af2f1a033415391dd1e44a",
+          "saved_size": [
+            640,
+            400
+          ]
+        },
+        "wrist": {
+          "requested_video_frame": 2,
+          "grab_host_ns": 1034829192710900,
+          "grab_utc": "2026-11-25T21:42:34.908+00:00",
+          "retrieve_host_ns": 1034829194774300,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 400.0,
+          "file": "wrist-000.jpg",
+          "sha256": "fc5ccc272f2a209325d22e1543c538150c84048e3744ab90434d0fbb05abd130",
+          "saved_size": [
+            640,
+            400
+          ]
+        }
+      },
+      "grab_skew_ms": 1.091
+    },
+    {
+      "i": 1,
+      "requested_offset_s": 0.2,
+      "views": {
+        "fixed": {
+          "requested_video_frame": 3,
+          "grab_host_ns": 1034829197295300,
+          "grab_utc": "2026-11-25T21:42:34.913+00:00",
+          "retrieve_host_ns": 1034829198577400,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 600.0,
+          "file": "fixed-001.jpg",
+          "sha256": "d941031b3eb5e977b8a9e2eaae626b41406fb7aff49bd9cbafa7933651aa7ca8",
+          "saved_size": [
+            640,
+            400
+          ]
+        },
+        "wrist": {
+          "requested_video_frame": 3,
+          "grab_host_ns": 1034829198277200,
+          "grab_utc": "2026-11-25T21:42:34.914+00:00",
+          "retrieve_host_ns": 1034829199661400,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 600.0,
+          "file": "wrist-001.jpg",
+          "sha256": "dfb4660b5bbf77d889c93f2dbb3bdab2114848a2150579f8a91103aa9fefa820",
+          "saved_size": [
+            640,
+            400
+          ]
+        }
+      },
+      "grab_skew_ms": 0.982
+    },
+    {
+      "i": 2,
+      "requested_offset_s": 0.4,
+      "views": {
+        "fixed": {
+          "requested_video_frame": 4,
+          "grab_host_ns": 1034829202180700,
+          "grab_utc": "2026-11-25T21:42:34.918+00:00",
+          "retrieve_host_ns": 1034829203922800,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 800.0,
+          "file": "fixed-002.jpg",
+          "sha256": "29e7f7c1f838b914205c54750f0be4475891db59b7058c95d4e016749bcc4d39",
+          "saved_size": [
+            640,
+            400
+          ]
+        },
+        "wrist": {
+          "requested_video_frame": 4,
+          "grab_host_ns": 1034829203427700,
+          "grab_utc": "2026-11-25T21:42:34.919+00:00",
+          "retrieve_host_ns": 1034829204991800,
+          "received_size": [
+            640,
+            400
+          ],
+          "reported_video_time_ms": 800.0,
+          "file": "wrist-002.jpg",
+          "sha256": "a4ec46c5dacbcf2d18f92238fa2cfa2b571275b7ebbae8654350ee2f0a129443",
+          "saved_size": [
+            640,
+            400
+          ]
+        }
+      },
+      "grab_skew_ms": 1.247
+    }
+  ],
+  "skew_clock": "host monotonic grab completion times; hardware exposure timestamps unavailable",
+  "counts": {
+    "fixed": {
+      "saved": 3,
+      "missing_samples": 0,
+      "reused_video_samples": 0
+    },
+    "wrist": {
+      "saved": 3,
+      "missing_samples": 0,
+      "reused_video_samples": 0
+    }
+  },
+  "paired_samples": 3,
+  "maximum_grab_skew_ms": 1.247,
+  "median_grab_skew_ms": 1.091,
+  "finish_utc": "2026-11-25T21:42:34.922+00:00"
+}

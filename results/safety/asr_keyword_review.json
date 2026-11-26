@@ -1,0 +1,1257 @@
+{
+  "status": "complete",
+  "inventory": "asr_inventory.json",
+  "method": "在查阅本批模型输出前，仅根据事先确定的24条原文冻结本表。人工逐条比较相同语义位置。每个参考事件单独判正确、替换或遗漏，凭空新增另列，不用别处同字抵消。简繁、规范的中文/阿拉伯数字、语义等价同义词、量词常用等价形式按语义保留计；同音但书写为其他含义须记错。方向记文字表达的明确运动侧向，左右脚单独统计。数量按数值和单位分别评分，组合也单独计，宽口径包括6个长度和6个其它明确量值。相同维度的单位写法允许等义，但不同尺度如毫米改厘米记单位错。否定/停止含有操作意义的禁令以及未消毒、不相符两项谓词否定；‘不慎’词汇化为‘意外’，作为上下文附注。对24条参考以外的多出表达和整体句意另行核查。人工语义对照是冻结词表统计的补充。",
+  "rows": [
+    {
+      "id": "BAC009S0019W0308",
+      "group": "evaluation",
+      "reference": "我们不要期待别人的施舍",
+      "polarity": [
+        "不要"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "我們不要期待別人的施捨",
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "我們不要期待別人的施捨",
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0329",
+      "group": "evaluation",
+      "reference": "不能因利益而失规则",
+      "polarity": [
+        "不能"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "不能因利益而失規則",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "不能因利益而失規則",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0462",
+      "group": "evaluation",
+      "reference": "八厘米长钥匙不慎插入男子耳朵医生一点五小时取出",
+      "quantities": [
+        [
+          "八厘米",
+          "8",
+          "cm",
+          "length"
+        ],
+        [
+          "一点五小时",
+          "1.5",
+          "h",
+          "duration"
+        ]
+      ],
+      "notes": [
+        "不慎属意外方式，额外核对其意思，未列入禁令或谓词否定。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "八里米常要時不慎插路難則耳朵醫生1.5小時取出",
+          "quantities": [
+            {
+              "target": "八厘米",
+              "observed": "八里米",
+              "number_correct": true,
+              "unit_correct": false
+            },
+            {
+              "target": "一点五小时",
+              "observed": "1.5小時",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "八厘米长钥匙不慎插路难则耳朵医生1.5小时取出",
+          "quantities": [
+            {
+              "target": "八厘米",
+              "observed": "八厘米",
+              "number_correct": true,
+              "unit_correct": true
+            },
+            {
+              "target": "一点五小时",
+              "observed": "1.5小时",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0489",
+      "group": "evaluation",
+      "reference": "手术中因鼻骨粘骨膜撕裂停止手术",
+      "polarity": [
+        "停止"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "手術中因鼻鼓沾,股膜撕裂停止手術",
+          "polarity": [
+            {
+              "target": "停止",
+              "observed": "停止",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "手術中因鼻骨沾骨膜撕裂停止手術",
+          "polarity": [
+            {
+              "target": "停止",
+              "observed": "停止",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0019W0493",
+      "group": "evaluation",
+      "reference": "小美因鼻中隔自然向右偏影响手术及效果",
+      "directions": [
+        "向右偏"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "小美因鼻中格自然下右偏影响手術及效果",
+          "directions": [
+            {
+              "target": "向右偏",
+              "observed": "下右偏",
+              "correct": false
+            }
+          ],
+          "additional_direction_cues": [
+            "下"
+          ],
+          "comment": "可找到“右”字，但出现额外的“下”，故整条方向歧义。"
+        },
+        "beam3": {
+          "output": "小美因鼻中格自然下右偏影响手術及效果",
+          "directions": [
+            {
+              "target": "向右偏",
+              "observed": "下右偏",
+              "correct": false
+            }
+          ],
+          "additional_direction_cues": [
+            "下"
+          ],
+          "comment": "可找到“右”字，但出现额外的“下”，故整条方向歧义。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0176",
+      "group": "development",
+      "reference": "一定不要用小米家装几个字",
+      "polarity": [
+        "不要"
+      ],
+      "notes": [
+        "一定是语气，几个没有确定数量。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "一定不要用小米加装几盒子",
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "几个→几盒，均为不定数量，不列入有确定数值的12项。"
+        },
+        "beam3": {
+          "output": "一定不要用小米加装几盒子",
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "几个→几盒，均为不定数量，不列入有确定数值的12项。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0231",
+      "group": "development",
+      "reference": "揣测两年内不能上市",
+      "quantities": [
+        [
+          "两年",
+          "2",
+          "年",
+          "duration"
+        ]
+      ],
+      "polarity": [
+        "不能"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "揣测两年内不能上市",
+          "quantities": [
+            {
+              "target": "两年",
+              "observed": "两年",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "揣测两年内不能上市",
+          "quantities": [
+            {
+              "target": "两年",
+              "observed": "两年",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0457",
+      "group": "development",
+      "reference": "右转弯压线被处罚引市民吐槽交警确属违章",
+      "directions": [
+        "右转弯"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "又转弯压线被处罚,引市民吐槽交警,确属为账",
+          "directions": [
+            {
+              "target": "右转弯",
+              "observed": "又转弯",
+              "correct": false
+            }
+          ],
+          "comment": "右/又同音，转弯方向缺失。"
+        },
+        "beam3": {
+          "output": "又转弯压线被处罚引市民吐槽交警确属为章",
+          "directions": [
+            {
+              "target": "右转弯",
+              "observed": "又转弯",
+              "correct": false
+            }
+          ],
+          "comment": "右/又同音，转弯方向缺失。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0039W0458",
+      "group": "development",
+      "reference": "车辆右转弯压白色实线属交通违法行为网友供图",
+      "directions": [
+        "右转弯"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "车辆右转弯压白色实现属交通违法行为网友共途",
+          "directions": [
+            {
+              "target": "右转弯",
+              "observed": "右转弯",
+              "correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "车辆右转弯压白色实现属交通违法行为网友共途",
+          "directions": [
+            {
+              "target": "右转弯",
+              "observed": "右转弯",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0259",
+      "group": "evaluation",
+      "reference": "该机的机身厚度达到了七毫米",
+      "quantities": [
+        [
+          "七毫米",
+          "7",
+          "mm",
+          "length"
+        ]
+      ],
+      "runs": {
+        "beam1": {
+          "output": "该机的机身厚度达到了7毫米",
+          "quantities": [
+            {
+              "target": "七毫米",
+              "observed": "7毫米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "该机的机身厚度达到了7毫米",
+          "quantities": [
+            {
+              "target": "七毫米",
+              "observed": "7毫米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0330",
+      "group": "evaluation",
+      "reference": "最新一百五十六毫米多晶电池片均价一点二六四美元每片",
+      "quantities": [
+        [
+          "一百五十六毫米",
+          "156",
+          "mm",
+          "length"
+        ],
+        [
+          "一点二六四美元每片",
+          "1.264",
+          "美元/片",
+          "price"
+        ]
+      ],
+      "runs": {
+        "beam1": {
+          "output": "最新156毫米多晶电尺片均价1.264美元每片",
+          "quantities": [
+            {
+              "target": "一百五十六毫米",
+              "observed": "156毫米",
+              "number_correct": true,
+              "unit_correct": true
+            },
+            {
+              "target": "一点二六四美元每片",
+              "observed": "1.264美元每片",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "最新156毫米多晶电尺片均价1.264美元每片",
+          "quantities": [
+            {
+              "target": "一百五十六毫米",
+              "observed": "156毫米",
+              "number_correct": true,
+              "unit_correct": true
+            },
+            {
+              "target": "一点二六四美元每片",
+              "observed": "1.264美元每片",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0403",
+      "group": "evaluation",
+      "reference": "与他一百九十厘米一百二十千克的魁梧身材不相符的快拳",
+      "quantities": [
+        [
+          "一百九十厘米",
+          "190",
+          "cm",
+          "length"
+        ],
+        [
+          "一百二十千克",
+          "120",
+          "kg",
+          "mass"
+        ]
+      ],
+      "polarity": [
+        "不相符"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "與它190米120千克的魁舞身材不幸福的快傳",
+          "quantities": [
+            {
+              "target": "一百九十厘米",
+              "observed": "190米",
+              "number_correct": true,
+              "unit_correct": false
+            },
+            {
+              "target": "一百二十千克",
+              "observed": "120千克",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不相符",
+              "observed": "不幸福",
+              "marker_correct": true,
+              "selected_expression_correct": false
+            }
+          ],
+          "comment": "190 的数值保留，但输出米；根据原单位折算放大100倍。“不”仍在，否定的内容已变。"
+        },
+        "beam3": {
+          "output": "与它190米120千克的魁武身材不幸福的快全",
+          "quantities": [
+            {
+              "target": "一百九十厘米",
+              "observed": "190米",
+              "number_correct": true,
+              "unit_correct": false
+            },
+            {
+              "target": "一百二十千克",
+              "observed": "120千克",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不相符",
+              "observed": "不幸福",
+              "marker_correct": true,
+              "selected_expression_correct": false
+            }
+          ],
+          "comment": "190 的数值保留，但输出米；根据原单位折算放大100倍。“不”仍在，否定的内容已变。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0045W0487",
+      "group": "evaluation",
+      "reference": "微整形培训黑幕十三毫米针未消毒就插进太阳穴",
+      "quantities": [
+        [
+          "十三毫米",
+          "13",
+          "mm",
+          "length"
+        ]
+      ],
+      "polarity": [
+        "未消毒"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "微整形培训黑木13毫米真位消毒就插进太阳穴",
+          "quantities": [
+            {
+              "target": "十三毫米",
+              "observed": "13毫米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "未消毒",
+              "observed": "位消毒",
+              "marker_correct": false,
+              "selected_expression_correct": false
+            }
+          ],
+          "comment": "“未”变为“位”，否定丢失。"
+        },
+        "beam3": {
+          "output": "微整形培训黑幕13毫米真位消毒就插进太阳穴",
+          "quantities": [
+            {
+              "target": "十三毫米",
+              "observed": "13毫米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "未消毒",
+              "observed": "位消毒",
+              "marker_correct": false,
+              "selected_expression_correct": false
+            }
+          ],
+          "comment": "“未”变为“位”，否定丢失。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0338",
+      "group": "development",
+      "reference": "称重结束前不能饮水",
+      "polarity": [
+        "不能"
+      ],
+      "notes": [
+        "结束前是时间顺序。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "充重结束前不能引水",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "正确保留“不能”，但把“饮水”听作“引水”或“淫水”，会改变禁令对象。"
+        },
+        "beam3": {
+          "output": "充重结束前不能淫水",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "正确保留“不能”，但把“饮水”听作“引水”或“淫水”，会改变禁令对象。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0386",
+      "group": "development",
+      "reference": "注意双脚不要在一条直线",
+      "quantities": [
+        [
+          "一条直线",
+          "1",
+          "条",
+          "count"
+        ]
+      ],
+      "polarity": [
+        "不要"
+      ],
+      "notes": [
+        "双脚是成对的身体部位，作为上下文核对。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "注意双脚不要再一条直线",
+          "quantities": [
+            {
+              "target": "一条直线",
+              "observed": "一条直线",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "注意双脚不要在一条直线",
+          "quantities": [
+            {
+              "target": "一条直线",
+              "observed": "一条直线",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ],
+          "polarity": [
+            {
+              "target": "不要",
+              "observed": "不要",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0388",
+      "group": "development",
+      "reference": "以脚掌向前蹭出三零厘米左右",
+      "directions": [
+        "向前蹭出"
+      ],
+      "quantities": [
+        [
+          "三零厘米",
+          "30",
+          "cm",
+          "length"
+        ]
+      ],
+      "notes": [
+        "左右表示约数，不算左右运动。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "以脚掌向前蹭出30厘米左右",
+          "directions": [
+            {
+              "target": "向前蹭出",
+              "observed": "向前蹭出",
+              "correct": true
+            }
+          ],
+          "quantities": [
+            {
+              "target": "三零厘米",
+              "observed": "30厘米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "以脚掌向前蹭出30厘米左右",
+          "directions": [
+            {
+              "target": "向前蹭出",
+              "observed": "向前蹭出",
+              "correct": true
+            }
+          ],
+          "quantities": [
+            {
+              "target": "三零厘米",
+              "observed": "30厘米",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0390",
+      "group": "development",
+      "reference": "注意移动不能使用迈步动作",
+      "polarity": [
+        "不能"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "注意移動不能使用脈部動作",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "正确保留“不能”，但把“迈步”听作“脉部”或“卖步”。"
+        },
+        "beam3": {
+          "output": "注意移动不能使用卖步动作",
+          "polarity": [
+            {
+              "target": "不能",
+              "observed": "不能",
+              "marker_correct": true,
+              "selected_expression_correct": true
+            }
+          ],
+          "comment": "正确保留“不能”，但把“迈步”听作“脉部”或“卖步”。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0075W0392",
+      "group": "development",
+      "reference": "移动中各部位要相对固定",
+      "runs": {
+        "beam1": {
+          "output": "移動中各部位要相對固定"
+        },
+        "beam3": {
+          "output": "移動中各部位要相對固定"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0340",
+      "group": "evaluation",
+      "reference": "侧闪移动是躲避对手进攻的利器",
+      "notes": [
+        "侧闪未指定左或右。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "测闪移动是躲避对手进攻的力气"
+        },
+        "beam3": {
+          "output": "测闪移动是躲避对手进攻的力气"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0344",
+      "group": "evaluation",
+      "reference": "紧接着右脚以左脚为轴迅速向左滑动",
+      "directions": [
+        "向左滑动"
+      ],
+      "body_sides": [
+        "右脚",
+        "左脚"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "紧接着右脚以左脚为肘迅速向左滑动",
+          "directions": [
+            {
+              "target": "向左滑动",
+              "observed": "向左滑动",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "右脚",
+              "observed": "右脚",
+              "correct": true
+            },
+            {
+              "target": "左脚",
+              "observed": "左脚",
+              "correct": true
+            }
+          ],
+          "comment": "左右脚和向左的方向保留，作为转轴的“轴”变成“肘”。"
+        },
+        "beam3": {
+          "output": "紧接着右脚以左脚为肘迅速向左滑动",
+          "directions": [
+            {
+              "target": "向左滑动",
+              "observed": "向左滑动",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "右脚",
+              "observed": "右脚",
+              "correct": true
+            },
+            {
+              "target": "左脚",
+              "observed": "左脚",
+              "correct": true
+            }
+          ],
+          "comment": "左右脚和向左的方向保留，作为转轴的“轴”变成“肘”。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0348",
+      "group": "evaluation",
+      "reference": "右脚向右横方向蹭出",
+      "directions": [
+        "向右横方向"
+      ],
+      "body_sides": [
+        "右脚"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "右脚向右旁发向蹭肤",
+          "directions": [
+            {
+              "target": "向右横方向",
+              "observed": "向右旁发向",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "右脚",
+              "observed": "右脚",
+              "correct": true
+            }
+          ],
+          "comment": "右脚和向右可以恢复，后面的横向蹭出动作发生错误。"
+        },
+        "beam3": {
+          "output": "右脚向右旁发向蹭肤",
+          "directions": [
+            {
+              "target": "向右横方向",
+              "observed": "向右旁发向",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "右脚",
+              "observed": "右脚",
+              "correct": true
+            }
+          ],
+          "comment": "右脚和向右可以恢复，后面的横向蹭出动作发生错误。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0349",
+      "group": "evaluation",
+      "reference": "随后以髋部带动左脚向右侧滑动",
+      "directions": [
+        "向右侧滑动"
+      ],
+      "body_sides": [
+        "左脚"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "此后以跨步带动左脚向右侧滑动",
+          "directions": [
+            {
+              "target": "向右侧滑动",
+              "observed": "向右侧滑动",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "左脚",
+              "observed": "左脚",
+              "correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "此后以跨步带动左脚向右侧滑动",
+          "directions": [
+            {
+              "target": "向右侧滑动",
+              "observed": "向右侧滑动",
+              "correct": true
+            }
+          ],
+          "body_sides": [
+            {
+              "target": "左脚",
+              "observed": "左脚",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0353",
+      "group": "evaluation",
+      "reference": "步法练习左滑步接左侧闪步",
+      "directions": [
+        "左滑步",
+        "左侧闪步"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "步法练习左滑步接左侧散步",
+          "directions": [
+            {
+              "target": "左滑步",
+              "observed": "左滑步",
+              "correct": true
+            },
+            {
+              "target": "左侧闪步",
+              "observed": "左侧散步",
+              "correct": true
+            }
+          ],
+          "comment": "两次左向信号均保留，闪步变成散步。"
+        },
+        "beam3": {
+          "output": "步法练习左滑步接左侧散步",
+          "directions": [
+            {
+              "target": "左滑步",
+              "observed": "左滑步",
+              "correct": true
+            },
+            {
+              "target": "左侧闪步",
+              "observed": "左侧散步",
+              "correct": true
+            }
+          ],
+          "comment": "两次左向信号均保留，闪步变成散步。"
+        }
+      }
+    },
+    {
+      "id": "BAC009S0076W0355",
+      "group": "evaluation",
+      "reference": "四次移动后你会回到原先的位置",
+      "quantities": [
+        [
+          "四次",
+          "4",
+          "次",
+          "count"
+        ]
+      ],
+      "notes": [
+        "回到原先的位置是目标位置，非轴向。"
+      ],
+      "runs": {
+        "beam1": {
+          "output": "四次移动后,你会回到原先的位置",
+          "quantities": [
+            {
+              "target": "四次",
+              "observed": "四次",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        },
+        "beam3": {
+          "output": "四次移动后,你会回到原先的位置",
+          "quantities": [
+            {
+              "target": "四次",
+              "observed": "四次",
+              "number_correct": true,
+              "unit_correct": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "sources": [
+    "asr_inventory.json",
+    "asr_beam1.json",
+    "asr_beam3.json"
+  ],
+  "interpretation": "每格 correct/total 表示人工标注事件数。direction 要求方向在该处唯一可读。negation_stop_marker 只评分否定/停止信号，negation_stop_expression 评分事先冻结的表达（如“不能”或“不相符”）；不能或不要以后的宾语不在该指标内。误配的同音字按错计。additional_direction_cues 是参考之外出现的方向提示；两种设置均仅见一个'下'，其所在参考事件同时按方向歧义扣分。两遍均未发现多出的有确定数值的数量表达、否定/停止信号或左右身体侧别。",
+  "scores": {
+    "beam1": {
+      "all": {
+        "direction": {
+          "correct": 7,
+          "total": 9
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 12,
+          "total": 12
+        },
+        "unit": {
+          "correct": 10,
+          "total": 12
+        },
+        "quantity": {
+          "correct": 10,
+          "total": 12
+        },
+        "length_quantity": {
+          "correct": 4,
+          "total": 6
+        },
+        "negation_stop_marker": {
+          "correct": 9,
+          "total": 10
+        },
+        "negation_stop_expression": {
+          "correct": 8,
+          "total": 10
+        },
+        "additional_direction_cues": 1
+      },
+      "development": {
+        "direction": {
+          "correct": 2,
+          "total": 3
+        },
+        "body_side": {
+          "correct": 0,
+          "total": 0
+        },
+        "number": {
+          "correct": 3,
+          "total": 3
+        },
+        "unit": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "length_quantity": {
+          "correct": 1,
+          "total": 1
+        },
+        "negation_stop_marker": {
+          "correct": 5,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 5,
+          "total": 5
+        },
+        "additional_direction_cues": 0
+      },
+      "evaluation": {
+        "direction": {
+          "correct": 5,
+          "total": 6
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 9,
+          "total": 9
+        },
+        "unit": {
+          "correct": 7,
+          "total": 9
+        },
+        "quantity": {
+          "correct": 7,
+          "total": 9
+        },
+        "length_quantity": {
+          "correct": 3,
+          "total": 5
+        },
+        "negation_stop_marker": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 3,
+          "total": 5
+        },
+        "additional_direction_cues": 1
+      }
+    },
+    "beam3": {
+      "all": {
+        "direction": {
+          "correct": 7,
+          "total": 9
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 12,
+          "total": 12
+        },
+        "unit": {
+          "correct": 11,
+          "total": 12
+        },
+        "quantity": {
+          "correct": 11,
+          "total": 12
+        },
+        "length_quantity": {
+          "correct": 5,
+          "total": 6
+        },
+        "negation_stop_marker": {
+          "correct": 9,
+          "total": 10
+        },
+        "negation_stop_expression": {
+          "correct": 8,
+          "total": 10
+        },
+        "additional_direction_cues": 1
+      },
+      "development": {
+        "direction": {
+          "correct": 2,
+          "total": 3
+        },
+        "body_side": {
+          "correct": 0,
+          "total": 0
+        },
+        "number": {
+          "correct": 3,
+          "total": 3
+        },
+        "unit": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "length_quantity": {
+          "correct": 1,
+          "total": 1
+        },
+        "negation_stop_marker": {
+          "correct": 5,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 5,
+          "total": 5
+        },
+        "additional_direction_cues": 0
+      },
+      "evaluation": {
+        "direction": {
+          "correct": 5,
+          "total": 6
+        },
+        "body_side": {
+          "correct": 4,
+          "total": 4
+        },
+        "number": {
+          "correct": 9,
+          "total": 9
+        },
+        "unit": {
+          "correct": 8,
+          "total": 9
+        },
+        "quantity": {
+          "correct": 8,
+          "total": 9
+        },
+        "length_quantity": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_marker": {
+          "correct": 4,
+          "total": 5
+        },
+        "negation_stop_expression": {
+          "correct": 3,
+          "total": 5
+        },
+        "additional_direction_cues": 1
+      }
+    }
+  }
+}

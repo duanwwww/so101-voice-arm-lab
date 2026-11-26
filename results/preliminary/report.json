@@ -1,0 +1,1271 @@
+{
+  "backend": "MuJoCo 4.0.0 / CPU rules / OpenCV",
+  "ai_calls": 0,
+  "hardware_connected": false,
+  "passed": 10,
+  "total": 10,
+  "cases": [
+    {
+      "case": "pick_A",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 33.12,
+        "two_pad_grasp": true,
+        "released_stable_in_C": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 2.04
+        },
+        "descend": {
+          "xyz_m": [
+            0.220473,
+            0.079176,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 2.53
+        },
+        "close": {
+          "xyz_m": [
+            0.208235,
+            0.075052,
+            0.047385
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "time_s": 3.51
+        },
+        "lift": {
+          "xyz_m": [
+            0.207918,
+            0.074877,
+            0.079991
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "time_s": 4.0
+        },
+        "carry": {
+          "xyz_m": [
+            0.238009,
+            0.001831,
+            0.079124
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "time_s": 4.67
+        },
+        "release": {
+          "xyz_m": [
+            0.243985,
+            0.001556,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": true,
+          "time_s": 6.14
+        },
+        "retreat": {
+          "xyz_m": [
+            0.24465,
+            0.001534,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.17
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.24465,
+            0.001534,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.17
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.24465,
+            0.001534,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.67
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.24465,
+            0.001534,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 9.17
+        },
+        "after": {
+          "xyz_m": [
+            0.24465,
+            0.001534,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 9.17
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "pick(A)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                318,
+                147
+              ],
+              "box": [
+                310,
+                138,
+                18,
+                19
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "pregrasp",
+          "descend",
+          "close",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.112
+      }
+    },
+    {
+      "case": "pick_B",
+      "expected": "success",
+      "passed": true,
+      "physics": {
+        "lift_mm": 33.2,
+        "two_pad_grasp": true,
+        "released_stable_in_C": true
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            -0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 1.96
+        },
+        "descend": {
+          "xyz_m": [
+            0.222188,
+            -0.080986,
+            0.046872
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 2.45
+        },
+        "close": {
+          "xyz_m": [
+            0.208276,
+            -0.07472,
+            0.047396
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "time_s": 3.43
+        },
+        "lift": {
+          "xyz_m": [
+            0.208058,
+            -0.07462,
+            0.080073
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": false,
+          "time_s": 3.92
+        },
+        "carry": {
+          "xyz_m": [
+            0.237865,
+            -0.00144,
+            0.079205
+          ],
+          "contacts": [
+            "fixed_pad",
+            "moving_pad"
+          ],
+          "inside_C": true,
+          "time_s": 4.59
+        },
+        "release": {
+          "xyz_m": [
+            0.243836,
+            -0.001699,
+            0.046874
+          ],
+          "contacts": [
+            "desk",
+            "fixed_pad"
+          ],
+          "inside_C": true,
+          "time_s": 6.06
+        },
+        "retreat": {
+          "xyz_m": [
+            0.244538,
+            -0.001706,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.09
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.244538,
+            -0.001706,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.09
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.244538,
+            -0.001706,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 8.59
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.244538,
+            -0.001706,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 9.09
+        },
+        "after": {
+          "xyz_m": [
+            0.244538,
+            -0.001706,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 9.09
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                374,
+                168
+              ],
+              "box": [
+                365,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "pick(B)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                321,
+                147
+              ],
+              "box": [
+                312,
+                138,
+                18,
+                20
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "pregrasp",
+          "descend",
+          "close",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.073
+      }
+    },
+    {
+      "case": "empty",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.5,
+            0.28,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.5,
+            0.28,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红色木块放到 C 区",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": []
+        },
+        "plan": [],
+        "status": "clarify",
+        "message": "当前画面没有找到红块。",
+        "after": {
+          "objects": []
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "already_C",
+      "expected": "already_done",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ]
+            }
+          ]
+        },
+        "plan": [],
+        "status": "already_done",
+        "message": "红块已在 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "forward_50",
+      "expected": "success",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 5.15
+        }
+      },
+      "receipt": {
+        "text": "向前移动五厘米",
+        "planner": "rules",
+        "intent": {
+          "kind": "move",
+          "axis": "x",
+          "amount": 50.0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "move_delta(x,50 mm)"
+        ],
+        "status": "success",
+        "message": "已测量末端平移。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {
+          "requested_mm": 50.0,
+          "displacement_mm": [
+            49.991,
+            0.062,
+            -0.296
+          ],
+          "error_mm": 0.303
+        },
+        "wall_seconds": 0.023
+      }
+    },
+    {
+      "case": "wrist_down_5",
+      "expected": "success",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.92
+        }
+      },
+      "receipt": {
+        "text": "手腕向下转五度",
+        "planner": "rules",
+        "intent": {
+          "kind": "wrist",
+          "axis": "wrist_flex",
+          "amount": 5.0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "wrist_delta(5 deg)"
+        ],
+        "status": "success",
+        "message": "已测量腕关节转角。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {
+          "requested_deg": 5.0,
+          "actual_deg": 5.006,
+          "error_deg": 0.006
+        },
+        "wall_seconds": 0.007
+      }
+    },
+    {
+      "case": "ambiguous",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "向下几度",
+        "planner": "rules",
+        "intent": {
+          "kind": "ask",
+          "axis": "",
+          "amount": 0,
+          "message": "请说明目标和放置区，或明确平移距离、腕部转动角度。"
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [],
+        "status": "clarify",
+        "message": "请说明目标和放置区，或明确平移距离、腕部转动角度。",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.003
+      }
+    },
+    {
+      "case": "too_far",
+      "expected": "rejected",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "向前移动五十厘米",
+        "planner": "rules",
+        "intent": {
+          "kind": "move",
+          "axis": "x",
+          "amount": 500.0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "move_delta(x,500 mm)"
+        ],
+        "status": "rejected",
+        "message": "每次平移应在 0 到 50 mm 之间",
+        "after": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.005
+      }
+    },
+    {
+      "case": "outside",
+      "expected": "clarify",
+      "passed": true,
+      "physics": null,
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.29,
+            0.13,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "after": {
+          "xyz_m": [
+            0.29,
+            0.13,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": null,
+              "pixel": [
+                229,
+                116
+              ],
+              "box": [
+                219,
+                106,
+                21,
+                20
+              ]
+            }
+          ]
+        },
+        "plan": [],
+        "status": "clarify",
+        "message": "目标没有完整位于已示教工位。",
+        "after": {
+          "objects": [
+            {
+              "slot": null,
+              "pixel": [
+                229,
+                116
+              ],
+              "box": [
+                219,
+                106,
+                21,
+                20
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.004
+      }
+    },
+    {
+      "case": "miss",
+      "expected": "unverified",
+      "passed": true,
+      "physics": {
+        "lift_mm": 0.0,
+        "two_pad_grasp": false,
+        "released_stable_in_C": false
+      },
+      "observations": {
+        "before": {
+          "xyz_m": [
+            0.215,
+            0.058,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 0.45
+        },
+        "pregrasp": {
+          "xyz_m": [
+            0.215,
+            0.058,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 2.04
+        },
+        "descend": {
+          "xyz_m": [
+            0.225008,
+            0.050968,
+            0.046866
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 2.53
+        },
+        "close": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 3.51
+        },
+        "lift": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 4.0
+        },
+        "carry": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 4.67
+        },
+        "release": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 6.14
+        },
+        "retreat": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 8.17
+        },
+        "verify_1": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 8.17
+        },
+        "verify_2": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 8.67
+        },
+        "verify_3": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 9.17
+        },
+        "after": {
+          "xyz_m": [
+            0.225007,
+            0.050978,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "time_s": 9.17
+        }
+      },
+      "receipt": {
+        "text": "把红块放到C",
+        "planner": "rules",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": ""
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                278,
+                168
+              ],
+              "box": [
+                270,
+                160,
+                18,
+                17
+              ]
+            }
+          ]
+        },
+        "plan": [
+          "pick(A)",
+          "place(C)",
+          "verify(C)"
+        ],
+        "status": "unverified",
+        "message": "释放后未能确认红块位于 C 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": null,
+              "pixel": [
+                284,
+                161
+              ],
+              "box": [
+                275,
+                152,
+                19,
+                19
+              ]
+            }
+          ]
+        },
+        "phases": [
+          "before",
+          "pregrasp",
+          "descend",
+          "close",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "measurement": {},
+        "wall_seconds": 0.063
+      }
+    }
+  ]
+}

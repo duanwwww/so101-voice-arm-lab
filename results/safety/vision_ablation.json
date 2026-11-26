@@ -1,0 +1,1282 @@
+{
+  "dataset": "pengxianglu/vigiclaw-yolo-dataset",
+  "revision": "e2e9acfbfdf827776c06673ee4103c970ac0d29b",
+  "manifest_sha256": "2caf4eed389afb625a6ed88cdd7cdcbfb73d8fd781b22c61809fe1d25d609130",
+  "model_calls": 0,
+  "hardware_connected": false,
+  "detector_default_changed": false,
+  "method": "Fixed original HSV detector; standalone postfilter uses candidate box area divided by image area and its shorter/longer side ratio, without cropping or workcell ROI. Match one red label per image at IoU >= 0.5, all remaining boxes are FP.",
+  "split": "2026-05-15 filename clock. Development 22:32-22:40 (54); exclude 22:41 (5); holdout 22:42-22:49 (41). Entire capture minutes stay together. Same capture period, not an independent device or session; prior full-set baseline known.",
+  "unused_gap": [
+    "image_20260515_224113_941.jpg",
+    "image_20260515_224119_741.jpg",
+    "image_20260515_224127_537.jpg",
+    "image_20260515_224137_437.jpg",
+    "image_20260515_224148_437.jpg"
+  ],
+  "selection": "On development, maximize unique_correct, minimize unique_wrong, maximize TP, then prefer widest specified rule. Apply winner once on reserved images.",
+  "prespecified_rules": [
+    {
+      "name": "wide",
+      "min_area_fraction": 0.00025,
+      "max_area_fraction": 0.05,
+      "min_short_long_ratio": 0.4
+    },
+    {
+      "name": "medium",
+      "min_area_fraction": 0.0008,
+      "max_area_fraction": 0.05,
+      "min_short_long_ratio": 0.6
+    },
+    {
+      "name": "strict",
+      "min_area_fraction": 0.002,
+      "max_area_fraction": 0.04,
+      "min_short_long_ratio": 0.72
+    }
+  ],
+  "selected_rule": {
+    "name": "wide",
+    "min_area_fraction": 0.00025,
+    "max_area_fraction": 0.05,
+    "min_short_long_ratio": 0.4
+  },
+  "development_grid": {
+    "wide": {
+      "images": 54,
+      "tp": 51,
+      "fp": 5,
+      "fn": 3,
+      "unique_correct": 51,
+      "unique_wrong": 1,
+      "empty": 0,
+      "multiple": 2,
+      "precision": 0.9107,
+      "recall": 0.9444
+    },
+    "medium": {
+      "images": 54,
+      "tp": 51,
+      "fp": 4,
+      "fn": 3,
+      "unique_correct": 51,
+      "unique_wrong": 2,
+      "empty": 0,
+      "multiple": 1,
+      "precision": 0.9273,
+      "recall": 0.9444
+    },
+    "strict": {
+      "images": 54,
+      "tp": 51,
+      "fp": 3,
+      "fn": 3,
+      "unique_correct": 51,
+      "unique_wrong": 3,
+      "empty": 0,
+      "multiple": 0,
+      "precision": 0.9444,
+      "recall": 0.9444
+    }
+  },
+  "development": {
+    "before": {
+      "images": 54,
+      "tp": 51,
+      "fp": 5,
+      "fn": 3,
+      "unique_correct": 51,
+      "unique_wrong": 1,
+      "empty": 0,
+      "multiple": 2,
+      "precision": 0.9107,
+      "recall": 0.9444,
+      "per_image": [
+        {
+          "name": "image_20260515_223222_446.jpg",
+          "sha256": "41ea2cb171a742c792dc0d79b13e2d419feaab5f6eee9c3af301c24844d002a5",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223236_078.jpg",
+          "sha256": "87471ed06386876cccf1cd0cd9222f112503d08ea599bcfa781908ed8e50cbe2",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223240_946.jpg",
+          "sha256": "3969f49743b20f6d1ea61307e970db7e26f21692871bde1e25efb9ea1faed0c3",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223246_034.jpg",
+          "sha256": "e4d1f39d950b8fcdc34145914014c5b34fbce361b623d7e962b4b276a9117d96",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223251_778.jpg",
+          "sha256": "ab7f27388f7df10e4ee5f94ab59c3a86ffe52f0d1b707c32a173f1c913ef8d22",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223302_378.jpg",
+          "sha256": "fd9cf10891d9cb4f3c36be03f9e76acf94e789b8dde703da3e9f443e079fa802",
+          "candidates": 2,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223311_886.jpg",
+          "sha256": "627caa29f2ad1353c656ec5cef7705fea3586860d1aa7219d061be7f7058c0cb",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223319_622.jpg",
+          "sha256": "dd304b47dd6227a6ef4bcaf8e98343edab1e6b63556453defc60b12d5810f2ff",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223327_110.jpg",
+          "sha256": "3d895f30a9ed30001b2db4241846f596f59f72ee9c433bbd9a976d8a2fe1dd18",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223333_274.jpg",
+          "sha256": "2de57a48401818a59e9c2ee9f6da7b9b10fb6801f94b0d0ac09fd50c164e4935",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223343_238.jpg",
+          "sha256": "4de304b0c618719625d9cf1505aff34f25d120a78865f1aa363b87acee6e7588",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223348_306.jpg",
+          "sha256": "bf10400eebb69e488737b0adc06ffb8d35ab38cc5766bb12171d16f3242b3d87",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223401_903.jpg",
+          "sha256": "1f4f57c72370b18cb041428a279cf7e5cf1d57ebe4e8b3fe60381bf403bf83f6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223409_934.jpg",
+          "sha256": "ec86e52a8cacb599e334092b7196ca750d61f7bb52c587d1a10842666436779f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223421_235.jpg",
+          "sha256": "ce7c961cfa41c3237cf7a623dd767da854001a381c51662cd7e0ad944f44fdac",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223424_367.jpg",
+          "sha256": "bfb0bfc1e2c9528d3f0355a55763a5243759f25aa7188afa25d2be02dcdc9f23",
+          "candidates": 2,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223433_699.jpg",
+          "sha256": "e4c29417cc4b9be1d1e6968e1268cf48b386b7b7455de92998bdb7daac354594",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223446_863.jpg",
+          "sha256": "26945544adbfc7a5d673b3076fb99c97a038019eb3e5f94d4a16842ce5770606",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223450_431.jpg",
+          "sha256": "87413c2a9d54d882f3de9459de3873ac20f63ef6a4d68be9d332910c9ff919b3",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223457_927.jpg",
+          "sha256": "fee5e473dca0bb964cd872ff1a224904b34ea559a7210bfa82763fb33c73904f",
+          "candidates": 1,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223512_359.jpg",
+          "sha256": "2bcd98ae1f41c45b81a36bf8825b6360c144b7c94fc406967afb5fe3880c3540",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223524_291.jpg",
+          "sha256": "0e8565df95f84bc29ec36047ddc8f3036f23bd139753441cf619ba7434819c22",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223534_455.jpg",
+          "sha256": "242c10c73c36b7c28a04b8156bfc00cd6a82cbb7fbf8bdf1f09764fc34dfcb1a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223541_119.jpg",
+          "sha256": "6b8b66a71042d7d8da9f81f1a263758e7eb4bd7d0144a1f54fc9ce71af08ad65",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223552_551.jpg",
+          "sha256": "c949b8f83edcb149214344cfb45127d0d5f40d23cf504e621e44f7c72cf3ebda",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223559_726.jpg",
+          "sha256": "90bd4c0d0cff04f729c3fca1ea73f7fd5f04f771e1406846c96fc2543fba85d1",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223605_390.jpg",
+          "sha256": "2fa8f2d7147abf34908fc1d3159c9ac5f3c69cee32e49caab9f2909b79d2b055",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223610_386.jpg",
+          "sha256": "b5741b70315fff465722284cf993a39e7f9f525d15c7a7596d7e13d553b7b398",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223614_082.jpg",
+          "sha256": "354007a01abc2133dd65b3f53e412515615269a6808745ba5b2e5912bfb0c000",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223620_474.jpg",
+          "sha256": "7d8157c2cf80acdac975b1a00c58124334bce0856295efdd7011c78ae8ca6a28",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223701_480.jpg",
+          "sha256": "2cbbf04eaa23d5cc9e81556b020f5fb48ddb5785056ec4f41d01cf43a6f6b322",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223709_944.jpg",
+          "sha256": "eac4893453600932f0bafe343aea15736d5c4aba2c7d7af00f414ec701a63213",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223715_676.jpg",
+          "sha256": "056da87b4a9903f7a0a90a1e077f6ba55b6d60279321bfdc783771bcbc4bb115",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223727_480.jpg",
+          "sha256": "fa66f9a56935492c8bd3f3b0aede7d2e5dcbcd24b76f9a773e77b041bedf29f6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223740_179.jpg",
+          "sha256": "68d3d4687c2df887da5303e6fb0cc8cef72b8189aa58980defedd4ea18ba665b",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223748_843.jpg",
+          "sha256": "b29628ccdc87475d116fdf812c285d05199ef90fd8cf880ded9a95262061a8a4",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223758_807.jpg",
+          "sha256": "bb2885465c8ff96b74030cf6bd873c1af1eb8b0f6a87631832783f5f085aa9ec",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223802_907.jpg",
+          "sha256": "4a7d3765c7239ccc058ad0fec11ce048a3fc67567a45fdddf087c7658581dedd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223807_207.jpg",
+          "sha256": "7619dae681adab875cd2ead508737ed675c1aa6d833b1569ec896e6feb0061ec",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223823_838.jpg",
+          "sha256": "390163d5f1f21432c3e0761a2410917081fcfb0588784ea92db521602b363b27",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223900_630.jpg",
+          "sha256": "7953e958120b393b8ba99ce2ac43de89ffcfde2771c9939bb2f597db86471c44",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223904_430.jpg",
+          "sha256": "ec216f35e917d1a4896abd41bd21174161a9b5531633f96f1ed8f5f0a88bd35e",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223910_662.jpg",
+          "sha256": "7db0cde26676c54d9ccee08b7cf5dbd132a1889a64631006a761731457a2372a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223926_294.jpg",
+          "sha256": "fba8279b6ccb067a83f1b1df726d1a03951e41e71c98cf14cc2c3f3bfccdd270",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223934_058.jpg",
+          "sha256": "8c1160a75086b64a77027274a2a3d210a101fcfd00d66882db394e5236a7c95d",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223940_226.jpg",
+          "sha256": "4ba47749967a9747d09299cd64ae909e8e822767756053ddfade6390749455bc",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223952_922.jpg",
+          "sha256": "344ceda67636db5b600b5f536f3f506ee9b42021be4e2347d95696792db80fd7",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223957_821.jpg",
+          "sha256": "661b7512d5764cc4f2c733e336a7dee4f102f0386163cc11d6f1ec834d842d36",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224002_922.jpg",
+          "sha256": "d4eba8117b2073805b8b5ed1046bf258a6e6acc57e973252811e9b1f52d6fd25",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224010_785.jpg",
+          "sha256": "a97b5b3facef8e3f530b6c7397d3d0fab4d614c433ab97c5ef307e6bcd3cb9bd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224020_049.jpg",
+          "sha256": "0b7bc86e867ca4d7a8c7efb7802ca17cea003e5fe4d748b1963988433ff10e2c",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224031_713.jpg",
+          "sha256": "d65a8f917d0a8fef0c968541ed64234cd8c469e9f47a08a609f9be937bc278d4",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224042_713.jpg",
+          "sha256": "fd471118f637a23f098be1adb24802dede1d9d14333881d5a3583f2959d1fc3f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224057_845.jpg",
+          "sha256": "3f698d97e85582f8df4b43c3b279a6667b367e105ba58889bc92705980bc5a66",
+          "candidates": 1,
+          "hit": true
+        }
+      ]
+    },
+    "after": {
+      "images": 54,
+      "tp": 51,
+      "fp": 5,
+      "fn": 3,
+      "unique_correct": 51,
+      "unique_wrong": 1,
+      "empty": 0,
+      "multiple": 2,
+      "precision": 0.9107,
+      "recall": 0.9444,
+      "per_image": [
+        {
+          "name": "image_20260515_223222_446.jpg",
+          "sha256": "41ea2cb171a742c792dc0d79b13e2d419feaab5f6eee9c3af301c24844d002a5",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223236_078.jpg",
+          "sha256": "87471ed06386876cccf1cd0cd9222f112503d08ea599bcfa781908ed8e50cbe2",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223240_946.jpg",
+          "sha256": "3969f49743b20f6d1ea61307e970db7e26f21692871bde1e25efb9ea1faed0c3",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223246_034.jpg",
+          "sha256": "e4d1f39d950b8fcdc34145914014c5b34fbce361b623d7e962b4b276a9117d96",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223251_778.jpg",
+          "sha256": "ab7f27388f7df10e4ee5f94ab59c3a86ffe52f0d1b707c32a173f1c913ef8d22",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223302_378.jpg",
+          "sha256": "fd9cf10891d9cb4f3c36be03f9e76acf94e789b8dde703da3e9f443e079fa802",
+          "candidates": 2,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223311_886.jpg",
+          "sha256": "627caa29f2ad1353c656ec5cef7705fea3586860d1aa7219d061be7f7058c0cb",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223319_622.jpg",
+          "sha256": "dd304b47dd6227a6ef4bcaf8e98343edab1e6b63556453defc60b12d5810f2ff",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223327_110.jpg",
+          "sha256": "3d895f30a9ed30001b2db4241846f596f59f72ee9c433bbd9a976d8a2fe1dd18",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223333_274.jpg",
+          "sha256": "2de57a48401818a59e9c2ee9f6da7b9b10fb6801f94b0d0ac09fd50c164e4935",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223343_238.jpg",
+          "sha256": "4de304b0c618719625d9cf1505aff34f25d120a78865f1aa363b87acee6e7588",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223348_306.jpg",
+          "sha256": "bf10400eebb69e488737b0adc06ffb8d35ab38cc5766bb12171d16f3242b3d87",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223401_903.jpg",
+          "sha256": "1f4f57c72370b18cb041428a279cf7e5cf1d57ebe4e8b3fe60381bf403bf83f6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223409_934.jpg",
+          "sha256": "ec86e52a8cacb599e334092b7196ca750d61f7bb52c587d1a10842666436779f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223421_235.jpg",
+          "sha256": "ce7c961cfa41c3237cf7a623dd767da854001a381c51662cd7e0ad944f44fdac",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223424_367.jpg",
+          "sha256": "bfb0bfc1e2c9528d3f0355a55763a5243759f25aa7188afa25d2be02dcdc9f23",
+          "candidates": 2,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223433_699.jpg",
+          "sha256": "e4c29417cc4b9be1d1e6968e1268cf48b386b7b7455de92998bdb7daac354594",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223446_863.jpg",
+          "sha256": "26945544adbfc7a5d673b3076fb99c97a038019eb3e5f94d4a16842ce5770606",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223450_431.jpg",
+          "sha256": "87413c2a9d54d882f3de9459de3873ac20f63ef6a4d68be9d332910c9ff919b3",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223457_927.jpg",
+          "sha256": "fee5e473dca0bb964cd872ff1a224904b34ea559a7210bfa82763fb33c73904f",
+          "candidates": 1,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_223512_359.jpg",
+          "sha256": "2bcd98ae1f41c45b81a36bf8825b6360c144b7c94fc406967afb5fe3880c3540",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223524_291.jpg",
+          "sha256": "0e8565df95f84bc29ec36047ddc8f3036f23bd139753441cf619ba7434819c22",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223534_455.jpg",
+          "sha256": "242c10c73c36b7c28a04b8156bfc00cd6a82cbb7fbf8bdf1f09764fc34dfcb1a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223541_119.jpg",
+          "sha256": "6b8b66a71042d7d8da9f81f1a263758e7eb4bd7d0144a1f54fc9ce71af08ad65",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223552_551.jpg",
+          "sha256": "c949b8f83edcb149214344cfb45127d0d5f40d23cf504e621e44f7c72cf3ebda",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223559_726.jpg",
+          "sha256": "90bd4c0d0cff04f729c3fca1ea73f7fd5f04f771e1406846c96fc2543fba85d1",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223605_390.jpg",
+          "sha256": "2fa8f2d7147abf34908fc1d3159c9ac5f3c69cee32e49caab9f2909b79d2b055",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223610_386.jpg",
+          "sha256": "b5741b70315fff465722284cf993a39e7f9f525d15c7a7596d7e13d553b7b398",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223614_082.jpg",
+          "sha256": "354007a01abc2133dd65b3f53e412515615269a6808745ba5b2e5912bfb0c000",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223620_474.jpg",
+          "sha256": "7d8157c2cf80acdac975b1a00c58124334bce0856295efdd7011c78ae8ca6a28",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223701_480.jpg",
+          "sha256": "2cbbf04eaa23d5cc9e81556b020f5fb48ddb5785056ec4f41d01cf43a6f6b322",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223709_944.jpg",
+          "sha256": "eac4893453600932f0bafe343aea15736d5c4aba2c7d7af00f414ec701a63213",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223715_676.jpg",
+          "sha256": "056da87b4a9903f7a0a90a1e077f6ba55b6d60279321bfdc783771bcbc4bb115",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223727_480.jpg",
+          "sha256": "fa66f9a56935492c8bd3f3b0aede7d2e5dcbcd24b76f9a773e77b041bedf29f6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223740_179.jpg",
+          "sha256": "68d3d4687c2df887da5303e6fb0cc8cef72b8189aa58980defedd4ea18ba665b",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223748_843.jpg",
+          "sha256": "b29628ccdc87475d116fdf812c285d05199ef90fd8cf880ded9a95262061a8a4",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223758_807.jpg",
+          "sha256": "bb2885465c8ff96b74030cf6bd873c1af1eb8b0f6a87631832783f5f085aa9ec",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223802_907.jpg",
+          "sha256": "4a7d3765c7239ccc058ad0fec11ce048a3fc67567a45fdddf087c7658581dedd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223807_207.jpg",
+          "sha256": "7619dae681adab875cd2ead508737ed675c1aa6d833b1569ec896e6feb0061ec",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223823_838.jpg",
+          "sha256": "390163d5f1f21432c3e0761a2410917081fcfb0588784ea92db521602b363b27",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223900_630.jpg",
+          "sha256": "7953e958120b393b8ba99ce2ac43de89ffcfde2771c9939bb2f597db86471c44",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223904_430.jpg",
+          "sha256": "ec216f35e917d1a4896abd41bd21174161a9b5531633f96f1ed8f5f0a88bd35e",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223910_662.jpg",
+          "sha256": "7db0cde26676c54d9ccee08b7cf5dbd132a1889a64631006a761731457a2372a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223926_294.jpg",
+          "sha256": "fba8279b6ccb067a83f1b1df726d1a03951e41e71c98cf14cc2c3f3bfccdd270",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223934_058.jpg",
+          "sha256": "8c1160a75086b64a77027274a2a3d210a101fcfd00d66882db394e5236a7c95d",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223940_226.jpg",
+          "sha256": "4ba47749967a9747d09299cd64ae909e8e822767756053ddfade6390749455bc",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223952_922.jpg",
+          "sha256": "344ceda67636db5b600b5f536f3f506ee9b42021be4e2347d95696792db80fd7",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_223957_821.jpg",
+          "sha256": "661b7512d5764cc4f2c733e336a7dee4f102f0386163cc11d6f1ec834d842d36",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224002_922.jpg",
+          "sha256": "d4eba8117b2073805b8b5ed1046bf258a6e6acc57e973252811e9b1f52d6fd25",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224010_785.jpg",
+          "sha256": "a97b5b3facef8e3f530b6c7397d3d0fab4d614c433ab97c5ef307e6bcd3cb9bd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224020_049.jpg",
+          "sha256": "0b7bc86e867ca4d7a8c7efb7802ca17cea003e5fe4d748b1963988433ff10e2c",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224031_713.jpg",
+          "sha256": "d65a8f917d0a8fef0c968541ed64234cd8c469e9f47a08a609f9be937bc278d4",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224042_713.jpg",
+          "sha256": "fd471118f637a23f098be1adb24802dede1d9d14333881d5a3583f2959d1fc3f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224057_845.jpg",
+          "sha256": "3f698d97e85582f8df4b43c3b279a6667b367e105ba58889bc92705980bc5a66",
+          "candidates": 1,
+          "hit": true
+        }
+      ]
+    }
+  },
+  "holdout": {
+    "before": {
+      "images": 41,
+      "tp": 39,
+      "fp": 182,
+      "fn": 2,
+      "unique_correct": 11,
+      "unique_wrong": 0,
+      "empty": 0,
+      "multiple": 30,
+      "precision": 0.1765,
+      "recall": 0.9512,
+      "per_image": [
+        {
+          "name": "image_20260515_224200_533.jpg",
+          "sha256": "94dd9d4230d44849659c2090290a1eb1d9692924368e970a66fd069967c097a0",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224239_341.jpg",
+          "sha256": "6971386200d18a102481c122594812c4136face3291f5646775d9949fb5e0acd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224243_841.jpg",
+          "sha256": "72a485b1b922a1b0542414e76ceb5f3be98ad172e3df164af9edbbddcab60db6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224249_705.jpg",
+          "sha256": "84cfe4cbd19e30fb2ae96991642113d1acf17b64039468470b1d73db1847ae2b",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224256_473.jpg",
+          "sha256": "1a8f40ab849a68a9240ab0feb05ac96c8abac2fec142863e1c930d0126a0448a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224300_805.jpg",
+          "sha256": "c454f58e85d28713782722c27c75ec12a3476b7d39b91a2730ee9aca41eda896",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224306_137.jpg",
+          "sha256": "8d88e13886ee2eaefef3ffe9ef8f380f6569fe0faf3cb4570ad2c7ad4191157f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224312_537.jpg",
+          "sha256": "0550e19cec353e6fc1f212765476f19b3d46dbf1daca7ec265c2957cb2c9c780",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224321_869.jpg",
+          "sha256": "d722affc78426579c156157b9302a5f1edf8ad084419da0394174fde060e6a0c",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224329_965.jpg",
+          "sha256": "4fab2b8ba250b2337734fd94751358ed7eccdf3a2dd5aef1f81f3a2c760db9fb",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224339_997.jpg",
+          "sha256": "e04fa94e149a3102bfb55945b6f7c2f483c1ed05df21980ae431961669e30eff",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224425_857.jpg",
+          "sha256": "bac87dcfaf0228da02d2f2143e31a25046122775bad2b9cf06402c051e7b7371",
+          "candidates": 11,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224432_917.jpg",
+          "sha256": "cc5ad5d75a4c36933ca4820af916dc76d10f2eed86b3fb90d9f7ff5aaf30298d",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224440_250.jpg",
+          "sha256": "980b4373f9290983e05af5801cf0d53dfb85160e9ac0b6fdb074975b3523c411",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224448_477.jpg",
+          "sha256": "67b7b5153e28931a68aa32c9a6ee9cd1ae216245ee4db1a227f7ae07a4ba7f1d",
+          "candidates": 14,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224454_185.jpg",
+          "sha256": "8ad31da9f07a1714649ae18e3ec22c62cf6614c370ce78d8db48d3164400cf65",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224458_686.jpg",
+          "sha256": "c5acc7d83773db184d0665a5538068a024f0805219d77e1045bf6db4e1c63bee",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224504_282.jpg",
+          "sha256": "3e8fca5a572e7d32a3494772e2ae15721a298a413af00ff5962da688af7c7811",
+          "candidates": 6,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224511_210.jpg",
+          "sha256": "fa000fbbfb235474f43c933fff0e0f9da905814dc9924481c77a767e0a168e45",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224525_234.jpg",
+          "sha256": "58572f61273bc4753bf119cf5a1eb775e2585bf1cb1cbe0305b92924eb1ee218",
+          "candidates": 10,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224534_846.jpg",
+          "sha256": "84d11ac0b3b079bbe6cb05c37d9ff321e2e661ff4350d10dd5bb0e056ed92653",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224551_914.jpg",
+          "sha256": "3a6257c210ac455386f28e8d6fd2f9ac06c4cc119d312a3d36372f43497ac67a",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224602_570.jpg",
+          "sha256": "1555a932332ae5600a29e2f67b8b6588873adb01223a872a35538a7e6907b6cf",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224619_735.jpg",
+          "sha256": "cfdaee2cbc0350191ee83860a79c5e664c34a7259c0bf776d3b8f5a2e71a40ef",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224640_230.jpg",
+          "sha256": "c72bdcf678225e58325649d871e9c5cd0199d0ba079285619b72fbb7a9a46491",
+          "candidates": 6,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224644_999.jpg",
+          "sha256": "7c5e3ae6d8816a59e0fb54e94a708182c33348a41208f8c8243f6de7d6e95d7c",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224655_763.jpg",
+          "sha256": "c1c663c80797bffd87198176ace3456eb3804f43e3fa6cabb76a71b3daa1c0ef",
+          "candidates": 5,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224707_063.jpg",
+          "sha256": "011cb9f1ff76890f221e560523ab2f671814c1f1ec23855d23705f57ff0fa137",
+          "candidates": 2,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_224711_859.jpg",
+          "sha256": "bcea580c0f59261a9a00b98504f38558e69370d482e2ce8ed4c87e0d7c649a72",
+          "candidates": 4,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_224720_759.jpg",
+          "sha256": "45b89c18d432cabbe632c8674ab8937ae14d2ebc1c11564973ac2a76117a903f",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224732_591.jpg",
+          "sha256": "84b99760da3b8a6ed5dc7e7f5a18a5343a33f50b1fda3355c432a7c297098e18",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224740_023.jpg",
+          "sha256": "e4a959cac82ae847b972e0b50e7c76db076771345954e559bff227fce28e7752",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224800_219.jpg",
+          "sha256": "25c4196c596676279d44abd8fb80a5dd7ed4037509ea80fc5cbb3759a9460a9b",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224827_884.jpg",
+          "sha256": "81b44359d175b32439a1892dce985e168dd169a555b6600e80a771e2d1afd2a0",
+          "candidates": 10,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224838_915.jpg",
+          "sha256": "b5b6dca9f54c82a9ede8026cde9eed2ec5a40eb56e094d32c81a5d00a9e4b573",
+          "candidates": 15,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224848_116.jpg",
+          "sha256": "846609f5fa7c34399f778abab9aa07db3b00080fb04a6c53a40615abe5b40c04",
+          "candidates": 10,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224854_248.jpg",
+          "sha256": "baea6765d5e79aa1c7445eb8a2eb4759ff5702b219538af0c79c28bc1e6b2d68",
+          "candidates": 11,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224903_548.jpg",
+          "sha256": "3ca6b5fbb9bc5f7360341885800b78811c4e18e86944e6e81214e4a6709a2c9c",
+          "candidates": 8,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224913_052.jpg",
+          "sha256": "c3bfbd3b178f4c8f5592bbe365a8218312f29df1dc76759662ab51c9835033b7",
+          "candidates": 8,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224920_148.jpg",
+          "sha256": "f3fd59bc045fbfde469e36c7a9bdc7ed29125793aad5bf4e083db24196ecbc4b",
+          "candidates": 9,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224927_728.jpg",
+          "sha256": "d27fcd4538e2c2ad06b28db37a5f995ae900cbf11b1aa18e040762520856220b",
+          "candidates": 5,
+          "hit": true
+        }
+      ]
+    },
+    "after": {
+      "images": 41,
+      "tp": 39,
+      "fp": 126,
+      "fn": 2,
+      "unique_correct": 12,
+      "unique_wrong": 1,
+      "empty": 0,
+      "multiple": 28,
+      "precision": 0.2364,
+      "recall": 0.9512,
+      "per_image": [
+        {
+          "name": "image_20260515_224200_533.jpg",
+          "sha256": "94dd9d4230d44849659c2090290a1eb1d9692924368e970a66fd069967c097a0",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224239_341.jpg",
+          "sha256": "6971386200d18a102481c122594812c4136face3291f5646775d9949fb5e0acd",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224243_841.jpg",
+          "sha256": "72a485b1b922a1b0542414e76ceb5f3be98ad172e3df164af9edbbddcab60db6",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224249_705.jpg",
+          "sha256": "84cfe4cbd19e30fb2ae96991642113d1acf17b64039468470b1d73db1847ae2b",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224256_473.jpg",
+          "sha256": "1a8f40ab849a68a9240ab0feb05ac96c8abac2fec142863e1c930d0126a0448a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224300_805.jpg",
+          "sha256": "c454f58e85d28713782722c27c75ec12a3476b7d39b91a2730ee9aca41eda896",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224306_137.jpg",
+          "sha256": "8d88e13886ee2eaefef3ffe9ef8f380f6569fe0faf3cb4570ad2c7ad4191157f",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224312_537.jpg",
+          "sha256": "0550e19cec353e6fc1f212765476f19b3d46dbf1daca7ec265c2957cb2c9c780",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224321_869.jpg",
+          "sha256": "d722affc78426579c156157b9302a5f1edf8ad084419da0394174fde060e6a0c",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224329_965.jpg",
+          "sha256": "4fab2b8ba250b2337734fd94751358ed7eccdf3a2dd5aef1f81f3a2c760db9fb",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224339_997.jpg",
+          "sha256": "e04fa94e149a3102bfb55945b6f7c2f483c1ed05df21980ae431961669e30eff",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224425_857.jpg",
+          "sha256": "bac87dcfaf0228da02d2f2143e31a25046122775bad2b9cf06402c051e7b7371",
+          "candidates": 10,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224432_917.jpg",
+          "sha256": "cc5ad5d75a4c36933ca4820af916dc76d10f2eed86b3fb90d9f7ff5aaf30298d",
+          "candidates": 6,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224440_250.jpg",
+          "sha256": "980b4373f9290983e05af5801cf0d53dfb85160e9ac0b6fdb074975b3523c411",
+          "candidates": 2,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224448_477.jpg",
+          "sha256": "67b7b5153e28931a68aa32c9a6ee9cd1ae216245ee4db1a227f7ae07a4ba7f1d",
+          "candidates": 11,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224454_185.jpg",
+          "sha256": "8ad31da9f07a1714649ae18e3ec22c62cf6614c370ce78d8db48d3164400cf65",
+          "candidates": 6,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224458_686.jpg",
+          "sha256": "c5acc7d83773db184d0665a5538068a024f0805219d77e1045bf6db4e1c63bee",
+          "candidates": 2,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224504_282.jpg",
+          "sha256": "3e8fca5a572e7d32a3494772e2ae15721a298a413af00ff5962da688af7c7811",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224511_210.jpg",
+          "sha256": "fa000fbbfb235474f43c933fff0e0f9da905814dc9924481c77a767e0a168e45",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224525_234.jpg",
+          "sha256": "58572f61273bc4753bf119cf5a1eb775e2585bf1cb1cbe0305b92924eb1ee218",
+          "candidates": 9,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224534_846.jpg",
+          "sha256": "84d11ac0b3b079bbe6cb05c37d9ff321e2e661ff4350d10dd5bb0e056ed92653",
+          "candidates": 5,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224551_914.jpg",
+          "sha256": "3a6257c210ac455386f28e8d6fd2f9ac06c4cc119d312a3d36372f43497ac67a",
+          "candidates": 1,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224602_570.jpg",
+          "sha256": "1555a932332ae5600a29e2f67b8b6588873adb01223a872a35538a7e6907b6cf",
+          "candidates": 2,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224619_735.jpg",
+          "sha256": "cfdaee2cbc0350191ee83860a79c5e664c34a7259c0bf776d3b8f5a2e71a40ef",
+          "candidates": 5,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224640_230.jpg",
+          "sha256": "c72bdcf678225e58325649d871e9c5cd0199d0ba079285619b72fbb7a9a46491",
+          "candidates": 3,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224644_999.jpg",
+          "sha256": "7c5e3ae6d8816a59e0fb54e94a708182c33348a41208f8c8243f6de7d6e95d7c",
+          "candidates": 5,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224655_763.jpg",
+          "sha256": "c1c663c80797bffd87198176ace3456eb3804f43e3fa6cabb76a71b3daa1c0ef",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224707_063.jpg",
+          "sha256": "011cb9f1ff76890f221e560523ab2f671814c1f1ec23855d23705f57ff0fa137",
+          "candidates": 1,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_224711_859.jpg",
+          "sha256": "bcea580c0f59261a9a00b98504f38558e69370d482e2ce8ed4c87e0d7c649a72",
+          "candidates": 3,
+          "hit": false
+        },
+        {
+          "name": "image_20260515_224720_759.jpg",
+          "sha256": "45b89c18d432cabbe632c8674ab8937ae14d2ebc1c11564973ac2a76117a903f",
+          "candidates": 2,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224732_591.jpg",
+          "sha256": "84b99760da3b8a6ed5dc7e7f5a18a5343a33f50b1fda3355c432a7c297098e18",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224740_023.jpg",
+          "sha256": "e4a959cac82ae847b972e0b50e7c76db076771345954e559bff227fce28e7752",
+          "candidates": 5,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224800_219.jpg",
+          "sha256": "25c4196c596676279d44abd8fb80a5dd7ed4037509ea80fc5cbb3759a9460a9b",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224827_884.jpg",
+          "sha256": "81b44359d175b32439a1892dce985e168dd169a555b6600e80a771e2d1afd2a0",
+          "candidates": 7,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224838_915.jpg",
+          "sha256": "b5b6dca9f54c82a9ede8026cde9eed2ec5a40eb56e094d32c81a5d00a9e4b573",
+          "candidates": 11,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224848_116.jpg",
+          "sha256": "846609f5fa7c34399f778abab9aa07db3b00080fb04a6c53a40615abe5b40c04",
+          "candidates": 8,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224854_248.jpg",
+          "sha256": "baea6765d5e79aa1c7445eb8a2eb4759ff5702b219538af0c79c28bc1e6b2d68",
+          "candidates": 9,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224903_548.jpg",
+          "sha256": "3ca6b5fbb9bc5f7360341885800b78811c4e18e86944e6e81214e4a6709a2c9c",
+          "candidates": 6,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224913_052.jpg",
+          "sha256": "c3bfbd3b178f4c8f5592bbe365a8218312f29df1dc76759662ab51c9835033b7",
+          "candidates": 4,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224920_148.jpg",
+          "sha256": "f3fd59bc045fbfde469e36c7a9bdc7ed29125793aad5bf4e083db24196ecbc4b",
+          "candidates": 9,
+          "hit": true
+        },
+        {
+          "name": "image_20260515_224927_728.jpg",
+          "sha256": "d27fcd4538e2c2ad06b28db37a5f995ae900cbf11b1aa18e040762520856220b",
+          "candidates": 3,
+          "hit": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "planned": 15,
+  "recorded": 0,
+  "pending": 15,
+  "physically_unknown": 0,
+  "false_success": 0,
+  "unconfirmed_but_achieved": 0,
+  "error": {
+    "move": {
+      "n": 0,
+      "median": null,
+      "max": null
+    },
+    "wrist": {
+      "n": 0,
+      "median": null,
+      "max": null
+    }
+  },
+  "records": []
+}

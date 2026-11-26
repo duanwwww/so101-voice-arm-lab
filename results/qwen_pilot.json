@@ -1,0 +1,9 @@
+{
+  "model": "qwen-plus",
+  "limit": 2,
+  "max_output_tokens_per_call": 160,
+  "inputs": "自建中文口令和 A/B 工位摘要",
+  "attempts": 0,
+  "cases": [],
+  "status": "missing_credential"
+}

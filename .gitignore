@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+outputs/
+.env
+.env.*
+!.env.example
+results/**/*.lock
+results/safety/device_inventory.json
+results/safety/vision100_examples.png
+vendor/so101_course/so101_core.py

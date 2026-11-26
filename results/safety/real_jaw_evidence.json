@@ -1,0 +1,1595 @@
+{
+  "dataset": "aswinkumar99/LeRobot-SO101-Pick-Place",
+  "revision": "6f1ceec7b23629d9fcdaf819a7d312f019172977",
+  "task": "task1-single-sponge-no-distractors",
+  "model_calls": 0,
+  "serial_writes": 0,
+  "fps": 30,
+  "window_samples": 15,
+  "max_observed_range": 0.5,
+  "max_abs_command_error": 1.0,
+  "low_position_threshold_fixed_split": 10.215453565120697,
+  "inspection": "recorded position channels only; footage not analysed",
+  "missing_independent_fields": [
+    "left/right contact",
+    "object off table",
+    "actuator fault status",
+    "grip force"
+  ],
+  "splits": {
+    "fixed-locations": {
+      "source_sha256": "7420379125baa954c01d62b730823536aaa577e766eba4b2907b640e223603b6",
+      "state_names": [
+        "shoulder_pan.pos",
+        "shoulder_lift.pos",
+        "elbow_flex.pos",
+        "wrist_flex.pos",
+        "wrist_roll.pos",
+        "gripper.pos"
+      ],
+      "episodes": 64,
+      "frames": 30160,
+      "episodes_with_low_stable_tracking": 64,
+      "window_already_at_first_frame": 63,
+      "independently_verified_grasps": 0,
+      "position_only_unverified": 64,
+      "rows": [
+        {
+          "episode": 0,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 11,
+            "last_frame": 25,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.9834707975387573
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 1,
+          "frames": 588,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.774223804473877
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 2,
+          "frames": 538,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 3,
+          "frames": 553,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.8485180139541626
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 4,
+          "frames": 528,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 5,
+          "frames": 495,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 6,
+          "frames": 542,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.6862940788269043
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 7,
+          "frames": 535,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.6515028476715088
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 8,
+          "frames": 498,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.128205299377441,
+            "maximum_position": 5.128205299377441,
+            "max_command_error": 0.44767045974731445
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 9,
+          "frames": 570,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.2388663291931152,
+            "maximum_position": 3.2388663291931152,
+            "max_command_error": 0.7871575355529785
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 10,
+          "frames": 527,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 11,
+          "frames": 518,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.725797176361084
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 12,
+          "frames": 507,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.968960762023926,
+            "maximum_position": 2.968960762023926,
+            "max_command_error": 0.8144288063049316
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 13,
+          "frames": 567,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.993252277374268,
+            "maximum_position": 4.993252277374268,
+            "max_command_error": 0.3870115280151367
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 14,
+          "frames": 523,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.725797176361084
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 15,
+          "frames": 478,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.725797176361084
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 16,
+          "frames": 430,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 17,
+          "frames": 490,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.116059303283691,
+            "maximum_position": 4.116059303283691,
+            "max_command_error": 0.4756431579589844
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 18,
+          "frames": 502,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.5087718963623047,
+            "maximum_position": 3.5087718963623047,
+            "max_command_error": 0.7598862648010254
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 19,
+          "frames": 494,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.778677463531494,
+            "maximum_position": 3.778677463531494,
+            "max_command_error": 0.6583209037780762
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 20,
+          "frames": 463,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 21,
+          "frames": 427,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 6.275303840637207,
+            "maximum_position": 6.275303840637207,
+            "max_command_error": 0.4111747741699219
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 22,
+          "frames": 362,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.6999295949935913
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 23,
+          "frames": 389,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.778677463531494,
+            "maximum_position": 3.778677463531494,
+            "max_command_error": 0.584026575088501
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 24,
+          "frames": 391,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.9811065196990967,
+            "max_command_error": 0.6378672122955322
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 25,
+          "frames": 414,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.858299732208252,
+            "maximum_position": 4.858299732208252,
+            "max_command_error": 0.177764892578125
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 26,
+          "frames": 374,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.735492706298828,
+            "maximum_position": 5.735492706298828,
+            "max_command_error": 0.4309263229370117
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 27,
+          "frames": 420,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 8.097166061401367,
+            "maximum_position": 8.097166061401367,
+            "max_command_error": 0.5952558517456055
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 28,
+          "frames": 424,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.3148229122161865
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 29,
+          "frames": 495,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.429149866104126,
+            "maximum_position": 2.429149866104126,
+            "max_command_error": 0.7946773767471313
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 30,
+          "frames": 426,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 31,
+          "frames": 432,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 7.354925632476807,
+            "maximum_position": 7.354925632476807,
+            "max_command_error": 0.07409334182739258
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 32,
+          "frames": 416,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.385964870452881,
+            "maximum_position": 4.385964870452881,
+            "max_command_error": 0.5226662158966064
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 33,
+          "frames": 394,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.251012325286865,
+            "maximum_position": 4.251012325286865,
+            "max_command_error": 0.3877136707305908
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 34,
+          "frames": 428,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.993252277374268,
+            "maximum_position": 4.993252277374268,
+            "max_command_error": 0.20734214782714844
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 35,
+          "frames": 374,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.5883941650390625,
+            "maximum_position": 4.5883941650390625,
+            "max_command_error": 0.16643476486206055
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 36,
+          "frames": 434,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.6515028476715088
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 37,
+          "frames": 447,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.128205299377441,
+            "maximum_position": 5.128205299377441,
+            "max_command_error": 0.4438600540161133
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 38,
+          "frames": 511,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 6.950067520141602,
+            "maximum_position": 6.950067520141602,
+            "max_command_error": 0.4050588607788086
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 39,
+          "frames": 421,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.735492706298828,
+            "maximum_position": 5.735492706298828,
+            "max_command_error": 0.460604190826416
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 40,
+          "frames": 421,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.9811065196990967,
+            "maximum_position": 4.116059303283691,
+            "max_command_error": 0.6242315769195557
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 41,
+          "frames": 418,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.263157844543457,
+            "maximum_position": 5.263157844543457,
+            "max_command_error": 0.08602476119995117
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 42,
+          "frames": 409,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.5883941650390625,
+            "maximum_position": 4.5883941650390625,
+            "max_command_error": 0.2793302536010742
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 43,
+          "frames": 473,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.5029144287109375
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 44,
+          "frames": 405,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.725797176361084
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 45,
+          "frames": 439,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.128205299377441,
+            "maximum_position": 5.128205299377441,
+            "max_command_error": 0.2209773063659668
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 46,
+          "frames": 439,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.778677463531494,
+            "maximum_position": 3.778677463531494,
+            "max_command_error": 0.6583209037780762
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 47,
+          "frames": 487,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 48,
+          "frames": 447,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.65587043762207,
+            "maximum_position": 4.65587043762207,
+            "max_command_error": 0.34680652618408203
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 49,
+          "frames": 400,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 50,
+          "frames": 440,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.263157844543457,
+            "maximum_position": 5.263157844543457,
+            "max_command_error": 0.011730670928955078
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 51,
+          "frames": 414,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.735492706298828,
+            "maximum_position": 5.735492706298828,
+            "max_command_error": 0.28233766555786133
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 52,
+          "frames": 575,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.5772087574005127
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 53,
+          "frames": 556,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.520917892456055,
+            "maximum_position": 4.520917892456055,
+            "max_command_error": 0.4347367286682129
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 54,
+          "frames": 575,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.6437246799468994,
+            "maximum_position": 3.6437246799468994,
+            "max_command_error": 0.5233681201934814
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 55,
+          "frames": 532,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.8485180139541626
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 56,
+          "frames": 412,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.65587043762207,
+            "maximum_position": 4.65587043762207,
+            "max_command_error": 0.12392377853393555
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 57,
+          "frames": 560,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.195681571960449,
+            "maximum_position": 5.195681571960449,
+            "max_command_error": 0.37638378143310547
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 58,
+          "frames": 556,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.116059303283691,
+            "maximum_position": 4.116059303283691,
+            "max_command_error": 0.49018144607543945
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 59,
+          "frames": 555,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 6.207827091217041,
+            "maximum_position": 6.207827091217041,
+            "max_command_error": 0.7015337944030762
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 60,
+          "frames": 343,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.385964870452881,
+            "maximum_position": 4.385964870452881,
+            "max_command_error": 0.07690095901489258
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 61,
+          "frames": 406,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 6.74763822555542,
+            "maximum_position": 6.74763822555542,
+            "max_command_error": 0.38460540771484375
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 62,
+          "frames": 407,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.846153736114502,
+            "maximum_position": 3.846153736114502,
+            "max_command_error": 0.5772087574005127
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 63,
+          "frames": 417,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.2388663291931152,
+            "maximum_position": 3.2388663291931152,
+            "max_command_error": 0.6385691165924072
+          },
+          "grasp_evidence": "unverified"
+        }
+      ]
+    },
+    "random-locations": {
+      "source_sha256": "a66c5322639e2aad56ea53fbc9efca4ce3ef98fc551822b82afab2e0f4deb82e",
+      "state_names": [
+        "shoulder_pan.pos",
+        "shoulder_lift.pos",
+        "elbow_flex.pos",
+        "wrist_flex.pos",
+        "wrist_roll.pos",
+        "gripper.pos"
+      ],
+      "episodes": 64,
+      "frames": 44727,
+      "episodes_with_low_stable_tracking": 64,
+      "window_already_at_first_frame": 60,
+      "independently_verified_grasps": 0,
+      "position_only_unverified": 64,
+      "rows": [
+        {
+          "episode": 0,
+          "frames": 622,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.2941970825195312,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.6529066562652588
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 1,
+          "frames": 657,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.6529066562652588
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 2,
+          "frames": 547,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6990554332733154,
+            "maximum_position": 2.6990554332733154,
+            "max_command_error": 0.6188178062438965
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 3,
+          "frames": 644,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.968960762023926,
+            "maximum_position": 2.968960762023926,
+            "max_command_error": 0.5172519683837891
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 4,
+          "frames": 460,
+          "low_stable_tracking_window": {
+            "first_frame": 3,
+            "last_frame": 17,
+            "minimum_position": 2.0917677879333496,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.9500834941864014
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 5,
+          "frames": 470,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 8.097166061401367,
+            "maximum_position": 8.097166061401367,
+            "max_command_error": 0.2980794906616211
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 6,
+          "frames": 492,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 9.716599464416504,
+            "maximum_position": 9.716599464416504,
+            "max_command_error": 0.31311798095703125
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 7,
+          "frames": 549,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.37381911277771,
+            "maximum_position": 3.37381911277771,
+            "max_command_error": 0.5506393909454346
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 8,
+          "frames": 424,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.318488597869873,
+            "maximum_position": 4.318488597869873,
+            "max_command_error": 0.009424686431884766
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 9,
+          "frames": 514,
+          "low_stable_tracking_window": {
+            "first_frame": 3,
+            "last_frame": 17,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.9228122234344482
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 10,
+          "frames": 573,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 8.50202465057373,
+            "maximum_position": 8.50202465057373,
+            "max_command_error": 0.1903972625732422
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 11,
+          "frames": 487,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 5.128205299377441,
+            "maximum_position": 5.128205299377441,
+            "max_command_error": 0.1466832160949707
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 12,
+          "frames": 572,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.6529066562652588
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 13,
+          "frames": 528,
+          "low_stable_tracking_window": {
+            "first_frame": 508,
+            "last_frame": 522,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.901484489440918,
+            "max_command_error": 0.821246862411499
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 14,
+          "frames": 516,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6990554332733154,
+            "maximum_position": 2.6990554332733154,
+            "max_command_error": 0.6188178062438965
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 15,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.2941970825195312,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.7272008657455444
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 16,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.2267205715179443,
+            "maximum_position": 2.2267205715179443,
+            "max_command_error": 0.6665422916412354
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 17,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.2267205715179443,
+            "maximum_position": 2.2267205715179443,
+            "max_command_error": 0.8151307106018066
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 18,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.6392710208892822
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 19,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.537705659866333
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 20,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.6529066562652588
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 21,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 22,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.2267205715179443,
+            "maximum_position": 2.2267205715179443,
+            "max_command_error": 0.5179538726806641
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 23,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 24,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6990554332733154,
+            "maximum_position": 2.6990554332733154,
+            "max_command_error": 0.5445234775543213
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 25,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 26,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 27,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7135652303695679
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 28,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 29,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7135652303695679
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 30,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8757892847061157
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 31,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 32,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7135652303695679
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 33,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 34,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7135652303695679
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 35,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 36,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.7272008657455444
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 37,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 38,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.520917892456055,
+            "maximum_position": 4.520917892456055,
+            "max_command_error": 0.7319133281707764
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 39,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.8485180139541626
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 40,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.361673355102539,
+            "maximum_position": 2.361673355102539,
+            "max_command_error": 0.8014950752258301
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 41,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 4.520917892456055,
+            "maximum_position": 4.520917892456055,
+            "max_command_error": 0.2118539810180664
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 42,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.6119997501373291
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 43,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 44,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 45,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.6119997501373291
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 46,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 47,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 48,
+          "frames": 749,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.8621536493301392
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 49,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 50,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 51,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.834007978439331,
+            "maximum_position": 2.834007978439331,
+            "max_command_error": 0.7537703514099121
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 52,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 53,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 9.379217147827148,
+            "maximum_position": 9.379217147827148,
+            "max_command_error": 0.389617919921875
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 54,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.6315789222717285,
+            "maximum_position": 2.6315789222717285,
+            "max_command_error": 0.8485180139541626
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 55,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 56,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7135652303695679
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 57,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 2,
+            "last_frame": 16,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.5641026496887207,
+            "max_command_error": 0.8553359508514404
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 58,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.496626138687134,
+            "maximum_position": 2.496626138687134,
+            "max_command_error": 0.7878594398498535
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 59,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.6119997501373291
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 60,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 61,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.6522047519683838
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 62,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 2.7665317058563232,
+            "maximum_position": 2.7665317058563232,
+            "max_command_error": 0.6119997501373291
+          },
+          "grasp_evidence": "unverified"
+        },
+        {
+          "episode": 63,
+          "frames": 748,
+          "low_stable_tracking_window": {
+            "first_frame": 0,
+            "last_frame": 14,
+            "minimum_position": 3.1039135456085205,
+            "maximum_position": 3.1039135456085205,
+            "max_command_error": 0.5036163330078125
+          },
+          "grasp_evidence": "unverified"
+        }
+      ]
+    }
+  }
+}

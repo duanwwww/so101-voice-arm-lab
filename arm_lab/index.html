@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SO-101 桌面控制台</title>
+<style>
+:root{color-scheme:light;font-family:Inter,"Microsoft YaHei",system-ui,sans-serif;color:#172b2a;background:#f2f5f2}
+*{box-sizing:border-box}body{margin:0}main{max-width:1180px;margin:auto;padding:32px 24px}
+header,.line,.tools,.stats{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+header{justify-content:space-between;margin-bottom:22px}h1{font-size:clamp(24px,4vw,34px);margin:0;letter-spacing:-.045em}h2{font-size:17px;margin:0 0 15px}
+.mode{font-size:13px;color:#285952}.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(290px,.9fr);gap:16px;align-items:start}
+section{background:#fff;border:1px solid #d3dfd9;border-radius:12px;padding:19px;margin-bottom:16px}
+figure{margin:0}#view{display:block;width:100%;aspect-ratio:1.6;background:#273b3a;border-radius:7px}
+.stats{margin:13px 0;font-size:13px;justify-content:space-between;color:#354e48}code{font-family:"IBM Plex Mono",Consolas,monospace}
+.tools{border-top:1px solid #dce4df;padding-top:12px}button,select,input[type=text],textarea{border:1px solid #b6c6be;border-radius:6px;background:#fff;color:inherit;font:inherit;padding:7px 10px}button{cursor:pointer;font-size:13px}
+button:hover:enabled{background:#e7f2ec}button.primary{background:#176756;color:white;border-color:#176756;font-weight:650}
+button.primary:hover:enabled{background:#105744}button:disabled{opacity:.48;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #60988d}
+#entry{width:100%;margin:6px 0 11px;padding:10px;font-size:16px}.line{gap:8px}.mt{margin-top:12px}
+label,small{font-size:13px;color:#3c534b}.result{font-size:16px;font-weight:600;margin:5px 0 12px}
+dl{display:grid;grid-template-columns:74px 1fr;gap:7px 9px;margin:0;font-size:13px}dt{color:#61746b}dd{margin:0;overflow-wrap:anywhere}#notice{color:#9b4217;font-size:13px;min-height:1.2em;margin-top:8px}
+input[type=file]{font:inherit;font-size:12px;max-width:100%}details{margin-top:15px}summary{cursor:pointer;font-size:13px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
+@media(max-width:790px){main{padding:18px 12px}.grid{grid-template-columns:1fr}section{padding:14px}}
+textarea{font-family:inherit;resize:vertical;line-height:1.45;min-height:66px}#entry{margin-bottom:8px}#planner{max-width:100%}#replyBar{background:#edf5ef;padding:8px;border-radius:5px;font-size:13px;margin-bottom:8px}dialog{border:1px solid #b6c6be;border-radius:12px;max-width:min(460px,90vw);color:inherit;background:white;padding:22px}dialog::backdrop{background:#152a2a77}dialog p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;font-size:14px}dialog h2{margin-bottom:8px}.voice{margin:9px 0 13px}.run-info{font-size:13px;color:#4a655b}#feedbackText{font-size:14px}.readout{font-variant-numeric:tabular-nums}#route{display:block;font-size:12px;color:#516c60;margin-bottom:10px}#steps{padding-left:22px;font-size:13px;line-height:1.7}#steps:empty{display:none}</style>
+</head>
+<body><main>
+<header><h1>SO-101 桌面控制台</h1><span class="mode" id="mode">正在连接仿真…</span></header>
+<p id="legacyServer" hidden role="status">当前端口运行的是旧版控制程序，请重新启动服务后再发令。<a id="updatedConsole" hidden href="http://127.0.0.1:8769/">打开本机新版控制台</a></p>
+<div class="grid"><div><section>
+<div class="tools"><h2>监控画面</h2><select id="cameraSelect" aria-label="相机视角"><option value="/camera.jpg">固定相机</option><option value="/camera/wrist.jpg">腕部相机</option></select></div><figure><img id="view" src="/camera.jpg" alt="当前选择的机械臂仿真相机画面"></figure>
+<div class="stats"><span id="vision">目标 —</span><span id="phase">阶段 —</span><code id="tcp">XYZ —</code></div>
+<div class="tools"><label for="layout">仿真场景</label><select id="layout"></select><button id="reset" disabled>重置仿真</button><button id="fillTask" disabled>填入场景任务</button></div>
+<div class="tools"><button id="pause" disabled>暂停当前任务</button><button id="resume" hidden>原位恢复控制</button><button id="halt" style="color:#8c1e19;border-color:#9c3c32">停止仿真运动</button><span id="stopStatus" role="status"></span></div>
+<p class="run-info" id="cameraStatus" role="status"></p>
+<p class="run-info" id="layoutNote"></p>
+</section></div><aside><section>
+<h2>发送任务</h2>
+<label for="entry">输入指令或录音转写</label><textarea id="entry" rows="2" maxlength="600" placeholder="例如：把前面的木块夹起来，再放到右边的工位"></textarea>
+<div class="line voice"><button id="mic">开始录音</button><label>上传录音 <input id="audiofile" type="file" accept="audio/*"></label></div>
+<div id="draftBar" hidden><p id="draftText" class="run-info"></p><button id="reviewDraft">核对这条草稿</button> <button id="discardDraft">取消草稿</button></div>
+<div id="replyBar" hidden><span id="replyLabel"></span> <button id="newTask">另起任务</button></div>
+<label for="planner">规划方式</label>
+<select id="planner"><option value="deepseek">交大 DeepSeek · 自然语言</option><option value="local">本地规则 · 离线</option></select>
+<p class="run-info" id="readiness"></p>
+<div class="line"><label><input type="checkbox" id="autoVoice"> 执行后用 DeepSeek 解读并用 Edge-TTS 播报</label></div>
+<button class="primary" id="send">发送指令</button><div id="notice" role="status"></div><p id="interactionResult" class="run-info" aria-live="polite" hidden></p></section>
+<section><h2>执行回执</h2><span id="route"></span><p class="result" id="message" aria-live="polite">等待第一条指令</p><dl><dt>指令</dt><dd id="lastText">—</dd><dt>执行动作</dt><dd id="plan">—</dd><dt>测量结果</dt><dd id="metric">—</dd></dl>
+<ol id="steps"></ol><p id="feedbackText" hidden></p>
+<div class="line mt"><button id="feedback" disabled>用 DeepSeek 解读回执</button><button id="speak" disabled>播报回执</button></div><details><summary>查看 JSON</summary><pre id="json"></pre></details>
+</section></aside></div></main>
+<dialog id="approval"><h2 id="approveTitle"></h2><p id="approveInfo"></p>
+<div class="line"><button class="primary" id="approveYes">批准本次调用</button><button id="approveNo">取消</button></div></dialog>
+<script>
+const by=id=>document.getElementById(id);
+let state=null, clockOffset=0, waiting=false, polling=false, recorder=null, stream=null, chunks=[], replyId=null;
+let preparing=false, audioBusy=false, recordingStarting=false, draftRevision=null, pendingDraft='', draftVersion=0;
+const phases={ready:'就绪',before:'观察并规划',moving:'运动中',pregrasp:'到预抓位',descend:'下降',close:'合爪',lift:'抬升',carry:'搬运',release:'释放',retreat:'退开',after:'完成观察'};
+const names={move:'平移',wrist:'转腕',pick:'抓取',place:'放置',transfer:'搬运',home:'归位',observe:'观察'};
+let catalog=null;
+let activeWatch=null, frameRequest=null, lastFrame=null, lastStateAt=-Infinity;
+function hasFreshView(s){
+ const now=performance.now(), limit=Math.min(2000,(s.watchdog_seconds||3)*1000);
+ return lastFrame && lastFrame.path===by('cameraSelect').value && now-lastFrame.started<limit && now-lastStateAt<limit;
+}
+async function renewWatch(owner){
+ if(!owner || owner!==activeWatch || owner.pending)return;
+ owner.pending=true;
+ try{
+  await api('/api/heartbeat',{body:{id:owner.id,watchdog_token:owner.token},signal:AbortSignal.timeout(1500)});
+ }catch{/* The control computer enforces the deadline even if its reply is lost. */}
+ finally{owner.pending=false}
+}
+function refreshCamera(snapshot){
+ const path=by('cameraSelect').value, now=performance.now();
+ if(frameRequest && frameRequest.path===path && now-frameRequest.started<2500)return;
+ const request={path,started:now}, owner=activeWatch, img=new Image();
+ frameRequest=request;
+ img.onload=()=>{
+  if(frameRequest!==request)return;
+  frameRequest=null;
+  if(by('cameraSelect').value!==path || !img.naturalWidth)return;
+  const displayed=by('view');
+  img.id='view'; img.alt=displayed.alt; displayed.replaceWith(img);
+  lastFrame=request;
+  if(state)show(state);
+  if(snapshot?.watchdog_active && hasFreshView(snapshot))renewWatch(owner);
+ };
+ img.onerror=()=>{
+  if(frameRequest!==request)return;
+  frameRequest=null;lastFrame=null;
+  if(state)show(state);
+ };
+ img.src=path+'?t='+Date.now();
+}
+function describeLayout(){
+ if(!catalog||!state)return;
+ const selected=catalog.get(by('layout').value), active=catalog.get(state.layout);
+ if(!selected||!active)return;
+ by('layoutNote').textContent='当前场景：'+active.label+'。'+(selected.id!==active.id?'重置后切换到“'+selected.label+'”。':'')+selected.description;
+ by('fillTask').disabled=state.busy||waiting||!!recorder||selected.id!==active.id;
+}
+by('layout').onchange=describeLayout;
+by('fillTask').onclick=()=>{if(catalog&&state){by('entry').value=catalog.get(state.layout).command;replyId=null;show(state);by('entry').focus()}};
+function note(text){by('notice').textContent=text}
+function interaction(text){by('interactionResult').textContent=text;by('interactionResult').hidden=!text}
+function saveDraft(text){
+ pendingDraft=text;draftVersion++;by('draftText').textContent=text?'待核对的新动作：'+text:'';
+ by('draftBar').hidden=!text;
+}
+by('reviewDraft').onclick=()=>{by('entry').value=pendingDraft;draftRevision=state.revision;replyId=null;show(state);by('entry').focus();note('请核对当前画面和草稿后发送。')};
+by('discardDraft').onclick=()=>saveDraft('');
+function commandId(){if(crypto.randomUUID)return crypto.randomUUID();return '10000000-1000-4000-8000-100000000000'.replace(/[018]/g,c=>(Number(c)^crypto.getRandomValues(new Uint8Array(1))[0]&15>>Number(c)/4).toString(16))}
+async function api(path,{body,kind,file,post=false,audio=false,signal}={}){
+ const headers={}; if(kind)headers['X-Arm-Approval']=kind;
+ const options={method:post||body||file?'POST':'GET',headers,cache:'no-store',signal};
+ if(body){headers['Content-Type']='application/json'; options.body=JSON.stringify(body)} else if(file)options.body=file;
+ const res=await fetch(path,options);
+ if(!res.ok){const error=await res.json();throw Error(typeof error.detail==='string'?error.detail:JSON.stringify(error.detail))}
+ return audio?res.blob():res.json();
+}
+function consent(kind,title,info){
+ if(state.quota[kind]>0)return Promise.resolve({kind:undefined});
+ if(!state.local_approval)throw Error('此远程页面没有本次模型配额，请在控制电脑批准，或改用本地规则。');
+ const dialog=by('approval');if(dialog.open)throw Error('请先处理已打开的授权窗口。');by('approveTitle').textContent=title;by('approveInfo').textContent=info;
+ dialog.returnValue='';dialog.showModal();
+ return new Promise(resolve=>dialog.addEventListener('close',()=>resolve(dialog.returnValue==='allow'?{kind}:null),{once:true}));
+}
+by('approveYes').onclick=()=>by('approval').close('allow');by('approveNo').onclick=()=>by('approval').close();
+function show(s){
+ if(!state&&s.layout)by('layout').value=s.layout;
+ state=s;clockOffset=s.server_ms-Date.now(); const busy=s.busy||waiting;
+ const legacy=!Object.hasOwn(s,'paused');
+ by('legacyServer').hidden=!legacy;
+ by('updatedConsole').hidden=!legacy||!['127.0.0.1','localhost'].includes(location.hostname)||location.port!=='8768';
+ describeLayout();
+ by('mode').textContent='MuJoCo 仿真 · '+(s.stopped?'已锁止':s.paused?'已暂停':s.busy?'执行中':'已连接');
+ const objs=s.scene?.objects||[];
+ by('vision').textContent=s.scene?.holding?'夹爪 · 已握住木块':'红块 · '+(objs.length?objs.map(o=>o.slot||'工位外').join('、'):'画面不可见');
+ by('phase').textContent='阶段 · '+(phases[s.phase]||'动作复核');by('tcp').textContent='XYZ '+s.tcp_mm.join(' / ')+' mm';
+ by('reset').disabled=busy||!!activeWatch||!!recorder||audioBusy||preparing;
+ by('reviewDraft').disabled=busy||!!activeWatch||s.paused||s.stopped||audioBusy||!!recorder||!hasFreshView(s);
+ by('send').disabled=legacy||waiting||preparing||audioBusy||recordingStarting||!!recorder||s.stopped;
+ by('pause').disabled=legacy||!s.busy||s.paused||s.stopped||preparing;
+ by('resume').hidden=!s.paused||s.stopped;by('resume').disabled=s.busy||preparing||!hasFreshView(s);
+ by('stopStatus').textContent=s.stopped?(s.watchdog_expired?'远程监控超时，控制已锁止':(s.fault||'操作员已停止'))+'。重置仿真后可继续。':s.paused?'任务已暂停，场地保留。恢复控制后可发送新指令。':s.busy?'执行中可继续录音，询问进度或暂停任务。':'';
+ by('cameraStatus').textContent=!hasFreshView(s)?'等待当前视角和状态更新，暂不能发运动指令。':s.watchdog_active?'正在监控。超过 '+s.watchdog_seconds+' 秒未收到画面确认时将停止。':'';
+ by('mic').disabled=recordingStarting||audioBusy||waiting||s.stopped||!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder;
+ by('audiofile').disabled=recordingStarting||!!recorder||audioBusy||waiting||s.stopped;
+ by('readiness').textContent=by('planner').value==='local'?'离线支持 A/B/C 抓放、平移、转腕和最多四步的组合。':
+   s.campus_key?'发送时使用文字和当前工位观测，模型返回动作序列或追问。':'控制端尚未配置交大 Key。可切换本地规则。';
+ const r=s.last;
+ if(replyId&&!busy&&r?.id!==replyId)replyId=null;
+ by('replyBar').hidden=!replyId||!r?.clarification;if(!by('replyBar').hidden)by('replyLabel').textContent='正在回答：'+r.clarification.question;
+ by('speak').disabled=busy||!r;by('feedback').disabled=busy||!r||!!r.feedback;
+ by('message').textContent=r?r.message:'等待第一条指令';by('lastText').textContent=r?.text||'—';by('plan').textContent=r?.plan?.join(' → ')||'—';
+ by('route').textContent=r?({rules:'本地规则',local_control:'本地交互',interlock:'控制保护','deepseek-chat':'交大 DeepSeek'}[r.planner]||r.planner)+' · '+r.status:'';
+ const m=r?.measurement||{};by('metric').textContent=m.error_mm!==undefined?'位移 '+m.displacement_mm.join(' / ')+' mm，误差 '+m.error_mm+' mm':m.error_deg!==undefined?'腕角变化 '+m.actual_deg+'°，误差 '+m.error_deg+'°':'—';
+ if(m.drop_views)by('metric').textContent='落位复核：'+m.drop_views.map(v=>({wrist:'腕部相机',overhead:'固定相机',unconfirmed:'未确认'}[v]||v)).join(' / ');
+ const steps=by('steps');steps.replaceChildren();if(r?.steps?.length>1)for(const x of r.steps){const li=document.createElement('li');li.textContent=(names[x.kind]||x.kind)+' · '+x.message;steps.append(li)}
+ by('feedbackText').hidden=!r?.feedback;by('feedbackText').textContent=r?.feedback||'';by('json').textContent=r?JSON.stringify(r,null,2):'';
+}
+async function poll(){if(polling)return;polling=true;try{
+ if(!catalog){const rows=await api('/api/scenarios');catalog=new Map(rows.map(x=>[x.id,x]));by('layout').replaceChildren(...rows.map(x=>new Option(x.label,x.id)))}
+ const snapshot=await api('/api/state',{signal:AbortSignal.timeout(1800)});
+ lastStateAt=performance.now();show(snapshot);refreshCamera(snapshot)
+ }catch(e){lastStateAt=-Infinity;if(state)show(state);by('mode').textContent='与控制端的连接已中断'}finally{polling=false}}
+async function work(fn){if(waiting||!state)return;waiting=true;show(state);note('');
+ try{await fn()}catch(e){note(e.message)}finally{waiting=false;await poll()}}
+by('planner').onchange=()=>state&&show(state);by('newTask').onclick=()=>{replyId=null;show(state);by('entry').focus()};
+async function sendText(text,fromEntry){
+ if(!state||preparing)return;
+ if(!text){note('请输入指令或录音。');by('entry').focus();return}
+ const rev=state.revision, prior=replyId, originalDraftVersion=draftVersion;
+ preparing=true;show(state);
+ let owner=null, released=false;
+ try{
+ const {kind}=await api('/api/command-kind',{body:{text}});
+ const issued=()=>Math.round(Date.now()+clockOffset);
+ if(fromEntry&&draftRevision!==null&&rev!==draftRevision){
+  draftRevision=rev;note('录音后任务状态已改变。请核对当前画面和转写，再次发送。');return;
+ }
+ if(kind!=='motion'){
+  if(kind==='resume'&&!hasFreshView(state))throw Error('请等待当前画面恢复后再解除暂停。');
+  const r=await api('/api/commands',{body:{id:commandId(),text,revision:rev,issued_at_ms:issued()}});
+  interaction(text+' · '+r.message);
+  if(r.clarification)replyId=r.id;
+  if(fromEntry && by('entry').value.trim()===text){by('entry').value='';draftRevision=null}
+  note('');await poll();return;
+ }
+ if(state.busy||activeWatch){saveDraft(text);note('上一任务仍在执行。新动作保留在输入框和草稿里；可以继续说话，待现场稳定后核对草稿再发送。');return}
+ if(state.paused)throw Error('任务已暂停。请先原位恢复控制，再核对并发送新动作。');
+ if(state.stopped||!hasFreshView(state))throw Error('请等待当前画面恢复并核对控制状态后再运动。');
+ const model=by('planner').value==='deepseek';
+ let permission={};
+ if(model){
+  if(!state.campus_key)throw Error('控制端尚未配置交大 Key。');
+  const scene=state.scene, places=scene.objects.map(o=>(o.slot||'工位外')+(o.xy_mm?'（底座 XY '+o.xy_mm.join(', ')+' mm）':'')).join('、')||'没有木块';
+  const context=prior?'\n上一轮指令及追问：'+state.last.clarification.command+' / '+state.last.clarification.question:'';
+  permission=await consent('deepseek','使用交大 DeepSeek 规划这条指令？','发往上海交大致远一号 deepseek-chat。一次请求，最多输出 160 tokens。\n指令：'+text+'\n工位：'+places+'，夹爪'+(scene.holding?'持有木块':'空闲')+context);
+  if(!permission)return;
+ }
+ note('正在规划和执行…');
+ if(!hasFreshView(state))throw Error('当前画面或状态已过期，请等画面恢复后再发送。');
+ owner={id:commandId(),token:commandId(),pending:false};
+ activeWatch=owner;
+ const response=api('/api/commands',{...permission,body:{id:owner.id,watchdog_token:owner.token,text,revision:rev,issued_at_ms:issued(),use_deepseek:model,reply_to:prior}});
+ preparing=false;released=true;show(state);
+ const r=await response;
+ if(activeWatch===owner)activeWatch=null;
+ if(pendingDraft===text&&draftVersion===originalDraftVersion)saveDraft('');
+ if(by('entry').value.trim()===text)draftRevision=null;
+ replyId=r.clarification?r.id:null;
+ if(replyId&&by('entry').value.trim()===text){by('entry').value='';by('entry').focus()}
+ if(by('notice').textContent==='正在规划和执行…')note('');
+ await poll();
+ if(by('autoVoice').checked&&!audioBusy&&!preparing&&!by('approval').open){
+   const reviewed=await reviewReceipt(r);
+   if(reviewed)await speakReceipt(r);
+ }
+ }catch(e){note(e.message)}finally{
+  if(owner&&activeWatch===owner)activeWatch=null;
+  if(!released)preparing=false;
+  if(state)show(state);
+ }
+}
+by('send').onclick=()=>sendText(by('entry').value.trim(),true);
+by('pause').onclick=()=>sendText('暂停当前任务',false);
+by('resume').onclick=()=>sendText('恢复控制',false);
+by('entry').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing&&!by('send').disabled){e.preventDefault();by('send').click()}};
+by('reset').onclick=()=>work(async()=>{await api('/api/reset',{body:{layout:by('layout').value}});replyId=null;draftRevision=null;saveDraft('');interaction('')});
+by('cameraSelect').onchange=()=>{if(state)show(state);refreshCamera(state)};
+by('halt').onclick=async()=>{try{await api('/api/stop',{post:true});await poll()}catch(e){note(e.message)}};
+async function transcribe(blob,revision){
+ if(!state||audioBusy)return;
+ audioBusy=true;show(state);
+ try{
+ if(blob.size>4*1024*1024)throw Error('录音大于 4 MiB，请截取一段短口令。');
+ if(revision===undefined){
+  const snapshot=await api('/api/state');revision=snapshot.revision;show(snapshot);
+ }
+ const permission=await consent('asr','在本机转写这段录音？','使用 Whisper Small 在本机识别一次。'+(state.whisper_ready?'权重已就绪。':'首次使用将从 Hugging Face 下载模型权重，可能需要几分钟。')+'录音只发给控制电脑。');
+ if(!permission)return;note('正在准备 Whisper 并转写…');
+ const file=new FormData();file.append('file',blob,'command-audio');
+ const r=await api('/api/transcribe',{...permission,file});by('entry').value=r.text;draftRevision=revision;
+ note('转写完成。请核对后发送；暂停和状态查询可在动作进行中发送。');
+ }catch(e){note(e.message)}finally{audioBusy=false;show(state)}
+}
+by('audiofile').onchange=e=>{const f=e.target.files[0];if(f)transcribe(f);e.target.value=''};
+by('mic').onclick=async()=>{
+ if(recorder){if(recorder.state==='recording')recorder.stop();return}
+ if(recordingStarting||audioBusy)return;
+ recordingStarting=true;show(state);
+ try{const snapshot=await api('/api/state'),revision=snapshot.revision;show(snapshot);
+ stream=await navigator.mediaDevices.getUserMedia({audio:true});recorder=new MediaRecorder(stream);chunks=[];
+ recorder.ondataavailable=e=>chunks.push(e.data);recorder.onstop=()=>{const blob=new Blob(chunks,{type:recorder.mimeType});stream.getTracks().forEach(t=>t.stop());stream=recorder=null;by('mic').textContent='开始录音';transcribe(blob,revision)};
+ recorder.start();by('mic').textContent='结束录音';const active=recorder;setTimeout(()=>{if(active.state==='recording')active.stop()},15000)
+ }catch(e){stream?.getTracks().forEach(t=>t.stop());stream=recorder=null;note(e.message)}finally{recordingStarting=false;show(state)}
+};
+async function reviewReceipt(r){
+ const p=await consent('deepseek','用 DeepSeek 解读执行结果？','发送这条指令、实际步骤、状态及执行后的工位。一次请求，最多输出 160 tokens。\n'+r.text+'\n'+r.message);
+ if(!p)return false;
+ note('正在生成反馈…');r.feedback=(await api('/api/feedback?receipt_id='+r.id,{...p,post:true})).speech;note('');return true;
+}
+async function speakReceipt(r){
+ const p=await consent('tts','播报这条回执？','向微软 Edge-TTS 发送下列文字，合成一次普通话音频。\n'+r.message+(r.feedback?' '+r.feedback:''));
+ if(p){const u=URL.createObjectURL(await api('/api/speak?receipt_id='+r.id,{...p,post:true,audio:true}));const player=new Audio(u);player.onended=()=>URL.revokeObjectURL(u);await player.play()}
+}
+by('feedback').onclick=()=>work(()=>reviewReceipt(state.last));
+by('speak').onclick=()=>work(()=>speakReceipt(state.last));
+poll();setInterval(poll,400);
+</script></body></html>

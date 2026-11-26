@@ -1,0 +1,2455 @@
+{
+  "source_sha256": "79d77367c2f22e61fc943b1b09e8ca120f1ab03ee6529be84c915e314bcdd9c3",
+  "model_calls": 0,
+  "rows": [
+    {
+      "id": "P001",
+      "split": "dev",
+      "family": "transfer_letters",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "B",
+            "to": "A"
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P002",
+      "split": "dev",
+      "family": "transfer_letters",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P003",
+      "split": "dev",
+      "family": "transfer_by_scene",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P004",
+      "split": "dev",
+      "family": "transfer_by_scene",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P005",
+      "split": "dev",
+      "family": "object_homophone",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P006",
+      "split": "dev",
+      "family": "pick_only",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P007",
+      "split": "dev",
+      "family": "pick_only",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "pick",
+            "object": "red_1",
+            "from": "C"
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P008",
+      "split": "dev",
+      "family": "place_held",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P009",
+      "split": "dev",
+      "family": "place_held",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P010",
+      "split": "dev",
+      "family": "axis_cm",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P011",
+      "split": "dev",
+      "family": "axis_cm",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": -5.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P012",
+      "split": "dev",
+      "family": "axis_cm",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "z",
+            "mm": -10.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P013",
+      "split": "dev",
+      "family": "axis_mm",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P014",
+      "split": "dev",
+      "family": "axis_mm",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "z",
+            "mm": 7.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P015",
+      "split": "dev",
+      "family": "axis_mm",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": 50.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P016",
+      "split": "dev",
+      "family": "wrist_sign",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "wrist",
+            "deg": 15.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P017",
+      "split": "dev",
+      "family": "wrist_sign",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "手腕往哪个方向转多少度？例如“向下转五度”。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P018",
+      "split": "dev",
+      "family": "observe_only",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P019",
+      "split": "dev",
+      "family": "home_only",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P020",
+      "split": "dev",
+      "family": "transfer_then_wrist",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P021",
+      "split": "dev",
+      "family": "mixed_order",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": 6.0
+          },
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": 8.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P022",
+      "split": "dev",
+      "family": "mixed_order",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P023",
+      "split": "dev",
+      "family": "mixed_order",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P024",
+      "split": "dev",
+      "family": "clarified_target",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P025",
+      "split": "dev",
+      "family": "clarified_distance",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P026",
+      "split": "dev",
+      "family": "explicit_pick_then_place",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P027",
+      "split": "dev",
+      "family": "observe_held",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P028",
+      "split": "dev",
+      "family": "metric_fullwidth",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": 6.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P029",
+      "split": "dev",
+      "family": "missing_destination",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P030",
+      "split": "dev",
+      "family": "wrist_unspecified",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "手腕往哪个方向转多少度？例如“向下转五度”。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P031",
+      "split": "dev",
+      "family": "limit_translation",
+      "route": "planner",
+      "output": {
+        "local": "rejected",
+        "message": "单步平移限于 50 mm以内。"
+      },
+      "scores": {
+        "completed": false,
+        "raw_json_valid": false,
+        "schema_valid": false,
+        "scene_valid": null,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "local_rejection"
+        ],
+        "safe_refusal": true
+      }
+    },
+    {
+      "id": "P032",
+      "split": "dev",
+      "family": "unknown_station",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P033",
+      "split": "dev",
+      "family": "scene_mismatch",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P034",
+      "split": "dev",
+      "family": "missing_object",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P035",
+      "split": "dev",
+      "family": "multi_target",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "可见目标不唯一，请重新摆放或确认目标。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P036",
+      "split": "dev",
+      "family": "unsupported_skill",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P037",
+      "split": "dev",
+      "family": "negative_only",
+      "route": "local",
+      "output": {
+        "local": "ignore"
+      },
+      "scores": {
+        "local_kind": "ignore",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P038",
+      "split": "dev",
+      "family": "pause_now",
+      "route": "local",
+      "output": {
+        "local": "pause"
+      },
+      "scores": {
+        "local_kind": "pause",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P039",
+      "split": "dev",
+      "family": "status_while_busy",
+      "route": "local",
+      "output": {
+        "local": "status"
+      },
+      "scores": {
+        "local_kind": "status",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P040",
+      "split": "dev",
+      "family": "missing_unit_local",
+      "route": "local",
+      "output": {
+        "local": "ask"
+      },
+      "scores": {
+        "local_kind": "ask",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P041",
+      "split": "test",
+      "family": "destination_alias",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P042",
+      "split": "test",
+      "family": "destination_alias",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P043",
+      "split": "test",
+      "family": "destination_alias",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P044",
+      "split": "test",
+      "family": "station_spelling",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "C",
+            "to": "B"
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P045",
+      "split": "test",
+      "family": "station_spelling",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P046",
+      "split": "test",
+      "family": "asr_typo",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P047",
+      "split": "test",
+      "family": "asr_typo",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P048",
+      "split": "test",
+      "family": "pickup_paraphrase",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P049",
+      "split": "test",
+      "family": "pickup_paraphrase",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P050",
+      "split": "test",
+      "family": "pickup_paraphrase",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P051",
+      "split": "test",
+      "family": "held_paraphrase",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P052",
+      "split": "test",
+      "family": "held_paraphrase",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P053",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": -8.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P054",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P055",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": -25.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P056",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P057",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P058",
+      "split": "test",
+      "family": "metric_fraction",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P059",
+      "split": "test",
+      "family": "axis_notation",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P060",
+      "split": "test",
+      "family": "axis_notation",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P061",
+      "split": "test",
+      "family": "axis_notation",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P062",
+      "split": "test",
+      "family": "metric_traditional",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": 25.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P063",
+      "split": "test",
+      "family": "metric_traditional",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": -5.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P064",
+      "split": "test",
+      "family": "metric_limit_valid",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P065",
+      "split": "test",
+      "family": "wrist_precise",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "wrist",
+            "deg": -1.5
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P066",
+      "split": "test",
+      "family": "wrist_precise",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "手腕往哪个方向转多少度？例如“向下转五度”。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P067",
+      "split": "test",
+      "family": "wrist_precise",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P068",
+      "split": "test",
+      "family": "sensor_read",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P069",
+      "split": "test",
+      "family": "empty_home",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P070",
+      "split": "test",
+      "family": "relay",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "要把木块放到哪个工位？请回复 A、B 或 C。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P071",
+      "split": "test",
+      "family": "relay",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P072",
+      "split": "test",
+      "family": "axis_then_wrist",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "z",
+            "mm": -4.0
+          },
+          {
+            "action": "wrist",
+            "deg": -7.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P073",
+      "split": "test",
+      "family": "axis_then_wrist",
+      "route": "planner",
+      "output": {
+        "steps": [
+          {
+            "action": "wrist",
+            "deg": 6.0
+          },
+          {
+            "action": "move",
+            "axis": "x",
+            "mm": -4.0
+          }
+        ]
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P074",
+      "split": "test",
+      "family": "four_steps",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P075",
+      "split": "test",
+      "family": "four_steps",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P076",
+      "split": "test",
+      "family": "deposit_plus",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P077",
+      "split": "test",
+      "family": "deposit_plus",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P078",
+      "split": "test",
+      "family": "dialogue_destination",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P079",
+      "split": "test",
+      "family": "dialogue_wrist",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P080",
+      "split": "test",
+      "family": "dialogue_observed",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P081",
+      "split": "test",
+      "family": "dialogue_missing_unit",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P082",
+      "split": "test",
+      "family": "dialogue_held",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "unnecessary_clarification"
+        ]
+      }
+    },
+    {
+      "id": "P083",
+      "split": "test",
+      "family": "axis_ambiguous",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P084",
+      "split": "test",
+      "family": "ambiguous_scale",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P085",
+      "split": "test",
+      "family": "wrist_over_limit",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "手腕往哪个方向转多少度？例如“向下转五度”。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P086",
+      "split": "test",
+      "family": "illegal_split",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "需要移动多远？请补充方向、距离和单位。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P087",
+      "split": "test",
+      "family": "unheld_place",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P088",
+      "split": "test",
+      "family": "busy_gripper",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P089",
+      "split": "test",
+      "family": "source_outside",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P090",
+      "split": "test",
+      "family": "conflict_history",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P091",
+      "split": "test",
+      "family": "tool_unavailable",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P092",
+      "split": "test",
+      "family": "five_steps",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "每条任务可连续执行一到四个动作，请分次发送。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P093",
+      "split": "test",
+      "family": "held_home",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": false,
+        "ask_type_correct": true,
+        "ask_focus_correct": false,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": [
+          "clarification_focus"
+        ]
+      }
+    },
+    {
+      "id": "P094",
+      "split": "test",
+      "family": "unobservable_reference",
+      "route": "planner",
+      "output": {
+        "action": "ask",
+        "question": "这句需要进一步解释。请说清目标或动作，也可以使用交大 DeepSeek 规划原话。"
+      },
+      "scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": false,
+        "semantic_correct": true,
+        "ask_type_correct": true,
+        "ask_focus_correct": true,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P095",
+      "split": "test",
+      "family": "negative_in_motion",
+      "route": "local",
+      "output": {
+        "local": "ignore"
+      },
+      "scores": {
+        "local_kind": "ignore",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P096",
+      "split": "test",
+      "family": "negative_pause",
+      "route": "local",
+      "output": {
+        "local": "ignore"
+      },
+      "scores": {
+        "local_kind": "ignore",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P097",
+      "split": "test",
+      "family": "composite_negative",
+      "route": "local",
+      "output": {
+        "local": "ask"
+      },
+      "scores": {
+        "local_kind": "ask",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P098",
+      "split": "test",
+      "family": "pause_then_new",
+      "route": "local",
+      "output": {
+        "local": "pause"
+      },
+      "scores": {
+        "local_kind": "pause",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P099",
+      "split": "test",
+      "family": "explicit_resume",
+      "route": "local",
+      "output": {
+        "local": "resume"
+      },
+      "scores": {
+        "local_kind": "resume",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    },
+    {
+      "id": "P100",
+      "split": "test",
+      "family": "status_traditional",
+      "route": "local",
+      "output": {
+        "local": "status"
+      },
+      "scores": {
+        "local_kind": "status",
+        "local_correct": true,
+        "semantic_correct": true,
+        "failure_tags": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "prompts": {
+    "baseline": "你是桌面机械臂规划器。根据用户原话、相机工位和可选的多轮澄清理解任务，按原顺序只输出JSON：{\"steps\":[动作,...]}，1至4步。动作格式示例（按需替换字段值）：{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}，{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}，{\"action\":\"place\",\"to\":\"C\"}，{\"action\":\"move\",\"axis\":\"x\",\"mm\":20}，{\"action\":\"wrist\",\"deg\":-5}，{\"action\":\"observe\"}，{\"action\":\"home\"}。结合观测理解口语、同音误字。可选xy_mm是图像测得的底座平面坐标。红块可在A（左）、B（右）、C（前方中间）。from与当步观测一致。holding为true表示已抓住，此时用place放置。独立抓取请求只pick，勿擅自放下。平移轴x正前、y正左、z正上，每步最多50毫米；腕部正向下，每步最多15度。不得擅自拆分越限指令。缺少必要信息、超出能力、否定或目标不明时返回{\"action\":\"ask\",\"question\":\"简短中文问题\"}。不要输出解释。",
+    "compact": "桌面机械臂。按command及objects/holding/dialogue规划。工位A左、B右、C前中。按序输出{\"steps\":[动作]}，1–4步。动作示例：{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}、{\"action\":\"pick\",\"object\":\"red_1\",\"from\":\"A\"}、{\"action\":\"place\",\"to\":\"C\"}、{\"action\":\"move\",\"axis\":\"x\",\"mm\":10}、{\"action\":\"wrist\",\"deg\":-3}、{\"action\":\"observe\"}、{\"action\":\"home\"}。单抓只pick，已持物用place。x前y左z上为正；腕向下为正。每步≤50mm/15度，不拆分越限指令。只纠正场景能确定的物名同音字。方向、数值、单位或目标不清、否定、冲突或越限，返回{\"action\":\"ask\",\"question\":\"中文问题\"}。"
+  },
+  "cases": [
+    {
+      "id": "transfer",
+      "wav": "transfer.wav",
+      "reference": "把红色木块放到右边的工位",
+      "goal": "transfer"
+    },
+    {
+      "id": "move",
+      "wav": "move.wav",
+      "reference": "向左移动十二毫米",
+      "goal": "move"
+    },
+    {
+      "id": "clarify",
+      "wav": "clarify.wav",
+      "reference": "向前移动五",
+      "goal": "ask"
+    },
+    {
+      "id": "negative",
+      "wav": "negative.wav",
+      "reference": "不要向前移动一厘米",
+      "goal": "ignore"
+    },
+    {
+      "id": "clean_transfer",
+      "text": "把红色木块放到右边的工位",
+      "source": "reference_control",
+      "goal": "transfer"
+    },
+    {
+      "id": "typo_transfer",
+      "text": "把红色木快放到右边的工位",
+      "source": "injected_object_homophone",
+      "goal": "transfer"
+    },
+    {
+      "id": "unsafe_unit",
+      "text": "向前移动一百九十米",
+      "source": "injected_unit_error",
+      "goal": "ask"
+    }
+  ],
+  "layout": "A"
+}
