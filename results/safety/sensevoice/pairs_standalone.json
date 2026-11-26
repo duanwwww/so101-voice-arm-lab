@@ -1,0 +1,2247 @@
+{
+  "mode": "offline_saved_live_json_replay_public_kinematics",
+  "source_file": "pairs_live.json",
+  "source_sha256": "8813f0b85d718af304dc3837ce9e978189cae40d33893a151ead2ce01cc10791",
+  "kinematics_backend": "arm_lab.kinematics.SimulationKinematics",
+  "asr_calls": 0,
+  "cloud_calls": 0,
+  "rows": [
+    {
+      "id": "A_noisy",
+      "layout": "A",
+      "raw_model_reply": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "frames": [
+        {
+          "phase": "before",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "lift",
+          "scene": {
+            "objects": [],
+            "holding": true
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.211921,
+                0.078802,
+                0.079159
+              ],
+              "contacts": [
+                "fixed_pad",
+                "moving_pad"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 5.24
+            },
+            "joints": [
+              -0.41529157864705823,
+              -0.05204255665114082,
+              0.03870641499728559,
+              1.5849241404676322,
+              -3.3112421376162077e-10,
+              0.01614601262335055
+            ],
+            "tcp_mm": [
+              202.8962288496174,
+              72.32822495983089,
+              78.25155931443744
+            ]
+          }
+        },
+        {
+          "phase": "verify_1",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.69
+            },
+            "joints": [
+              0.8200000518246865,
+              -0.6497298142407147,
+              0.6204453760584687,
+              0.42010966492185603,
+              -5.256317833514972e-08,
+              0.5699964861775639
+            ],
+            "tcp_mm": [
+              218.58776547662453,
+              -192.6596971582261,
+              164.35704400160444
+            ]
+          }
+        },
+        {
+          "phase": "verify_2",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.19
+            },
+            "joints": [
+              0.8200000000008738,
+              -0.6497298351389658,
+              0.6204453751867864,
+              0.4201096695783461,
+              -5.2552772988409464e-08,
+              0.5699964861812342
+            ],
+            "tcp_mm": [
+              218.58777459911352,
+              -192.65968691920992,
+              164.35704844445758
+            ]
+          }
+        },
+        {
+          "phase": "verify_3",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "receipt": {
+        "text": "把红色木块放到右干的工位。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.86,
+                  "encoder_rad": 0.0142,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.86,
+              "encoder_rad": 0.0142,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.629
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "physical_checks": {
+        "receipt_success": true,
+        "initial_source_matches": true,
+        "single_lift_with_both_pads_and_over_20mm": true,
+        "verification_phases": true,
+        "all_three_landings_inside_B_only_desk_contact": true,
+        "released_after": true
+      },
+      "passed": true
+    },
+    {
+      "id": "A_reference",
+      "layout": "A",
+      "raw_model_reply": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "frames": [
+        {
+          "phase": "before",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "lift",
+          "scene": {
+            "objects": [],
+            "holding": true
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.211921,
+                0.078802,
+                0.079159
+              ],
+              "contacts": [
+                "fixed_pad",
+                "moving_pad"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 5.24
+            },
+            "joints": [
+              -0.41529157864705823,
+              -0.05204255665114082,
+              0.03870641499728559,
+              1.5849241404676322,
+              -3.3112421376162077e-10,
+              0.01614601262335055
+            ],
+            "tcp_mm": [
+              202.8962288496174,
+              72.32822495983089,
+              78.25155931443744
+            ]
+          }
+        },
+        {
+          "phase": "verify_1",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.69
+            },
+            "joints": [
+              0.8200000518246865,
+              -0.6497298142407147,
+              0.6204453760584687,
+              0.42010966492185603,
+              -5.256317833514972e-08,
+              0.5699964861775639
+            ],
+            "tcp_mm": [
+              218.58776547662453,
+              -192.6596971582261,
+              164.35704400160444
+            ]
+          }
+        },
+        {
+          "phase": "verify_2",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.19
+            },
+            "joints": [
+              0.8200000000008738,
+              -0.6497298351389658,
+              0.6204453751867864,
+              0.4201096695783461,
+              -5.2552772988409464e-08,
+              0.5699964861812342
+            ],
+            "tcp_mm": [
+              218.58777459911352,
+              -192.65968691920992,
+              164.35704844445758
+            ]
+          }
+        },
+        {
+          "phase": "verify_3",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "receipt": {
+        "text": "把红色木块放到右边的工位。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.86,
+                  "encoder_rad": 0.0142,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.86,
+              "encoder_rad": 0.0142,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.637
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "physical_checks": {
+        "receipt_success": true,
+        "initial_source_matches": true,
+        "single_lift_with_both_pads_and_over_20mm": true,
+        "verification_phases": true,
+        "all_three_landings_inside_B_only_desk_contact": true,
+        "released_after": true
+      },
+      "passed": true
+    },
+    {
+      "id": "C_reference",
+      "layout": "C",
+      "raw_model_reply": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"B\"}]}",
+      "frames": [
+        {
+          "phase": "before",
+          "scene": {
+            "objects": [
+              {
+                "slot": "C",
+                "pixel": [
+                  319,
+                  147
+                ],
+                "box": [
+                  311,
+                  138,
+                  18,
+                  19
+                ],
+                "xy_mm": [
+                  245.1,
+                  1.4
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.245,
+                0.0,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": true,
+              "inside": "C",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "lift",
+          "scene": {
+            "objects": [],
+            "holding": true
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.242749,
+                -2.5e-05,
+                0.079075
+              ],
+              "contacts": [
+                "fixed_pad",
+                "moving_pad"
+              ],
+              "inside_C": true,
+              "inside": "C",
+              "time_s": 5.5
+            },
+            "joints": [
+              -0.0030115467496021077,
+              0.07415447272883466,
+              -0.1148091511223087,
+              1.6122942279935555,
+              3.181484089464895e-11,
+              0.015627586963128257
+            ],
+            "tcp_mm": [
+              232.03830029477092,
+              0.5705862882779551,
+              78.24404208679812
+            ]
+          }
+        },
+        {
+          "phase": "verify_1",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.49
+            },
+            "joints": [
+              0.8200000518246865,
+              -0.6497298142407147,
+              0.6204453760584687,
+              0.42010966492185603,
+              -5.256317833514974e-08,
+              0.5699964861775639
+            ],
+            "tcp_mm": [
+              218.58776547662453,
+              -192.6596971582261,
+              164.35704400160444
+            ]
+          }
+        },
+        {
+          "phase": "verify_2",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.99
+            },
+            "joints": [
+              0.8200000000008738,
+              -0.6497298351389658,
+              0.6204453751867864,
+              0.4201096695783461,
+              -5.2552772988409464e-08,
+              0.5699964861812342
+            ],
+            "tcp_mm": [
+              218.58777459911352,
+              -192.65968691920992,
+              164.35704844445758
+            ]
+          }
+        },
+        {
+          "phase": "verify_3",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.49
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.49
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "receipt": {
+        "text": "把红色木块放到右边的工位。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "C",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(C)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "C",
+                "observation_mm": [
+                  245.1,
+                  1.4
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  245.0,
+                  0.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.48,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 4.18,
+                  "encoder_rad": 0.05955,
+                  "command_rad": 0.05955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.66,
+                  "encoder_rad": 0.01432,
+                  "command_rad": 0.05955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                373,
+                168
+              ],
+              "box": [
+                362,
+                157,
+                23,
+                23
+              ],
+              "xy_mm": [
+                215.3,
+                -75.1
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "C",
+            "observation_mm": [
+              245.1,
+              1.4
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              245.0,
+              0.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.48,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 4.18,
+              "encoder_rad": 0.05955,
+              "command_rad": 0.05955
+            },
+            {
+              "event": "release",
+              "time_s": 6.66,
+              "encoder_rad": 0.01432,
+              "command_rad": 0.05955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.622
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.49
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "physical_checks": {
+        "receipt_success": true,
+        "initial_source_matches": true,
+        "single_lift_with_both_pads_and_over_20mm": true,
+        "verification_phases": true,
+        "all_three_landings_inside_B_only_desk_contact": true,
+        "released_after": true
+      },
+      "passed": true
+    },
+    {
+      "id": "C_noisy",
+      "layout": "C",
+      "raw_model_reply": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"C\",\"to\":\"B\"}]}",
+      "frames": [
+        {
+          "phase": "before",
+          "scene": {
+            "objects": [
+              {
+                "slot": "C",
+                "pixel": [
+                  319,
+                  147
+                ],
+                "box": [
+                  311,
+                  138,
+                  18,
+                  19
+                ],
+                "xy_mm": [
+                  245.1,
+                  1.4
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.245,
+                0.0,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": true,
+              "inside": "C",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "lift",
+          "scene": {
+            "objects": [],
+            "holding": true
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.242749,
+                -2.5e-05,
+                0.079075
+              ],
+              "contacts": [
+                "fixed_pad",
+                "moving_pad"
+              ],
+              "inside_C": true,
+              "inside": "C",
+              "time_s": 5.5
+            },
+            "joints": [
+              -0.0030115467496021077,
+              0.07415447272883466,
+              -0.1148091511223087,
+              1.6122942279935555,
+              3.181484089464895e-11,
+              0.015627586963128257
+            ],
+            "tcp_mm": [
+              232.03830029477092,
+              0.5705862882779551,
+              78.24404208679812
+            ]
+          }
+        },
+        {
+          "phase": "verify_1",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.49
+            },
+            "joints": [
+              0.8200000518246865,
+              -0.6497298142407147,
+              0.6204453760584687,
+              0.42010966492185603,
+              -5.256317833514974e-08,
+              0.5699964861775639
+            ],
+            "tcp_mm": [
+              218.58776547662453,
+              -192.6596971582261,
+              164.35704400160444
+            ]
+          }
+        },
+        {
+          "phase": "verify_2",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.99
+            },
+            "joints": [
+              0.8200000000008738,
+              -0.6497298351389658,
+              0.6204453751867864,
+              0.4201096695783461,
+              -5.2552772988409464e-08,
+              0.5699964861812342
+            ],
+            "tcp_mm": [
+              218.58777459911352,
+              -192.65968691920992,
+              164.35704844445758
+            ]
+          }
+        },
+        {
+          "phase": "verify_3",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.49
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  373,
+                  168
+                ],
+                "box": [
+                  362,
+                  157,
+                  23,
+                  23
+                ],
+                "xy_mm": [
+                  215.3,
+                  -75.1
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.214798,
+                -0.076406,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.49
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        }
+      ],
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.245,
+            0.0,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": true,
+          "inside": "C",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "receipt": {
+        "text": "把红色木块放到右干的工位。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "C",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "C",
+              "pixel": [
+                319,
+                147
+              ],
+              "box": [
+                311,
+                138,
+                18,
+                19
+              ],
+              "xy_mm": [
+                245.1,
+                1.4
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(C)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "C",
+                "observation_mm": [
+                  245.1,
+                  1.4
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  245.0,
+                  0.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.48,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 4.18,
+                  "encoder_rad": 0.05955,
+                  "command_rad": 0.05955
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.66,
+                  "encoder_rad": 0.01432,
+                  "command_rad": 0.05955
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                373,
+                168
+              ],
+              "box": [
+                362,
+                157,
+                23,
+                23
+              ],
+              "xy_mm": [
+                215.3,
+                -75.1
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "C",
+            "observation_mm": [
+              245.1,
+              1.4
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              245.0,
+              0.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.48,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 4.18,
+              "encoder_rad": 0.05955,
+              "command_rad": 0.05955
+            },
+            {
+              "event": "release",
+              "time_s": 6.66,
+              "encoder_rad": 0.01432,
+              "command_rad": 0.05955
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 0.623
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.214798,
+            -0.076406,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.49
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "physical_checks": {
+        "receipt_success": true,
+        "initial_source_matches": true,
+        "single_lift_with_both_pads_and_over_20mm": true,
+        "verification_phases": true,
+        "all_three_landings_inside_B_only_desk_contact": true,
+        "released_after": true
+      },
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "total": 4,
+    "new_model_calls": 0
+  }
+}

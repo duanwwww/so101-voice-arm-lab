@@ -4,6 +4,8 @@
 
 [工作流与各节点成绩](docs/workflow.md) · [真机改造、场地和 90 分钟预约方案](docs/hardware_handoff.md) · [3 分 14 秒仿真演示](results/safety/simulation_demo.mp4)
 
+公开共享仓库：[duanwwww/so101-voice-arm-lab](https://github.com/duanwwww/so101-voice-arm-lab) · [下载 main 分支 ZIP](https://github.com/duanwwww/so101-voice-arm-lab/archive/refs/heads/main.zip)。组员可直接下载，模型密钥在各自电脑配置，权重按下方步骤下载。
+
 ![从录音、相机观测到动作执行与回执的工作流](docs/workflow.png)
 
 ### 组员先看什么
@@ -13,7 +15,9 @@
 | 口令是否听清 | SenseVoiceSmall 在同一批 24 段真人普通话上的字符错误率为 10.67%，历史 Whisper beam=1 为 20.51%。15 段组内留出整句正确从 3/15 到 6/15。方向仍有误听，4 条合成口令单列。[本地语音对照与链路结果](docs/sensevoice.md) |
 | JSON 能否控制正确 | 100 条输入先冻结金标。在相同的 42 条留出动作题中，严格匹配由 15 条增至 27 条。终选版仍会把向右的 −25 mm 写成 +25 mm。[原始回复与失败分析](docs/planner100_results.md) |
 | 画面是否指对物体 | 100 张有红块的实拍图，67 张得到唯一正确候选。77 张无红块的外部仿真图，57 张仍报出一个候选。[视觉验证与数据来源](docs/vision100.md) |
-| 机械臂是否做到 | 四条合成录音经真实 ASR、本地规则与仿真，初次 3/4 达到预期。搬运因“右干”被追问，另测明确补答 B 后，原场地搬运完成并三帧确认落位。补答由测试模拟用户提供。[本轮语音与恢复链路](docs/sensevoice.md) · [历史文本重放 10/12](results/safety/planner100/simulation_finalist.json) |
+| 机械臂是否做到 | 最新四条合成录音经真实 SenseVoice、交大 DeepSeek／本地分流与仿真，同一场地 4/4 达到预期。模型把原始误听“右干”规划为 A→B，实际搬运完成；另外一次平移误差约 0.226 mm，两条应静止的口令正确处理。本轮主链路实际调用云端 2 次。[原始回复与物理核验](docs/sensevoice.md) · [历史文本重放 10/12](results/safety/planner100/simulation_finalist.json) |
+
+“右干”另与正确的“右边”文本在 A、C 两种初态配对复测，四次都生成正确 JSON 并完成搬运。误听组 2/2、参考组 2/2；本轮合计云端 6/8 次。复测复用同一份语音转写，说明这个案例可以纠偏，尚不能代表所有误听的纠错率。[配对请求和逐项物理验证](results/safety/sensevoice/pairs_live.json)
 
 新组员可以先运行下面的离线命令，复现一次 A 到 B 的搬运。需要查看相机和语音交互时再启动网页。[课程模型出处](vendor/so101_course/NOTICE.md) · [项目贡献与材料来源](docs/project_summary.md)
 
@@ -35,7 +39,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 uv run --frozen --extra voice --env-file .env python -m arm_lab serve
 ~~~
 
-服务默认在控制电脑的 [localhost:8768](http://localhost:8768/) 打开。端口被占用时在启动命令末尾加 `--port 8770`。前台服务按 Ctrl+C 退出。私有仓库成员需要先用各自获授权的 GitHub 账号克隆。
+服务默认在控制电脑的 [localhost:8768](http://localhost:8768/) 打开。端口被占用时在启动命令末尾加 `--port 8770`。前台服务按 Ctrl+C 退出。
 
 ## 使用控制台
 

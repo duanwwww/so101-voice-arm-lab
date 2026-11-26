@@ -86,10 +86,10 @@
 <text x="240" y="1299" font-size="20" font-weight="400" fill="#466271">本地状态、规划追问和最终回执返回同一页面。执行失败结束当前序列，用户可在原场地重新发令。</text>
 <rect x="78" y="1344" width="1448" height="148" rx="14" fill="#16394c" stroke="none"/>
 <text x="102" y="1391" font-size="27" font-weight="700" fill="#fff">语音链路</text>
-<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">3/4</text>
-<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">4 条合成录音 → SenseVoice → 本地规则 → 控制校验 → MuJoCo / 相机 / 回执</text>
-<text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">1 次运动、2 次原位处理；“右干”导致搬运追问。历史文本与模型回复重放为 10/12。</text>
-<text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">另测明确补答 B 后搬运完成，原场地保留；补答由测试模拟用户提供。</text>
+<text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">4/4</text>
+<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">4 条合成录音 → SenseVoice → DeepSeek / 本地分流 → 仿真执行与回执</text>
+<text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">“右干”原样输入，模型规划 A→B 并完成搬运；12 mm 平移误差 0.226 mm。</text>
+<text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">同一误听在 A/C 配对复测 2/2 完成，原话对照 2/2；本轮共 6/8 次云端调用。</text>
 <text x="79" y="1527" font-size="18" font-weight="400" fill="#466271">数据来自本组课程实验记录。实拍感知、公开真人朗读、文本留出与仿真运动分别计分。</text>
 <path d="M 405 1030 V 1091" fill="none" stroke="#985421" stroke-width="3" marker-end="url(#o)"/>
 <text x="424" y="1071" font-size="18" font-weight="700" fill="#985421">未通过，给出原因</text>

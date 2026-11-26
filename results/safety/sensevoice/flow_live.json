@@ -1,0 +1,1961 @@
+{
+  "mode": "real_sensevoice_to_http_to_live_deepseek",
+  "synthetic_audio_source": "Existing four Windows offline TTS recordings",
+  "asr_engine": "sensevoice",
+  "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+  "initial_layout": "A",
+  "scene_resets": 0,
+  "campus_attempts": [
+    {
+      "task": {
+        "command": "把红色木块放到右干的工位。",
+        "objects": [
+          {
+            "id": "red_1",
+            "slot": "A",
+            "xy_mm": [
+              215.3,
+              76.5
+            ]
+          }
+        ]
+      },
+      "state": "answered",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "finish_reason": "stop"
+    },
+    {
+      "task": {
+        "command": "向左移动12毫米。",
+        "objects": [
+          {
+            "id": "red_1",
+            "slot": "B",
+            "xy_mm": [
+              216.7,
+              -70.8
+            ]
+          }
+        ]
+      },
+      "state": "answered",
+      "http_status": 200,
+      "raw": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":12}]}",
+      "finish_reason": "stop"
+    }
+  ],
+  "rows": [
+    {
+      "id": "transfer",
+      "reference": "把红色木块放到右边的工位",
+      "audio_sha256": "4c7aa40039f05622a11b500fa5b08b47f9cd4435104f688f53f286da285dba9b",
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.215,
+            0.077,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "A",
+          "time_s": 0.45
+        },
+        "joints": [
+          0.8199999999999424,
+          -0.6497298351504865,
+          0.6204453751865276,
+          0.4201096695781005,
+          -5.25528605201917e-08,
+          0.5699964861812397
+        ],
+        "tcp_mm": [
+          218.58777459893986,
+          -192.65968691866308,
+          164.35704844725075
+        ]
+      },
+      "frames": [
+        {
+          "phase": "before",
+          "image": "transfer-before.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.215,
+                0.077,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 0.45
+            },
+            "joints": [
+              0.8199999999999424,
+              -0.6497298351504865,
+              0.6204453751865276,
+              0.4201096695781005,
+              -5.25528605201917e-08,
+              0.5699964861812397
+            ],
+            "tcp_mm": [
+              218.58777459893986,
+              -192.65968691866308,
+              164.35704844725075
+            ]
+          }
+        },
+        {
+          "phase": "lift",
+          "image": "transfer-lift.jpg",
+          "scene": {
+            "objects": [],
+            "holding": true
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.211921,
+                0.078802,
+                0.079159
+              ],
+              "contacts": [
+                "fixed_pad",
+                "moving_pad"
+              ],
+              "inside_C": false,
+              "inside": "A",
+              "time_s": 5.24
+            },
+            "joints": [
+              -0.41529157864705823,
+              -0.05204255665114082,
+              0.03870641499728559,
+              1.5849241404676322,
+              -3.3112421376162077e-10,
+              0.01614601262335055
+            ],
+            "tcp_mm": [
+              202.8962288496174,
+              72.32822495983089,
+              78.25155931443744
+            ]
+          }
+        },
+        {
+          "phase": "verify_1",
+          "image": "transfer-verify_1.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 9.69
+            },
+            "joints": [
+              0.8200000518246865,
+              -0.6497298142407147,
+              0.6204453760584687,
+              0.42010966492185603,
+              -5.256317833514972e-08,
+              0.5699964861775639
+            ],
+            "tcp_mm": [
+              218.58776547662453,
+              -192.6596971582261,
+              164.35704400160444
+            ]
+          }
+        },
+        {
+          "phase": "verify_2",
+          "image": "transfer-verify_2.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.19
+            },
+            "joints": [
+              0.8200000000008738,
+              -0.6497298351389658,
+              0.6204453751867864,
+              0.4201096695783461,
+              -5.2552772988409464e-08,
+              0.5699964861812342
+            ],
+            "tcp_mm": [
+              218.58777459911352,
+              -192.65968691920992,
+              164.35704844445758
+            ]
+          }
+        },
+        {
+          "phase": "verify_3",
+          "image": "transfer-verify_3.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "image": "transfer-after.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        }
+      ],
+      "asr_seconds": 2.081,
+      "asr_http_status": 200,
+      "asr_response": {
+        "text": "把红色木块放到右干的工位。",
+        "model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "engine": "sensevoice"
+      },
+      "command": {
+        "id": "c15b189c-65c3-49a0-95ad-559f8c629cb5",
+        "text": "把红色木块放到右干的工位。",
+        "revision": 0,
+        "issued_at_ms": 1795702366468,
+        "watchdog_token": "f72f6b94-0f57-45ae-b127-7de78093fbde",
+        "use_deepseek": true
+      },
+      "successful_monitor_renewals": 158,
+      "control_seconds": 17.809,
+      "control_http_status": 200,
+      "receipt": {
+        "text": "把红色木块放到右干的工位。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "transfer",
+          "axis": "",
+          "amount": 0,
+          "message": "",
+          "source": "A",
+          "target": "B",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "A",
+              "pixel": [
+                266,
+                168
+              ],
+              "box": [
+                257,
+                160,
+                18,
+                17
+              ],
+              "xy_mm": [
+                215.3,
+                76.5
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "pick(A)",
+          "place(B)",
+          "verify(B)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "transfer",
+            "status": "success",
+            "message": "相机连续确认红块已在 B 区。",
+            "measurement": {
+              "drop_views": [
+                "overhead",
+                "overhead",
+                "overhead"
+              ]
+            },
+            "gripper": {
+              "mode": "open",
+              "fault": null,
+              "stop_response": null,
+              "alignment": {
+                "source": "A",
+                "observation_mm": [
+                  215.3,
+                  76.5
+                ],
+                "correction_mm": [
+                  0.0,
+                  0.0
+                ],
+                "target_xy_mm": [
+                  215.0,
+                  77.0
+                ]
+              },
+              "hold_torque_limit_Nm_sim": 0.3,
+              "events": [
+                {
+                  "event": "closure_start",
+                  "time_s": 2.53,
+                  "encoder_rad": 0.57,
+                  "command_rad": 0.57
+                },
+                {
+                  "event": "bilateral_contact",
+                  "time_s": 3.92,
+                  "encoder_rad": 0.15254,
+                  "command_rad": 0.15254
+                },
+                {
+                  "event": "release",
+                  "time_s": 6.86,
+                  "encoder_rad": 0.0142,
+                  "command_rad": 0.15254
+                }
+              ]
+            }
+          }
+        ],
+        "status": "success",
+        "message": "相机连续确认红块已在 B 区。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "pregrasp_observation",
+          "pregrasp",
+          "descend",
+          "close",
+          "test_lift",
+          "lift",
+          "carry",
+          "release",
+          "retreat",
+          "verify_1",
+          "verify_2",
+          "verify_3",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.86,
+              "encoder_rad": 0.0142,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "drop_views": [
+            "overhead",
+            "overhead",
+            "overhead"
+          ]
+        },
+        "wall_seconds": 17.717,
+        "id": "c15b189c-65c3-49a0-95ad-559f8c629cb5",
+        "revision": 1
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.6,
+          -192.7,
+          164.4
+        ],
+        "sim_seconds": 10.69,
+        "backend": "MuJoCo",
+        "revision": 1,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 3,
+          "deepseek": 7,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": true,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "把红色木块放到右干的工位。",
+          "planner": "deepseek-chat",
+          "intent": {
+            "kind": "transfer",
+            "axis": "",
+            "amount": 0,
+            "message": "",
+            "source": "A",
+            "target": "B",
+            "steps": []
+          },
+          "before": {
+            "objects": [
+              {
+                "slot": "A",
+                "pixel": [
+                  266,
+                  168
+                ],
+                "box": [
+                  257,
+                  160,
+                  18,
+                  17
+                ],
+                "xy_mm": [
+                  215.3,
+                  76.5
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "plan": [
+            "pick(A)",
+            "place(B)",
+            "verify(B)"
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "kind": "transfer",
+              "status": "success",
+              "message": "相机连续确认红块已在 B 区。",
+              "measurement": {
+                "drop_views": [
+                  "overhead",
+                  "overhead",
+                  "overhead"
+                ]
+              },
+              "gripper": {
+                "mode": "open",
+                "fault": null,
+                "stop_response": null,
+                "alignment": {
+                  "source": "A",
+                  "observation_mm": [
+                    215.3,
+                    76.5
+                  ],
+                  "correction_mm": [
+                    0.0,
+                    0.0
+                  ],
+                  "target_xy_mm": [
+                    215.0,
+                    77.0
+                  ]
+                },
+                "hold_torque_limit_Nm_sim": 0.3,
+                "events": [
+                  {
+                    "event": "closure_start",
+                    "time_s": 2.53,
+                    "encoder_rad": 0.57,
+                    "command_rad": 0.57
+                  },
+                  {
+                    "event": "bilateral_contact",
+                    "time_s": 3.92,
+                    "encoder_rad": 0.15254,
+                    "command_rad": 0.15254
+                  },
+                  {
+                    "event": "release",
+                    "time_s": 6.86,
+                    "encoder_rad": 0.0142,
+                    "command_rad": 0.15254
+                  }
+                ]
+              }
+            }
+          ],
+          "status": "success",
+          "message": "相机连续确认红块已在 B 区。",
+          "after": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "phases": [
+            "before",
+            "pregrasp_observation",
+            "pregrasp",
+            "descend",
+            "close",
+            "test_lift",
+            "lift",
+            "carry",
+            "release",
+            "retreat",
+            "verify_1",
+            "verify_2",
+            "verify_3",
+            "after"
+          ],
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.86,
+                "encoder_rad": 0.0142,
+                "command_rad": 0.15254
+              }
+            ]
+          },
+          "measurement": {
+            "drop_views": [
+              "overhead",
+              "overhead",
+              "overhead"
+            ]
+          },
+          "wall_seconds": 17.717,
+          "id": "c15b189c-65c3-49a0-95ad-559f8c629cb5",
+          "revision": 1
+        },
+        "server_ms": 1795702384280
+      },
+      "passed": true
+    },
+    {
+      "id": "move",
+      "reference": "向左移动十二毫米",
+      "audio_sha256": "f7783322eaeb544f1e39a5a567b7e7662e8a54175efd55f399482a876601f911",
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 10.69
+        },
+        "joints": [
+          0.8199999999998488,
+          -0.6497298351394759,
+          0.6204453751875644,
+          0.42010966957822127,
+          -5.255284196526208e-08,
+          0.5699964861812326
+        ],
+        "tcp_mm": [
+          218.58777459926932,
+          -192.65968691898027,
+          164.35704844437763
+        ]
+      },
+      "frames": [
+        {
+          "phase": "before",
+          "image": "move-before.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 10.69
+            },
+            "joints": [
+              0.8199999999998488,
+              -0.6497298351394759,
+              0.6204453751875644,
+              0.42010966957822127,
+              -5.255284196526208e-08,
+              0.5699964861812326
+            ],
+            "tcp_mm": [
+              218.58777459926932,
+              -192.65968691898027,
+              164.35704844437763
+            ]
+          }
+        },
+        {
+          "phase": "after",
+          "image": "move-after.jpg",
+          "scene": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "physics": {
+            "block": {
+              "xyz_m": [
+                0.216479,
+                -0.072962,
+                0.046874
+              ],
+              "contacts": [
+                "desk"
+              ],
+              "inside_C": false,
+              "inside": "B",
+              "time_s": 12.1
+            },
+            "joints": [
+              0.7880233686442197,
+              -0.7186283796860914,
+              0.6503467371187572,
+              0.4734350470840639,
+              -0.0009216462862847825,
+              0.5699964802267612
+            ],
+            "tcp_mm": [
+              218.5420354879894,
+              -180.65838529242492,
+              164.1358294762652
+            ]
+          }
+        }
+      ],
+      "asr_seconds": 0.1,
+      "asr_http_status": 200,
+      "asr_response": {
+        "text": "向左移动12毫米。",
+        "model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "engine": "sensevoice"
+      },
+      "command": {
+        "id": "017674b4-7446-4bc7-afec-8b3ea560409b",
+        "text": "向左移动12毫米。",
+        "revision": 1,
+        "issued_at_ms": 1795702384393,
+        "watchdog_token": "763796ed-c7d0-48ac-b2c6-5607ac2b1723",
+        "use_deepseek": true
+      },
+      "successful_monitor_renewals": 23,
+      "control_seconds": 2.64,
+      "control_http_status": 200,
+      "receipt": {
+        "text": "向左移动12毫米。",
+        "planner": "deepseek-chat",
+        "intent": {
+          "kind": "move",
+          "axis": "y",
+          "amount": 12,
+          "message": "",
+          "source": "",
+          "target": "",
+          "steps": []
+        },
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "plan": [
+          "move_delta(y,12 mm)"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "kind": "move",
+            "status": "success",
+            "message": "已测量末端平移。",
+            "measurement": {
+              "requested_mm": 12,
+              "displacement_mm": [
+                -0.046,
+                12.001,
+                -0.221
+              ],
+              "error_mm": 0.226
+            }
+          }
+        ],
+        "status": "success",
+        "message": "已测量末端平移。",
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "phases": [
+          "before",
+          "after"
+        ],
+        "gripper": {
+          "mode": "open",
+          "fault": null,
+          "stop_response": null,
+          "alignment": {
+            "source": "A",
+            "observation_mm": [
+              215.3,
+              76.5
+            ],
+            "correction_mm": [
+              0.0,
+              0.0
+            ],
+            "target_xy_mm": [
+              215.0,
+              77.0
+            ]
+          },
+          "hold_torque_limit_Nm_sim": 0.3,
+          "events": [
+            {
+              "event": "closure_start",
+              "time_s": 2.53,
+              "encoder_rad": 0.57,
+              "command_rad": 0.57
+            },
+            {
+              "event": "bilateral_contact",
+              "time_s": 3.92,
+              "encoder_rad": 0.15254,
+              "command_rad": 0.15254
+            },
+            {
+              "event": "release",
+              "time_s": 6.86,
+              "encoder_rad": 0.0142,
+              "command_rad": 0.15254
+            }
+          ]
+        },
+        "measurement": {
+          "requested_mm": 12,
+          "displacement_mm": [
+            -0.046,
+            12.001,
+            -0.221
+          ],
+          "error_mm": 0.226
+        },
+        "wall_seconds": 2.611,
+        "id": "017674b4-7446-4bc7-afec-8b3ea560409b",
+        "revision": 2
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 12.1
+        },
+        "joints": [
+          0.7880233686442197,
+          -0.7186283796860914,
+          0.6503467371187572,
+          0.4734350470840639,
+          -0.0009216462862847825,
+          0.5699964802267612
+        ],
+        "tcp_mm": [
+          218.5420354879894,
+          -180.65838529242492,
+          164.1358294762652
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.5,
+          -180.7,
+          164.1
+        ],
+        "sim_seconds": 12.1,
+        "backend": "MuJoCo",
+        "revision": 2,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 2,
+          "deepseek": 6,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": true,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "向左移动12毫米。",
+          "planner": "deepseek-chat",
+          "intent": {
+            "kind": "move",
+            "axis": "y",
+            "amount": 12,
+            "message": "",
+            "source": "",
+            "target": "",
+            "steps": []
+          },
+          "before": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "plan": [
+            "move_delta(y,12 mm)"
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "kind": "move",
+              "status": "success",
+              "message": "已测量末端平移。",
+              "measurement": {
+                "requested_mm": 12,
+                "displacement_mm": [
+                  -0.046,
+                  12.001,
+                  -0.221
+                ],
+                "error_mm": 0.226
+              }
+            }
+          ],
+          "status": "success",
+          "message": "已测量末端平移。",
+          "after": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "phases": [
+            "before",
+            "after"
+          ],
+          "gripper": {
+            "mode": "open",
+            "fault": null,
+            "stop_response": null,
+            "alignment": {
+              "source": "A",
+              "observation_mm": [
+                215.3,
+                76.5
+              ],
+              "correction_mm": [
+                0.0,
+                0.0
+              ],
+              "target_xy_mm": [
+                215.0,
+                77.0
+              ]
+            },
+            "hold_torque_limit_Nm_sim": 0.3,
+            "events": [
+              {
+                "event": "closure_start",
+                "time_s": 2.53,
+                "encoder_rad": 0.57,
+                "command_rad": 0.57
+              },
+              {
+                "event": "bilateral_contact",
+                "time_s": 3.92,
+                "encoder_rad": 0.15254,
+                "command_rad": 0.15254
+              },
+              {
+                "event": "release",
+                "time_s": 6.86,
+                "encoder_rad": 0.0142,
+                "command_rad": 0.15254
+              }
+            ]
+          },
+          "measurement": {
+            "requested_mm": 12,
+            "displacement_mm": [
+              -0.046,
+              12.001,
+              -0.221
+            ],
+            "error_mm": 0.226
+          },
+          "wall_seconds": 2.611,
+          "id": "017674b4-7446-4bc7-afec-8b3ea560409b",
+          "revision": 2
+        },
+        "server_ms": 1795702387036
+      },
+      "independent_displacement_mm": [
+        -0.04573911127991437,
+        12.001301626555346,
+        -0.22121896811242436
+      ],
+      "error_mm": 0.22590173170007308,
+      "passed": true
+    },
+    {
+      "id": "negative",
+      "reference": "不要向前移动一厘米",
+      "audio_sha256": "7c3148c14821d482208eb87d5062e918801925d761d430c1ce1996b11a685944",
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 12.1
+        },
+        "joints": [
+          0.7880233686442197,
+          -0.7186283796860914,
+          0.6503467371187572,
+          0.4734350470840639,
+          -0.0009216462862847825,
+          0.5699964802267612
+        ],
+        "tcp_mm": [
+          218.5420354879894,
+          -180.65838529242492,
+          164.1358294762652
+        ]
+      },
+      "frames": [],
+      "asr_seconds": 0.106,
+      "asr_http_status": 200,
+      "asr_response": {
+        "text": "不要向前移动1厘米。",
+        "model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "engine": "sensevoice"
+      },
+      "command": {
+        "id": "2e19d1c0-e30e-44d8-981d-7f76c5573d70",
+        "text": "不要向前移动1厘米。",
+        "revision": 2,
+        "issued_at_ms": 1795702387153,
+        "watchdog_token": "05577ab9-a6e3-4038-8003-5dff110e0c91",
+        "use_deepseek": true
+      },
+      "successful_monitor_renewals": 0,
+      "control_seconds": 0.115,
+      "control_http_status": 200,
+      "receipt": {
+        "text": "不要向前移动1厘米。",
+        "planner": "local_control",
+        "status": "ignored",
+        "message": "收到，本条禁止指令不产生新动作。",
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "steps": [],
+        "plan": [],
+        "phases": [],
+        "measurement": {},
+        "id": "2e19d1c0-e30e-44d8-981d-7f76c5573d70",
+        "revision": 2
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 12.1
+        },
+        "joints": [
+          0.7880233686442197,
+          -0.7186283796860914,
+          0.6503467371187572,
+          0.4734350470840639,
+          -0.0009216462862847825,
+          0.5699964802267612
+        ],
+        "tcp_mm": [
+          218.5420354879894,
+          -180.65838529242492,
+          164.1358294762652
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.5,
+          -180.7,
+          164.1
+        ],
+        "sim_seconds": 12.1,
+        "backend": "MuJoCo",
+        "revision": 2,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 1,
+          "deepseek": 6,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": true,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "不要向前移动1厘米。",
+          "planner": "local_control",
+          "status": "ignored",
+          "message": "收到，本条禁止指令不产生新动作。",
+          "before": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "after": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "steps": [],
+          "plan": [],
+          "phases": [],
+          "measurement": {},
+          "id": "2e19d1c0-e30e-44d8-981d-7f76c5573d70",
+          "revision": 2
+        },
+        "server_ms": 1795702387272
+      },
+      "passed": true
+    },
+    {
+      "id": "clarify",
+      "reference": "向前移动五",
+      "audio_sha256": "03ce99f2c9fa81836825707506bff81a917c0a9d8bf41c7c47de82df8e31288f",
+      "before": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 12.1
+        },
+        "joints": [
+          0.7880233686442197,
+          -0.7186283796860914,
+          0.6503467371187572,
+          0.4734350470840639,
+          -0.0009216462862847825,
+          0.5699964802267612
+        ],
+        "tcp_mm": [
+          218.5420354879894,
+          -180.65838529242492,
+          164.1358294762652
+        ]
+      },
+      "frames": [],
+      "asr_seconds": 0.111,
+      "asr_http_status": 200,
+      "asr_response": {
+        "text": "向前移动5。",
+        "model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "engine": "sensevoice"
+      },
+      "command": {
+        "id": "b03719f3-011f-4a41-8d80-15cdc833649c",
+        "text": "向前移动5。",
+        "revision": 2,
+        "issued_at_ms": 1795702387398,
+        "watchdog_token": "1bb2e941-6f0f-4e3c-9710-f2da08899a36",
+        "use_deepseek": true
+      },
+      "successful_monitor_renewals": 0,
+      "control_seconds": 0.115,
+      "control_http_status": 200,
+      "receipt": {
+        "text": "向前移动5。",
+        "planner": "local_control",
+        "status": "clarify",
+        "message": "请补充距离或角度的单位，例如毫米、厘米或度。",
+        "before": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "after": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "steps": [],
+        "plan": [],
+        "phases": [],
+        "measurement": {},
+        "clarification": {
+          "command": "向前移动5。",
+          "question": "请补充距离或角度的单位，例如毫米、厘米或度。"
+        },
+        "id": "b03719f3-011f-4a41-8d80-15cdc833649c",
+        "revision": 2
+      },
+      "after": {
+        "block": {
+          "xyz_m": [
+            0.216479,
+            -0.072962,
+            0.046874
+          ],
+          "contacts": [
+            "desk"
+          ],
+          "inside_C": false,
+          "inside": "B",
+          "time_s": 12.1
+        },
+        "joints": [
+          0.7880233686442197,
+          -0.7186283796860914,
+          0.6503467371187572,
+          0.4734350470840639,
+          -0.0009216462862847825,
+          0.5699964802267612
+        ],
+        "tcp_mm": [
+          218.5420354879894,
+          -180.65838529242492,
+          164.1358294762652
+        ]
+      },
+      "state_after": {
+        "phase": "after",
+        "scene": {
+          "objects": [
+            {
+              "slot": "B",
+              "pixel": [
+                370,
+                167
+              ],
+              "box": [
+                359,
+                156,
+                24,
+                23
+              ],
+              "xy_mm": [
+                216.7,
+                -70.8
+              ]
+            }
+          ],
+          "holding": false
+        },
+        "layout": "A",
+        "tcp_mm": [
+          218.5,
+          -180.7,
+          164.1
+        ],
+        "sim_seconds": 12.1,
+        "backend": "MuJoCo",
+        "revision": 2,
+        "busy": false,
+        "paused": false,
+        "stopped": false,
+        "fault": null,
+        "watchdog_seconds": 3.0,
+        "watchdog_active": false,
+        "watchdog_remaining_ms": null,
+        "watchdog_expired": false,
+        "quota": {
+          "asr": 0,
+          "deepseek": 6,
+          "tts": 0
+        },
+        "local_approval": true,
+        "campus_key": true,
+        "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+        "asr_engine": "sensevoice",
+        "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+        "asr_ready": true,
+        "whisper_ready": true,
+        "last": {
+          "text": "向前移动5。",
+          "planner": "local_control",
+          "status": "clarify",
+          "message": "请补充距离或角度的单位，例如毫米、厘米或度。",
+          "before": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "after": {
+            "objects": [
+              {
+                "slot": "B",
+                "pixel": [
+                  370,
+                  167
+                ],
+                "box": [
+                  359,
+                  156,
+                  24,
+                  23
+                ],
+                "xy_mm": [
+                  216.7,
+                  -70.8
+                ]
+              }
+            ],
+            "holding": false
+          },
+          "steps": [],
+          "plan": [],
+          "phases": [],
+          "measurement": {},
+          "clarification": {
+            "command": "向前移动5。",
+            "question": "请补充距离或角度的单位，例如毫米、厘米或度。"
+          },
+          "id": "b03719f3-011f-4a41-8d80-15cdc833649c",
+          "revision": 2
+        },
+        "server_ms": 1795702387516
+      },
+      "passed": true
+    }
+  ],
+  "tts": "text receipts only",
+  "camera": "OpenCV HSV, original simulator renderer",
+  "created_utc": "2026-11-26T14:12:43Z",
+  "initial_state": {
+    "phase": "ready",
+    "scene": {
+      "objects": [
+        {
+          "slot": "A",
+          "pixel": [
+            266,
+            168
+          ],
+          "box": [
+            257,
+            160,
+            18,
+            17
+          ],
+          "xy_mm": [
+            215.3,
+            76.5
+          ]
+        }
+      ],
+      "holding": false
+    },
+    "layout": "A",
+    "tcp_mm": [
+      218.6,
+      -192.7,
+      164.4
+    ],
+    "sim_seconds": 0.45,
+    "backend": "MuJoCo",
+    "revision": 0,
+    "busy": false,
+    "paused": false,
+    "stopped": false,
+    "fault": null,
+    "watchdog_seconds": 3.0,
+    "watchdog_active": false,
+    "watchdog_remaining_ms": null,
+    "watchdog_expired": false,
+    "quota": {
+      "asr": 4,
+      "deepseek": 8,
+      "tts": 0
+    },
+    "local_approval": true,
+    "campus_key": true,
+    "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+    "asr_engine": "sensevoice",
+    "asr_model": "csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+    "asr_ready": true,
+    "whisper_ready": true,
+    "last": null,
+    "server_ms": 1795702364379
+  },
+  "summary": {
+    "passed": 4,
+    "total": 4,
+    "asr_calls": 4,
+    "cloud_calls": 2,
+    "same_scene": true
+  }
+}

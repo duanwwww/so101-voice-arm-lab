@@ -1,0 +1,147 @@
+{
+  "mode": "post_run_offline_audit_of_saved_live_evidence",
+  "created_utc": "2026-11-26T14:20:42.957492+00:00",
+  "source": "flow_live.json",
+  "source_sha256": "23f86f143d6d538c6652eba5039956f91dd468b0d855252d059e77448eb78e23",
+  "reference_config": "configs/prompt_trial.json",
+  "reference_config_sha256": "8489266f18bf091642ba2288e77bc54afe69e111560edf41c6ead3292d3f5e61",
+  "gold_mapping": "scripts.evaluate_prompt_trial.mocked_reply, the existing reference JSON for transfer/move",
+  "gold_mapping_file_sha256": "0bc431193e916fd2e6940b04c1e718fbf841fea7bfe1fb9e5e87d4758f4db12b",
+  "planner_prompt_sha256": "3ec353dafa642254cf11ee640d95ce2baef809cd6375f0c3fe3262f29f6d58a6",
+  "physical_auditor": "scripts.evaluate_sensevoice_pairs.physical_checks",
+  "physical_auditor_file_sha256": "c2e7a24cbb4ae98564e614ba8ceb4b0726c00ea0073dc7065771a6d7bd371270",
+  "new_asr_calls": 0,
+  "new_cloud_calls": 0,
+  "source_cloud_attempts": 2,
+  "audit_timing_note": "This stricter physical/raw-JSON audit was added after observing the run; reference utterances and their goal mapping already existed before the run. Source report is unchanged.",
+  "limitation": "The unknown phrase 右干 is accepted as free-form intent; the local semantic guard does not independently prove that the inferred destination B matches the speaker intent. These samples do not establish a general correction rate.",
+  "rows": [
+    {
+      "id": "transfer",
+      "reference": "把红色木块放到右边的工位",
+      "reference_goal": "transfer",
+      "reference_matches_saved": true,
+      "raw_asr": "把红色木块放到右干的工位。",
+      "asr_submitted_unchanged": true,
+      "source_audio_hash_matches": true,
+      "receipt_status": "success",
+      "campus_attempt_indices": [
+        0
+      ],
+      "expected_raw_json": {
+        "steps": [
+          {
+            "action": "transfer",
+            "object": "red_1",
+            "from": "A",
+            "to": "B"
+          }
+        ]
+      },
+      "raw_scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      },
+      "raw_model_text": "{\"steps\":[{\"action\":\"transfer\",\"object\":\"red_1\",\"from\":\"A\",\"to\":\"B\"}]}",
+      "physical_checks": {
+        "receipt_success": true,
+        "initial_source_matches": true,
+        "single_lift_with_both_pads_and_over_20mm": true,
+        "verification_phases": true,
+        "all_three_landings_inside_B_only_desk_contact": true,
+        "released_after": true
+      },
+      "task_completed": true
+    },
+    {
+      "id": "move",
+      "reference": "向左移动十二毫米",
+      "reference_goal": "move",
+      "reference_matches_saved": true,
+      "raw_asr": "向左移动12毫米。",
+      "asr_submitted_unchanged": true,
+      "source_audio_hash_matches": true,
+      "receipt_status": "success",
+      "campus_attempt_indices": [
+        1
+      ],
+      "expected_raw_json": {
+        "steps": [
+          {
+            "action": "move",
+            "axis": "y",
+            "mm": 12
+          }
+        ]
+      },
+      "raw_scores": {
+        "completed": true,
+        "raw_json_valid": true,
+        "schema_valid": true,
+        "scene_valid": true,
+        "strict_exact": true,
+        "semantic_correct": true,
+        "ask_type_correct": null,
+        "ask_focus_correct": null,
+        "dangerous_motion": false,
+        "motion_on_nonaction": false,
+        "failure_tags": []
+      },
+      "raw_model_text": "{\"steps\":[{\"action\":\"move\",\"axis\":\"y\",\"mm\":12}]}",
+      "independent_delta_mm": [
+        -0.04573911127991437,
+        12.001301626555346,
+        -0.22121896811242436
+      ],
+      "independent_error_mm": 0.22590173170007308,
+      "task_completed": true
+    },
+    {
+      "id": "negative",
+      "reference": "不要向前移动一厘米",
+      "reference_goal": "ignore",
+      "reference_matches_saved": true,
+      "raw_asr": "不要向前移动1厘米。",
+      "asr_submitted_unchanged": true,
+      "source_audio_hash_matches": true,
+      "receipt_status": "ignored",
+      "campus_attempt_indices": [],
+      "independent_no_motion": true,
+      "expected_status": "ignored",
+      "task_completed": true
+    },
+    {
+      "id": "clarify",
+      "reference": "向前移动五",
+      "reference_goal": "ask",
+      "reference_matches_saved": true,
+      "raw_asr": "向前移动5。",
+      "asr_submitted_unchanged": true,
+      "source_audio_hash_matches": true,
+      "receipt_status": "clarify",
+      "campus_attempt_indices": [],
+      "independent_no_motion": true,
+      "expected_status": "clarify",
+      "task_completed": true
+    }
+  ],
+  "summary": {
+    "raw_model_replies": 2,
+    "raw_strict_exact": 2,
+    "raw_schema_valid": 2,
+    "raw_semantic_correct": 2,
+    "audited_goal_completions": 4,
+    "audited_total": 4,
+    "source_unchanged": true,
+    "all_audio_and_transcript_provenance_checks_passed": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "date_local": "2026-11-26",
+  "timezone": "Asia/Shanghai",
+  "command": "$env:VOICE_ARM_KINEMATICS = 'standalone'\nuv run --frozen --extra voice --extra data python -m unittest discover -s tests -v",
+  "environment_note": "The variable was set in the current PowerShell process, using $env:VOICE_ARM_KINEMATICS = 'standalone'.",
+  "backend": "arm_lab.kinematics.ArmModel",
+  "test_count": 106,
+  "elapsed_seconds": 31.329,
+  "exit_code": 0,
+  "result": "OK",
+  "new_model_calls_during_regression": 0,
+  "campaign": {
+    "approved_campus_attempts": 8,
+    "main_flow_attempts": 2,
+    "paired_attempts": 4,
+    "total_attempts": 6,
+    "retries": 0,
+    "local_sensevoice_calls": 4,
+    "main_flow_goals": "4/4, including two motion and two stationary responses",
+    "paired_raw_strict_exact": "4/4",
+    "paired_physical_completion": "4/4",
+    "standalone_offline_replay": "4/4, zero new model calls"
+  },
+  "scope": "Simulation only. Four existing synthetic recordings; paired noisy trials reuse one saved transcription. No live remote-network or hardware experiment."
+}
