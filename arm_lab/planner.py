@@ -22,8 +22,12 @@ DIGITS = "零一二三四五六七八九"
 NUMBER = r"(?:\d+(?:\.\d+)?|半|[零〇一二两三四五六七八九十百千]+(?:点[零〇一二三四五六七八九]+)?)"
 UNIT = r"(毫米|厘米|公分|mm|cm|米|m)"
 DIR = {"前":("x",1), "后":("x",-1), "左":("y",1), "右":("y",-1), "上":("z",1), "下":("z",-1)}
-MOVE = re.compile(rf"(?:让)?(?:机械臂|夹爪|末端|爪子)?(?:向|往|朝)?([前后左右上下])(?:边|方)?(?:平移|移动|挪动|挪|移|走|抬高|降低)?({NUMBER}){UNIT}")
-WRIST = re.compile(rf"(?:让)?(?:手腕|腕部|腕关节|夹爪)?(?:向|往|朝)?([上下])(?:俯仰|旋转|转动|转)?({NUMBER})(?:度|°)")
+# Complete quantities only: "两厘米半" is 25 mm; "两厘米五" needs clarification.
+QUANTITY_END = r"(?![\d.零〇一二两三四五六七八九十百千点半几])"
+MOVE = re.compile(rf"(?:让)?(?:机械臂|夹爪|末端|爪子)?(?:向|往|朝)?([前后左右上下])(?:边|方)?(?:平移|移动|挪动|挪|移|走)?({NUMBER}){UNIT}(半)?{QUANTITY_END}")
+WRIST = re.compile(rf"(?:让)?(?:手腕|腕部|腕关节|夹爪)?(?:向|往|朝)?([上下])(?:俯仰|旋转|转动|转)?({NUMBER})(?:度|°)(半)?{QUANTITY_END}")
+AXIS_MOVE = re.compile(rf"(?:让)?(?:机械臂|夹爪|末端|爪子)?(?:沿|向|往|朝)?(?:底座|基座)(?:的)?(?:坐标系)?([xyz])(?:轴)?(?:的)?(正|负)(?:方向|向)(?:平移|移动|挪动|挪|移|走)?({NUMBER}){UNIT}(半)?{QUANTITY_END}")
+STEP_SEPARATOR = r"(?:然后|接着|随后|最后|并且|并|再|[,，;；。、])+"
 SLOT = r"(?:工位|区域|位置)?([abc])(?:号)?(?:工位|区域|区|点|位)?"
 BLOCK = r"(?:(?:桌面上|桌上|前面|面前|那|这|左边|右边)(?:的|个|块)?)*(?:小|红色的|红色|红)?(?:木块|方块|积木|物块|立方体|块|它)"
 TAKE = r"(?:抓取|抓住|抓起|夹起|夹住|拿起|拾起|抓|拿|夹)"
@@ -52,6 +56,15 @@ def number(token):
     else:
         raise ValueError("请补充数字和单位")
     return float(str(value)+"."+"".join(str(DIGITS.index(c)) for c in frac)) if frac else float(value)
+
+
+def quantity(token, half=None):
+    value = number(token)
+    if half:
+        if value < 1 or not value.is_integer() or "." in token or "点" in token:
+            raise ValueError("请用明确的小数表示数量，例如 2.5 厘米。")
+        value += .5
+    return value
 
 
 def actions(intent):
@@ -95,6 +108,24 @@ def command_text(text):
     return "".join(text.split())
 
 
+def motion_wording(text):
+    """Canonicalize unambiguous wording, never repair an ASR unit or direction."""
+    text = re.sub(r"(?:竖直|垂直)(?=(?:向|往|朝)?[上下])", "", text)
+    text = re.sub(r"(手腕|腕部|腕关节)(?:轻轻|稍微)?(抬高|抬起|压低|下压)",
+                  lambda m: m[1] + ("向上" if m[2] in ("抬高", "抬起") else "向下"), text)
+    text = re.sub(rf"(?:垂直)?(上升|下降)(?={NUMBER})",
+                  lambda m: "向上" if m[1] == "上升" else "向下", text)
+    text = re.sub(rf"上(?:抬高|抬起|抬)(?={NUMBER})", "上", text)
+    text = re.sub(rf"下(?:压低|下压|降低|俯)(?={NUMBER})", "下", text)
+    text = re.sub(rf"后退(?={NUMBER})", "后", text)
+    text = re.sub(rf"([上下])转腕(?={NUMBER})", r"\1转", text)
+    return text
+
+
+def command_parts(text):
+    return [p for p in re.split(STEP_SEPARATOR, motion_wording(command_text(text).strip("。.!！?"))) if p]
+
+
 def classify_control_text(text):
     """Local control for completed utterances; None passes an ordinary request to planning."""
     normalized = command_text(text).strip("。.!?,;")
@@ -112,17 +143,22 @@ def classify_control_text(text):
 
 
 def local_step(text):
-    text = re.sub(rf"^(?:{COURTESY}|先|再|然后|把|将)+", "", text)
+    text = motion_wording(text)
+    text = re.sub(rf"^(?:{COURTESY}|依次|先|再|然后|把|将|慢一点|缓慢|轻轻|从(?:现在|当前)的位置)+", "", text)
     text = re.sub(r"(?:一下|谢谢|好吗|吧|可以吗)+$", "", text)
     for word, letter in (("左边", "a"), ("右边", "b"), ("中间", "c")):
         text = re.sub(word + r"(?:的)?(?:那个)?(?:工位|区域|格子)", letter + "区", text)
     if m := MOVE.fullmatch(text):
-        direction, n, unit = m.groups()
+        direction, n, unit, half = m.groups()
         axis, sign = DIR[direction]
         scale = {"厘米":10,"公分":10,"cm":10,"毫米":1,"mm":1,"米":1000,"m":1000}[unit]
-        return Intent("move", axis, sign*number(n)*scale)
+        return Intent("move", axis, sign*quantity(n, half)*scale)
     if m := WRIST.fullmatch(text):
-        return Intent("wrist", "wrist_flex", number(m[2])*(1 if m[1]=="下" else -1))
+        return Intent("wrist", "wrist_flex", quantity(m[2], m[3])*(1 if m[1]=="下" else -1))
+    if m := AXIS_MOVE.fullmatch(text):
+        axis, sign, n, unit, half = m.groups()
+        scale = {"厘米":10,"公分":10,"cm":10,"毫米":1,"mm":1,"米":1000,"m":1000}[unit]
+        return Intent("move", axis, quantity(n, half)*scale*(1 if sign == "正" else -1))
     if m := re.fullmatch(OBJECT + SEND + SLOT, text):
         return Intent("transfer", source=(m[1] or m[2] or "").upper(), target=m[3].upper())
     if m := re.fullmatch(r"(?:向前|往前)?" + TAKE + OBJECT + r"(?:起来|起)?", text):
@@ -152,8 +188,7 @@ def local_intent(text):
         return ask(control.message)
     normalized = command_text(text).strip("。.!！?")
     normalized = re.sub(r"(红(?:色)?(?:木|方)?|木|方)快(?=放|送|搬|从|移|挪|抓|夹|拿|$)", r"\1块", normalized)
-    parts = [p for p in re.split(r"(?:然后|接着|随后|最后|并且|并|再|[,，;；。])+",
-                                 normalized) if p]
+    parts = command_parts(normalized)
     if not 1 <= len(parts) <= MAX_STEPS:
         return ask("每条任务可连续执行一到四个动作，请分次发送。")
     try:
@@ -246,7 +281,7 @@ def missing_motion_unit(text):
     """Catch a spoken distance/angle cut off at its number, including inside a sequence."""
     return re.search(rf"(?:[前后左右上下](?:边|方)?(?:平移|移动|挪动|挪|移|走|转动|转)?|平移|移动|转动)"
                      rf"(?:了|大约)?{NUMBER}(?:左右)?(?:吧|好吗)?(?=$|[?,!;。]|\.(?!\d)|再|接着|然后|随后|最后)",
-                     command_text(text))
+                     motion_wording(command_text(text)))
 
 
 def check_command_match(text, proposed, scene):
@@ -257,20 +292,30 @@ def check_command_match(text, proposed, scene):
         raise ValueError(control.message)
     if missing_motion_unit(text):
         raise ValueError("指令中的数值缺少单位。")
+    if (any(step.kind in ("move", "wrist") for step in actions(proposed))
+            and re.search(r"(?:相机|摄像头|摄像机|图像|画面|屏幕|工具|世界|末端)(?:的)?坐标(?:系)?|"
+                          r"(?:按(?:照)?|沿|以)(?:相机|画面|屏幕|图像)(?:的)?(?:方向|视角)?",
+                          command_text(text))):
+        raise ValueError("当前定量运动以固定底座为参照，请按底座方向重新描述。")
     dialogue = scene.get("dialogue")
     reference = offline_reply(dialogue, text) if dialogue else local_intent(text)
     if reference.kind == "ask":
         # For free-form commands the model can ground a transfer in the scene, but
-        # relative displacements must also match a literal direction, number and unit.
+        # relative clauses must be complete. Do not extract a valid substring and
+        # discard a frame qualifier, quantity tail or unfinished second movement.
         quantitative = [s for s in actions(proposed) if s.kind in ("move", "wrist")]
-        if quantitative:
-            literal = command_text(text)
-            literal = re.sub(r"(?:手腕|腕部|腕关节)(?:轻轻|稍微)?(抬高|抬起|压低|下压)",
-                             lambda m: "手腕向上转" if m[1] in ("抬高","抬起") else "手腕向下转", literal)
-            matches = sorted([*MOVE.finditer(literal), *WRIST.finditer(literal)], key=lambda m:m.start())
-            expected = [local_step(match[0]) for match in matches]
-            if quantitative != expected:
-                raise ValueError("请明确确认每段平移或转腕的方向、数值和单位。")
+        expected = []
+        for part in command_parts(text):
+            item = local_step(part)
+            if item.kind in ("move", "wrist"):
+                expected.append(item)
+            elif (any(pattern.search(part) for pattern in (MOVE, WRIST, AXIS_MOVE))
+                  or re.search(r"手腕|腕部|腕关节|转腕|[xyz](?:轴)?(?:正|负)|"
+                               r"[前后左右上下](?:边|方)?(?:平移|移动|挪动|挪|移|走|转动|转)|"
+                               rf"(?:平移|移动|挪动|上升|下降|后退).*{NUMBER}", part)):
+                raise ValueError("请按底座方向说出完整动作，例如“向左移动 5 毫米”或“手腕向下转 2.5 度”。")
+        if quantitative != expected:
+            raise ValueError("请明确确认每段平移或转腕的方向、数值和单位。")
         return
 
     def primitives(plan):
@@ -298,6 +343,10 @@ def offline_reply(previous, answer):
     short = command_text(answer).strip("。.!！")
     old_command = command_text(previous["command"]).rstrip("。.!?")
     if missing_motion_unit(old_command):
+        # A unit-only answer can complete this pending command, not an unrelated
+        # task. Full-match the reply so contradictory or additional words survive.
+        if unit_answer := re.fullmatch(rf"单位(?:是|为)((?:{UNIT}|度|°))", short):
+            short = unit_answer[1]
         if re.fullmatch(rf"(?:{UNIT}|度|°)", short):
             return local_intent(old_command + short)
         if re.fullmatch(rf"{NUMBER}(?:{UNIT}|度|°)", short):

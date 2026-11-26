@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-26",
+  "command": "uv run --frozen --extra voice --extra data python -m unittest discover -s tests -v",
+  "kinematics": "standalone",
+  "tests_run": 144,
+  "seconds": 39.765,
+  "exit_code": 0,
+  "status": "passed",
+  "validator_test_groups": 15,
+  "new_asr_calls": 0,
+  "new_cloud_calls": 0,
+  "log": "regression.txt",
+  "log_redaction": "User-specific temporary directory prefix replaced with <TEMP>; results unchanged",
+  "browser_command": "uv run --frozen --extra voice --extra data --with playwright python tests/browser_diagram.py --out outputs/guard-revision-browser",
+  "browser_report": "browser.json",
+  "browser_mode": "Headless Edge and actual MuJoCo with in-memory ASR/planner fixtures"
+}

@@ -55,8 +55,8 @@
 <rect x="80" y="888" width="5" height="126" rx="2" fill="#245d9c" stroke="none"/>
 <text x="102" y="909" font-size="28" font-weight="700" fill="#172f43">控制校验  ·  原话、场景及路径</text>
 <text x="102" y="943" font-size="20" font-weight="400" fill="#466271">校验动作、符号、限幅，执行前逐段预检。</text>
-<text x="102" y="974" font-size="21" font-weight="700" fill="#245d9c">22 题重放：拦下 1 个错误；正确动作仅放行 8/15。</text>
-<text x="102" y="1005" font-size="20" font-weight="400" fill="#466271">改进　减少正确表达的误拒，保留方向与单位核验。</text>
+<text x="102" y="974" font-size="21" font-weight="700" fill="#245d9c">修复后重放：15 个正确动作均放行，1 个错误仍拒。</text>
+<text x="102" y="1005" font-size="20" font-weight="400" fill="#466271">建议　规范口令与完整单位；自由组合仍有核验局限。</text>
 <rect x="866" y="872" width="660" height="158" rx="13" fill="#fff" stroke="#c9d7dc"/>
 <rect x="868" y="888" width="5" height="126" rx="2" fill="#007d72" stroke="none"/>
 <text x="890" y="909" font-size="28" font-weight="700" fill="#172f43">动作执行  ·  IK 与接触反馈</text>
@@ -77,7 +77,7 @@
 <rect x="80" y="1111" width="5" height="126" rx="2" fill="#985421" stroke="none"/>
 <text x="102" y="1132" font-size="28" font-weight="700" fill="#172f43">网页回执  ·  状态与已执行步骤</text>
 <text x="102" y="1166" font-size="20" font-weight="400" fill="#466271">直接呈现成功、失败、未确认或追问及 JSON 明细。</text>
-<text x="102" y="1197" font-size="21" font-weight="700" fill="#985421">129 项软件测试、2 组浏览器测试通过，模型为替身。</text>
+<text x="102" y="1197" font-size="21" font-weight="700" fill="#985421">144 项软件测试通过；浏览器交互回归使用模型替身。</text>
 <text x="102" y="1228" font-size="20" font-weight="400" fill="#466271">改进　保留任务草稿与现场；实机再核对停止延迟。</text>
 <path d="M 866 1175 H 740" fill="none" stroke="#007d72" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"  marker-end="url(#g)"/>
 <text x="764" y="1156" font-size="18" font-weight="700" fill="#007d72">结果</text>
@@ -87,7 +87,7 @@
 <rect x="78" y="1344" width="1448" height="148" rx="14" fill="#16394c" stroke="none"/>
 <text x="102" y="1391" font-size="27" font-weight="700" fill="#fff">语音链路</text>
 <text x="102" y="1434" font-size="43" font-weight="700" fill="#9ce3d1">10/10</text>
-<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">10 条合成音频 → 真实 SenseVoice → Reasoner / 本地控制 → MuJoCo</text>
+<text x="310" y="1391" font-size="23" font-weight="700" fill="#ffffff">此前 10 条合成音频 → 真实 SenseVoice → Reasoner / 本地控制 → MuJoCo</text>
 <text x="310" y="1428" font-size="21" font-weight="400" fill="#d8e8e8">同场地 6 次运动、3 次静止响应、1 次运动中暂停；抓放路线 A→B→C→A。</text>
 <text x="310" y="1463" font-size="20" font-weight="400" fill="#d8e8e8">本组 10 次转写、8 次云请求；另测 16 条误听：3 条合法转写偏离原意仍获准。</text>
 <text x="79" y="1527" font-size="18" font-weight="400" fill="#466271">数据来自本组课程实验记录。实拍感知、公开真人朗读、文本留出与仿真运动分别计分。</text>
